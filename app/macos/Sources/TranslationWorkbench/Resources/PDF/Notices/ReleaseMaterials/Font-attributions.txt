@@ -1,0 +1,281 @@
+Current Crosscript font attributions extracted from the exact runtime font files.
+20 Crosscript CJK files are approved identity-only derivatives; 14 other fonts retain upstream bytes.
+Complete original OFL/copyright notices accompany this file. See CrosscriptFonts/NOTICE.md and provenance-index.json.
+
+fonts/GoNotoKurrent-Bold.ttf
+SHA-256: 6f5ab7b16acedeac76625f75159d9d303be85b291d47376760a1c9f87802853e
+Copyright: Copyright 2022 The Noto Project Authors (https://github.com/notofonts/latin-greek-cyrillic)
+Family: Go Noto Kurrent-Bold
+Version: Version 2.012; ttfautohint (v1.8.4.7-5d5b)
+License declaration: This Font Software is licensed under the SIL Open Font License, Version 1.1. This license is available with a FAQ at: https://scripts.sil.org/OFL
+License URL: https://scripts.sil.org/OFL
+
+fonts/GoNotoKurrent-Regular.ttf
+SHA-256: 2f2cee5fbb2403df352ca2005247f6c4faa70f3086ebd31b6c62308b5f2f9865
+Copyright: Copyright 2022 The Noto Project Authors (https://github.com/notofonts/latin-greek-cyrillic)
+Family: Go Noto Kurrent-Regular
+Version: Version 2.012; ttfautohint (v1.8.4.7-5d5b)
+License declaration: This Font Software is licensed under the SIL Open Font License, Version 1.1. This license is available with a FAQ at: https://scripts.sil.org/OFL
+License URL: https://scripts.sil.org/OFL
+
+fonts/KleeOne-Regular.ttf
+SHA-256: 74cb0a6523cc22b221ceaa7b78b56cea66512ec14b4145fd0102ffe27c30d084
+Copyright: Copyright 2020 The Klee Project Authors (https://github.com/fontworks-fonts/Klee)
+Family: Klee One
+Family: クレー One
+Version: Version 1.000
+License declaration: This Font Software is licensed under the SIL Open Font License, Version 1.1. This license is available with a FAQ at: https://scripts.sil.org/OFL
+License URL: https://scripts.sil.org/OFL
+
+fonts/LXGWWenKaiGB-Regular.1.520.ttf
+SHA-256: 252cde5857f7ce57ce76f7e2e1d2e91c1f912f1f4c13c7e4fb295b5fdf5923ed
+Copyright: Copyright 2022-2025 LXGW (https://github.com/lxgw/LxgwWenkaiGB)
+Copyright 2020 The Klee Project Authors (https://github.com/fontworks-fonts/Klee)
+Family: LXGW WenKai GB
+Family: 霞鹜文楷 GB
+Version: Version 1.520; June 14, 2025
+License declaration: This Font Software is licensed under the SIL Open Font License, Version 1.1. This license is available with a FAQ at: https://scripts.sil.org/OFL
+License URL: https://scripts.sil.org/OFL
+
+fonts/LXGWWenKaiTC-Regular.1.520.ttf
+SHA-256: a36b11f231a923ad12a9bc045e54e6b1987dad5a6a201b6ea9e1093f9968e348
+Copyright: Copyright 2022-2025 LXGW (https://github.com/lxgw/LxgwWenkaiTC)
+Copyright 2020 The Klee Project Authors (https://github.com/fontworks-fonts/Klee)
+Family: 霞鶩文楷 TC
+Family: LXGW WenKai TC
+Family: 霞鹜文楷 TC
+Version: Version 1.520; June 16, 2025
+License declaration: This Font Software is licensed under the SIL Open Font License, Version 1.1. This license is available with a FAQ at: https://openfontlicense.org
+License URL: https://openfontlicense.org
+
+fonts/MaruBuri-Regular.ttf
+SHA-256: 803429881927c79dbb49497274244e72b672c56e0503f28262503f77524cba7a
+Copyright: © NAVER Corp. © NAVER Cultural Foundation Corp.
+Family: MaruBuri Regular
+Family: 마루 부리 중간
+Version: Version 1.000;hotconv 1.0.118;makeotfexe 2.5.65603
+
+fonts/NotoSans-Bold.ttf
+SHA-256: 379bda1de5ceb6c81a6e0b7f8346d36e12b3202757fcba90a42dc5a7f8d5df38
+Copyright: Copyright 2022 The Noto Project Authors (https://github.com/notofonts/latin-greek-cyrillic)
+Family: Noto Sans
+Version: Version 2.015
+License declaration: This Font Software is licensed under the SIL Open Font License, Version 1.1. This license is available with a FAQ at: https://openfontlicense.org
+License URL: https://openfontlicense.org
+
+fonts/NotoSans-BoldItalic.ttf
+SHA-256: 7c53c6334c7f7847201ba6ed93e4e00088b2ffae613aef69fb581153f347cac2
+Copyright: Copyright 2022 The Noto Project Authors (https://github.com/notofonts/latin-greek-cyrillic)
+Family: Noto Sans
+Version: Version 2.015
+License declaration: This Font Software is licensed under the SIL Open Font License, Version 1.1. This license is available with a FAQ at: https://openfontlicense.org
+License URL: https://openfontlicense.org
+
+fonts/NotoSans-Italic.ttf
+SHA-256: feb3e57888ce3acb604f270c278cfb304c674306518771619ddbdefca42a066b
+Copyright: Copyright 2022 The Noto Project Authors (https://github.com/notofonts/latin-greek-cyrillic)
+Family: Noto Sans
+Version: Version 2.015
+License declaration: This Font Software is licensed under the SIL Open Font License, Version 1.1. This license is available with a FAQ at: https://openfontlicense.org
+License URL: https://openfontlicense.org
+
+fonts/NotoSans-Regular.ttf
+SHA-256: fe8c022f48d8dd29f17b744d16f9346f4357e16f7d4f7be58b000ae7c291b614
+Copyright: Copyright 2022 The Noto Project Authors (https://github.com/notofonts/latin-greek-cyrillic)
+Family: Noto Sans
+Version: Version 2.015
+License declaration: This Font Software is licensed under the SIL Open Font License, Version 1.1. This license is available with a FAQ at: https://openfontlicense.org
+License URL: https://openfontlicense.org
+
+fonts/NotoSerif-Bold.ttf
+SHA-256: 2015eba9ca7ca5cf7320bd5e6740439f84b55eefad7208e63b9b6d32e8c82410
+Copyright: Copyright 2022 The Noto Project Authors (https://github.com/notofonts/latin-greek-cyrillic)
+Family: Noto Serif
+Version: Version 2.015
+License declaration: This Font Software is licensed under the SIL Open Font License, Version 1.1. This license is available with a FAQ at: https://openfontlicense.org
+License URL: https://openfontlicense.org
+
+fonts/NotoSerif-BoldItalic.ttf
+SHA-256: c49e9f86cc43e05e8e5e8da53a7e00568fac08e2afb93b0d7979a2ea94fd6171
+Copyright: Copyright 2022 The Noto Project Authors (https://github.com/notofonts/latin-greek-cyrillic)
+Family: Noto Serif
+Version: Version 2.013
+License declaration: This Font Software is licensed under the SIL Open Font License, Version 1.1. This license is available with a FAQ at: https://scripts.sil.org/OFL
+License URL: https://scripts.sil.org/OFL
+
+fonts/NotoSerif-Italic.ttf
+SHA-256: be429bb62448b615f62cf7817d6a801fbc209e6cd2c11ffa15801f6d7dfac7cf
+Copyright: Copyright 2022 The Noto Project Authors (https://github.com/notofonts/latin-greek-cyrillic)
+Family: Noto Serif
+Version: Version 2.013
+License declaration: This Font Software is licensed under the SIL Open Font License, Version 1.1. This license is available with a FAQ at: https://scripts.sil.org/OFL
+License URL: https://scripts.sil.org/OFL
+
+fonts/NotoSerif-Regular.ttf
+SHA-256: 76b746ed54a2f83fa41db9a85a43b4b39900dbdb8ae40ec3d93950b0b00c4bd7
+Copyright: Copyright 2022 The Noto Project Authors (https://github.com/notofonts/latin-greek-cyrillic)
+Family: Noto Serif
+Version: Version 2.015
+License declaration: This Font Software is licensed under the SIL Open Font License, Version 1.1. This license is available with a FAQ at: https://openfontlicense.org
+License URL: https://openfontlicense.org
+
+fonts/CrosscriptCJKSansCN-Bold.ttf
+SHA-256: 92891aef442d663b1505b030d77f0e41f5720fa10aaa0b5de3c3984b8345b790
+Copyright: © 2014-2021 Adobe (http://www.adobe.com/), with Reserved Font Name 'Source'.
+Family: Crosscript CJK Sans CN
+Version: Version 2.004;hotconv 1.0.118;makeotfexe 2.5.65603
+License declaration: This Font Software is licensed under the SIL Open Font License, Version 1.1. This Font Software is distributed on an "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. See the SIL Open Font License for the specific language, permissions and limitations governing your use of this Font Software.
+License URL: http://scripts.sil.org/OFL
+
+fonts/CrosscriptCJKSansCN-Regular.ttf
+SHA-256: c8d20ec7bf18c31e3c43e48a5752195c0a89c4f14321d3d40ab87914c74d2826
+Copyright: © 2014-2021 Adobe (http://www.adobe.com/), with Reserved Font Name 'Source'.
+Family: Crosscript CJK Sans CN
+Version: Version 2.004;hotconv 1.0.118;makeotfexe 2.5.65603
+License declaration: This Font Software is licensed under the SIL Open Font License, Version 1.1. This Font Software is distributed on an "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. See the SIL Open Font License for the specific language, permissions and limitations governing your use of this Font Software.
+License URL: http://scripts.sil.org/OFL
+
+fonts/CrosscriptCJKSansHK-Bold.ttf
+SHA-256: 2cda42aa51c3ab70c29178a65ac5352c15b4bd729cb381f6dd82906fe1102a3a
+Copyright: © 2014-2021 Adobe (http://www.adobe.com/), with Reserved Font Name 'Source'.
+Family: Crosscript CJK Sans HK
+Version: Version 2.004;hotconv 1.0.118;makeotfexe 2.5.65603
+License declaration: This Font Software is licensed under the SIL Open Font License, Version 1.1. This Font Software is distributed on an "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. See the SIL Open Font License for the specific language, permissions and limitations governing your use of this Font Software.
+License URL: http://scripts.sil.org/OFL
+
+fonts/CrosscriptCJKSansHK-Regular.ttf
+SHA-256: 53e9e44c74e4c619bdd5c27ce942c7ae37deaba2a14530b712815587f86ca73f
+Copyright: © 2014-2021 Adobe (http://www.adobe.com/), with Reserved Font Name 'Source'.
+Family: Crosscript CJK Sans HK
+Version: Version 2.004;hotconv 1.0.118;makeotfexe 2.5.65603
+License declaration: This Font Software is licensed under the SIL Open Font License, Version 1.1. This Font Software is distributed on an "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. See the SIL Open Font License for the specific language, permissions and limitations governing your use of this Font Software.
+License URL: http://scripts.sil.org/OFL
+
+fonts/CrosscriptCJKSansJP-Bold.ttf
+SHA-256: 583082ca90dbab1bae493b34b4eea2472c4296aaeb6761ec93700afdec3092e4
+Copyright: © 2014-2021 Adobe (http://www.adobe.com/), with Reserved Font Name 'Source'.
+Family: Crosscript CJK Sans JP
+Version: Version 2.004;hotconv 1.0.118;makeotfexe 2.5.65603
+License declaration: This Font Software is licensed under the SIL Open Font License, Version 1.1. This Font Software is distributed on an "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. See the SIL Open Font License for the specific language, permissions and limitations governing your use of this Font Software.
+License URL: http://scripts.sil.org/OFL
+
+fonts/CrosscriptCJKSansJP-Regular.ttf
+SHA-256: de5eff05beb68d09387d33eb34e470900a48c85b1a9b3d6610898418360d7bf5
+Copyright: © 2014-2021 Adobe (http://www.adobe.com/), with Reserved Font Name 'Source'.
+Family: Crosscript CJK Sans JP
+Version: Version 2.004;hotconv 1.0.118;makeotfexe 2.5.65603
+License declaration: This Font Software is licensed under the SIL Open Font License, Version 1.1. This Font Software is distributed on an "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. See the SIL Open Font License for the specific language, permissions and limitations governing your use of this Font Software.
+License URL: http://scripts.sil.org/OFL
+
+fonts/CrosscriptCJKSansKR-Bold.ttf
+SHA-256: 88363234aadd0b0b491eb805436ffa493005fc5095f515ecda24354106da7ad3
+Copyright: © 2014-2021 Adobe (http://www.adobe.com/), with Reserved Font Name 'Source'.
+Family: Crosscript CJK Sans KR
+Version: Version 2.004;hotconv 1.0.118;makeotfexe 2.5.65603
+License declaration: This Font Software is licensed under the SIL Open Font License, Version 1.1. This Font Software is distributed on an "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. See the SIL Open Font License for the specific language, permissions and limitations governing your use of this Font Software.
+License URL: http://scripts.sil.org/OFL
+
+fonts/CrosscriptCJKSansKR-Regular.ttf
+SHA-256: 9447c30b9dfed20eccac7f53449f20a571987409be0cf1f971ee5cde2da8d1c7
+Copyright: © 2014-2021 Adobe (http://www.adobe.com/), with Reserved Font Name 'Source'.
+Family: Crosscript CJK Sans KR
+Version: Version 2.004;hotconv 1.0.118;makeotfexe 2.5.65603
+License declaration: This Font Software is licensed under the SIL Open Font License, Version 1.1. This Font Software is distributed on an "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. See the SIL Open Font License for the specific language, permissions and limitations governing your use of this Font Software.
+License URL: http://scripts.sil.org/OFL
+
+fonts/CrosscriptCJKSansTW-Bold.ttf
+SHA-256: 1be4b291c3fa987677c51e4964ab9796580d4da07cbec346c2cf4106c38586f4
+Copyright: © 2014-2021 Adobe (http://www.adobe.com/), with Reserved Font Name 'Source'.
+Family: Crosscript CJK Sans TW
+Version: Version 2.004;hotconv 1.0.118;makeotfexe 2.5.65603
+License declaration: This Font Software is licensed under the SIL Open Font License, Version 1.1. This Font Software is distributed on an "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. See the SIL Open Font License for the specific language, permissions and limitations governing your use of this Font Software.
+License URL: http://scripts.sil.org/OFL
+
+fonts/CrosscriptCJKSansTW-Regular.ttf
+SHA-256: c09b854872d554544521bca2fb725cfe9023339fa9c45db713de9698553f3b61
+Copyright: © 2014-2021 Adobe (http://www.adobe.com/), with Reserved Font Name 'Source'.
+Family: Crosscript CJK Sans TW
+Version: Version 2.004;hotconv 1.0.118;makeotfexe 2.5.65603
+License declaration: This Font Software is licensed under the SIL Open Font License, Version 1.1. This Font Software is distributed on an "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. See the SIL Open Font License for the specific language, permissions and limitations governing your use of this Font Software.
+License URL: http://scripts.sil.org/OFL
+
+fonts/CrosscriptCJKSerifCN-Bold.ttf
+SHA-256: baafe2c93762cfff25dc787596de314d4efaa732e3470f88fab0cd9627b91d2d
+Copyright: © 2017-2024 Adobe (http://www.adobe.com/), with Reserved Font Name 'Source'.
+Family: Crosscript CJK Serif CN
+Version: Version 2.003;hotconv 1.1.1;makeotfexe 2.6.0
+License declaration: This Font Software is licensed under the SIL Open Font License, Version 1.1. This Font Software is distributed on an "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. See the SIL Open Font License for the specific language, permissions and limitations governing your use of this Font Software.
+License URL: http://scripts.sil.org/OFL
+
+fonts/CrosscriptCJKSerifCN-Regular.ttf
+SHA-256: e6fb93964026edf11b1a72446bc86e73b87a11f9875f6feb73565b6a4823d466
+Copyright: © 2017-2024 Adobe (http://www.adobe.com/), with Reserved Font Name 'Source'.
+Family: Crosscript CJK Serif CN
+Version: Version 2.003;hotconv 1.1.1;makeotfexe 2.6.0
+License declaration: This Font Software is licensed under the SIL Open Font License, Version 1.1. This Font Software is distributed on an "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. See the SIL Open Font License for the specific language, permissions and limitations governing your use of this Font Software.
+License URL: http://scripts.sil.org/OFL
+
+fonts/CrosscriptCJKSerifHK-Bold.ttf
+SHA-256: fe4cce701e09dbfc46b984cf15e1148f89dfd4778e64a1cfbbd4ec0d72b6b498
+Copyright: © 2017-2024 Adobe (http://www.adobe.com/), with Reserved Font Name 'Source'.
+Family: Crosscript CJK Serif HK
+Version: Version 2.003;hotconv 1.1.1;makeotfexe 2.6.0
+License declaration: This Font Software is licensed under the SIL Open Font License, Version 1.1. This Font Software is distributed on an "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. See the SIL Open Font License for the specific language, permissions and limitations governing your use of this Font Software.
+License URL: http://scripts.sil.org/OFL
+
+fonts/CrosscriptCJKSerifHK-Regular.ttf
+SHA-256: 9c8fefea5dbf5111b6254b9c113aeead71e5ffcefad12d613364265a8f6bcc06
+Copyright: © 2017-2024 Adobe (http://www.adobe.com/), with Reserved Font Name 'Source'.
+Family: Crosscript CJK Serif HK
+Version: Version 2.003;hotconv 1.1.1;makeotfexe 2.6.0
+License declaration: This Font Software is licensed under the SIL Open Font License, Version 1.1. This Font Software is distributed on an "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. See the SIL Open Font License for the specific language, permissions and limitations governing your use of this Font Software.
+License URL: http://scripts.sil.org/OFL
+
+fonts/CrosscriptCJKSerifJP-Bold.ttf
+SHA-256: e68684445de14a717d848ce771041d1bf0748e9426d3fe86a371f62b9e8ee9f3
+Copyright: © 2017-2024 Adobe (http://www.adobe.com/), with Reserved Font Name 'Source'.
+Family: Crosscript CJK Serif JP
+Version: Version 2.003;hotconv 1.1.1;makeotfexe 2.6.0
+License declaration: This Font Software is licensed under the SIL Open Font License, Version 1.1. This Font Software is distributed on an "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. See the SIL Open Font License for the specific language, permissions and limitations governing your use of this Font Software.
+License URL: http://scripts.sil.org/OFL
+
+fonts/CrosscriptCJKSerifJP-Regular.ttf
+SHA-256: d8a5b8be7e9ef42ccc3159f978808e15f2a530cd5216f4f15af029f8b36534d6
+Copyright: © 2017-2024 Adobe (http://www.adobe.com/), with Reserved Font Name 'Source'.
+Family: Crosscript CJK Serif JP
+Version: Version 2.003;hotconv 1.1.1;makeotfexe 2.6.0
+License declaration: This Font Software is licensed under the SIL Open Font License, Version 1.1. This Font Software is distributed on an "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. See the SIL Open Font License for the specific language, permissions and limitations governing your use of this Font Software.
+License URL: http://scripts.sil.org/OFL
+
+fonts/CrosscriptCJKSerifKR-Bold.ttf
+SHA-256: c11ff0ab44964b8b98ccb63e1b1787dd4826f2966e4d7d3bbe60c34222c698cf
+Copyright: © 2017-2024 Adobe (http://www.adobe.com/), with Reserved Font Name 'Source'.
+Family: Crosscript CJK Serif KR
+Version: Version 2.003;hotconv 1.1.1;makeotfexe 2.6.0
+License declaration: This Font Software is licensed under the SIL Open Font License, Version 1.1. This Font Software is distributed on an "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. See the SIL Open Font License for the specific language, permissions and limitations governing your use of this Font Software.
+License URL: http://scripts.sil.org/OFL
+
+fonts/CrosscriptCJKSerifKR-Regular.ttf
+SHA-256: 35d98cbbfc801e5480e47317b5f091a2126c3a4b948a70f828c8d56163e38b7c
+Copyright: © 2017-2024 Adobe (http://www.adobe.com/), with Reserved Font Name 'Source'.
+Family: Crosscript CJK Serif KR
+Version: Version 2.003;hotconv 1.1.1;makeotfexe 2.6.0
+License declaration: This Font Software is licensed under the SIL Open Font License, Version 1.1. This Font Software is distributed on an "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. See the SIL Open Font License for the specific language, permissions and limitations governing your use of this Font Software.
+License URL: http://scripts.sil.org/OFL
+
+fonts/CrosscriptCJKSerifTW-Bold.ttf
+SHA-256: 5dab371289b9efcce910157bfa952044db3a6b61564b9711ef49c49682600a62
+Copyright: © 2017-2024 Adobe (http://www.adobe.com/), with Reserved Font Name 'Source'.
+Family: Crosscript CJK Serif TW
+Version: Version 2.003;hotconv 1.1.1;makeotfexe 2.6.0
+License declaration: This Font Software is licensed under the SIL Open Font License, Version 1.1. This Font Software is distributed on an "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. See the SIL Open Font License for the specific language, permissions and limitations governing your use of this Font Software.
+License URL: http://scripts.sil.org/OFL
+
+fonts/CrosscriptCJKSerifTW-Regular.ttf
+SHA-256: efb96da9c5a2f40c57d5e120827450be7dce01dca98cb26f628a93045a4fb522
+Copyright: © 2017-2024 Adobe (http://www.adobe.com/), with Reserved Font Name 'Source'.
+Family: Crosscript CJK Serif TW
+Version: Version 2.003;hotconv 1.1.1;makeotfexe 2.6.0
+License declaration: This Font Software is licensed under the SIL Open Font License, Version 1.1. This Font Software is distributed on an "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. See the SIL Open Font License for the specific language, permissions and limitations governing your use of this Font Software.
+License URL: http://scripts.sil.org/OFL
+

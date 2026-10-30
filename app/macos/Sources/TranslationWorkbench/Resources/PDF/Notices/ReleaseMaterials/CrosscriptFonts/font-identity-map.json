@@ -1,0 +1,626 @@
+{
+  "schema": "crosscript-approved-identity-map-v1",
+  "implementationDate": "2026-10-27",
+  "fonts": [
+    {
+      "font": "SourceHanSansCN-Bold.ttf",
+      "convertedSHA256": "2dcaecc0dcba896fdc48e32617633123d91fa80c7eb9f7ae7c836da70e45ce88",
+      "convertedBytes": 10174460,
+      "proposal": {
+        "family": "Crosscript CJK Sans CN",
+        "weightUnchanged": "Bold",
+        "fullName": "Crosscript CJK Sans CN Bold",
+        "postScriptName": "CrosscriptCJKSansCN-Bold",
+        "uniqueIdentifier": "CrosscriptCJKSansCN-Bold;2.004;CrosscriptIdentity1",
+        "filename": "CrosscriptCJKSansCN-Bold.ttf",
+        "nameIDsToReview": [
+          1,
+          3,
+          4,
+          6
+        ],
+        "allPlatformAndLanguageRecords": true,
+        "attributionNameIDsToPreserve": [
+          0,
+          7,
+          8,
+          9,
+          10,
+          11,
+          13,
+          14
+        ],
+        "note": "Proposed distinct identities only; original reserved-name references remain in copyright/attribution, not new primary names. Review filesystem IDs, packaged registry and PDF identities together."
+      }
+    },
+    {
+      "font": "SourceHanSansCN-Regular.ttf",
+      "convertedSHA256": "dd4ae04ab7d33f43202750cf755b2ba47a2122ba41412954e562da459337bbf6",
+      "convertedBytes": 10397552,
+      "proposal": {
+        "family": "Crosscript CJK Sans CN",
+        "weightUnchanged": "Regular",
+        "fullName": "Crosscript CJK Sans CN",
+        "postScriptName": "CrosscriptCJKSansCN-Regular",
+        "uniqueIdentifier": "CrosscriptCJKSansCN-Regular;2.004;CrosscriptIdentity1",
+        "filename": "CrosscriptCJKSansCN-Regular.ttf",
+        "nameIDsToReview": [
+          1,
+          3,
+          4,
+          6
+        ],
+        "allPlatformAndLanguageRecords": true,
+        "attributionNameIDsToPreserve": [
+          0,
+          7,
+          8,
+          9,
+          10,
+          11,
+          13,
+          14
+        ],
+        "note": "Proposed distinct identities only; original reserved-name references remain in copyright/attribution, not new primary names. Review filesystem IDs, packaged registry and PDF identities together."
+      }
+    },
+    {
+      "font": "SourceHanSansHK-Bold.ttf",
+      "convertedSHA256": "34fa1add2c9e7e8ee3fbb205a6ef5e8cb97f0393bbfe57c709273040cf10f48c",
+      "convertedBytes": 6856692,
+      "proposal": {
+        "family": "Crosscript CJK Sans HK",
+        "weightUnchanged": "Bold",
+        "fullName": "Crosscript CJK Sans HK Bold",
+        "postScriptName": "CrosscriptCJKSansHK-Bold",
+        "uniqueIdentifier": "CrosscriptCJKSansHK-Bold;2.004;CrosscriptIdentity1",
+        "filename": "CrosscriptCJKSansHK-Bold.ttf",
+        "nameIDsToReview": [
+          1,
+          3,
+          4,
+          6
+        ],
+        "allPlatformAndLanguageRecords": true,
+        "attributionNameIDsToPreserve": [
+          0,
+          7,
+          8,
+          9,
+          10,
+          11,
+          13,
+          14
+        ],
+        "note": "Proposed distinct identities only; original reserved-name references remain in copyright/attribution, not new primary names. Review filesystem IDs, packaged registry and PDF identities together."
+      }
+    },
+    {
+      "font": "SourceHanSansHK-Regular.ttf",
+      "convertedSHA256": "b5a170508f5c3441b183d1eae39ec0f99545cab64918d07260492783bd5fa297",
+      "convertedBytes": 6999792,
+      "proposal": {
+        "family": "Crosscript CJK Sans HK",
+        "weightUnchanged": "Regular",
+        "fullName": "Crosscript CJK Sans HK",
+        "postScriptName": "CrosscriptCJKSansHK-Regular",
+        "uniqueIdentifier": "CrosscriptCJKSansHK-Regular;2.004;CrosscriptIdentity1",
+        "filename": "CrosscriptCJKSansHK-Regular.ttf",
+        "nameIDsToReview": [
+          1,
+          3,
+          4,
+          6
+        ],
+        "allPlatformAndLanguageRecords": true,
+        "attributionNameIDsToPreserve": [
+          0,
+          7,
+          8,
+          9,
+          10,
+          11,
+          13,
+          14
+        ],
+        "note": "Proposed distinct identities only; original reserved-name references remain in copyright/attribution, not new primary names. Review filesystem IDs, packaged registry and PDF identities together."
+      }
+    },
+    {
+      "font": "SourceHanSansJP-Bold.ttf",
+      "convertedSHA256": "e35443f4e468d7a038191c4bc5fc51bf7242bc12052eb427c07f00a1c3cec0fd",
+      "convertedBytes": 5603068,
+      "proposal": {
+        "family": "Crosscript CJK Sans JP",
+        "weightUnchanged": "Bold",
+        "fullName": "Crosscript CJK Sans JP Bold",
+        "postScriptName": "CrosscriptCJKSansJP-Bold",
+        "uniqueIdentifier": "CrosscriptCJKSansJP-Bold;2.004;CrosscriptIdentity1",
+        "filename": "CrosscriptCJKSansJP-Bold.ttf",
+        "nameIDsToReview": [
+          1,
+          3,
+          4,
+          6
+        ],
+        "allPlatformAndLanguageRecords": true,
+        "attributionNameIDsToPreserve": [
+          0,
+          7,
+          8,
+          9,
+          10,
+          11,
+          13,
+          14
+        ],
+        "note": "Proposed distinct identities only; original reserved-name references remain in copyright/attribution, not new primary names. Review filesystem IDs, packaged registry and PDF identities together."
+      }
+    },
+    {
+      "font": "SourceHanSansJP-Regular.ttf",
+      "convertedSHA256": "4fb6ea21d30d3fe1751e590786950e9153bfc31e2669ac3528bd2f641b791d76",
+      "convertedBytes": 5723960,
+      "proposal": {
+        "family": "Crosscript CJK Sans JP",
+        "weightUnchanged": "Regular",
+        "fullName": "Crosscript CJK Sans JP",
+        "postScriptName": "CrosscriptCJKSansJP-Regular",
+        "uniqueIdentifier": "CrosscriptCJKSansJP-Regular;2.004;CrosscriptIdentity1",
+        "filename": "CrosscriptCJKSansJP-Regular.ttf",
+        "nameIDsToReview": [
+          1,
+          3,
+          4,
+          6
+        ],
+        "allPlatformAndLanguageRecords": true,
+        "attributionNameIDsToPreserve": [
+          0,
+          7,
+          8,
+          9,
+          10,
+          11,
+          13,
+          14
+        ],
+        "note": "Proposed distinct identities only; original reserved-name references remain in copyright/attribution, not new primary names. Review filesystem IDs, packaged registry and PDF identities together."
+      }
+    },
+    {
+      "font": "SourceHanSansKR-Bold.ttf",
+      "convertedSHA256": "51997e299785a2bc10806d95ff4fae0b1363caddea63c4e9fb43ee7d1dc899e0",
+      "convertedBytes": 5858892,
+      "proposal": {
+        "family": "Crosscript CJK Sans KR",
+        "weightUnchanged": "Bold",
+        "fullName": "Crosscript CJK Sans KR Bold",
+        "postScriptName": "CrosscriptCJKSansKR-Bold",
+        "uniqueIdentifier": "CrosscriptCJKSansKR-Bold;2.004;CrosscriptIdentity1",
+        "filename": "CrosscriptCJKSansKR-Bold.ttf",
+        "nameIDsToReview": [
+          1,
+          3,
+          4,
+          6
+        ],
+        "allPlatformAndLanguageRecords": true,
+        "attributionNameIDsToPreserve": [
+          0,
+          7,
+          8,
+          9,
+          10,
+          11,
+          13,
+          14
+        ],
+        "note": "Proposed distinct identities only; original reserved-name references remain in copyright/attribution, not new primary names. Review filesystem IDs, packaged registry and PDF identities together."
+      }
+    },
+    {
+      "font": "SourceHanSansKR-Regular.ttf",
+      "convertedSHA256": "061c9a55b6b731af2a4667f06efb82ed7c80ba99d5350c1bba76f80472ea304f",
+      "convertedBytes": 5961704,
+      "proposal": {
+        "family": "Crosscript CJK Sans KR",
+        "weightUnchanged": "Regular",
+        "fullName": "Crosscript CJK Sans KR",
+        "postScriptName": "CrosscriptCJKSansKR-Regular",
+        "uniqueIdentifier": "CrosscriptCJKSansKR-Regular;2.004;CrosscriptIdentity1",
+        "filename": "CrosscriptCJKSansKR-Regular.ttf",
+        "nameIDsToReview": [
+          1,
+          3,
+          4,
+          6
+        ],
+        "allPlatformAndLanguageRecords": true,
+        "attributionNameIDsToPreserve": [
+          0,
+          7,
+          8,
+          9,
+          10,
+          11,
+          13,
+          14
+        ],
+        "note": "Proposed distinct identities only; original reserved-name references remain in copyright/attribution, not new primary names. Review filesystem IDs, packaged registry and PDF identities together."
+      }
+    },
+    {
+      "font": "SourceHanSansTW-Bold.ttf",
+      "convertedSHA256": "4cb4a8b665ef687fbfa15f4e5d551296d820183c68a324fb2432c88fa441c1e4",
+      "convertedBytes": 6883224,
+      "proposal": {
+        "family": "Crosscript CJK Sans TW",
+        "weightUnchanged": "Bold",
+        "fullName": "Crosscript CJK Sans TW Bold",
+        "postScriptName": "CrosscriptCJKSansTW-Bold",
+        "uniqueIdentifier": "CrosscriptCJKSansTW-Bold;2.004;CrosscriptIdentity1",
+        "filename": "CrosscriptCJKSansTW-Bold.ttf",
+        "nameIDsToReview": [
+          1,
+          3,
+          4,
+          6
+        ],
+        "allPlatformAndLanguageRecords": true,
+        "attributionNameIDsToPreserve": [
+          0,
+          7,
+          8,
+          9,
+          10,
+          11,
+          13,
+          14
+        ],
+        "note": "Proposed distinct identities only; original reserved-name references remain in copyright/attribution, not new primary names. Review filesystem IDs, packaged registry and PDF identities together."
+      }
+    },
+    {
+      "font": "SourceHanSansTW-Regular.ttf",
+      "convertedSHA256": "e081fa19f3e92668c441c0e925ddc9ca35ed743d7c5d3308231a3c9a71302967",
+      "convertedBytes": 7024812,
+      "proposal": {
+        "family": "Crosscript CJK Sans TW",
+        "weightUnchanged": "Regular",
+        "fullName": "Crosscript CJK Sans TW",
+        "postScriptName": "CrosscriptCJKSansTW-Regular",
+        "uniqueIdentifier": "CrosscriptCJKSansTW-Regular;2.004;CrosscriptIdentity1",
+        "filename": "CrosscriptCJKSansTW-Regular.ttf",
+        "nameIDsToReview": [
+          1,
+          3,
+          4,
+          6
+        ],
+        "allPlatformAndLanguageRecords": true,
+        "attributionNameIDsToPreserve": [
+          0,
+          7,
+          8,
+          9,
+          10,
+          11,
+          13,
+          14
+        ],
+        "note": "Proposed distinct identities only; original reserved-name references remain in copyright/attribution, not new primary names. Review filesystem IDs, packaged registry and PDF identities together."
+      }
+    },
+    {
+      "font": "SourceHanSerifCN-Bold.ttf",
+      "convertedSHA256": "fafd6dc09a0ba3be1ac224aec3ff0befab97964c4ffba6b16f789702106577aa",
+      "convertedBytes": 14134156,
+      "proposal": {
+        "family": "Crosscript CJK Serif CN",
+        "weightUnchanged": "Bold",
+        "fullName": "Crosscript CJK Serif CN Bold",
+        "postScriptName": "CrosscriptCJKSerifCN-Bold",
+        "uniqueIdentifier": "CrosscriptCJKSerifCN-Bold;2.003;CrosscriptIdentity1",
+        "filename": "CrosscriptCJKSerifCN-Bold.ttf",
+        "nameIDsToReview": [
+          1,
+          3,
+          4,
+          6
+        ],
+        "allPlatformAndLanguageRecords": true,
+        "attributionNameIDsToPreserve": [
+          0,
+          7,
+          8,
+          9,
+          10,
+          11,
+          13,
+          14
+        ],
+        "note": "Proposed distinct identities only; original reserved-name references remain in copyright/attribution, not new primary names. Review filesystem IDs, packaged registry and PDF identities together."
+      }
+    },
+    {
+      "font": "SourceHanSerifCN-Regular.ttf",
+      "convertedSHA256": "8ba5ec09db04b1d1599edeff3fb5627ca11eaaf85e339e5c32684cb94e806993",
+      "convertedBytes": 14047768,
+      "proposal": {
+        "family": "Crosscript CJK Serif CN",
+        "weightUnchanged": "Regular",
+        "fullName": "Crosscript CJK Serif CN",
+        "postScriptName": "CrosscriptCJKSerifCN-Regular",
+        "uniqueIdentifier": "CrosscriptCJKSerifCN-Regular;2.003;CrosscriptIdentity1",
+        "filename": "CrosscriptCJKSerifCN-Regular.ttf",
+        "nameIDsToReview": [
+          1,
+          3,
+          4,
+          6
+        ],
+        "allPlatformAndLanguageRecords": true,
+        "attributionNameIDsToPreserve": [
+          0,
+          7,
+          8,
+          9,
+          10,
+          11,
+          13,
+          14
+        ],
+        "note": "Proposed distinct identities only; original reserved-name references remain in copyright/attribution, not new primary names. Review filesystem IDs, packaged registry and PDF identities together."
+      }
+    },
+    {
+      "font": "SourceHanSerifHK-Bold.ttf",
+      "convertedSHA256": "52698377eb509bb60271fec92a26045f055958af7ace4c332eee2dfe1754776d",
+      "convertedBytes": 9532580,
+      "proposal": {
+        "family": "Crosscript CJK Serif HK",
+        "weightUnchanged": "Bold",
+        "fullName": "Crosscript CJK Serif HK Bold",
+        "postScriptName": "CrosscriptCJKSerifHK-Bold",
+        "uniqueIdentifier": "CrosscriptCJKSerifHK-Bold;2.003;CrosscriptIdentity1",
+        "filename": "CrosscriptCJKSerifHK-Bold.ttf",
+        "nameIDsToReview": [
+          1,
+          3,
+          4,
+          6
+        ],
+        "allPlatformAndLanguageRecords": true,
+        "attributionNameIDsToPreserve": [
+          0,
+          7,
+          8,
+          9,
+          10,
+          11,
+          13,
+          14
+        ],
+        "note": "Proposed distinct identities only; original reserved-name references remain in copyright/attribution, not new primary names. Review filesystem IDs, packaged registry and PDF identities together."
+      }
+    },
+    {
+      "font": "SourceHanSerifHK-Regular.ttf",
+      "convertedSHA256": "cf43b8a00e3e7e35c5e3d7d8d05dd2d21aeaaa386f0c4fa6665c29a11ea01b73",
+      "convertedBytes": 9467292,
+      "proposal": {
+        "family": "Crosscript CJK Serif HK",
+        "weightUnchanged": "Regular",
+        "fullName": "Crosscript CJK Serif HK",
+        "postScriptName": "CrosscriptCJKSerifHK-Regular",
+        "uniqueIdentifier": "CrosscriptCJKSerifHK-Regular;2.003;CrosscriptIdentity1",
+        "filename": "CrosscriptCJKSerifHK-Regular.ttf",
+        "nameIDsToReview": [
+          1,
+          3,
+          4,
+          6
+        ],
+        "allPlatformAndLanguageRecords": true,
+        "attributionNameIDsToPreserve": [
+          0,
+          7,
+          8,
+          9,
+          10,
+          11,
+          13,
+          14
+        ],
+        "note": "Proposed distinct identities only; original reserved-name references remain in copyright/attribution, not new primary names. Review filesystem IDs, packaged registry and PDF identities together."
+      }
+    },
+    {
+      "font": "SourceHanSerifJP-Bold.ttf",
+      "convertedSHA256": "cbd7e67a0bc51b2da1d962a0de9a7745ad99a40a22febf6c56666119d21bfabe",
+      "convertedBytes": 7811832,
+      "proposal": {
+        "family": "Crosscript CJK Serif JP",
+        "weightUnchanged": "Bold",
+        "fullName": "Crosscript CJK Serif JP Bold",
+        "postScriptName": "CrosscriptCJKSerifJP-Bold",
+        "uniqueIdentifier": "CrosscriptCJKSerifJP-Bold;2.003;CrosscriptIdentity1",
+        "filename": "CrosscriptCJKSerifJP-Bold.ttf",
+        "nameIDsToReview": [
+          1,
+          3,
+          4,
+          6
+        ],
+        "allPlatformAndLanguageRecords": true,
+        "attributionNameIDsToPreserve": [
+          0,
+          7,
+          8,
+          9,
+          10,
+          11,
+          13,
+          14
+        ],
+        "note": "Proposed distinct identities only; original reserved-name references remain in copyright/attribution, not new primary names. Review filesystem IDs, packaged registry and PDF identities together."
+      }
+    },
+    {
+      "font": "SourceHanSerifJP-Regular.ttf",
+      "convertedSHA256": "3f3ecec06d2cfa6a9eb57469f75c7f551c4281741465e8eb1d6953f22abe453c",
+      "convertedBytes": 7748816,
+      "proposal": {
+        "family": "Crosscript CJK Serif JP",
+        "weightUnchanged": "Regular",
+        "fullName": "Crosscript CJK Serif JP",
+        "postScriptName": "CrosscriptCJKSerifJP-Regular",
+        "uniqueIdentifier": "CrosscriptCJKSerifJP-Regular;2.003;CrosscriptIdentity1",
+        "filename": "CrosscriptCJKSerifJP-Regular.ttf",
+        "nameIDsToReview": [
+          1,
+          3,
+          4,
+          6
+        ],
+        "allPlatformAndLanguageRecords": true,
+        "attributionNameIDsToPreserve": [
+          0,
+          7,
+          8,
+          9,
+          10,
+          11,
+          13,
+          14
+        ],
+        "note": "Proposed distinct identities only; original reserved-name references remain in copyright/attribution, not new primary names. Review filesystem IDs, packaged registry and PDF identities together."
+      }
+    },
+    {
+      "font": "SourceHanSerifKR-Bold.ttf",
+      "convertedSHA256": "1e04d390823d458fc850f48d8fe6da19b55525249a5e63dded5690c288e138e1",
+      "convertedBytes": 12387920,
+      "proposal": {
+        "family": "Crosscript CJK Serif KR",
+        "weightUnchanged": "Bold",
+        "fullName": "Crosscript CJK Serif KR Bold",
+        "postScriptName": "CrosscriptCJKSerifKR-Bold",
+        "uniqueIdentifier": "CrosscriptCJKSerifKR-Bold;2.003;CrosscriptIdentity1",
+        "filename": "CrosscriptCJKSerifKR-Bold.ttf",
+        "nameIDsToReview": [
+          1,
+          3,
+          4,
+          6
+        ],
+        "allPlatformAndLanguageRecords": true,
+        "attributionNameIDsToPreserve": [
+          0,
+          7,
+          8,
+          9,
+          10,
+          11,
+          13,
+          14
+        ],
+        "note": "Proposed distinct identities only; original reserved-name references remain in copyright/attribution, not new primary names. Review filesystem IDs, packaged registry and PDF identities together."
+      }
+    },
+    {
+      "font": "SourceHanSerifKR-Regular.ttf",
+      "convertedSHA256": "140861eba42585f3280a47d4c5199449386b0f986c7ab2c67fd5aa1615bb15d7",
+      "convertedBytes": 12459924,
+      "proposal": {
+        "family": "Crosscript CJK Serif KR",
+        "weightUnchanged": "Regular",
+        "fullName": "Crosscript CJK Serif KR",
+        "postScriptName": "CrosscriptCJKSerifKR-Regular",
+        "uniqueIdentifier": "CrosscriptCJKSerifKR-Regular;2.003;CrosscriptIdentity1",
+        "filename": "CrosscriptCJKSerifKR-Regular.ttf",
+        "nameIDsToReview": [
+          1,
+          3,
+          4,
+          6
+        ],
+        "allPlatformAndLanguageRecords": true,
+        "attributionNameIDsToPreserve": [
+          0,
+          7,
+          8,
+          9,
+          10,
+          11,
+          13,
+          14
+        ],
+        "note": "Proposed distinct identities only; original reserved-name references remain in copyright/attribution, not new primary names. Review filesystem IDs, packaged registry and PDF identities together."
+      }
+    },
+    {
+      "font": "SourceHanSerifTW-Bold.ttf",
+      "convertedSHA256": "a4d7ad443bccb130decc358cfbf3fea92d66cae22113cc9ac26c0200ed91b7cb",
+      "convertedBytes": 9551724,
+      "proposal": {
+        "family": "Crosscript CJK Serif TW",
+        "weightUnchanged": "Bold",
+        "fullName": "Crosscript CJK Serif TW Bold",
+        "postScriptName": "CrosscriptCJKSerifTW-Bold",
+        "uniqueIdentifier": "CrosscriptCJKSerifTW-Bold;2.003;CrosscriptIdentity1",
+        "filename": "CrosscriptCJKSerifTW-Bold.ttf",
+        "nameIDsToReview": [
+          1,
+          3,
+          4,
+          6
+        ],
+        "allPlatformAndLanguageRecords": true,
+        "attributionNameIDsToPreserve": [
+          0,
+          7,
+          8,
+          9,
+          10,
+          11,
+          13,
+          14
+        ],
+        "note": "Proposed distinct identities only; original reserved-name references remain in copyright/attribution, not new primary names. Review filesystem IDs, packaged registry and PDF identities together."
+      }
+    },
+    {
+      "font": "SourceHanSerifTW-Regular.ttf",
+      "convertedSHA256": "53b849ebd349db18bf574e3cbb1307c903cc036b98ff009e3f445632b7e09a7f",
+      "convertedBytes": 9486772,
+      "proposal": {
+        "family": "Crosscript CJK Serif TW",
+        "weightUnchanged": "Regular",
+        "fullName": "Crosscript CJK Serif TW",
+        "postScriptName": "CrosscriptCJKSerifTW-Regular",
+        "uniqueIdentifier": "CrosscriptCJKSerifTW-Regular;2.003;CrosscriptIdentity1",
+        "filename": "CrosscriptCJKSerifTW-Regular.ttf",
+        "nameIDsToReview": [
+          1,
+          3,
+          4,
+          6
+        ],
+        "allPlatformAndLanguageRecords": true,
+        "attributionNameIDsToPreserve": [
+          0,
+          7,
+          8,
+          9,
+          10,
+          11,
+          13,
+          14
+        ],
+        "note": "Proposed distinct identities only; original reserved-name references remain in copyright/attribution, not new primary names. Review filesystem IDs, packaged registry and PDF identities together."
+      }
+    }
+  ]
+}

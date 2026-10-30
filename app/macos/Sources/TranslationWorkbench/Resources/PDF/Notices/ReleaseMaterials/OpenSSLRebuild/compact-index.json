@@ -1,0 +1,36 @@
+{
+  "component": "OpenSSL",
+  "version": "3.6.0",
+  "license": "Apache-2.0",
+  "archiveFilename": "Crosscript-third-party-0.1.0-5-materials-v4.tar.gz",
+  "materialsEntry": "Crosscript-third-party-materials-v4/current/openssl/",
+  "sourceArchive": {
+    "path": "current/openssl/sources/openssl-3.6.0.tar.gz",
+    "sha256": "b6a5f44b7eb69e3fa35dbf15524405b44837a481d43d81daddde3ff21fcbb8e9"
+  },
+  "licenseSHA256": "7d5450cb2d142651b8afa315b5f238efc805dad827d91ba367d8516bc9d49e7a",
+  "finalLibraries": {
+    "libcrypto.3.dylib": {
+      "sha256": "13aa519f1e6d13d3eb3968448e1166e5de03b70fa7b4ec5282e5c21318ab855e",
+      "bytes": 5278192
+    },
+    "libssl.3.dylib": {
+      "sha256": "a2bdd0fd427991bdf846b87f1af9f697c6fae9f208accdb9dfad142b958b319d",
+      "bytes": 996160
+    }
+  },
+  "finalWheel": {
+    "filename": "opencv_python_headless-5.0.0.93-3crosscriptopenssl-cp37-abi3-macosx_14_0_arm64.whl",
+    "sha256": "4f8048e641ec2a06c70e1e092cd4271ebd5cf94d9311b3125992dcc5efa8638d",
+    "bytes": 48569693
+  },
+  "sourcePatches": [],
+  "binaryChanges": [
+    "Local same-version compilation with recorded configuration/toolchain",
+    "Preserved install-name identity and relative SSL-to-crypto dependency",
+    "Debug-symbol stripping and ad-hoc signing"
+  ],
+  "preservedBehaviorScope": "Original default configuration/module paths, exact exported symbol sets and eight default-provider algorithm-name sets retained; focused offline compatibility only.",
+  "previousOriginalBuildAssociation": "Historical original producer recipe was unproven; the selected replacements use this documented local build. No claim that the old provenance has been recovered.",
+  "publicationApproved": false
+}

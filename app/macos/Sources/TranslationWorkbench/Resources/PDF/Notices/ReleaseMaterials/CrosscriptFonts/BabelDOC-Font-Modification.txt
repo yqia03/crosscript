@@ -1,0 +1,32 @@
+Crosscript font identity integration build 1crosscriptfonts
+Modification date: 2026-10-27
+
+This is a modified build of BabelDOC 0.6.4. It is not an upstream release.
+Package METADATA Version remains 0.6.4; the wheel build tag distinguishes it.
+Original BabelDOC metadata, dependency requirements, entry points and AGPL license
+text are retained unchanged. See licenses/LICENSE in this dist-info directory.
+Crosscript-authored integration modifications and the packaging helper are
+AGPL-3.0-only. This notice does not replace the original license or attribution.
+
+Changes are limited to the two Python source modules listed below, WHEEL Build,
+this notice and regenerated RECORD. The font registry uses the twenty approved
+Crosscript CJK Sans/Serif CN/HK/JP/KR/TW Regular/Bold identity-only derivatives,
+with exact file names, sizes and SHA3-256 values. Missing or corrupt local
+derivatives fail before upstream font download, requiring repair of the pinned
+runtime. The original fourteen other font entries and family selection order
+remain unchanged. The TTF files are supplied separately and retain OFL-1.1;
+this wheel contains no renamed TTF payloads.
+
+Preferred form for modification: the Python .py files in this wheel and the
+accompanying complete changed sources, unified patches and reproducible
+build_babeldoc_wheel.py helper identified by preferred-source-index.json.
+Original wheel: babeldoc-0.6.4-py3-none-any.whl
+Original wheel SHA-256: e7dcdd5b8213f657af1df68e329f92d0534c9b94c53fcd82e9e04c52060cb7d0
+
+babeldoc/assets/assets.py
+Original source SHA-256: 208b394d48f6ec61aa6777bc384f0d9551cc2aed0a8de8cbb28a45e770dbacd3
+Modified source SHA-256: 7ab13c783300b8c346cc94f9123d56b71d4ed448f471ac2d45acd4e1f9fbc90d
+
+babeldoc/assets/embedding_assets_metadata.py
+Original source SHA-256: d7aca596e4b73bf0631836a8877a7522e9944cf21fa5f4b582979d7b97b5d316
+Modified source SHA-256: 4af5820534650cd96bc2f146ba61f466dea7802321302d54ff2ea1aaf6231ebc

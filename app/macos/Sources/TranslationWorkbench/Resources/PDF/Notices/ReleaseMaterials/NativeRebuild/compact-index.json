@@ -1,0 +1,269 @@
+{
+  "schema": "crosscript-native-rebuild-compact-notice-v1",
+  "date": "2026-10-27",
+  "runtimeID": "babeldoc-0.6.4-py312-20261027-arm64-crosscript-v2",
+  "status": "focused-local-native-validation-passed",
+  "publicationApproved": false,
+  "materials": {
+    "archiveFilename": "Crosscript-third-party-0.1.0-5-materials-v4.tar.gz",
+    "archiveRoot": "Crosscript-third-party-materials-v4/",
+    "currentIndex": "Crosscript-third-party-materials-v4/CURRENT-INDEX.json",
+    "nativeIndex": "Crosscript-third-party-materials-v4/current/native-index.json",
+    "nativeRoot": "Crosscript-third-party-materials-v4/current/native/",
+    "deliveryManifest": {
+      "path": "Crosscript-third-party-materials-v4/current/native/manifest.json",
+      "sha256": "79f4028e526fa7ca5cd0779b801cb0410f60d63511b51a6452d82c22d8b02a31"
+    },
+    "provenance": {
+      "path": "Crosscript-third-party-materials-v4/current/native/provenance.json",
+      "sha256": "bbffa50c92065350b5c9a239fdb163efef5ba6f3dc54c60c0c93cc8bf2f1b31a"
+    },
+    "sourceIndex": {
+      "path": "Crosscript-third-party-materials-v4/current/native/source-index.json",
+      "sha256": "dd0aaa6f8a936f81c3c3128808e3ec4d65b0c48e40ea40dbb538fca0310916ab"
+    }
+  },
+  "packagingContext": {
+    "wheelCount": 84,
+    "locallyModifiedWheelCount": 2,
+    "nativeModifiedWheelCount": 1,
+    "otherModifiedWheel": "BabelDOC 0.6.4 font identity integration; documented separately",
+    "bundledArtifactCount": 22,
+    "httpsArtifactCount": 245
+  },
+  "upstreamWheel": {
+    "name": "opencv-python-headless",
+    "version": "5.0.0.93",
+    "filename": "opencv_python_headless-5.0.0.93-cp37-abi3-macosx_13_0_arm64.whl",
+    "url": "https://files.pythonhosted.org/packages/53/7c/8c8097891c509d98cd128493835c95631c80be6a8f37ed9d25716c2e16f1/opencv_python_headless-5.0.0.93-cp37-abi3-macosx_13_0_arm64.whl",
+    "sha256": "030ca5e0837a2963ab36ef896baa9767eb8d2b83353fb28af5a521e40dd8756f",
+    "bytes": 48322581,
+    "license": "Apache 2.0"
+  },
+  "finalWheel": {
+    "filename": "opencv_python_headless-5.0.0.93-2crosscriptnative-cp37-abi3-macosx_14_0_arm64.whl",
+    "sha256": "bfd3c1684a0eb4ef7d6763d7adbcddbd23e7d55ebc931e0ccaf68374ea0ee5a6",
+    "bytes": 48349664
+  },
+  "finalLibraries": {
+    "libgmp.10.dylib": {
+      "wheelMember": "cv2/.dylibs/libgmp.10.dylib",
+      "sha256": "ade1a64325a2418f4ea6143ab0914ba1eaf62496b307fd8e05b1a02cd460498c",
+      "bytes": 484688,
+      "originalExportCount": 610,
+      "newExportCount": 610,
+      "missingExports": [],
+      "addedExports": []
+    },
+    "libzmq.5.dylib": {
+      "wheelMember": "cv2/.dylibs/libzmq.5.dylib",
+      "sha256": "3ec540381c648b832af9089faa54dfb292012bc6261ea82dcf7619236b629d35",
+      "bytes": 688112,
+      "originalExportCount": 74,
+      "newExportCount": 74,
+      "missingExports": [],
+      "addedExports": []
+    }
+  },
+  "unchangedLibraries": {
+    "libsodium.26.dylib": {
+      "sha256": "6431194b4aa58576de1ea2695eee8efa7b6502ca96b1369621d239285f117bd0",
+      "sourceVersion": "1.0.20",
+      "machOCurrentVersion": "29.0.0",
+      "versionMeaning": "Mach-O current version is ABI version, not source version"
+    },
+    "libsoxr.0.1.2.dylib": {
+      "sha256": "d3b7b45d5e248fb60f37bdac454c5736fc3db717be6243f6c75006a830502cce"
+    }
+  },
+  "components": [
+    {
+      "component": "gmp",
+      "version": "6.3.0",
+      "usage": "Unmodified source compiled into replacement library",
+      "sourceURL": "https://ftp.gnu.org/gnu/gmp/gmp-6.3.0.tar.xz",
+      "sourceArchive": {
+        "pathInMaterialsArchive": "Crosscript-third-party-materials-v4/current/native/materials/gap-closure-v2/native/targeted/gmp/gmp-6.3.0.tar.xz",
+        "sha256": "a3c2b80201b89e68616f4ad30bc66aee4927c3ce50e33929ca819d5c43538898",
+        "bytes": 2094196
+      },
+      "notices": [
+        {
+          "path": "notices/gmp/COPYING",
+          "sha256": "8ceb4b9ee5adedde47b31e975c1d90c73ad27b6b165a1dcd80c7c545eb65b903",
+          "bytes": 35147,
+          "upstreamArchiveMember": "gmp-6.3.0/COPYING"
+        },
+        {
+          "path": "notices/gmp/README",
+          "sha256": "5e9f9325fd702bc4bcda27d7a78fea88a2a09fa39b4b15ac7b9b205e0863dc7e",
+          "bytes": 4051,
+          "upstreamArchiveMember": "gmp-6.3.0/README"
+        },
+        {
+          "path": "notices/gmp/COPYING.LESSERv3",
+          "sha256": "a853c2ffec17057872340eee242ae4d96cbf2b520ae27d903e1b2fef1a5f9d1c",
+          "bytes": 7639,
+          "upstreamArchiveMember": "gmp-6.3.0/COPYING.LESSERv3"
+        },
+        {
+          "path": "notices/gmp/AUTHORS",
+          "sha256": "da5870e2f0482c5dc15b4cfed8bbfb51ce1279c8f8fc52bdb8c13c7cee949c32",
+          "bytes": 4098,
+          "upstreamArchiveMember": "gmp-6.3.0/AUTHORS"
+        },
+        {
+          "path": "notices/gmp/COPYINGv3",
+          "sha256": "e6037104443f9a7829b2aa7c5370d0789a7bda3ca65a0b904cdc0c2e285d9195",
+          "bytes": 35150,
+          "upstreamArchiveMember": "gmp-6.3.0/COPYINGv3"
+        },
+        {
+          "path": "notices/gmp/COPYINGv2",
+          "sha256": "8177f97513213526df2cf6184d8ff986c675afb514d4e68a404010521b880643",
+          "bytes": 18092,
+          "upstreamArchiveMember": "gmp-6.3.0/COPYINGv2"
+        }
+      ]
+    },
+    {
+      "component": "zeromq",
+      "version": "4.3.5",
+      "usage": "Unmodified source compiled into replacement library",
+      "sourceURL": "https://github.com/zeromq/libzmq/releases/download/v4.3.5/zeromq-4.3.5.tar.gz",
+      "sourceArchive": {
+        "pathInMaterialsArchive": "Crosscript-third-party-materials-v4/current/native/materials/gap-closure-v2/native/targeted/zeromq/zeromq-4.3.5.tar.gz",
+        "sha256": "6653ef5910f17954861fe72332e68b03ca6e4d9c7160eb3a8de5a5a913bfab43",
+        "bytes": 2530237
+      },
+      "notices": [
+        {
+          "path": "notices/zeromq/LICENSE",
+          "sha256": "1f256ecad192880510e84ad60474eab7589218784b9a50bc7ceee34c2b91f1d5",
+          "bytes": 16725,
+          "upstreamArchiveMember": "zeromq-4.3.5/LICENSE"
+        },
+        {
+          "path": "notices/zeromq/AUTHORS",
+          "sha256": "9c7e32ac52c546ce6c9b328f348b2053ff6d56630cba06727e2e5abf644f4aed",
+          "bytes": 2350,
+          "upstreamArchiveMember": "zeromq-4.3.5/AUTHORS"
+        },
+        {
+          "path": "notices/zeromq/external/unity/license.txt",
+          "sha256": "3ed9b51da86f52c729c96cc99fdde6444b2297c788a9cf4ad1d3649dc34c4985",
+          "bytes": 1123,
+          "upstreamArchiveMember": "zeromq-4.3.5/external/unity/license.txt"
+        },
+        {
+          "path": "notices/zeromq/external/wepoll/license.txt",
+          "sha256": "3e56262d2c0e9492f113089916ed624e98f88b31dfd6acae24ede59cdfda5a69",
+          "bytes": 1394,
+          "upstreamArchiveMember": "zeromq-4.3.5/external/wepoll/license.txt"
+        }
+      ]
+    },
+    {
+      "component": "libsodium",
+      "version": "1.0.20",
+      "usage": "Exact headers with unchanged linked binary",
+      "sourceURL": "https://download.libsodium.org/libsodium/releases/libsodium-1.0.20.tar.gz",
+      "sourceArchive": {
+        "pathInMaterialsArchive": "Crosscript-third-party-materials-v4/current/native/materials/gap-closure-v2/native/media-other/sources/libsodium/libsodium-1.0.20.tar.gz",
+        "sha256": "ebb65ef6ca439333c2bb41a0c1990587288da07f6c7fd07cb3a18cc18d30ce19",
+        "bytes": 1925167
+      },
+      "notices": [
+        {
+          "path": "notices/libsodium/LICENSE",
+          "sha256": "43964d976a6db3fb986af689d05f8ca0e9971878bccae709750dac8fdc4a99cf",
+          "bytes": 823,
+          "upstreamArchiveMember": "libsodium-1.0.20/LICENSE"
+        },
+        {
+          "path": "notices/libsodium/AUTHORS",
+          "sha256": "ecd364ba590239cbd29d051e73a0a8b4bbd719137a0a64a41409e21f3e7a3035",
+          "bytes": 4844,
+          "upstreamArchiveMember": "libsodium-1.0.20/AUTHORS"
+        }
+      ]
+    }
+  ],
+  "sourcePatches": [],
+  "target": {
+    "architecture": "arm64",
+    "minimumMacOS": "14.0",
+    "appMinimumMacOSUnchanged": "14.2"
+  },
+  "buildConfiguration": {
+    "gmpConfigureArguments": [
+      "--prefix=/CrosscriptNative",
+      "--enable-shared",
+      "--disable-static",
+      "--enable-cxx",
+      "--build=aarch64-apple-darwin",
+      "--host=aarch64-apple-darwin"
+    ],
+    "zeromqConfigureArguments": [
+      "--prefix=/CrosscriptNative",
+      "--enable-shared",
+      "--disable-static",
+      "--with-libsodium",
+      "--enable-curve",
+      "--enable-ws",
+      "--disable-drafts",
+      "--without-docs",
+      "--without-pgm",
+      "--without-norm",
+      "--without-libgssapi_krb5",
+      "--disable-libunwind",
+      "--disable-perf",
+      "--disable-Werror",
+      "--with-poller=kqueue"
+    ],
+    "compilerFlags": "-O2 -arch arm64 -mmacosx-version-min=14.0 -ffile-prefix-map=<BUILD>=/CrosscriptNativeBuild -fdebug-prefix-map=<BUILD>=/CrosscriptNativeBuild",
+    "sodiumHeaders": "generated version.h from exact 1.0.20 configure.ac constants; unchanged binary",
+    "noNetworkPolicySHA256": "5c358b8d847211333e7ba22df82d84f796b5f30a41a2682209a949d783adbd08",
+    "helperSHA256": "57d4d3ad32af4e1850322e69f0ed55fe207706895bbde28f88eb3963be1eaa27"
+  },
+  "zeroMQCompatibilityOverride": {
+    "libzmq_cv_so_bindtodevice": "no",
+    "reason": "Original binary bind-to-device implementation returns ENOTSUP; do not enable newer SDK SO_BINDTODEVICE behavior."
+  },
+  "focusedValidation": {
+    "gmpUpstream": {
+      "pass": 199,
+      "skip": "t-addaddmul: arm64 build lacks HAVE_NATIVE_mpn_addaddmul_1msb0",
+      "fail": 0
+    },
+    "exports": "GMP 610 and ZeroMQ 74 equal original export sets; direct consumer symbol requirements checked",
+    "offlineAPI": "GMP arithmetic/import-export; ZeroMQ inproc pair/poll, multipart, request/reply, Z85 and local CURVE key consistency",
+    "isolatedInstall": "pip --no-index --no-deps --no-compile --force-reinstall; RECORD and loaded native paths checked; cv2 synthetic resize passed",
+    "finalNativeStrictSignaturesPassed": true,
+    "sameInputsRepackWheelBytesReproduced": true,
+    "records": [
+      "Crosscript-third-party-materials-v4/current/native/records/package-install-result.json",
+      "Crosscript-third-party-materials-v4/current/native/records/final-wheel-privacy-and-signatures.json",
+      "Crosscript-third-party-materials-v4/current/native/records/repack-independent-result.json",
+      "Crosscript-third-party-materials-v4/current/native/records/gmp-upstream-checks.json",
+      "Crosscript-third-party-materials-v4/current/native/records/sdk-availability-final.json",
+      "Crosscript-third-party-materials-v4/current/native/records/libsodium-original-provenance.json"
+    ]
+  },
+  "limitations": [
+    "Only local focused GMP/ZeroMQ rebuild and replacement validation is claimed; not complete original-build provenance for all 86 OpenCV nested libraries",
+    "Different compiler/SDK is not promised to reproduce identical dylib bytes",
+    "No complete ZeroMQ network/IPC suite or full four-workflow application regression",
+    "No live/paid/provider/model/Issue #33 probes",
+    "Final candidate binding/signatures, second ordinary Apple Silicon Mac installation acceptance and human publication authorization are separate gates"
+  ],
+  "compactDelivery": {
+    "containsCompleteNoticeFiles": 12,
+    "containsSourceArchives": false,
+    "containsBinaryPayloads": false,
+    "sourceArchivesAndBuildScriptsAreInCurrentNativeMaterials": true
+  },
+  "retainedByCurrentRuntimeID": "babeldoc-0.6.4-py312-20261029-arm64-crosscript-v3",
+  "finalWheelRole": "Final wheel of the 2026-10-27 GMP/ZeroMQ stage; retained as build input for the selected OpenSSL replacement wheel. Current final wheel is bound in runtime-manifest.json and materials current/openssl.",
+  "scope": "Historical exact GMP/ZeroMQ build records; those two library bytes remain selected unchanged. Final OpenSSL replacement has separate notices and current candidate validation."
+}

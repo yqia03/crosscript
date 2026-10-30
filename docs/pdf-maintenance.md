@@ -1,0 +1,12 @@
+# PDF runtime maintenance and source inputs
+
+The application build copies the complete PDF bridge, compatibility layer, inventory checker, pinned runtime manifest and notice directory. Keep all those files with source distributions. The app prepares the exact artifacts described by the manifest; no runtime contents or personal cache are embedded in this source snapshot.
+
+The original maintenance algorithms are retained with explicit input/output arguments. Two small pure metadata inputs were relocated into [scripts/pdf/pins](../scripts/pdf/pins/README.md): upstream BabelDOC capability inventory and the historical SHA3-256 asset pin list. No private sample PDF or prior runtime cache was copied.
+
+- `python3 scripts/pdf/lock_runtime.py --assets-directory PATH --output NEW_FILE` verifies the supplied asset tree against the pinned asset list and queries public PyPI metadata for compatible wheel choices. It writes a new manifest rather than overwriting the application manifest. It is an update tool, not proof of bit-identical rebuild of all native wheels; review every version/hash/source/notice change before adoption. It was not run against the network in this preparation.
+- `python3 scripts/pdf/generate_capability_matrix.py --source-dir PATH --output-dir NEW_DIR` inventories the supplied BabelDOC source using Python AST only. The maintainer must verify that tree is the pinned v0.6.4 / `17480db9df92ddcb37349ce34b312335226e8ec9` before relying on its output.
+- `python3 scripts/pdf/build_acceptance_matrix.py --output-dir NEW_DIR` joins the pinned inventory to the preserved integration mapping. Generated coverage is not test acceptance; historical mapping labels are not current evidence links.
+- `scripts/pdf/test_bridge.py` and `v4_probe.py` use original synthetic material. They require `PDF_TEST_CACHE` explicitly; retained controlled engine tests are not run merely by including their source. Some other feature scripts generate their own original samples into ignored scratch directories. Scratch directories in code are new output locations, not shipped data.
+
+Exact Python/wheel/native component source, patches, configure flags and build material obligations remain separately tracked in [distribution materials](distribution-materials.md). Keeping maintenance tools and hashes alone does not close those obligations. No claim of complete third-party source reconstruction or bit-for-bit native rebuilding is made.

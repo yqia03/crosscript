@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>CFBundleExecutable</key>
+	<string>TranslationWorkbench</string>
+	<key>CFBundleIdentifier</key>
+	<string>dev.uown.translation-workbench</string>
+	<key>CFBundleName</key>
+	<string>TranslationWorkbench</string>
+	<key>CFBundleDisplayName</key>
+	<string>翻译工作台</string>
+	<key>CFBundleIconFile</key>
+	<string>AppIcon</string>
+	<key>CFBundlePackageType</key>
+	<string>APPL</string>
+	<key>CFBundleShortVersionString</key>
+	<string>0.1.0</string>
+	<key>CFBundleVersion</key>
+	<string>5</string>
+	<key>LSMinimumSystemVersion</key>
+	<string>14.2</string>
+	<key>NSHighResolutionCapable</key>
+	<true/>
+	<key>NSPrincipalClass</key>
+	<string>NSApplication</string>
+	<key>NSMicrophoneUsageDescription</key>
+	<string>Record audio to your local history when you choose Start recording. 仅在你点击开始录音后，将麦克风声音保存到本地历史资料。</string>
+	<key>NSScreenCaptureUsageDescription</key>
+	<string>System audio recording uses macOS Screen &amp; System Audio Recording permission. Only audio is saved; screen images are not retained. 系统声音录制需要 macOS“屏幕与系统音频录制”权限；仅保存音频，不保留屏幕画面。</string>
+</dict>
+</plist>

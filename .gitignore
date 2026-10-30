@@ -1,0 +1,11 @@
+.DS_Store
+__MACOSX/
+output/
+.scratch/
+__pycache__/
+*.pyc
+app/macos/.build/
+app/macos/.swiftpm/
+app/macos/.local-signing/
+.env
+.env.*

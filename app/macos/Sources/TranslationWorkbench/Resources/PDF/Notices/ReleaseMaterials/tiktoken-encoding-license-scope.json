@@ -1,0 +1,28 @@
+{
+  "schema": "crosscript-tiktoken-encoding-license-scope-v1",
+  "checkedAt": "2026-10-26",
+  "status": "resolved_by_upstream_encoding_scope_statement",
+  "issueURL": "https://github.com/openai/tiktoken/issues/92",
+  "questionScope": "The issue asks for licensing of encoding data hosted outside the repository on OpenAI public Blob URLs.",
+  "upstreamStatement": {
+    "url": "https://github.com/openai/tiktoken/issues/92#issuecomment-1497875652",
+    "apiURL": "https://api.github.com/repos/openai/tiktoken/issues/comments/1497875652",
+    "author": "hauntsaninja",
+    "authorAssociation": "COLLABORATOR",
+    "createdAt": "2023-04-05T17:39:39Z",
+    "updatedAt": "2023-04-05T17:39:39Z",
+    "body": "The license in this repo applies to the encoding files as well. Thanks!"
+  },
+  "packageRef": "4e71bbe0c078468e00fefbf94b39849389f346e5",
+  "license": "MIT",
+  "licenseURL": "https://github.com/openai/tiktoken/blob/4e71bbe0c078468e00fefbf94b39849389f346e5/LICENSE",
+  "currentREADMEURL": "https://github.com/openai/tiktoken/blob/4e71bbe0c078468e00fefbf94b39849389f346e5/README.md",
+  "bindingSourceURL": "https://github.com/openai/tiktoken/blob/4e71bbe0c078468e00fefbf94b39849389f346e5/tiktoken_ext/openai_public.py",
+  "dataURL": "https://openaipublic.blob.core.windows.net/encodings/o200k_base.tiktoken",
+  "dataSHA256": "446a9538cb6c348e3516120d7c08b09f57c36495e2acfffe59a5bf8b0cfb1a2d",
+  "dataBytes": 3613922,
+  "interpretation": "The repository collaborator's general statement that the repository license covers encoding files, together with the current pinned official README and exact o200k URL/hash binding, supplies the previously missing data-license scope evidence. Retain MIT copyright and permission notice with the data.",
+  "inferenceBoundary": "The statement is dated 2023 and predates o200k; it does not name o200k individually. Applying its general encoding-files scope to the later official encoding is an interpretation supported by the current fixed release chain. No o200k-specific exclusion was found in the bounded official-source review.",
+  "minimalRemedyCompleted": "Archive this statement and its provenance with the existing MIT notice and fixed URL/SHA binding. No tokenizer replacement, external contact, payment or runtime test required."
+}
+

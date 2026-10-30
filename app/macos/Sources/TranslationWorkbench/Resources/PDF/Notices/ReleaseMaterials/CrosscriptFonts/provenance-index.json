@@ -1,0 +1,568 @@
+{
+  "schema": "crosscript-font-provenance-v1",
+  "fontCount": 20,
+  "originalIdentityPayloadsRedistributed": false,
+  "sourceMaterials": "Exact source URLs/ref/hash and conversion input archive-entry binding retained. This delivery contains only renamed TTF payloads, not old-identity TTFs or conversion ZIPs.",
+  "fonts": [
+    {
+      "filename": "CrosscriptCJKSansCN-Bold.ttf",
+      "sha256": "92891aef442d663b1505b030d77f0e41f5720fa10aaa0b5de3c3984b8345b790",
+      "sha3_256": "15dad3e598e7a9530a236b5e05eb2f49b78251901092ac90c37221f32ba27d66",
+      "bytes": 10174472,
+      "license": "OFL-1.1",
+      "licensePath": "licenses/source-han-sans-OFL-1.1.txt",
+      "upstreamAdobe": {
+        "repository": "adobe-fonts/source-han-sans",
+        "ref": "a8b073bbf80f7226af03abeeb31e27017d5e3f67",
+        "path": "SubsetOTF/CN/SourceHanSansCN-Bold.otf",
+        "url": "https://raw.githubusercontent.com/adobe-fonts/source-han-sans/a8b073bbf80f7226af03abeeb31e27017d5e3f67/SubsetOTF/CN/SourceHanSansCN-Bold.otf",
+        "sha256": "997dd673efde3a7cc7410da3ccde2a729f26dc9e1a81ad659a2d6666d36b7974",
+        "bytes": 8543504,
+        "gitBlobSHA1": "8e1e8694921a6f836ee87510b7ad4cc735c576e5"
+      },
+      "exactConversionInput": {
+        "filename": "SourceHanSansCN-Bold.ttf",
+        "sha256": "2dcaecc0dcba896fdc48e32617633123d91fa80c7eb9f7ae7c836da70e45ce88",
+        "bytes": 10174460,
+        "releaseURL": "https://github.com/Pal3love/Source-Han-TrueType/releases/tag/2.004-2.003-1.002-R",
+        "archiveFilename": "SourceHanSansCN.zip",
+        "archiveSHA256": "9d782fa61072db988c889052f0c71f3a7ffb9d96c46376cefe819fa7193ad969",
+        "archiveEntry": "SourceHanSansCN-Bold.ttf"
+      },
+      "modification": "Identity-only name IDs 1,3,4,6 for every platform/language, table directory checksums, head.checksumAdjustment, and delivery filename. No new reserved names declared.",
+      "outputPath": "derivatives/assets/fonts/CrosscriptCJKSansCN-Bold.ttf"
+    },
+    {
+      "filename": "CrosscriptCJKSansCN-Regular.ttf",
+      "sha256": "c8d20ec7bf18c31e3c43e48a5752195c0a89c4f14321d3d40ab87914c74d2826",
+      "sha3_256": "23b3b8bfe24a973ae7f2ae54552621e864763965500bd7b4dfda852fdd4d5d40",
+      "bytes": 10397588,
+      "license": "OFL-1.1",
+      "licensePath": "licenses/source-han-sans-OFL-1.1.txt",
+      "upstreamAdobe": {
+        "repository": "adobe-fonts/source-han-sans",
+        "ref": "a8b073bbf80f7226af03abeeb31e27017d5e3f67",
+        "path": "SubsetOTF/CN/SourceHanSansCN-Regular.otf",
+        "url": "https://raw.githubusercontent.com/adobe-fonts/source-han-sans/a8b073bbf80f7226af03abeeb31e27017d5e3f67/SubsetOTF/CN/SourceHanSansCN-Regular.otf",
+        "sha256": "c0aa89a70f92a820ff95490fea6d472cd19621a71c9a748a4950eb2eafe6438e",
+        "bytes": 8331636,
+        "gitBlobSHA1": "c13789be298515b27311fd017aaa32a3c41d42b9"
+      },
+      "exactConversionInput": {
+        "filename": "SourceHanSansCN-Regular.ttf",
+        "sha256": "dd4ae04ab7d33f43202750cf755b2ba47a2122ba41412954e562da459337bbf6",
+        "bytes": 10397552,
+        "releaseURL": "https://github.com/Pal3love/Source-Han-TrueType/releases/tag/2.004-2.003-1.002-R",
+        "archiveFilename": "SourceHanSansCN.zip",
+        "archiveSHA256": "9d782fa61072db988c889052f0c71f3a7ffb9d96c46376cefe819fa7193ad969",
+        "archiveEntry": "SourceHanSansCN-Regular.ttf"
+      },
+      "modification": "Identity-only name IDs 1,3,4,6 for every platform/language, table directory checksums, head.checksumAdjustment, and delivery filename. No new reserved names declared.",
+      "outputPath": "derivatives/assets/fonts/CrosscriptCJKSansCN-Regular.ttf"
+    },
+    {
+      "filename": "CrosscriptCJKSansHK-Bold.ttf",
+      "sha256": "2cda42aa51c3ab70c29178a65ac5352c15b4bd729cb381f6dd82906fe1102a3a",
+      "sha3_256": "24a01527ba5462359048bd3315d1d1ad28b3f3a61afdfed75b6775faca0d129a",
+      "bytes": 6856704,
+      "license": "OFL-1.1",
+      "licensePath": "licenses/source-han-sans-OFL-1.1.txt",
+      "upstreamAdobe": {
+        "repository": "adobe-fonts/source-han-sans",
+        "ref": "a8b073bbf80f7226af03abeeb31e27017d5e3f67",
+        "path": "SubsetOTF/HK/SourceHanSansHK-Bold.otf",
+        "url": "https://raw.githubusercontent.com/adobe-fonts/source-han-sans/a8b073bbf80f7226af03abeeb31e27017d5e3f67/SubsetOTF/HK/SourceHanSansHK-Bold.otf",
+        "sha256": "d5c95b31e2f8d824bb5c11d7982adaca5e2b3037ac598115efb5f7e392dc9f02",
+        "bytes": 5841268,
+        "gitBlobSHA1": "e33cd945fe4428bd39e203a74a052e4152e8880d"
+      },
+      "exactConversionInput": {
+        "filename": "SourceHanSansHK-Bold.ttf",
+        "sha256": "34fa1add2c9e7e8ee3fbb205a6ef5e8cb97f0393bbfe57c709273040cf10f48c",
+        "bytes": 6856692,
+        "releaseURL": "https://github.com/Pal3love/Source-Han-TrueType/releases/tag/2.004-2.003-1.002-R",
+        "archiveFilename": "SourceHanSansHK.zip",
+        "archiveSHA256": "758ca867d07f2fbfdfed2200f3d02fb4046c4a7b35c72dd03c04817771a9c568",
+        "archiveEntry": "SourceHanSansHK-Bold.ttf"
+      },
+      "modification": "Identity-only name IDs 1,3,4,6 for every platform/language, table directory checksums, head.checksumAdjustment, and delivery filename. No new reserved names declared.",
+      "outputPath": "derivatives/assets/fonts/CrosscriptCJKSansHK-Bold.ttf"
+    },
+    {
+      "filename": "CrosscriptCJKSansHK-Regular.ttf",
+      "sha256": "53e9e44c74e4c619bdd5c27ce942c7ae37deaba2a14530b712815587f86ca73f",
+      "sha3_256": "100b20053fda34cd6c32f8afc44aaa42777fcbceb003bb75c1811cfee577d0cc",
+      "bytes": 6999828,
+      "license": "OFL-1.1",
+      "licensePath": "licenses/source-han-sans-OFL-1.1.txt",
+      "upstreamAdobe": {
+        "repository": "adobe-fonts/source-han-sans",
+        "ref": "a8b073bbf80f7226af03abeeb31e27017d5e3f67",
+        "path": "SubsetOTF/HK/SourceHanSansHK-Regular.otf",
+        "url": "https://raw.githubusercontent.com/adobe-fonts/source-han-sans/a8b073bbf80f7226af03abeeb31e27017d5e3f67/SubsetOTF/HK/SourceHanSansHK-Regular.otf",
+        "sha256": "682efee3b71458ee23693e11f1b75a5bdf7019ce921bc48b87ae317a7d62ab47",
+        "bytes": 5688684,
+        "gitBlobSHA1": "98d33d3bd44cba29bbc7344b00f7a03e3a7489a7"
+      },
+      "exactConversionInput": {
+        "filename": "SourceHanSansHK-Regular.ttf",
+        "sha256": "b5a170508f5c3441b183d1eae39ec0f99545cab64918d07260492783bd5fa297",
+        "bytes": 6999792,
+        "releaseURL": "https://github.com/Pal3love/Source-Han-TrueType/releases/tag/2.004-2.003-1.002-R",
+        "archiveFilename": "SourceHanSansHK.zip",
+        "archiveSHA256": "758ca867d07f2fbfdfed2200f3d02fb4046c4a7b35c72dd03c04817771a9c568",
+        "archiveEntry": "SourceHanSansHK-Regular.ttf"
+      },
+      "modification": "Identity-only name IDs 1,3,4,6 for every platform/language, table directory checksums, head.checksumAdjustment, and delivery filename. No new reserved names declared.",
+      "outputPath": "derivatives/assets/fonts/CrosscriptCJKSansHK-Regular.ttf"
+    },
+    {
+      "filename": "CrosscriptCJKSansJP-Bold.ttf",
+      "sha256": "583082ca90dbab1bae493b34b4eea2472c4296aaeb6761ec93700afdec3092e4",
+      "sha3_256": "dcb19c43e94a4284d946d11062b3314ad98363ccc61d8eab4b0ea7c4acac1c1d",
+      "bytes": 5603056,
+      "license": "OFL-1.1",
+      "licensePath": "licenses/source-han-sans-OFL-1.1.txt",
+      "upstreamAdobe": {
+        "repository": "adobe-fonts/source-han-sans",
+        "ref": "a8b073bbf80f7226af03abeeb31e27017d5e3f67",
+        "path": "SubsetOTF/JP/SourceHanSansJP-Bold.otf",
+        "url": "https://raw.githubusercontent.com/adobe-fonts/source-han-sans/a8b073bbf80f7226af03abeeb31e27017d5e3f67/SubsetOTF/JP/SourceHanSansJP-Bold.otf",
+        "sha256": "19ef8a1611c0bc81a11661d685b65e472f5962c3ea5e0ba3cfd93f8f90b2c161",
+        "bytes": 4656796,
+        "gitBlobSHA1": "6b97e42e9d27aa1f24ab5e1cad21092336bc7273"
+      },
+      "exactConversionInput": {
+        "filename": "SourceHanSansJP-Bold.ttf",
+        "sha256": "e35443f4e468d7a038191c4bc5fc51bf7242bc12052eb427c07f00a1c3cec0fd",
+        "bytes": 5603068,
+        "releaseURL": "https://github.com/Pal3love/Source-Han-TrueType/releases/tag/2.004-2.003-1.002-R",
+        "archiveFilename": "SourceHanSansJP.zip",
+        "archiveSHA256": "c85620f92637fbf37d20adcf5dc33e912d72c9cf396ec000cb2b608afd857ef2",
+        "archiveEntry": "SourceHanSansJP-Bold.ttf"
+      },
+      "modification": "Identity-only name IDs 1,3,4,6 for every platform/language, table directory checksums, head.checksumAdjustment, and delivery filename. No new reserved names declared.",
+      "outputPath": "derivatives/assets/fonts/CrosscriptCJKSansJP-Bold.ttf"
+    },
+    {
+      "filename": "CrosscriptCJKSansJP-Regular.ttf",
+      "sha256": "de5eff05beb68d09387d33eb34e470900a48c85b1a9b3d6610898418360d7bf5",
+      "sha3_256": "95f8f4dee7ec1bde63b1ff51cfe40e988f9fa548437e7596ce3b3f932c0ba412",
+      "bytes": 5723984,
+      "license": "OFL-1.1",
+      "licensePath": "licenses/source-han-sans-OFL-1.1.txt",
+      "upstreamAdobe": {
+        "repository": "adobe-fonts/source-han-sans",
+        "ref": "a8b073bbf80f7226af03abeeb31e27017d5e3f67",
+        "path": "SubsetOTF/JP/SourceHanSansJP-Regular.otf",
+        "url": "https://raw.githubusercontent.com/adobe-fonts/source-han-sans/a8b073bbf80f7226af03abeeb31e27017d5e3f67/SubsetOTF/JP/SourceHanSansJP-Regular.otf",
+        "sha256": "b0a8d1b14bbea20d2b159ef87a3c6961def3dbe320c3a219c61166e4c0d015d3",
+        "bytes": 4533336,
+        "gitBlobSHA1": "d41b0861f5f5053e4c62fb8b9423d0dc53252896"
+      },
+      "exactConversionInput": {
+        "filename": "SourceHanSansJP-Regular.ttf",
+        "sha256": "4fb6ea21d30d3fe1751e590786950e9153bfc31e2669ac3528bd2f641b791d76",
+        "bytes": 5723960,
+        "releaseURL": "https://github.com/Pal3love/Source-Han-TrueType/releases/tag/2.004-2.003-1.002-R",
+        "archiveFilename": "SourceHanSansJP.zip",
+        "archiveSHA256": "c85620f92637fbf37d20adcf5dc33e912d72c9cf396ec000cb2b608afd857ef2",
+        "archiveEntry": "SourceHanSansJP-Regular.ttf"
+      },
+      "modification": "Identity-only name IDs 1,3,4,6 for every platform/language, table directory checksums, head.checksumAdjustment, and delivery filename. No new reserved names declared.",
+      "outputPath": "derivatives/assets/fonts/CrosscriptCJKSansJP-Regular.ttf"
+    },
+    {
+      "filename": "CrosscriptCJKSansKR-Bold.ttf",
+      "sha256": "88363234aadd0b0b491eb805436ffa493005fc5095f515ecda24354106da7ad3",
+      "sha3_256": "f7ed8e2544f8d6444a70f93f918901095d1979c53e6d6769153c7fa1273c26f6",
+      "bytes": 5858912,
+      "license": "OFL-1.1",
+      "licensePath": "licenses/source-han-sans-OFL-1.1.txt",
+      "upstreamAdobe": {
+        "repository": "adobe-fonts/source-han-sans",
+        "ref": "a8b073bbf80f7226af03abeeb31e27017d5e3f67",
+        "path": "SubsetOTF/KR/SourceHanSansKR-Bold.otf",
+        "url": "https://raw.githubusercontent.com/adobe-fonts/source-han-sans/a8b073bbf80f7226af03abeeb31e27017d5e3f67/SubsetOTF/KR/SourceHanSansKR-Bold.otf",
+        "sha256": "b264213545cbd7f2667dcb76392fbfe8e3e085780dd0a295df48cd658bd9d996",
+        "bytes": 4816376,
+        "gitBlobSHA1": "83bd61ef01dcf4382e77289dfcef3ecab683c320"
+      },
+      "exactConversionInput": {
+        "filename": "SourceHanSansKR-Bold.ttf",
+        "sha256": "51997e299785a2bc10806d95ff4fae0b1363caddea63c4e9fb43ee7d1dc899e0",
+        "bytes": 5858892,
+        "releaseURL": "https://github.com/Pal3love/Source-Han-TrueType/releases/tag/2.004-2.003-1.002-R",
+        "archiveFilename": "SourceHanSansKR.zip",
+        "archiveSHA256": "2b4caf54db91738f158692b5c18a026fb710c7884e16a8766f048f015571813d",
+        "archiveEntry": "SourceHanSansKR-Bold.ttf"
+      },
+      "modification": "Identity-only name IDs 1,3,4,6 for every platform/language, table directory checksums, head.checksumAdjustment, and delivery filename. No new reserved names declared.",
+      "outputPath": "derivatives/assets/fonts/CrosscriptCJKSansKR-Bold.ttf"
+    },
+    {
+      "filename": "CrosscriptCJKSansKR-Regular.ttf",
+      "sha256": "9447c30b9dfed20eccac7f53449f20a571987409be0cf1f971ee5cde2da8d1c7",
+      "sha3_256": "ad7a504190dad6cb75ec90af4155ac46d041c0ac16435c37006bb8278f0a3bad",
+      "bytes": 5961744,
+      "license": "OFL-1.1",
+      "licensePath": "licenses/source-han-sans-OFL-1.1.txt",
+      "upstreamAdobe": {
+        "repository": "adobe-fonts/source-han-sans",
+        "ref": "a8b073bbf80f7226af03abeeb31e27017d5e3f67",
+        "path": "SubsetOTF/KR/SourceHanSansKR-Regular.otf",
+        "url": "https://raw.githubusercontent.com/adobe-fonts/source-han-sans/a8b073bbf80f7226af03abeeb31e27017d5e3f67/SubsetOTF/KR/SourceHanSansKR-Regular.otf",
+        "sha256": "066a83ff2f4eefeeb780c2a47acec9d8518a5733a575188ac03cb9140aca78b0",
+        "bytes": 4645048,
+        "gitBlobSHA1": "6032f2cd54f04b1db85958b120643a2a0e86a07f"
+      },
+      "exactConversionInput": {
+        "filename": "SourceHanSansKR-Regular.ttf",
+        "sha256": "061c9a55b6b731af2a4667f06efb82ed7c80ba99d5350c1bba76f80472ea304f",
+        "bytes": 5961704,
+        "releaseURL": "https://github.com/Pal3love/Source-Han-TrueType/releases/tag/2.004-2.003-1.002-R",
+        "archiveFilename": "SourceHanSansKR.zip",
+        "archiveSHA256": "2b4caf54db91738f158692b5c18a026fb710c7884e16a8766f048f015571813d",
+        "archiveEntry": "SourceHanSansKR-Regular.ttf"
+      },
+      "modification": "Identity-only name IDs 1,3,4,6 for every platform/language, table directory checksums, head.checksumAdjustment, and delivery filename. No new reserved names declared.",
+      "outputPath": "derivatives/assets/fonts/CrosscriptCJKSansKR-Regular.ttf"
+    },
+    {
+      "filename": "CrosscriptCJKSansTW-Bold.ttf",
+      "sha256": "1be4b291c3fa987677c51e4964ab9796580d4da07cbec346c2cf4106c38586f4",
+      "sha3_256": "cf7e4732f67441f67a558ccf75f21c0dd7e896a0a8d8abe03b552ff4a339246a",
+      "bytes": 6883236,
+      "license": "OFL-1.1",
+      "licensePath": "licenses/source-han-sans-OFL-1.1.txt",
+      "upstreamAdobe": {
+        "repository": "adobe-fonts/source-han-sans",
+        "ref": "a8b073bbf80f7226af03abeeb31e27017d5e3f67",
+        "path": "SubsetOTF/TW/SourceHanSansTW-Bold.otf",
+        "url": "https://raw.githubusercontent.com/adobe-fonts/source-han-sans/a8b073bbf80f7226af03abeeb31e27017d5e3f67/SubsetOTF/TW/SourceHanSansTW-Bold.otf",
+        "sha256": "7ff4847cc92db5b57913e47ee6119226acd02c8004082ce436c9733041780ec7",
+        "bytes": 5840324,
+        "gitBlobSHA1": "ceadc7b614f1fb74eed6c4f354386b70b52c217c"
+      },
+      "exactConversionInput": {
+        "filename": "SourceHanSansTW-Bold.ttf",
+        "sha256": "4cb4a8b665ef687fbfa15f4e5d551296d820183c68a324fb2432c88fa441c1e4",
+        "bytes": 6883224,
+        "releaseURL": "https://github.com/Pal3love/Source-Han-TrueType/releases/tag/2.004-2.003-1.002-R",
+        "archiveFilename": "SourceHanSansTW.zip",
+        "archiveSHA256": "d48200de4b0fa8dfd6357f516d75db8141f61ffcb6b582cabd087123c8ed06bc",
+        "archiveEntry": "SourceHanSansTW-Bold.ttf"
+      },
+      "modification": "Identity-only name IDs 1,3,4,6 for every platform/language, table directory checksums, head.checksumAdjustment, and delivery filename. No new reserved names declared.",
+      "outputPath": "derivatives/assets/fonts/CrosscriptCJKSansTW-Bold.ttf"
+    },
+    {
+      "filename": "CrosscriptCJKSansTW-Regular.ttf",
+      "sha256": "c09b854872d554544521bca2fb725cfe9023339fa9c45db713de9698553f3b61",
+      "sha3_256": "45a7066bdd773354f8b6571c4a968b3e745616bcba4ba8885cc1b8c504008fd7",
+      "bytes": 7024848,
+      "license": "OFL-1.1",
+      "licensePath": "licenses/source-han-sans-OFL-1.1.txt",
+      "upstreamAdobe": {
+        "repository": "adobe-fonts/source-han-sans",
+        "ref": "a8b073bbf80f7226af03abeeb31e27017d5e3f67",
+        "path": "SubsetOTF/TW/SourceHanSansTW-Regular.otf",
+        "url": "https://raw.githubusercontent.com/adobe-fonts/source-han-sans/a8b073bbf80f7226af03abeeb31e27017d5e3f67/SubsetOTF/TW/SourceHanSansTW-Regular.otf",
+        "sha256": "3b00652fbffe1631be7afd927e4e1380d48be305595d1fb421e75215fc47f799",
+        "bytes": 5683684,
+        "gitBlobSHA1": "8aad166ac635acefd18f58a0ffc1a5db503b1632"
+      },
+      "exactConversionInput": {
+        "filename": "SourceHanSansTW-Regular.ttf",
+        "sha256": "e081fa19f3e92668c441c0e925ddc9ca35ed743d7c5d3308231a3c9a71302967",
+        "bytes": 7024812,
+        "releaseURL": "https://github.com/Pal3love/Source-Han-TrueType/releases/tag/2.004-2.003-1.002-R",
+        "archiveFilename": "SourceHanSansTW.zip",
+        "archiveSHA256": "d48200de4b0fa8dfd6357f516d75db8141f61ffcb6b582cabd087123c8ed06bc",
+        "archiveEntry": "SourceHanSansTW-Regular.ttf"
+      },
+      "modification": "Identity-only name IDs 1,3,4,6 for every platform/language, table directory checksums, head.checksumAdjustment, and delivery filename. No new reserved names declared.",
+      "outputPath": "derivatives/assets/fonts/CrosscriptCJKSansTW-Regular.ttf"
+    },
+    {
+      "filename": "CrosscriptCJKSerifCN-Bold.ttf",
+      "sha256": "baafe2c93762cfff25dc787596de314d4efaa732e3470f88fab0cd9627b91d2d",
+      "sha3_256": "92602a0737bfa6d52dd180e2a4790ae00c94a0b5a6fb7f6b25e5acd321c19e89",
+      "bytes": 14134164,
+      "license": "OFL-1.1",
+      "licensePath": "licenses/source-han-serif-OFL-1.1.txt",
+      "upstreamAdobe": {
+        "repository": "adobe-fonts/source-han-serif",
+        "ref": "7889f11bf31170b5d092a083b357c8c8130f89e0",
+        "path": "SubsetOTF/CN/SourceHanSerifCN-Bold.otf",
+        "url": "https://raw.githubusercontent.com/adobe-fonts/source-han-serif/7889f11bf31170b5d092a083b357c8c8130f89e0/SubsetOTF/CN/SourceHanSerifCN-Bold.otf",
+        "sha256": "4ee555ae58b3d22f6a95c2c494f2c36b7cccfc1d2224635f6461a03756f0e3c1",
+        "bytes": 12094680,
+        "gitBlobSHA1": "f8528fae3e7790e4e9a7660841590181826be5a1"
+      },
+      "exactConversionInput": {
+        "filename": "SourceHanSerifCN-Bold.ttf",
+        "sha256": "fafd6dc09a0ba3be1ac224aec3ff0befab97964c4ffba6b16f789702106577aa",
+        "bytes": 14134156,
+        "releaseURL": "https://github.com/Pal3love/Source-Han-TrueType/releases/tag/2.004-2.003-1.002-R",
+        "archiveFilename": "SourceHanSerifCN.zip",
+        "archiveSHA256": "16c66c72abe3f733a1be81ff37ef5923f6ff63dae1ac37dc43da57f54b536c39",
+        "archiveEntry": "SourceHanSerifCN-Bold.ttf"
+      },
+      "modification": "Identity-only name IDs 1,3,4,6 for every platform/language, table directory checksums, head.checksumAdjustment, and delivery filename. No new reserved names declared.",
+      "outputPath": "derivatives/assets/fonts/CrosscriptCJKSerifCN-Bold.ttf"
+    },
+    {
+      "filename": "CrosscriptCJKSerifCN-Regular.ttf",
+      "sha256": "e6fb93964026edf11b1a72446bc86e73b87a11f9875f6feb73565b6a4823d466",
+      "sha3_256": "f4fc8b9fc3cbe5f4cb62895d5bcd8a95442710af386d7a9509ddf2528ef09c70",
+      "bytes": 14047804,
+      "license": "OFL-1.1",
+      "licensePath": "licenses/source-han-serif-OFL-1.1.txt",
+      "upstreamAdobe": {
+        "repository": "adobe-fonts/source-han-serif",
+        "ref": "7889f11bf31170b5d092a083b357c8c8130f89e0",
+        "path": "SubsetOTF/CN/SourceHanSerifCN-Regular.otf",
+        "url": "https://raw.githubusercontent.com/adobe-fonts/source-han-serif/7889f11bf31170b5d092a083b357c8c8130f89e0/SubsetOTF/CN/SourceHanSerifCN-Regular.otf",
+        "sha256": "3754ea669c530e2473354f8f6d9f79680a44d7e26ec7d00eeabee4a7e0753c5d",
+        "bytes": 11626108,
+        "gitBlobSHA1": "a4feb5f2461886dbf9cfe575974f0a68940c6bf9"
+      },
+      "exactConversionInput": {
+        "filename": "SourceHanSerifCN-Regular.ttf",
+        "sha256": "8ba5ec09db04b1d1599edeff3fb5627ca11eaaf85e339e5c32684cb94e806993",
+        "bytes": 14047768,
+        "releaseURL": "https://github.com/Pal3love/Source-Han-TrueType/releases/tag/2.004-2.003-1.002-R",
+        "archiveFilename": "SourceHanSerifCN.zip",
+        "archiveSHA256": "16c66c72abe3f733a1be81ff37ef5923f6ff63dae1ac37dc43da57f54b536c39",
+        "archiveEntry": "SourceHanSerifCN-Regular.ttf"
+      },
+      "modification": "Identity-only name IDs 1,3,4,6 for every platform/language, table directory checksums, head.checksumAdjustment, and delivery filename. No new reserved names declared.",
+      "outputPath": "derivatives/assets/fonts/CrosscriptCJKSerifCN-Regular.ttf"
+    },
+    {
+      "filename": "CrosscriptCJKSerifHK-Bold.ttf",
+      "sha256": "fe4cce701e09dbfc46b984cf15e1148f89dfd4778e64a1cfbbd4ec0d72b6b498",
+      "sha3_256": "7e82c1ada3920a4fa6351029eec88b07fac361d127a89f8112db6b1d0a44b832",
+      "bytes": 9532588,
+      "license": "OFL-1.1",
+      "licensePath": "licenses/source-han-serif-OFL-1.1.txt",
+      "upstreamAdobe": {
+        "repository": "adobe-fonts/source-han-serif",
+        "ref": "7889f11bf31170b5d092a083b357c8c8130f89e0",
+        "path": "SubsetOTF/HK/SourceHanSerifHK-Bold.otf",
+        "url": "https://raw.githubusercontent.com/adobe-fonts/source-han-serif/7889f11bf31170b5d092a083b357c8c8130f89e0/SubsetOTF/HK/SourceHanSerifHK-Bold.otf",
+        "sha256": "87b819d623e00ea9cbbcfef9656e714da16a887efedb1347ed567afaa8e0fefb",
+        "bytes": 8232260,
+        "gitBlobSHA1": "4e48323190e8bc3b18819928be80caf447f304e7"
+      },
+      "exactConversionInput": {
+        "filename": "SourceHanSerifHK-Bold.ttf",
+        "sha256": "52698377eb509bb60271fec92a26045f055958af7ace4c332eee2dfe1754776d",
+        "bytes": 9532580,
+        "releaseURL": "https://github.com/Pal3love/Source-Han-TrueType/releases/tag/2.004-2.003-1.002-R",
+        "archiveFilename": "SourceHanSerifHK.zip",
+        "archiveSHA256": "00b790df2983137eeb002a700ded2d46ffcb9477698348d7d02cd153120addf2",
+        "archiveEntry": "SourceHanSerifHK-Bold.ttf"
+      },
+      "modification": "Identity-only name IDs 1,3,4,6 for every platform/language, table directory checksums, head.checksumAdjustment, and delivery filename. No new reserved names declared.",
+      "outputPath": "derivatives/assets/fonts/CrosscriptCJKSerifHK-Bold.ttf"
+    },
+    {
+      "filename": "CrosscriptCJKSerifHK-Regular.ttf",
+      "sha256": "9c8fefea5dbf5111b6254b9c113aeead71e5ffcefad12d613364265a8f6bcc06",
+      "sha3_256": "0c60cbdcd166279670f44bf3e739f95c74cc8795b6a022377c414a8f2de50d0b",
+      "bytes": 9467328,
+      "license": "OFL-1.1",
+      "licensePath": "licenses/source-han-serif-OFL-1.1.txt",
+      "upstreamAdobe": {
+        "repository": "adobe-fonts/source-han-serif",
+        "ref": "7889f11bf31170b5d092a083b357c8c8130f89e0",
+        "path": "SubsetOTF/HK/SourceHanSerifHK-Regular.otf",
+        "url": "https://raw.githubusercontent.com/adobe-fonts/source-han-serif/7889f11bf31170b5d092a083b357c8c8130f89e0/SubsetOTF/HK/SourceHanSerifHK-Regular.otf",
+        "sha256": "32642218af3857b10dbffe3cc683a8d9a2906d20a45c1e31c2501e684520a115",
+        "bytes": 7913068,
+        "gitBlobSHA1": "d12e800c666359a1c3d96e7d9132fd723788bbc7"
+      },
+      "exactConversionInput": {
+        "filename": "SourceHanSerifHK-Regular.ttf",
+        "sha256": "cf43b8a00e3e7e35c5e3d7d8d05dd2d21aeaaa386f0c4fa6665c29a11ea01b73",
+        "bytes": 9467292,
+        "releaseURL": "https://github.com/Pal3love/Source-Han-TrueType/releases/tag/2.004-2.003-1.002-R",
+        "archiveFilename": "SourceHanSerifHK.zip",
+        "archiveSHA256": "00b790df2983137eeb002a700ded2d46ffcb9477698348d7d02cd153120addf2",
+        "archiveEntry": "SourceHanSerifHK-Regular.ttf"
+      },
+      "modification": "Identity-only name IDs 1,3,4,6 for every platform/language, table directory checksums, head.checksumAdjustment, and delivery filename. No new reserved names declared.",
+      "outputPath": "derivatives/assets/fonts/CrosscriptCJKSerifHK-Regular.ttf"
+    },
+    {
+      "filename": "CrosscriptCJKSerifJP-Bold.ttf",
+      "sha256": "e68684445de14a717d848ce771041d1bf0748e9426d3fe86a371f62b9e8ee9f3",
+      "sha3_256": "54cdffb9bb609f8246d65cc0417e7e2df4124bc553294ebf5126013b1165fc59",
+      "bytes": 7811840,
+      "license": "OFL-1.1",
+      "licensePath": "licenses/source-han-serif-OFL-1.1.txt",
+      "upstreamAdobe": {
+        "repository": "adobe-fonts/source-han-serif",
+        "ref": "7889f11bf31170b5d092a083b357c8c8130f89e0",
+        "path": "SubsetOTF/JP/SourceHanSerifJP-Bold.otf",
+        "url": "https://raw.githubusercontent.com/adobe-fonts/source-han-serif/7889f11bf31170b5d092a083b357c8c8130f89e0/SubsetOTF/JP/SourceHanSerifJP-Bold.otf",
+        "sha256": "13473d3c1cf1fdb0e08d5e5e093cf9fc57d3e59d9d13cf7f6369615bf96397ee",
+        "bytes": 6479516,
+        "gitBlobSHA1": "7b823e1f9dac9a65481aa28329053c0083eafbe8"
+      },
+      "exactConversionInput": {
+        "filename": "SourceHanSerifJP-Bold.ttf",
+        "sha256": "cbd7e67a0bc51b2da1d962a0de9a7745ad99a40a22febf6c56666119d21bfabe",
+        "bytes": 7811832,
+        "releaseURL": "https://github.com/Pal3love/Source-Han-TrueType/releases/tag/2.004-2.003-1.002-R",
+        "archiveFilename": "SourceHanSerifJP.zip",
+        "archiveSHA256": "394dd385c4084e7b08f736b9789170c849fe558d086c422c232e28e68968e189",
+        "archiveEntry": "SourceHanSerifJP-Bold.ttf"
+      },
+      "modification": "Identity-only name IDs 1,3,4,6 for every platform/language, table directory checksums, head.checksumAdjustment, and delivery filename. No new reserved names declared.",
+      "outputPath": "derivatives/assets/fonts/CrosscriptCJKSerifJP-Bold.ttf"
+    },
+    {
+      "filename": "CrosscriptCJKSerifJP-Regular.ttf",
+      "sha256": "d8a5b8be7e9ef42ccc3159f978808e15f2a530cd5216f4f15af029f8b36534d6",
+      "sha3_256": "93cbdc6a760409f09fe6f1d36a5ca209f05064562ec32dd047f3eed7a9c6836c",
+      "bytes": 7748852,
+      "license": "OFL-1.1",
+      "licensePath": "licenses/source-han-serif-OFL-1.1.txt",
+      "upstreamAdobe": {
+        "repository": "adobe-fonts/source-han-serif",
+        "ref": "7889f11bf31170b5d092a083b357c8c8130f89e0",
+        "path": "SubsetOTF/JP/SourceHanSerifJP-Regular.otf",
+        "url": "https://raw.githubusercontent.com/adobe-fonts/source-han-serif/7889f11bf31170b5d092a083b357c8c8130f89e0/SubsetOTF/JP/SourceHanSerifJP-Regular.otf",
+        "sha256": "e5f502bb193c28829895b098498f0f9dd8f658c760b0f83656ad41c1137a8785",
+        "bytes": 6210796,
+        "gitBlobSHA1": "9bc2582e3f65dbc5344903a22cfd201fe61b3095"
+      },
+      "exactConversionInput": {
+        "filename": "SourceHanSerifJP-Regular.ttf",
+        "sha256": "3f3ecec06d2cfa6a9eb57469f75c7f551c4281741465e8eb1d6953f22abe453c",
+        "bytes": 7748816,
+        "releaseURL": "https://github.com/Pal3love/Source-Han-TrueType/releases/tag/2.004-2.003-1.002-R",
+        "archiveFilename": "SourceHanSerifJP.zip",
+        "archiveSHA256": "394dd385c4084e7b08f736b9789170c849fe558d086c422c232e28e68968e189",
+        "archiveEntry": "SourceHanSerifJP-Regular.ttf"
+      },
+      "modification": "Identity-only name IDs 1,3,4,6 for every platform/language, table directory checksums, head.checksumAdjustment, and delivery filename. No new reserved names declared.",
+      "outputPath": "derivatives/assets/fonts/CrosscriptCJKSerifJP-Regular.ttf"
+    },
+    {
+      "filename": "CrosscriptCJKSerifKR-Bold.ttf",
+      "sha256": "c11ff0ab44964b8b98ccb63e1b1787dd4826f2966e4d7d3bbe60c34222c698cf",
+      "sha3_256": "6440823f05b1d08d0a423b94c6fce376149c78187204ac9a74e98db67bb38ead",
+      "bytes": 12387936,
+      "license": "OFL-1.1",
+      "licensePath": "licenses/source-han-serif-OFL-1.1.txt",
+      "upstreamAdobe": {
+        "repository": "adobe-fonts/source-han-serif",
+        "ref": "7889f11bf31170b5d092a083b357c8c8130f89e0",
+        "path": "SubsetOTF/KR/SourceHanSerifKR-Bold.otf",
+        "url": "https://raw.githubusercontent.com/adobe-fonts/source-han-serif/7889f11bf31170b5d092a083b357c8c8130f89e0/SubsetOTF/KR/SourceHanSerifKR-Bold.otf",
+        "sha256": "2856453de29abbc2f1fdffc6b45fec88167ed204e8ae9bc8c4bd0475b4d9a7dc",
+        "bytes": 7910576,
+        "gitBlobSHA1": "bdccb8a2d08c678e6a8b2b37983d4315270b4e1e"
+      },
+      "exactConversionInput": {
+        "filename": "SourceHanSerifKR-Bold.ttf",
+        "sha256": "1e04d390823d458fc850f48d8fe6da19b55525249a5e63dded5690c288e138e1",
+        "bytes": 12387920,
+        "releaseURL": "https://github.com/Pal3love/Source-Han-TrueType/releases/tag/2.004-2.003-1.002-R",
+        "archiveFilename": "SourceHanSerifKR.zip",
+        "archiveSHA256": "be67807c401b3e2a6e9358b52976ff6a09333b62206f858fce159f158f37e0ec",
+        "archiveEntry": "SourceHanSerifKR-Bold.ttf"
+      },
+      "modification": "Identity-only name IDs 1,3,4,6 for every platform/language, table directory checksums, head.checksumAdjustment, and delivery filename. No new reserved names declared.",
+      "outputPath": "derivatives/assets/fonts/CrosscriptCJKSerifKR-Bold.ttf"
+    },
+    {
+      "filename": "CrosscriptCJKSerifKR-Regular.ttf",
+      "sha256": "35d98cbbfc801e5480e47317b5f091a2126c3a4b948a70f828c8d56163e38b7c",
+      "sha3_256": "d265cbe551b7ce96000b5715314f4e92cf577a049d24a69e7b3b826ec6fffff1",
+      "bytes": 12459964,
+      "license": "OFL-1.1",
+      "licensePath": "licenses/source-han-serif-OFL-1.1.txt",
+      "upstreamAdobe": {
+        "repository": "adobe-fonts/source-han-serif",
+        "ref": "7889f11bf31170b5d092a083b357c8c8130f89e0",
+        "path": "SubsetOTF/KR/SourceHanSerifKR-Regular.otf",
+        "url": "https://raw.githubusercontent.com/adobe-fonts/source-han-serif/7889f11bf31170b5d092a083b357c8c8130f89e0/SubsetOTF/KR/SourceHanSerifKR-Regular.otf",
+        "sha256": "b2b310255186ce92de2909f96522b9183a9f6c323dbe5663f205f02d6ece08b7",
+        "bytes": 7669328,
+        "gitBlobSHA1": "086ff74178a9ca02b86d36d4ef5c50c9fa281b61"
+      },
+      "exactConversionInput": {
+        "filename": "SourceHanSerifKR-Regular.ttf",
+        "sha256": "140861eba42585f3280a47d4c5199449386b0f986c7ab2c67fd5aa1615bb15d7",
+        "bytes": 12459924,
+        "releaseURL": "https://github.com/Pal3love/Source-Han-TrueType/releases/tag/2.004-2.003-1.002-R",
+        "archiveFilename": "SourceHanSerifKR.zip",
+        "archiveSHA256": "be67807c401b3e2a6e9358b52976ff6a09333b62206f858fce159f158f37e0ec",
+        "archiveEntry": "SourceHanSerifKR-Regular.ttf"
+      },
+      "modification": "Identity-only name IDs 1,3,4,6 for every platform/language, table directory checksums, head.checksumAdjustment, and delivery filename. No new reserved names declared.",
+      "outputPath": "derivatives/assets/fonts/CrosscriptCJKSerifKR-Regular.ttf"
+    },
+    {
+      "filename": "CrosscriptCJKSerifTW-Bold.ttf",
+      "sha256": "5dab371289b9efcce910157bfa952044db3a6b61564b9711ef49c49682600a62",
+      "sha3_256": "90d63fad55d506777be5e00e0ede9ceab4787afc3ca507c0edd67d3958002557",
+      "bytes": 9551732,
+      "license": "OFL-1.1",
+      "licensePath": "licenses/source-han-serif-OFL-1.1.txt",
+      "upstreamAdobe": {
+        "repository": "adobe-fonts/source-han-serif",
+        "ref": "7889f11bf31170b5d092a083b357c8c8130f89e0",
+        "path": "SubsetOTF/TW/SourceHanSerifTW-Bold.otf",
+        "url": "https://raw.githubusercontent.com/adobe-fonts/source-han-serif/7889f11bf31170b5d092a083b357c8c8130f89e0/SubsetOTF/TW/SourceHanSerifTW-Bold.otf",
+        "sha256": "b5b9bdb1a0d938ddb665e09c5b84161410ec4ea13e546d14e6f551f6860df474",
+        "bytes": 8253648,
+        "gitBlobSHA1": "337ba4e17502691c63a17f657e5a55d7a20fcd2a"
+      },
+      "exactConversionInput": {
+        "filename": "SourceHanSerifTW-Bold.ttf",
+        "sha256": "a4d7ad443bccb130decc358cfbf3fea92d66cae22113cc9ac26c0200ed91b7cb",
+        "bytes": 9551724,
+        "releaseURL": "https://github.com/Pal3love/Source-Han-TrueType/releases/tag/2.004-2.003-1.002-R",
+        "archiveFilename": "SourceHanSerifTW.zip",
+        "archiveSHA256": "1c2f8bf47e0847fa8b07760ab4277b56db2e080a4dfef61958db68d68243c3e6",
+        "archiveEntry": "SourceHanSerifTW-Bold.ttf"
+      },
+      "modification": "Identity-only name IDs 1,3,4,6 for every platform/language, table directory checksums, head.checksumAdjustment, and delivery filename. No new reserved names declared.",
+      "outputPath": "derivatives/assets/fonts/CrosscriptCJKSerifTW-Bold.ttf"
+    },
+    {
+      "filename": "CrosscriptCJKSerifTW-Regular.ttf",
+      "sha256": "efb96da9c5a2f40c57d5e120827450be7dce01dca98cb26f628a93045a4fb522",
+      "sha3_256": "864be22b74ea703a22b2c65b440fff46fe62c771daf9090984b31226c770316f",
+      "bytes": 9486808,
+      "license": "OFL-1.1",
+      "licensePath": "licenses/source-han-serif-OFL-1.1.txt",
+      "upstreamAdobe": {
+        "repository": "adobe-fonts/source-han-serif",
+        "ref": "7889f11bf31170b5d092a083b357c8c8130f89e0",
+        "path": "SubsetOTF/TW/SourceHanSerifTW-Regular.otf",
+        "url": "https://raw.githubusercontent.com/adobe-fonts/source-han-serif/7889f11bf31170b5d092a083b357c8c8130f89e0/SubsetOTF/TW/SourceHanSerifTW-Regular.otf",
+        "sha256": "45f730307894dbe594366ed022efee4f9c4dcc0f41dc5db87c9ef8b8c0588bde",
+        "bytes": 7936412,
+        "gitBlobSHA1": "86104096ee81431fc385ee556fc1e7ba6b51086f"
+      },
+      "exactConversionInput": {
+        "filename": "SourceHanSerifTW-Regular.ttf",
+        "sha256": "53b849ebd349db18bf574e3cbb1307c903cc036b98ff009e3f445632b7e09a7f",
+        "bytes": 9486772,
+        "releaseURL": "https://github.com/Pal3love/Source-Han-TrueType/releases/tag/2.004-2.003-1.002-R",
+        "archiveFilename": "SourceHanSerifTW.zip",
+        "archiveSHA256": "1c2f8bf47e0847fa8b07760ab4277b56db2e080a4dfef61958db68d68243c3e6",
+        "archiveEntry": "SourceHanSerifTW-Regular.ttf"
+      },
+      "modification": "Identity-only name IDs 1,3,4,6 for every platform/language, table directory checksums, head.checksumAdjustment, and delivery filename. No new reserved names declared.",
+      "outputPath": "derivatives/assets/fonts/CrosscriptCJKSerifTW-Regular.ttf"
+    }
+  ]
+}

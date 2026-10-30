@@ -1,0 +1,142 @@
+{
+  "schema": "crosscript-bundled-runtime-v1",
+  "runtimeID": "babeldoc-0.6.4-py312-20261029-arm64-crosscript-v3",
+  "originManifestSHA256": "2b687bb41fc1823e206cde657df54c5dbe4051e4ab33ce9e2ceed66296023dee",
+  "manifestSHA256": "2fce7f0f1a5c1ef758d59e6ae7b529e8d953920baed9f6561f71a3ec2aeea64b",
+  "bundledArtifacts": [
+    {
+      "filename": "babeldoc-0.6.4-1crosscriptfonts-py3-none-any.whl",
+      "sha256": "4250d0bb98a2079644fce4129e9f9352b559c6848dcf9fe4aab9927cc1656e63",
+      "bytes": 6112243,
+      "url": "bundle://pdf/Bundled/babeldoc-0.6.4-1crosscriptfonts-py3-none-any.whl"
+    },
+    {
+      "filename": "opencv_python_headless-5.0.0.93-3crosscriptopenssl-cp37-abi3-macosx_14_0_arm64.whl",
+      "sha256": "4f8048e641ec2a06c70e1e092cd4271ebd5cf94d9311b3125992dcc5efa8638d",
+      "bytes": 48569693,
+      "url": "bundle://pdf/Bundled/opencv_python_headless-5.0.0.93-3crosscriptopenssl-cp37-abi3-macosx_14_0_arm64.whl"
+    },
+    {
+      "filename": "CrosscriptCJKSansCN-Bold.ttf",
+      "sha256": "92891aef442d663b1505b030d77f0e41f5720fa10aaa0b5de3c3984b8345b790",
+      "bytes": 10174472,
+      "url": "bundle://pdf/Bundled/CrosscriptCJKSansCN-Bold.ttf"
+    },
+    {
+      "filename": "CrosscriptCJKSansCN-Regular.ttf",
+      "sha256": "c8d20ec7bf18c31e3c43e48a5752195c0a89c4f14321d3d40ab87914c74d2826",
+      "bytes": 10397588,
+      "url": "bundle://pdf/Bundled/CrosscriptCJKSansCN-Regular.ttf"
+    },
+    {
+      "filename": "CrosscriptCJKSansHK-Bold.ttf",
+      "sha256": "2cda42aa51c3ab70c29178a65ac5352c15b4bd729cb381f6dd82906fe1102a3a",
+      "bytes": 6856704,
+      "url": "bundle://pdf/Bundled/CrosscriptCJKSansHK-Bold.ttf"
+    },
+    {
+      "filename": "CrosscriptCJKSansHK-Regular.ttf",
+      "sha256": "53e9e44c74e4c619bdd5c27ce942c7ae37deaba2a14530b712815587f86ca73f",
+      "bytes": 6999828,
+      "url": "bundle://pdf/Bundled/CrosscriptCJKSansHK-Regular.ttf"
+    },
+    {
+      "filename": "CrosscriptCJKSansJP-Bold.ttf",
+      "sha256": "583082ca90dbab1bae493b34b4eea2472c4296aaeb6761ec93700afdec3092e4",
+      "bytes": 5603056,
+      "url": "bundle://pdf/Bundled/CrosscriptCJKSansJP-Bold.ttf"
+    },
+    {
+      "filename": "CrosscriptCJKSansJP-Regular.ttf",
+      "sha256": "de5eff05beb68d09387d33eb34e470900a48c85b1a9b3d6610898418360d7bf5",
+      "bytes": 5723984,
+      "url": "bundle://pdf/Bundled/CrosscriptCJKSansJP-Regular.ttf"
+    },
+    {
+      "filename": "CrosscriptCJKSansKR-Bold.ttf",
+      "sha256": "88363234aadd0b0b491eb805436ffa493005fc5095f515ecda24354106da7ad3",
+      "bytes": 5858912,
+      "url": "bundle://pdf/Bundled/CrosscriptCJKSansKR-Bold.ttf"
+    },
+    {
+      "filename": "CrosscriptCJKSansKR-Regular.ttf",
+      "sha256": "9447c30b9dfed20eccac7f53449f20a571987409be0cf1f971ee5cde2da8d1c7",
+      "bytes": 5961744,
+      "url": "bundle://pdf/Bundled/CrosscriptCJKSansKR-Regular.ttf"
+    },
+    {
+      "filename": "CrosscriptCJKSansTW-Bold.ttf",
+      "sha256": "1be4b291c3fa987677c51e4964ab9796580d4da07cbec346c2cf4106c38586f4",
+      "bytes": 6883236,
+      "url": "bundle://pdf/Bundled/CrosscriptCJKSansTW-Bold.ttf"
+    },
+    {
+      "filename": "CrosscriptCJKSansTW-Regular.ttf",
+      "sha256": "c09b854872d554544521bca2fb725cfe9023339fa9c45db713de9698553f3b61",
+      "bytes": 7024848,
+      "url": "bundle://pdf/Bundled/CrosscriptCJKSansTW-Regular.ttf"
+    },
+    {
+      "filename": "CrosscriptCJKSerifCN-Bold.ttf",
+      "sha256": "baafe2c93762cfff25dc787596de314d4efaa732e3470f88fab0cd9627b91d2d",
+      "bytes": 14134164,
+      "url": "bundle://pdf/Bundled/CrosscriptCJKSerifCN-Bold.ttf"
+    },
+    {
+      "filename": "CrosscriptCJKSerifCN-Regular.ttf",
+      "sha256": "e6fb93964026edf11b1a72446bc86e73b87a11f9875f6feb73565b6a4823d466",
+      "bytes": 14047804,
+      "url": "bundle://pdf/Bundled/CrosscriptCJKSerifCN-Regular.ttf"
+    },
+    {
+      "filename": "CrosscriptCJKSerifHK-Bold.ttf",
+      "sha256": "fe4cce701e09dbfc46b984cf15e1148f89dfd4778e64a1cfbbd4ec0d72b6b498",
+      "bytes": 9532588,
+      "url": "bundle://pdf/Bundled/CrosscriptCJKSerifHK-Bold.ttf"
+    },
+    {
+      "filename": "CrosscriptCJKSerifHK-Regular.ttf",
+      "sha256": "9c8fefea5dbf5111b6254b9c113aeead71e5ffcefad12d613364265a8f6bcc06",
+      "bytes": 9467328,
+      "url": "bundle://pdf/Bundled/CrosscriptCJKSerifHK-Regular.ttf"
+    },
+    {
+      "filename": "CrosscriptCJKSerifJP-Bold.ttf",
+      "sha256": "e68684445de14a717d848ce771041d1bf0748e9426d3fe86a371f62b9e8ee9f3",
+      "bytes": 7811840,
+      "url": "bundle://pdf/Bundled/CrosscriptCJKSerifJP-Bold.ttf"
+    },
+    {
+      "filename": "CrosscriptCJKSerifJP-Regular.ttf",
+      "sha256": "d8a5b8be7e9ef42ccc3159f978808e15f2a530cd5216f4f15af029f8b36534d6",
+      "bytes": 7748852,
+      "url": "bundle://pdf/Bundled/CrosscriptCJKSerifJP-Regular.ttf"
+    },
+    {
+      "filename": "CrosscriptCJKSerifKR-Bold.ttf",
+      "sha256": "c11ff0ab44964b8b98ccb63e1b1787dd4826f2966e4d7d3bbe60c34222c698cf",
+      "bytes": 12387936,
+      "url": "bundle://pdf/Bundled/CrosscriptCJKSerifKR-Bold.ttf"
+    },
+    {
+      "filename": "CrosscriptCJKSerifKR-Regular.ttf",
+      "sha256": "35d98cbbfc801e5480e47317b5f091a2126c3a4b948a70f828c8d56163e38b7c",
+      "bytes": 12459964,
+      "url": "bundle://pdf/Bundled/CrosscriptCJKSerifKR-Regular.ttf"
+    },
+    {
+      "filename": "CrosscriptCJKSerifTW-Bold.ttf",
+      "sha256": "5dab371289b9efcce910157bfa952044db3a6b61564b9711ef49c49682600a62",
+      "bytes": 9551732,
+      "url": "bundle://pdf/Bundled/CrosscriptCJKSerifTW-Bold.ttf"
+    },
+    {
+      "filename": "CrosscriptCJKSerifTW-Regular.ttf",
+      "sha256": "efb96da9c5a2f40c57d5e120827450be7dce01dca98cb26f628a93045a4fb522",
+      "bytes": 9486808,
+      "url": "bundle://pdf/Bundled/CrosscriptCJKSerifTW-Regular.ttf"
+    }
+  ],
+  "artifactCount": 267,
+  "networkArtifactCount": 245
+}

@@ -1,0 +1,803 @@
+{
+  "engine": "0.6.4",
+  "sha": "17480db9df92ddcb37349ce34b312335226e8ec9",
+  "cli": [
+    {
+      "flags": [
+        "-c",
+        "--config"
+      ],
+      "is_config_file": "True",
+      "help": "'config file path'"
+    },
+    {
+      "flags": [
+        "--version"
+      ],
+      "action": "'version'",
+      "version": "f'%(prog)s {__version__}'"
+    },
+    {
+      "flags": [
+        "--files"
+      ],
+      "action": "'append'",
+      "help": "'One or more paths to PDF files.'"
+    },
+    {
+      "flags": [
+        "--debug"
+      ],
+      "action": "'store_true'",
+      "help": "'Use debug logging level.'"
+    },
+    {
+      "flags": [
+        "--warmup"
+      ],
+      "action": "'store_true'",
+      "help": "'Only download and verify required assets then exit.'"
+    },
+    {
+      "flags": [
+        "--rpc-doclayout"
+      ],
+      "help": "'RPC service host address for document layout analysis'"
+    },
+    {
+      "flags": [
+        "--rpc-doclayout2"
+      ],
+      "help": "'RPC service host address for document layout analysis'"
+    },
+    {
+      "flags": [
+        "--rpc-doclayout3"
+      ],
+      "help": "'RPC service host address for document layout analysis'"
+    },
+    {
+      "flags": [
+        "--rpc-doclayout4"
+      ],
+      "help": "'RPC service host address for document layout analysis'"
+    },
+    {
+      "flags": [
+        "--rpc-doclayout5"
+      ],
+      "help": "'RPC service host address for document layout analysis'"
+    },
+    {
+      "flags": [
+        "--rpc-doclayout6"
+      ],
+      "help": "'RPC service host address for document layout analysis'"
+    },
+    {
+      "flags": [
+        "--rpc-doclayout7"
+      ],
+      "help": "'RPC service host address for document layout analysis'"
+    },
+    {
+      "flags": [
+        "--generate-offline-assets"
+      ],
+      "default": "None",
+      "help": "'Generate offline assets package in the specified directory'"
+    },
+    {
+      "flags": [
+        "--restore-offline-assets"
+      ],
+      "default": "None",
+      "help": "'Restore offline assets package from the specified file'"
+    },
+    {
+      "flags": [
+        "--working-dir"
+      ],
+      "default": "None",
+      "help": "'Working directory for translation. If not set, use temp directory.'"
+    },
+    {
+      "flags": [
+        "--metadata-extra-data"
+      ],
+      "default": "None",
+      "help": "'Extra data for metadata'"
+    },
+    {
+      "flags": [
+        "--enable-process-pool"
+      ],
+      "action": "'store_true'",
+      "help": "'DEBUG ONLY'"
+    },
+    {
+      "flags": [
+        "--pages",
+        "-p"
+      ],
+      "help": "'Pages to translate. If not set, translate all pages. like: 1,2,1-,-3,3-5'"
+    },
+    {
+      "flags": [
+        "--min-text-length"
+      ],
+      "type": "int",
+      "default": "5",
+      "help": "'Minimum text length to translate (default: 5)'"
+    },
+    {
+      "flags": [
+        "--lang-in",
+        "-li"
+      ],
+      "default": "'en'",
+      "help": "'The code of source language.'"
+    },
+    {
+      "flags": [
+        "--lang-out",
+        "-lo"
+      ],
+      "default": "'zh'",
+      "help": "'The code of target language.'"
+    },
+    {
+      "flags": [
+        "--output",
+        "-o"
+      ],
+      "help": "'Output directory for files. if not set, use same as input.'"
+    },
+    {
+      "flags": [
+        "--qps",
+        "-q"
+      ],
+      "type": "int",
+      "default": "4",
+      "help": "'QPS limit of translation service'"
+    },
+    {
+      "flags": [
+        "--ignore-cache"
+      ],
+      "action": "'store_true'",
+      "help": "'Ignore translation cache.'"
+    },
+    {
+      "flags": [
+        "--no-dual"
+      ],
+      "action": "'store_true'",
+      "help": "'Do not output bilingual PDF files'"
+    },
+    {
+      "flags": [
+        "--no-mono"
+      ],
+      "action": "'store_true'",
+      "help": "'Do not output monolingual PDF files'"
+    },
+    {
+      "flags": [
+        "--formular-font-pattern"
+      ],
+      "help": "'Font pattern to identify formula text'"
+    },
+    {
+      "flags": [
+        "--formular-char-pattern"
+      ],
+      "help": "'Character pattern to identify formula text'"
+    },
+    {
+      "flags": [
+        "--split-short-lines"
+      ],
+      "action": "'store_true'",
+      "help": "'Force split short lines into different paragraphs (may cause poor typesetting & bugs)'"
+    },
+    {
+      "flags": [
+        "--short-line-split-factor"
+      ],
+      "type": "float",
+      "default": "0.8",
+      "help": "'Split threshold factor. The actual threshold is the median length of all lines on the current page * this factor'"
+    },
+    {
+      "flags": [
+        "--skip-clean"
+      ],
+      "action": "'store_true'",
+      "help": "'Skip PDF cleaning step'"
+    },
+    {
+      "flags": [
+        "--dual-translate-first"
+      ],
+      "action": "'store_true'",
+      "help": "'Put translated pages first in dual PDF mode'"
+    },
+    {
+      "flags": [
+        "--disable-rich-text-translate"
+      ],
+      "action": "'store_true'",
+      "help": "'Disable rich text translation (may help improve compatibility with some PDFs)'"
+    },
+    {
+      "flags": [
+        "--enhance-compatibility"
+      ],
+      "action": "'store_true'",
+      "help": "'Enable all compatibility enhancement options (equivalent to --skip-clean --dual-translate-first --disable-rich-text-translate)'"
+    },
+    {
+      "flags": [
+        "--use-alternating-pages-dual"
+      ],
+      "action": "'store_true'",
+      "help": "'Use alternating pages mode for dual PDF. When enabled, original and translated pages are arranged in alternate order.'"
+    },
+    {
+      "flags": [
+        "--watermark-output-mode"
+      ],
+      "type": "str",
+      "choices": "['watermarked', 'no_watermark', 'both']",
+      "default": "'watermarked'",
+      "help": "\"Control watermark output mode: 'watermarked' (default) adds watermark to translated PDF, 'no_watermark' doesn't add watermark, 'both' outputs both versions.\""
+    },
+    {
+      "flags": [
+        "--max-pages-per-part"
+      ],
+      "type": "int",
+      "help": "'Maximum number of pages per part for split translation. If not set, no splitting will be performed.'"
+    },
+    {
+      "flags": [
+        "--no-watermark"
+      ],
+      "action": "'store_true'",
+      "help": "'[DEPRECATED] Use --watermark-output-mode=no_watermark instead. Do not add watermark to the translated PDF.'"
+    },
+    {
+      "flags": [
+        "--report-interval"
+      ],
+      "type": "float",
+      "default": "0.1",
+      "help": "'Progress report interval in seconds (default: 0.1)'"
+    },
+    {
+      "flags": [
+        "--translate-table-text"
+      ],
+      "action": "'store_true'",
+      "default": "False",
+      "help": "'Translate table text (experimental)'"
+    },
+    {
+      "flags": [
+        "--show-char-box"
+      ],
+      "action": "'store_true'",
+      "default": "False",
+      "help": "'Show character box (debug only)'"
+    },
+    {
+      "flags": [
+        "--skip-scanned-detection"
+      ],
+      "action": "'store_true'",
+      "default": "False",
+      "help": "'Skip scanned document detection (speeds up processing for non-scanned documents)'"
+    },
+    {
+      "flags": [
+        "--ocr-workaround"
+      ],
+      "action": "'store_true'",
+      "default": "False",
+      "help": "'Add text fill background (experimental)'"
+    },
+    {
+      "flags": [
+        "--custom-system-prompt"
+      ],
+      "help": "'Custom system prompt for translation.'",
+      "default": "None"
+    },
+    {
+      "flags": [
+        "--add-formula-placehold-hint"
+      ],
+      "action": "'store_true'",
+      "default": "False",
+      "help": "'Add formula placeholder hint for translation. (Currently not recommended, it may affect translation quality, default: False)'"
+    },
+    {
+      "flags": [
+        "--disable-same-text-fallback"
+      ],
+      "action": "'store_true'",
+      "default": "False",
+      "help": "'Disable fallback translation when LLM output matches input text. (default: False)'"
+    },
+    {
+      "flags": [
+        "--glossary-files"
+      ],
+      "type": "str",
+      "default": "None",
+      "help": "'Comma-separated paths to glossary CSV files.'"
+    },
+    {
+      "flags": [
+        "--pool-max-workers"
+      ],
+      "type": "int",
+      "help": "'Maximum number of worker threads for internal task processing pools. If not specified, defaults to QPS value. This parameter directly sets the worker count, replacing previous QPS-based dynamic calculations.'"
+    },
+    {
+      "flags": [
+        "--term-pool-max-workers"
+      ],
+      "type": "int",
+      "help": "'Maximum number of worker threads dedicated to automatic term extraction. If not specified, defaults to --pool-max-workers (or QPS value when unset).'"
+    },
+    {
+      "flags": [
+        "--no-auto-extract-glossary"
+      ],
+      "action": "'store_false'",
+      "dest": "'auto_extract_glossary'",
+      "default": "True",
+      "help": "'Disable automatic term extraction. (Config file: set auto_extract_glossary = false)'"
+    },
+    {
+      "flags": [
+        "--auto-enable-ocr-workaround"
+      ],
+      "action": "'store_true'",
+      "default": "False",
+      "help": "'Enable automatic OCR workaround. If a document is detected as heavily scanned, this will attempt to enable OCR processing and skip further scan detection. Note: This option interacts with `--ocr-workaround` and `--skip-scanned-detection`. See documentation for details. (default: False)'"
+    },
+    {
+      "flags": [
+        "--primary-font-family"
+      ],
+      "type": "str",
+      "choices": "['serif', 'sans-serif', 'script']",
+      "default": "None",
+      "help": "\"Override primary font family for translated text. Choices: 'serif' for serif fonts, 'sans-serif' for sans-serif fonts, 'script' for script/italic fonts. If not specified, uses automatic font selection based on original text properties.\""
+    },
+    {
+      "flags": [
+        "--only-include-translated-page"
+      ],
+      "action": "'store_true'",
+      "default": "False",
+      "help": "'Only include translated pages in the output PDF. Effective only when --pages is used.'"
+    },
+    {
+      "flags": [
+        "--save-auto-extracted-glossary"
+      ],
+      "action": "'store_true'",
+      "default": "False",
+      "help": "'Save automatically extracted glossary terms to a CSV file in the output directory.'"
+    },
+    {
+      "flags": [
+        "--disable-graphic-element-process"
+      ],
+      "action": "'store_true'",
+      "default": "False",
+      "help": "'Disable graphic element process. (default: False)'"
+    },
+    {
+      "flags": [
+        "--no-merge-alternating-line-numbers"
+      ],
+      "action": "'store_false'",
+      "dest": "'merge_alternating_line_numbers'",
+      "default": "True",
+      "help": "'Disable post-processing that merges alternating line-number layouts (by default this feature is enabled).'"
+    },
+    {
+      "flags": [
+        "--skip-translation"
+      ],
+      "action": "'store_true'",
+      "default": "False",
+      "help": "'Skip translation step. (default: False)'"
+    },
+    {
+      "flags": [
+        "--skip-form-render"
+      ],
+      "action": "'store_true'",
+      "default": "False",
+      "help": "'Skip form rendering. (default: False)'"
+    },
+    {
+      "flags": [
+        "--skip-curve-render"
+      ],
+      "action": "'store_true'",
+      "default": "False",
+      "help": "'Skip curve rendering. (default: False)'"
+    },
+    {
+      "flags": [
+        "--only-parse-generate-pdf"
+      ],
+      "action": "'store_true'",
+      "default": "False",
+      "help": "'Only parse PDF and generate output PDF without translation (default: False). This skips all translation-related processing including layout analysis, paragraph finding, style processing, and translation itself.'"
+    },
+    {
+      "flags": [
+        "--remove-non-formula-lines"
+      ],
+      "action": "'store_true'",
+      "default": "False",
+      "help": "'Remove non-formula lines from paragraph areas. This removes decorative lines that are not part of formulas, while protecting lines in figure/table areas. (default: False)'"
+    },
+    {
+      "flags": [
+        "--non-formula-line-iou-threshold"
+      ],
+      "type": "float",
+      "default": "0.9",
+      "help": "'IoU threshold for detecting paragraph overlap when removing non-formula lines. Higher values are more conservative. (default: 0.9)'"
+    },
+    {
+      "flags": [
+        "--figure-table-protection-threshold"
+      ],
+      "type": "float",
+      "default": "0.9",
+      "help": "'IoU threshold for protecting lines in figure/table areas when removing non-formula lines. Higher values provide more protection. (default: 0.9)'"
+    },
+    {
+      "flags": [
+        "--skip-formula-offset-calculation"
+      ],
+      "action": "'store_true'",
+      "default": "False",
+      "help": "'Skip formula offset calculation (default: False)'"
+    },
+    {
+      "flags": [
+        "--openai"
+      ],
+      "action": "'store_true'",
+      "help": "'Use OpenAI translator.'"
+    },
+    {
+      "flags": [
+        "--openai-model"
+      ],
+      "default": "'gpt-4o-mini'",
+      "help": "'The OpenAI model to use for translation.'"
+    },
+    {
+      "flags": [
+        "--openai-base-url"
+      ],
+      "help": "'The base URL for the OpenAI API.'"
+    },
+    {
+      "flags": [
+        "--openai-api-key",
+        "-k"
+      ],
+      "help": "'The API key for the OpenAI API.'"
+    },
+    {
+      "flags": [
+        "--openai-term-extraction-model"
+      ],
+      "default": "None",
+      "help": "'OpenAI model to use for automatic term extraction. Defaults to --openai-model when unset.'"
+    },
+    {
+      "flags": [
+        "--openai-term-extraction-base-url"
+      ],
+      "default": "None",
+      "help": "'Base URL for the OpenAI API used during automatic term extraction. Falls back to --openai-base-url when unset.'"
+    },
+    {
+      "flags": [
+        "--openai-term-extraction-api-key"
+      ],
+      "default": "None",
+      "help": "'API key for the OpenAI API used during automatic term extraction. Falls back to --openai-api-key when unset.'"
+    },
+    {
+      "flags": [
+        "--enable-json-mode-if-requested"
+      ],
+      "action": "'store_true'",
+      "default": "False",
+      "help": "'Enable JSON mode for OpenAI requests.'"
+    },
+    {
+      "flags": [
+        "--send-dashscope-header"
+      ],
+      "action": "'store_true'",
+      "default": "False",
+      "help": "'Send DashScope data inspection header to disable input/output inspection.'"
+    },
+    {
+      "flags": [
+        "--no-send-temperature"
+      ],
+      "action": "'store_true'",
+      "default": "False",
+      "help": "'Do not send temperature parameter to OpenAI API (default: send temperature).'"
+    },
+    {
+      "flags": [
+        "--openai-reasoning"
+      ],
+      "type": "str",
+      "default": "None",
+      "help": "\"Reasoning string to send in the OpenAI request body 'reasoning' field. If not set, the field is not sent.\""
+    },
+    {
+      "flags": [
+        "--openai-thinking"
+      ],
+      "type": "str",
+      "choices": "['enabled', 'disabled']",
+      "default": "None",
+      "help": "\"DeepSeek-style thinking switch sent as request body 'thinking': {'type': ...}. If not set, the field is not sent.\""
+    },
+    {
+      "flags": [
+        "--openai-term-extraction-reasoning"
+      ],
+      "type": "str",
+      "default": "None",
+      "help": "'Reasoning string for the OpenAI term extraction translator. If not set, no reasoning field is sent for term extraction requests.'"
+    }
+  ],
+  "api": [
+    {
+      "parameter": "translator",
+      "default": "required"
+    },
+    {
+      "parameter": "input_file",
+      "default": "required"
+    },
+    {
+      "parameter": "lang_in",
+      "default": "required"
+    },
+    {
+      "parameter": "lang_out",
+      "default": "required"
+    },
+    {
+      "parameter": "doc_layout_model",
+      "default": "required"
+    },
+    {
+      "parameter": "font",
+      "default": "None"
+    },
+    {
+      "parameter": "pages",
+      "default": "None"
+    },
+    {
+      "parameter": "output_dir",
+      "default": "None"
+    },
+    {
+      "parameter": "debug",
+      "default": "False"
+    },
+    {
+      "parameter": "working_dir",
+      "default": "None"
+    },
+    {
+      "parameter": "no_dual",
+      "default": "False"
+    },
+    {
+      "parameter": "no_mono",
+      "default": "False"
+    },
+    {
+      "parameter": "formular_font_pattern",
+      "default": "None"
+    },
+    {
+      "parameter": "formular_char_pattern",
+      "default": "None"
+    },
+    {
+      "parameter": "qps",
+      "default": "1"
+    },
+    {
+      "parameter": "split_short_lines",
+      "default": "False"
+    },
+    {
+      "parameter": "short_line_split_factor",
+      "default": "0.8"
+    },
+    {
+      "parameter": "use_rich_pbar",
+      "default": "True"
+    },
+    {
+      "parameter": "progress_monitor",
+      "default": "None"
+    },
+    {
+      "parameter": "skip_clean",
+      "default": "False"
+    },
+    {
+      "parameter": "dual_translate_first",
+      "default": "False"
+    },
+    {
+      "parameter": "disable_rich_text_translate",
+      "default": "False"
+    },
+    {
+      "parameter": "enhance_compatibility",
+      "default": "False"
+    },
+    {
+      "parameter": "report_interval",
+      "default": "0.1"
+    },
+    {
+      "parameter": "min_text_length",
+      "default": "5"
+    },
+    {
+      "parameter": "use_side_by_side_dual",
+      "default": "True"
+    },
+    {
+      "parameter": "use_alternating_pages_dual",
+      "default": "False"
+    },
+    {
+      "parameter": "watermark_output_mode",
+      "default": "WatermarkOutputMode.Watermarked"
+    },
+    {
+      "parameter": "split_strategy",
+      "default": "None"
+    },
+    {
+      "parameter": "table_model",
+      "default": "None"
+    },
+    {
+      "parameter": "show_char_box",
+      "default": "False"
+    },
+    {
+      "parameter": "skip_scanned_detection",
+      "default": "False"
+    },
+    {
+      "parameter": "ocr_workaround",
+      "default": "False"
+    },
+    {
+      "parameter": "custom_system_prompt",
+      "default": "None"
+    },
+    {
+      "parameter": "add_formula_placehold_hint",
+      "default": "False"
+    },
+    {
+      "parameter": "glossaries",
+      "default": "None"
+    },
+    {
+      "parameter": "pool_max_workers",
+      "default": "None"
+    },
+    {
+      "parameter": "auto_extract_glossary",
+      "default": "True"
+    },
+    {
+      "parameter": "auto_enable_ocr_workaround",
+      "default": "False"
+    },
+    {
+      "parameter": "primary_font_family",
+      "default": "None"
+    },
+    {
+      "parameter": "only_include_translated_page",
+      "default": "False"
+    },
+    {
+      "parameter": "save_auto_extracted_glossary",
+      "default": "True"
+    },
+    {
+      "parameter": "enable_graphic_element_process",
+      "default": "True"
+    },
+    {
+      "parameter": "merge_alternating_line_numbers",
+      "default": "True"
+    },
+    {
+      "parameter": "skip_translation",
+      "default": "False"
+    },
+    {
+      "parameter": "skip_form_render",
+      "default": "False"
+    },
+    {
+      "parameter": "skip_curve_render",
+      "default": "False"
+    },
+    {
+      "parameter": "only_parse_generate_pdf",
+      "default": "False"
+    },
+    {
+      "parameter": "remove_non_formula_lines",
+      "default": "False"
+    },
+    {
+      "parameter": "non_formula_line_iou_threshold",
+      "default": "0.9"
+    },
+    {
+      "parameter": "figure_table_protection_threshold",
+      "default": "0.9"
+    },
+    {
+      "parameter": "skip_formula_offset_calculation",
+      "default": "False"
+    },
+    {
+      "parameter": "term_extraction_translator",
+      "default": "None"
+    },
+    {
+      "parameter": "metadata_extra_data",
+      "default": "None"
+    },
+    {
+      "parameter": "term_pool_max_workers",
+      "default": "None"
+    },
+    {
+      "parameter": "disable_same_text_fallback",
+      "default": "False"
+    }
+  ]
+}
