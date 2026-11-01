@@ -1,0 +1,26 @@
+{
+  "checkedAtUTC": "2026-11-01T09:30:21.543041+00:00",
+  "regularFiles": 3655,
+  "symlinks": 0,
+  "regularBytes": 1512100829,
+  "missingSelectedFiles": 0,
+  "restoredFileErrors": 0,
+  "restoredGitStatusMatches": true,
+  "sourceStatusAndHeadUnchanged": true,
+  "bundleVerifyExit": 0,
+  "allSavedGitRefsContainedInBundle": true,
+  "schema": "crosscript-private-recovery-public-summary-v1",
+  "artifacts": {
+    "working-files.tar.gz": {
+      "bytes": 742592871,
+      "sha256": "43a8ee2ee621f8c07d2329fcac48361486f5053f1031ecaeedb615c45580a82c"
+    },
+    "history.bundle": {
+      "bytes": 146492483,
+      "sha256": "c39373d12e8a16109460d67529a92d5b674fc2bcf4bf9d298c56638a4e65c31c"
+    }
+  },
+  "statusComparisonExclusion": "Current task generated integration checkout only",
+  "scope": "Referenced Git history plus current Git-visible and prior audited working files and Git index/status. Excludes other ignored caches/output, external release evidence, whole .git internals, reflog-only/orphan objects, config/hooks, xattrs, other worktree dirty contents, user application data and Keychain.",
+  "privateLocationsAndContentsPublished": false
+}
