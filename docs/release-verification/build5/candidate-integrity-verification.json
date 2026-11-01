@@ -1,0 +1,363 @@
+{
+  "schema": "crosscript-build5-candidate-integrity-verification-v1",
+  "checkedDate": "2026-11-01",
+  "ticket": "https://github.com/yqia03/crosscript/issues/8",
+  "scope": "Historical evidence and exact selected sources reconciled; fresh anonymously downloaded/extracted App static check reused. No build/test rerun or whole-App acceptance.",
+  "identity": {
+    "version": "0.1.0",
+    "build": "5",
+    "tag": "v0.1.0-preview.5",
+    "publicRoot": "47c1b0cb53326da4b6590fc873ca91016139d659",
+    "buildInput": "2c57e25d44f879904cf4208074ba5bf21a01d8e2",
+    "originalSourceTree": "ffa50501cbe21e0c9141d40a912db8e0dd8282bb",
+    "sourceFiles": 371,
+    "sourceArchiveSHA256": "cca34e44250e281e5fc3509610b16a6f0d10259cf5ec50ddc536be08711de291",
+    "executableSHA256": "da0e75ea0c65631cdf43d64e90b3f6a82f97d3482d4a8521ed14437f9f8ff41d",
+    "runtimeID": "babeldoc-0.6.4-py312-20261029-arm64-crosscript-v3",
+    "runtimeManifestSHA256": "2fce7f0f1a5c1ef758d59e6ae7b529e8d953920baed9f6561f71a3ec2aeea64b",
+    "sourceReconciliation": "source-distribution-verification.json",
+    "materialsReconciliation": "materials-byte-verification.json"
+  },
+  "historicalBuild": {
+    "buildDriverSHA256": "629566b62dbb08e864b4caf5f6650cd6fe6082c0cb868ed03d4d57f9c5017104",
+    "startedAt": "2026-10-29T16:37:52.650328+00:00",
+    "finishedAt": "2026-10-29T16:39:16.261402+00:00",
+    "sourceWasClean": true,
+    "freshSwiftBuildDirectory": true,
+    "toolchain": {
+      "swift": "swift-driver version: 1.168.6 Apple Swift version 6.4 (swiftlang-6.4.0.34.1 clang-2100.3.34.1)\nTarget: arm64-apple-macosx26.0",
+      "swiftPath": "/Library/Developer/CommandLineTools/usr/bin/swift",
+      "sdkPath": "/Library/Developer/CommandLineTools/SDKs/MacOSX.sdk",
+      "sdkVersion": "27.0",
+      "osVersion": "26.6.2",
+      "osBuild": "25G83",
+      "architecture": "arm64"
+    },
+    "environmentPolicy": "Allow only existing HOME and TMPDIR, fixed system PATH and C locale, explicit SDKROOT, task build controls and caches. CPATH, LIBRARY_PATH, BASH_ENV, ENV, Swift/toolchain overrides and service credentials are not inherited.",
+    "exitCode": 0,
+    "sourceFilesUnchanged": true,
+    "sourceRemainsClean": true,
+    "buildLogSHA256": "f860314b44acb812f9246be88348e323edacf982165be1f264dbe69f51a3d549",
+    "rawRecordSHA256": "8d5e709953bac981d1d52294d32c011d0ba00bcd78f209911034a598baf8599e",
+    "embeddedSourceRevision": "2c57e25d44f879904cf4208074ba5bf21a01d8e2",
+    "embeddedSourceArchiveSHA256": "cca34e44250e281e5fc3509610b16a6f0d10259cf5ec50ddc536be08711de291",
+    "appBuildProvenanceVerified": true,
+    "commandTemplate": "python3 -B scripts/release/build-bound-candidate.py --source <clean-source-checkout> --output <new-independent-directory>"
+  },
+  "provenanceBoundary": "Clean Release build binding plus exact source/package review; supplied package-preview --source SHA alone is not build proof. No fresh reproducible build claimed.",
+  "historicalFocusedSwift": [
+    {
+      "record": "installer-tests-attempt2.json",
+      "sha256": "a130c66029eab27376dbdbd841381645fcec8039c939adc65f6eaa0f798a942c",
+      "logSHA256": "a1bbddcae365495ce3f96c7658c7cf4445d1e71a065e3020f8f10e90d79c5c5e",
+      "configuration": "Debug",
+      "selection": "PDFRuntimeInstallerTests|PDFRuntimePreparationTests",
+      "exitCode": 0,
+      "fullSuite": false,
+      "counts": {
+        "installer": 11,
+        "preparationState": 3
+      },
+      "sourceBeforeAndAfterSHA256": {
+        "app/macos/Sources/TranslationWorkbench/PDFRuntimeInstaller.swift": "f2b78bf26fd8c60b3017f4caea726714ae751db17bce6acae67ef409d9d9d21a",
+        "app/macos/Sources/TranslationWorkbench/Resources/PDF/runtime_inventory.py": "f392cee2c4635e59fdd682cd716250a6f65009567b8d3008be0bd3e19b2913f9",
+        "scripts/release/integrate-preview-runtime.py": "44f2ae9da87fe6f6c27042258f25f8a04d1b652f4e81854f144b1f1757747b9a",
+        "app/macos/Tests/NativeAudioTests/PDFRuntimeInstallerTests.swift": "d0970d6f0d7d13a6381c43eb4972af95a473a0242cfe2c3ab79ae14afbf6fee7",
+        "app/macos/Tests/NativeAudioTests/PDFBridgeProcessTests.swift": "3072394caefa794e39a0433e4ac58bc425c80c71846eea78b90e289cbc250248"
+      }
+    },
+    {
+      "record": "bridge-tests-attempt1.json",
+      "sha256": "71b91ee86a65eaacaf3d1dc9533fbfa4a3d5104224b9429ca97c13b7510559fe",
+      "logSHA256": "f79ba12c11ca22c6ec59f759b25bae684f1d1f83cc3273e5074bb5f84835127d",
+      "configuration": "Debug",
+      "selection": "PDFBridgeProcessTests",
+      "exitCode": 0,
+      "fullSuite": false,
+      "counts": {
+        "bridge": 7
+      },
+      "sourceBeforeAndAfterSHA256": {
+        "app/macos/Sources/TranslationWorkbench/PDFRuntimeInstaller.swift": "f2b78bf26fd8c60b3017f4caea726714ae751db17bce6acae67ef409d9d9d21a",
+        "app/macos/Sources/TranslationWorkbench/Resources/PDF/runtime_inventory.py": "f392cee2c4635e59fdd682cd716250a6f65009567b8d3008be0bd3e19b2913f9",
+        "scripts/release/integrate-preview-runtime.py": "44f2ae9da87fe6f6c27042258f25f8a04d1b652f4e81854f144b1f1757747b9a",
+        "app/macos/Tests/NativeAudioTests/PDFRuntimeInstallerTests.swift": "d0970d6f0d7d13a6381c43eb4972af95a473a0242cfe2c3ab79ae14afbf6fee7",
+        "app/macos/Tests/NativeAudioTests/PDFBridgeProcessTests.swift": "3072394caefa794e39a0433e4ac58bc425c80c71846eea78b90e289cbc250248"
+      }
+    }
+  ],
+  "testClassification": {
+    "fullDebugSuite": false,
+    "releaseTestSuite": false,
+    "fullAppKitIsolatedSuite": false,
+    "aggregateTestTotal": null,
+    "bridge": {
+      "systemPythonRealBridgeLanguageContract": 1,
+      "managedPythonMiniatureBridgeImportImmutability": 1,
+      "controlledShellWorkerCases": 5,
+      "realBabelDOCTranslationClaim": false
+    },
+    "installer": "Real code/filesystem, controlled URLSession protocol and tiny temporary payloads; not live HTTPS installation.",
+    "freshRuntime": {
+      "firstReused": false,
+      "secondReused": true,
+      "verifiedCachedHTTPSInputs": 245,
+      "bundledInputsNotPrefilled": 22,
+      "realPythonBabelDOCModelHealthAndImport": true,
+      "inventoryFiles": 13565,
+      "inventoryInternalLinks": 10,
+      "assets": 182,
+      "networkDenied": true,
+      "ordinaryMacColdInstall": false,
+      "harnessBuild": "matched installer plus WorkbenchCore Debug static library",
+      "recordSHA256": "9ec64f2f936400206f13175d459a1754acd82cc01dc2c11a88eb4fc3e91f9675",
+      "compileRecordSHA256": "95edd0e621a8501dc1c157ce9f96712fdb019dee8fc748755021939294ea2146"
+    },
+    "generator": {
+      "fixtureScenarios": 12,
+      "modes": [
+        "python",
+        "python -O"
+      ],
+      "passed": 24,
+      "scope": "Tiny fixtures only; no runtime/App/native test"
+    },
+    "packaging": {
+      "passed": 16,
+      "scope": "Synthetic App/tool outputs and injected mocks",
+      "testSourceSHA256": "d68511a18f6eafffcb1495f070849e7a8c6bab428a56799c2dcbdd515f7d3780",
+      "outputLogSHA256": "bb53eb072708722498c8fa7b70a2b8736f6f3ca807dc1204367d850d045c4e1d"
+    },
+    "licenseUI": {
+      "passedCases": 4,
+      "languages": 2,
+      "viewportSizes": 2,
+      "pngCount": 12,
+      "uniquePNGs": 8,
+      "scope": "Actual component and language module in isolated helper; not production App startup, URL activation or workflow acceptance"
+    },
+    "native": {
+      "inspectedRuntimeObjects": 451,
+      "unchangedFromBuild4": 449,
+      "newStrictLibrarySignatureChecks": 2,
+      "all451StrictSignaturesClaimed": false,
+      "OpenSSLSelectedRecipes": 12,
+      "OpenSSLHarnessChecks": 500,
+      "finalSignedMemoryChecks": 7,
+      "consumerChecks": 8,
+      "requiredConsumerABIImports": 641,
+      "networkSockets": false,
+      "scope": "Selected component checks only; old unchanged GMP/ZeroMQ/font evidence retained without build5 rerun"
+    }
+  },
+  "historicalReview": {
+    "sourceReview": "PUBLIC-SOURCE-REVIEW.json",
+    "sourceRevision": "2c57e25d44f879904cf4208074ba5bf21a01d8e2",
+    "baselineRevision": "5afa45f6f8850dc50856bcd0b673680655165756",
+    "sourceTree": "ffa50501cbe21e0c9141d40a912db8e0dd8282bb",
+    "changeCounts": {
+      "M": 19,
+      "D": 1,
+      "A": 4
+    },
+    "packageReview": "PACKAGE-INDEPENDENT-REVIEW.json",
+    "scope": "Static source/privacy and package reviews; no workflow rerun",
+    "pairedStandardsSpecProductReviewRecorded": false,
+    "futureDocsReview": "Must record own exact integration commit and changed-document scope; does not close historical product review or test gaps"
+  },
+  "historicalPackage": {
+    "zip": {
+      "filename": "Crosscript-preview-0.1.0-5.zip",
+      "sha256": "86b4693ce411664cfe388e29efe09280ec22ab6f696701baf1854d536f590f97",
+      "bytes": 169789128,
+      "members": 127,
+      "crcPassed": true,
+      "extras": {
+        "count": 127,
+        "only": "0x5855 length8; atime/mtime only",
+        "uidGidOrComments": false
+      },
+      "fullFilePayloadsMatchBuiltAndExtractedApp": true
+    },
+    "appFiles": 100,
+    "sourceMatchedPDFResources": 93,
+    "sourceMatchedLegalTexts": 3,
+    "strictSignatureBuildAndExtractedExitCodes": [
+      0,
+      0
+    ],
+    "metadataWrittenBeforeSigning": true,
+    "postSigningAppMutation": false
+  },
+  "freshStaticObservation": {
+    "date": "2026-11-01",
+    "input": "Anonymous release ZIP newly extracted without launching",
+    "helperExitCode": 0,
+    "helperSHA256": "ec00dd4ab4d507f1c6e8f92bd44973d9b564c1e1d91ed6259795ab6faf2fd24d",
+    "safeChecksSHA256": "3748e5a9162ef289f1fb1bb97c3eea99c1a8e8958f26f5c52d925f814038cc9a",
+    "checks": {
+      "channel": "non-notarized-preview",
+      "developer_id_signing": "not-performed",
+      "notarization": "not-performed; publisher declaration, not queried",
+      "publisher_identity": "not-authenticated-by-ad-hoc-signature",
+      "app_build_source": "not-proven-by-this-helper",
+      "clean_mac_installation": "not-run",
+      "first_launch_permissions_recording_history_export": "not-run",
+      "pdf_runtime_and_translation": "not-run",
+      "macos": "26.6.2",
+      "host_architecture": "arm64",
+      "tree_scope": "all paths, file bytes, permission modes and directories; no symlinks; xattrs outside digest",
+      "archive_sha256": "86b4693ce411664cfe388e29efe09280ec22ab6f696701baf1854d536f590f97",
+      "manifest_sha256": "766edf1577aa1884b7e3b52d390d851ccea011d5b1831f6b5ee2bcdd8e04e90d",
+      "trusted_input_hash": "passed; source of expected hashes must be established separately",
+      "installed_full_file_tree": "matches-trusted-publisher-manifest",
+      "CFBundleIdentifier": "passed",
+      "CFBundleShortVersionString": "passed",
+      "CFBundleVersion": "passed",
+      "LSMinimumSystemVersion": "passed",
+      "strict_signature_integrity": "passed",
+      "signature_kind": "adhoc; does not establish developer identity",
+      "native_arm64_items": "1",
+      "debug_entitlement_absent": "passed",
+      "app-quarantine": "not-observed; no attribute changed",
+      "archive-quarantine": "not-observed; no attribute changed",
+      "gatekeeper": "not-assessed; use manual first-launch observation",
+      "input_preservation": "passed",
+      "status": "static-integrity-passed; no clean-Mac installation acceptance"
+    },
+    "beforeAfterAndReleasedManifestIdentical": true,
+    "embeddedEntitlements": {
+      "com.apple.security.device.audio-input": true
+    },
+    "nativeItemScope": "Only App main executable; 451 installed-runtime native objects are a different set",
+    "rawPrivatePathSignatureLogsPublished": false,
+    "sameHistoricalChecksDigest": "Identical reported values give same digest; digest equality alone does not establish the fresh execution"
+  },
+  "signatureAndInstallationLimits": {
+    "developerID": "not-performed",
+    "notarization": "not-performed",
+    "stapling": "not-performed",
+    "publisherAuthenticatedByAdHoc": false,
+    "gatekeeper": "not-assessed",
+    "secondMacB01toB06": "not-run; waived 2026-10-30",
+    "macOS14_2Hardware": "not-run",
+    "appLaunch": "not-run-in-this-audit",
+    "userDataKeychainMigration": "not-run",
+    "wholePDFWorkflowAcceptance": "not-run"
+  },
+  "releaseEvidence": [
+    {
+      "filename": "BUILD-EVIDENCE.json",
+      "sha256": "1eb7eb81a08df1cda4340dc6126596f93400f36d2850d2f96f8b52b2c13c44ac"
+    },
+    {
+      "filename": "TEST-EVIDENCE.json",
+      "sha256": "d42f8e519de0acaf15e83900286f99c2d0985e70c151a2d5cdb47c7d6531cbf3"
+    },
+    {
+      "filename": "RUNTIME-VALIDATION-SUMMARY.json",
+      "sha256": "2edcd9308e77d2327d88395112214fc9f97c267d7594838f8f8c7445af9c9ab5"
+    },
+    {
+      "filename": "GENERATOR-TEST-EVIDENCE.json",
+      "sha256": "88d32df6343fa5cfae3e8ebb872fc92cadd7fca3e74581c0e321178c63734139"
+    },
+    {
+      "filename": "LICENSE-UI-VERIFICATION.json",
+      "sha256": "3fa3913772e7fb595e370156323ee4dcd05a7dd6144c03ce004f3c6a18bd180d"
+    },
+    {
+      "filename": "PACKAGE-INDEPENDENT-REVIEW.json",
+      "sha256": "2b078421c84d3097d071b28e162d6c760b06a65dca3dc2cf8df1370a89dedab3"
+    },
+    {
+      "filename": "PACKAGE-METADATA-VERIFICATION.json",
+      "sha256": "4f55e1d408e4a4e9d4f97e573bcacb747de082df442cdcc9db5161da8643fb75"
+    },
+    {
+      "filename": "PUBLIC-SOURCE-REVIEW.json",
+      "sha256": "205be562b52235b3f0bcccfab9b14fc56ad328d27882d79330b575e346d9efcf"
+    },
+    {
+      "filename": "RELEASE-BINDING.json",
+      "sha256": "0b45217f7b383a49d0c8c4efe9e5605eb9df096c2433136c9360d98b0c6193b8"
+    }
+  ],
+  "recipientInputs": [
+    {
+      "filename": "APP-MANIFEST.tsv",
+      "url": "https://github.com/yqia03/crosscript/releases/download/v0.1.0-preview.5/APP-MANIFEST.tsv",
+      "bytes": 16069,
+      "sha256": "766edf1577aa1884b7e3b52d390d851ccea011d5b1831f6b5ee2bcdd8e04e90d"
+    },
+    {
+      "filename": "verify-preview-app.sh",
+      "url": "https://github.com/yqia03/crosscript/releases/download/v0.1.0-preview.5/verify-preview-app.sh",
+      "bytes": 11035,
+      "sha256": "ec00dd4ab4d507f1c6e8f92bd44973d9b564c1e1d91ed6259795ab6faf2fd24d"
+    },
+    {
+      "filename": "SHA256SUMS.txt",
+      "url": "https://github.com/yqia03/crosscript/releases/download/v0.1.0-preview.5/SHA256SUMS.txt",
+      "bytes": 2493,
+      "sha256": "737e23802fe25fc2034192e5d658145d448be528797d0bfd4e6dce5ddc56241b"
+    },
+    {
+      "filename": "Crosscript-preview-0.1.0-5.zip",
+      "url": "https://github.com/yqia03/crosscript/releases/download/v0.1.0-preview.5/Crosscript-preview-0.1.0-5.zip",
+      "bytes": 169789128,
+      "sha256": "86b4693ce411664cfe388e29efe09280ec22ab6f696701baf1854d536f590f97"
+    },
+    {
+      "filename": "Crosscript-source-0.1.0-5.tar.gz",
+      "url": "https://github.com/yqia03/crosscript/releases/download/v0.1.0-preview.5/Crosscript-source-0.1.0-5.tar.gz",
+      "bytes": 168612071,
+      "sha256": "cca34e44250e281e5fc3509610b16a6f0d10259cf5ec50ddc536be08711de291"
+    },
+    {
+      "filename": "Crosscript-third-party-0.1.0-5-materials-v4.tar.gz",
+      "url": "https://github.com/yqia03/crosscript/releases/download/v0.1.0-preview.5/Crosscript-third-party-0.1.0-5-materials-v4.tar.gz",
+      "bytes": 1667240667,
+      "sha256": "25049788ea1f9b1c638164e2743d0089b71d828ce0729c28d02238bfd375cf89"
+    },
+    {
+      "filename": "CURRENT-MATERIALS-INDEX.json",
+      "url": "https://github.com/yqia03/crosscript/releases/download/v0.1.0-preview.5/CURRENT-MATERIALS-INDEX.json",
+      "bytes": 4775,
+      "sha256": "05d65f613e87a09b1434466083d3ac191905ca053979f7fd9a2fa76bd4f8dadd"
+    }
+  ],
+  "checksumScope": {
+    "assetCount": 28,
+    "checksumEntries": 27,
+    "checksumFileHashesItself": false,
+    "anonymousEvidence": "anonymous-assets-verification.json",
+    "fiveHostedFilenameMappings": "Use anonymous-assets-verification.json; hosted ASCII names can differ from Chinese checksum-entry names."
+  },
+  "handoff": {
+    "installationTicket": "https://github.com/yqia03/crosscript/issues/9",
+    "deliveryTicket": "https://github.com/yqia03/crosscript/issues/10",
+    "instructions": "candidate-integrity.md#exact-recipient-handoff-to-9-and-10",
+    "existingPublicReleaseReused": true,
+    "newCandidateRequiredByAudit": false,
+    "newCandidateTrigger": "Changed source/build input, bundled/runtime/component bytes, signed metadata or entitlements; require separate clean commit/tree/archive, version/build, matching runtime/material identities, controlled location and affected checks. Preserve old assets.",
+    "retainedGaps": [
+      "G10",
+      "G11",
+      "G14"
+    ],
+    "historicalPendingFlags": "Preserved dated preparation state; later publication approval and waiver do not change historical results."
+  },
+  "auditChecks": {
+    "rawBuildRecordAndLogDigests": true,
+    "focusedRecordsAndLogDigests": true,
+    "selectedSourceHashesAndBeforeAfter": true,
+    "freshStaticSummaryAndManifestPreservation": true,
+    "productionCodeChanges": false,
+    "newTestsOrBuild": false,
+    "appLaunch": false,
+    "serviceRequests": false,
+    "frozenAssetsChanged": false,
+    "rawPrivatePathsCopied": false
+  }
+}
