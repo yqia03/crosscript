@@ -1,0 +1,522 @@
+{
+  "schema": "crosscript-build5-assets-verification-v1",
+  "checkedAt": "2026-11-01",
+  "method": "Fresh read-only byte/index/content checks; no rebuild, App launch, download, provider or translation request. Complete archive membership binding is recorded by the baseline task.",
+  "runtimeID": "babeldoc-0.6.4-py312-20261029-arm64-crosscript-v3",
+  "indexes": {
+    "current/asset-index.json": "545c615d3deb5609f2b32d355ed7b73e6a03034998d56e6214cad8b664c068ac",
+    "current/runtime-manifest.json": "2fce7f0f1a5c1ef758d59e6ae7b529e8d953920baed9f6561f71a3ec2aeea64b",
+    "current/fonts/DELIVERY-MANIFEST.json": "67622302dbb67f12c48fd6786ecfb66cb5ecd9f77f36fe9a0200d9f0329f79fd"
+  },
+  "selectedAssets": {
+    "count": 182,
+    "materialPayloadHashesAndSizesMatched": 182,
+    "installedHistoricalRuntimeHashesAndSizesMatched": 182,
+    "manifestPathHashSizeJoinsMatched": 182,
+    "runtimeArtifactRecordsMatched": 182,
+    "bundleAssetsComparedWithActualPreviewZIP": 20,
+    "fixedHTTPSAssetsBoundToOrigin": 162,
+    "originGitBlobHashesMatched": 160,
+    "uniqueLicenseOrSourceReferencesHashAndSizeMatched": 165,
+    "missingReferences": []
+  },
+  "fonts": {
+    "renamed": [
+      {
+        "font": "CrosscriptCJKSansCN-Bold.ttf",
+        "assetPointer": "/assets/14",
+        "identityRecords": 18,
+        "tableDigestsMatched": 19,
+        "attributionNameIDsPresent": [
+          0,
+          7,
+          8,
+          9,
+          10,
+          11,
+          13,
+          14
+        ],
+        "conversionInputAndAdobeReferenceBound": true
+      },
+      {
+        "font": "CrosscriptCJKSansCN-Regular.ttf",
+        "assetPointer": "/assets/15",
+        "identityRecords": 18,
+        "tableDigestsMatched": 19,
+        "attributionNameIDsPresent": [
+          0,
+          7,
+          8,
+          9,
+          10,
+          11,
+          13,
+          14
+        ],
+        "conversionInputAndAdobeReferenceBound": true
+      },
+      {
+        "font": "CrosscriptCJKSansHK-Bold.ttf",
+        "assetPointer": "/assets/16",
+        "identityRecords": 18,
+        "tableDigestsMatched": 19,
+        "attributionNameIDsPresent": [
+          0,
+          7,
+          8,
+          9,
+          10,
+          11,
+          13,
+          14
+        ],
+        "conversionInputAndAdobeReferenceBound": true
+      },
+      {
+        "font": "CrosscriptCJKSansHK-Regular.ttf",
+        "assetPointer": "/assets/17",
+        "identityRecords": 18,
+        "tableDigestsMatched": 19,
+        "attributionNameIDsPresent": [
+          0,
+          7,
+          8,
+          9,
+          10,
+          11,
+          13,
+          14
+        ],
+        "conversionInputAndAdobeReferenceBound": true
+      },
+      {
+        "font": "CrosscriptCJKSansJP-Bold.ttf",
+        "assetPointer": "/assets/18",
+        "identityRecords": 18,
+        "tableDigestsMatched": 19,
+        "attributionNameIDsPresent": [
+          0,
+          7,
+          8,
+          9,
+          10,
+          11,
+          13,
+          14
+        ],
+        "conversionInputAndAdobeReferenceBound": true
+      },
+      {
+        "font": "CrosscriptCJKSansJP-Regular.ttf",
+        "assetPointer": "/assets/19",
+        "identityRecords": 18,
+        "tableDigestsMatched": 19,
+        "attributionNameIDsPresent": [
+          0,
+          7,
+          8,
+          9,
+          10,
+          11,
+          13,
+          14
+        ],
+        "conversionInputAndAdobeReferenceBound": true
+      },
+      {
+        "font": "CrosscriptCJKSansKR-Bold.ttf",
+        "assetPointer": "/assets/20",
+        "identityRecords": 18,
+        "tableDigestsMatched": 19,
+        "attributionNameIDsPresent": [
+          0,
+          7,
+          8,
+          9,
+          10,
+          11,
+          13,
+          14
+        ],
+        "conversionInputAndAdobeReferenceBound": true
+      },
+      {
+        "font": "CrosscriptCJKSansKR-Regular.ttf",
+        "assetPointer": "/assets/21",
+        "identityRecords": 18,
+        "tableDigestsMatched": 19,
+        "attributionNameIDsPresent": [
+          0,
+          7,
+          8,
+          9,
+          10,
+          11,
+          13,
+          14
+        ],
+        "conversionInputAndAdobeReferenceBound": true
+      },
+      {
+        "font": "CrosscriptCJKSansTW-Bold.ttf",
+        "assetPointer": "/assets/22",
+        "identityRecords": 18,
+        "tableDigestsMatched": 19,
+        "attributionNameIDsPresent": [
+          0,
+          7,
+          8,
+          9,
+          10,
+          11,
+          13,
+          14
+        ],
+        "conversionInputAndAdobeReferenceBound": true
+      },
+      {
+        "font": "CrosscriptCJKSansTW-Regular.ttf",
+        "assetPointer": "/assets/23",
+        "identityRecords": 18,
+        "tableDigestsMatched": 19,
+        "attributionNameIDsPresent": [
+          0,
+          7,
+          8,
+          9,
+          10,
+          11,
+          13,
+          14
+        ],
+        "conversionInputAndAdobeReferenceBound": true
+      },
+      {
+        "font": "CrosscriptCJKSerifCN-Bold.ttf",
+        "assetPointer": "/assets/24",
+        "identityRecords": 18,
+        "tableDigestsMatched": 19,
+        "attributionNameIDsPresent": [
+          0,
+          7,
+          8,
+          9,
+          10,
+          11,
+          13,
+          14
+        ],
+        "conversionInputAndAdobeReferenceBound": true
+      },
+      {
+        "font": "CrosscriptCJKSerifCN-Regular.ttf",
+        "assetPointer": "/assets/25",
+        "identityRecords": 18,
+        "tableDigestsMatched": 19,
+        "attributionNameIDsPresent": [
+          0,
+          7,
+          8,
+          9,
+          10,
+          11,
+          13,
+          14
+        ],
+        "conversionInputAndAdobeReferenceBound": true
+      },
+      {
+        "font": "CrosscriptCJKSerifHK-Bold.ttf",
+        "assetPointer": "/assets/26",
+        "identityRecords": 18,
+        "tableDigestsMatched": 19,
+        "attributionNameIDsPresent": [
+          0,
+          7,
+          8,
+          9,
+          10,
+          11,
+          13,
+          14
+        ],
+        "conversionInputAndAdobeReferenceBound": true
+      },
+      {
+        "font": "CrosscriptCJKSerifHK-Regular.ttf",
+        "assetPointer": "/assets/27",
+        "identityRecords": 18,
+        "tableDigestsMatched": 19,
+        "attributionNameIDsPresent": [
+          0,
+          7,
+          8,
+          9,
+          10,
+          11,
+          13,
+          14
+        ],
+        "conversionInputAndAdobeReferenceBound": true
+      },
+      {
+        "font": "CrosscriptCJKSerifJP-Bold.ttf",
+        "assetPointer": "/assets/28",
+        "identityRecords": 18,
+        "tableDigestsMatched": 19,
+        "attributionNameIDsPresent": [
+          0,
+          7,
+          8,
+          9,
+          10,
+          11,
+          13,
+          14
+        ],
+        "conversionInputAndAdobeReferenceBound": true
+      },
+      {
+        "font": "CrosscriptCJKSerifJP-Regular.ttf",
+        "assetPointer": "/assets/29",
+        "identityRecords": 18,
+        "tableDigestsMatched": 19,
+        "attributionNameIDsPresent": [
+          0,
+          7,
+          8,
+          9,
+          10,
+          11,
+          13,
+          14
+        ],
+        "conversionInputAndAdobeReferenceBound": true
+      },
+      {
+        "font": "CrosscriptCJKSerifKR-Bold.ttf",
+        "assetPointer": "/assets/30",
+        "identityRecords": 18,
+        "tableDigestsMatched": 19,
+        "attributionNameIDsPresent": [
+          0,
+          7,
+          8,
+          9,
+          10,
+          11,
+          13,
+          14
+        ],
+        "conversionInputAndAdobeReferenceBound": true
+      },
+      {
+        "font": "CrosscriptCJKSerifKR-Regular.ttf",
+        "assetPointer": "/assets/31",
+        "identityRecords": 18,
+        "tableDigestsMatched": 19,
+        "attributionNameIDsPresent": [
+          0,
+          7,
+          8,
+          9,
+          10,
+          11,
+          13,
+          14
+        ],
+        "conversionInputAndAdobeReferenceBound": true
+      },
+      {
+        "font": "CrosscriptCJKSerifTW-Bold.ttf",
+        "assetPointer": "/assets/32",
+        "identityRecords": 18,
+        "tableDigestsMatched": 19,
+        "attributionNameIDsPresent": [
+          0,
+          7,
+          8,
+          9,
+          10,
+          11,
+          13,
+          14
+        ],
+        "conversionInputAndAdobeReferenceBound": true
+      },
+      {
+        "font": "CrosscriptCJKSerifTW-Regular.ttf",
+        "assetPointer": "/assets/33",
+        "identityRecords": 18,
+        "tableDigestsMatched": 19,
+        "attributionNameIDsPresent": [
+          0,
+          7,
+          8,
+          9,
+          10,
+          11,
+          13,
+          14
+        ],
+        "conversionInputAndAdobeReferenceBound": true
+      }
+    ],
+    "deliveryManifestFilesVerified": 55,
+    "all34ReferencedLicensesContainFullOFL11Text": true,
+    "sourceCompanionAppNoticeComparisons": [
+      "provenance-index.json",
+      "font-identity-map.json",
+      "NOTICE.md",
+      "licenses/source-han-sans-OFL-1.1.txt",
+      "licenses/source-han-serif-OFL-1.1.txt"
+    ],
+    "currentAttributionsAll34NamesAndHashesMatched": true,
+    "intentionalNoticeDifferences": [
+      {
+        "originPath": "origin-materials/2026-10-26/third-party/assets/materials/Font-attributions.txt",
+        "originSHA256": "6f9096df56acaca1e8f27495f00be3f9d55491ca0bdb5482842e0bae213a8bc3",
+        "currentAppSHA256": "341e05d50461667fab93ad3532bb2bda624b68461bafcbe82ddb188abfc43ddd",
+        "reason": "Historical original-font attributions vs current renamed-font attributions; each retains its own identity."
+      }
+    ],
+    "historicalRenderingExactInputOutputHashJoins": 20,
+    "unchangedFonts": [
+      {
+        "runtimePath": "fonts/GoNotoKurrent-Bold.ttf",
+        "embeddedVersions": [
+          "Version 2.012; ttfautohint (v1.8.4.7-5d5b)"
+        ]
+      },
+      {
+        "runtimePath": "fonts/GoNotoKurrent-Regular.ttf",
+        "embeddedVersions": [
+          "Version 2.012; ttfautohint (v1.8.4.7-5d5b)"
+        ]
+      },
+      {
+        "runtimePath": "fonts/KleeOne-Regular.ttf",
+        "embeddedVersions": [
+          "Version 1.000"
+        ]
+      },
+      {
+        "runtimePath": "fonts/LXGWWenKaiGB-Regular.1.520.ttf",
+        "embeddedVersions": [
+          "Version 1.520; June 14, 2025"
+        ]
+      },
+      {
+        "runtimePath": "fonts/LXGWWenKaiTC-Regular.1.520.ttf",
+        "embeddedVersions": [
+          "Version 1.520; June 16, 2025"
+        ]
+      },
+      {
+        "runtimePath": "fonts/MaruBuri-Regular.ttf",
+        "embeddedVersions": [
+          "Version 1.000;hotconv 1.0.118;makeotfexe 2.5.65603"
+        ]
+      },
+      {
+        "runtimePath": "fonts/NotoSans-Bold.ttf",
+        "embeddedVersions": [
+          "Version 2.015"
+        ]
+      },
+      {
+        "runtimePath": "fonts/NotoSans-BoldItalic.ttf",
+        "embeddedVersions": [
+          "Version 2.015"
+        ]
+      },
+      {
+        "runtimePath": "fonts/NotoSans-Italic.ttf",
+        "embeddedVersions": [
+          "Version 2.015"
+        ]
+      },
+      {
+        "runtimePath": "fonts/NotoSans-Regular.ttf",
+        "embeddedVersions": [
+          "Version 2.015"
+        ]
+      },
+      {
+        "runtimePath": "fonts/NotoSerif-Bold.ttf",
+        "embeddedVersions": [
+          "Version 2.015"
+        ]
+      },
+      {
+        "runtimePath": "fonts/NotoSerif-BoldItalic.ttf",
+        "embeddedVersions": [
+          "Version 2.013"
+        ]
+      },
+      {
+        "runtimePath": "fonts/NotoSerif-Italic.ttf",
+        "embeddedVersions": [
+          "Version 2.013"
+        ]
+      },
+      {
+        "runtimePath": "fonts/NotoSerif-Regular.ttf",
+        "embeddedVersions": [
+          "Version 2.015"
+        ]
+      }
+    ]
+  },
+  "cmap": {
+    "count": 146,
+    "selectedSourceCopiesMatchedArchiveMembers": 146,
+    "allSerializedFieldsMatchedStaticAdobeProjection": true,
+    "sourceRef": "199e2e91bacc4cd37ddbf65f5a2d13b4766673db",
+    "methodBoundary": "Parse supplied cidrange/cidchar/usecmap and family; no PostScript, no claim of original generator or omitted source constructs."
+  },
+  "model": {
+    "convertedCardAndLFSRef": "ee7c3d744e5c47c58e267044ac825f95abe69653",
+    "baseCardRef": "8c3299a30b8ff29a1503c4431b035b93220f7b11",
+    "matchingActualPayloadSHA256": "fece9af02f618b603ff7921ccec6861d13e7e1f9830e091dfb7e8ad9311e5b21",
+    "cardLicenses": "Both retained cards declare Apache-2.0; conversion/training chain not established by cards."
+  },
+  "tokenizer": {
+    "packageRef": "4e71bbe0c078468e00fefbf94b39849389f346e5",
+    "actualDataSHA256": "446a9538cb6c348e3516120d7c08b09f57c36495e2acfffe59a5bf8b0cfb1a2d",
+    "officialSourceURLAndHashBindingMatched": true,
+    "licenseScope": "MIT scope inference: 2023 collaborator encoding-files statement predates o200k; no new o200k-specific grant."
+  },
+  "onnxRuntimeJSONItem": {
+    "wheel": "onnxruntime-1.31.0-cp312-cp312-macosx_14_0_arm64.whl",
+    "sha256": "aaab9b3af536b06ca27ab5e35e3d429c97457ce76cf298af103f687e8b9975c0",
+    "completeNoticeSHA256": "143764b952fdb1a7c69ce653bfba74a7744d6a8a573bfb73e235fba356c83de3",
+    "noticeCopiesMatched": 3,
+    "matchingTestDataMemberNames": [],
+    "conclusion": "Retains earlier conditional low-risk static-scope finding only; name scan is not proof that every source or binary dependency is clear."
+  },
+  "outputNotices": {
+    "selectedBabeldocWheel": "4250d0bb98a2079644fce4129e9f9352b559c6848dcf9fe4aab9927cc1656e63",
+    "highLevelSourceSHA256": "50ad29be8a94b564d6cd339b8b24615db641f4f9572730b3abc052b897d92df4",
+    "producerMetadataAndOriginalProducerToCreatorRetention": "Observed in selected source; real translation/output notice acceptance not rerun.",
+    "fontStreams": "Historical 20-pair regression asserts exact embedded streams; font notices delivered separately in App and companion."
+  },
+  "historicalCleanPreparation": {
+    "summary": "RUNTIME-VALIDATION-SUMMARY.json",
+    "summarySHA256": "2edcd9308e77d2327d88395112214fc9f97c267d7594838f8f8c7445af9c9ab5",
+    "availableEvidenceDigestChecks": 4,
+    "selectedSourceDigestChecks": 5,
+    "freshlyExecuted": false,
+    "firstReused": false,
+    "secondReused": true,
+    "network": "Historical process-tree deny-network; 245 cached HTTPS inputs, 22 bundle inputs not prefilled."
+  },
+  "errors": [],
+  "boundaries": [
+    "No blanket legal clearance or rights beyond supplied terms",
+    "Old-identity converted font TTFs and conversion ZIPs intentionally excluded; fixed URLs/hashes retained",
+    "Font rendering and deterministic reproduction are retained historical bounded evidence, not rerun here",
+    "No new live first-download, second-Mac, macOS14.2 hardware, whole-App or general PDF quality test"
+  ]
+}
