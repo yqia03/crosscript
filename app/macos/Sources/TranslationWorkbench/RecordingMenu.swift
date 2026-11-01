@@ -52,7 +52,7 @@ struct RecordingMenu: View {
             }.disabled(!recordingActions.canStart)
         }
         Divider()
-        Button(text("退出翻译工作台…", "Quit Translation Workbench…")) { NSApp.terminate(nil) }
+        Button(text("退出 Crosscript…", "Quit Crosscript…")) { NSApp.terminate(nil) }
     }
 }
 

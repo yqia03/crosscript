@@ -4,7 +4,7 @@ set -euo pipefail
 
 usage() {
     cat <<'EOF'
-Usage: bash verify-preview-app.sh --app /Applications/TranslationWorkbench.app \
+Usage: bash verify-preview-app.sh --app /Applications/Crosscript.app \
   --archive downloaded-preview.zip --archive-sha256 EXPECTED_SHA256 \
   --app-manifest APP-MANIFEST.tsv --manifest-sha256 EXPECTED_MANIFEST_SHA256 \
   --bundle-id dev.uown.translation-workbench --version 0.1.0 --build 1 \

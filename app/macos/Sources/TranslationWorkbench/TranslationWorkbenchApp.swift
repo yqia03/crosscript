@@ -212,7 +212,7 @@ struct TranslationWorkbenchApp: App {
         #if WORKBENCH_LOCAL_ACCEPTANCE
         return "本地受控验收 / Local controlled acceptance"
         #else
-        return uiText("翻译工作台", "Translation Workbench")
+        return "Crosscript"
         #endif
     }
     private func uiText(_ zh: String, _ en: String) -> String {

@@ -2,7 +2,13 @@
 
 [简体中文](getting-started.zh-CN.md) · [Project overview](../README.md) · [Release](https://github.com/yqia03/crosscript/releases/tag/v0.1.0-preview.6)
 
-This guide describes the released Apple Silicon preview **0.1.0 (6)**. The matching Release provides the DMG, App ZIP and optional complete materials; see [delivery verification](release-verification/build6/README.md) for the actual checks. The display name remains **翻译工作台**, the bundle/executable is `TranslationWorkbench`, and the bundle ID is `dev.uown.translation-workbench`. Existing data paths and Keychain names stay the same.
+This guide describes the released Apple Silicon preview **0.1.0 (6)**. The matching Release provides the DMG, App ZIP and optional complete materials; see [delivery verification](release-verification/build6/README.md) for the actual checks. That published App has display name **翻译工作台**, bundle `TranslationWorkbench.app`, executable `TranslationWorkbench` and bundle ID `dev.uown.translation-workbench`. Its downloads remain unchanged. The development source's future candidate naming is described below.
+
+## Future Crosscript.app candidates
+
+Candidates built from the development source use `Crosscript.app`, with display and executable name **Crosscript**. The bundle ID, existing material paths, preference domain and Keychain service names remain unchanged for compatibility; renaming the App does not require moving or deleting those stores. This source change does not rename or replace the published build 6 downloads.
+
+Before installing a future candidate, stop and save recordings, finish or cancel processing, quit every old copy and back up needed materials. Remove only the old `TranslationWorkbench.app` from Applications, then install `Crosscript.app` and open that exact installed path. Do not remove the data directories or Keychain items listed below. The different filenames do not trigger Finder's usual replacement prompt; avoid keeping or running both copies, since they share storage and preferences. macOS may request microphone or screen/system-audio permission again; permission inheritance has not been verified. Keep the existing macOS security settings and follow the applicable per-app opening flow.
 
 ## Download, check and open
 
@@ -62,7 +68,7 @@ For help or a bug, use [GitHub Issues](https://github.com/yqia03/crosscript/issu
 
 ## Remove the app or local data
 
-Stop and save work, finish/cancel tasks and back up needed materials. Removing `TranslationWorkbench.app` leaves data, preferences and Keychain credentials for reinstallation; it does not revoke a provider key.
+Stop and save work, finish/cancel tasks, quit the app and back up needed materials. Removing the app bundle (`TranslationWorkbench.app` in published build 6, or `Crosscript.app` in future candidates) leaves data, preferences and Keychain credentials for reinstallation; it does not revoke a provider key.
 
 The default material root is `~/Library/Application Support/TranslationWorkbench/Recordings/`, unless a custom `--data-directory` was used. It contains recordings, `TextWorkspace/` (possibly older `TextMaterials/`), `PDFMaterials/`, configurations and `PDFRuntime/`. If you only want to clear PDF components, identify `PDFRuntime/` separately; do not delete the whole recordings root accidentally. Application preferences use `dev.uown.translation-workbench`.
 

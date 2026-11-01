@@ -1,6 +1,6 @@
 # Crosscript
 
-**Translation Workbench for macOS** · [简体中文](README.zh-CN.md)
+**Translation and transcription for macOS** · [简体中文](README.zh-CN.md)
 
 A native translation and transcription workbench for Apple Silicon Macs. Bring your own API keys to translate text, Markdown and PDFs, transcribe recordings, and follow live bilingual captions. Original materials and editable results stay on your Mac; cloud processing sends the content needed for a task to your selected service.
 
@@ -19,7 +19,7 @@ Use the Release's SHA-256 values to check your download. The [installation and u
 - **Hardware:** Apple Silicon (arm64); no Intel build is provided.
 - **System target:** macOS 14.2 or later. That exact minimum OS has not been physically tested.
 - **Interface:** English and Simplified Chinese.
-- **App name:** the bundle is `TranslationWorkbench.app`; the display name is **翻译工作台**. Internal names and data paths remain TranslationWorkbench.
+- **App name:** the published build 6 bundle is `TranslationWorkbench.app`, with display name **翻译工作台**. The development source prepares future candidates as `Crosscript.app`, with display and executable name **Crosscript**; these changes do not alter the published build 6 downloads. Existing data paths, preferences and Keychain services retain their compatible identifiers. See the [upgrade guidance](docs/getting-started.md#future-crosscriptapp-candidates).
 - **First open:** macOS may block this non-notarized app; see the guide's per-app opening instructions.
 - **PDF preparation:** 22 inputs are bundled; 245 remaining pinned HTTPS inputs total 359,471,768 bytes (about 359 MB). Extra installation and processing space is required. The app manages Python; users do not need Homebrew, Xcode or a separate Python installation.
 

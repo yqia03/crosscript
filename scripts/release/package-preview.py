@@ -6,6 +6,7 @@ import json
 import pathlib
 import plistlib
 import re
+import shutil
 import stat
 import subprocess
 import sys
@@ -14,6 +15,15 @@ import zipfile
 
 ROOT = pathlib.Path(__file__).resolve().parents[2]
 NOTICES = ('LICENSE', 'THIRD_PARTY_NOTICES.md', 'CONTRIBUTING.md')
+DMG_BACKGROUND = '.background/installer.tiff'
+DMG_LAYOUT = dict(schema=1, style='crosscript-drag-to-applications', contentSizePoints=[640, 400],
+                  backgroundPixels=[[640, 400], [1280, 800]], iconSizePoints=112,
+                  windowBoundsPoints=[180, 120, 640, 428], textSizePoints=14,
+                  instructionSafeAreaBottomPoints=340,
+                  appPosition=[150, 180], applicationsPosition=[490, 180],
+                  defaultView='icon', toolbarVisible=False, statusbarVisible=False,
+                  pathbarVisible=False, sidebarWidthPoints=0,
+                  arrangement='none', externalMaterials='.release-info')
 MACHO = {bytes.fromhex(value) for value in (
     'cffaedfe', 'cefaedfe', 'feedfacf', 'feedface',
     'cafebabe', 'bebafeca', 'cafebabf', 'bfbafeca')}
@@ -48,7 +58,7 @@ def tree(root):
 
 
 def dmg_tree(root):
-    """The image payload permits exactly one symlink: Applications -> /Applications."""
+    """Only the root layout metadata and Applications link are DMG exceptions."""
     link = root / 'Applications'
     require(link.is_symlink() and link.readlink() == pathlib.Path('/Applications'),
             'DMG requires Applications to link exactly to /Applications.')
@@ -62,7 +72,8 @@ def _tree(root, applications_link=False):
         relative = '.' if path == root else './' + str(path.relative_to(root))
         require(not any(ord(char) < 32 or ord(char) == 127 or char == '\\' for char in relative),
                 'Control characters and backslashes are unsupported in preview paths.')
-        require(not any(part in ('__pycache__', '__MACOSX', '.DS_Store') or part.startswith('._') or part.endswith(('.pyc', '.pyo')) for part in pathlib.PurePosixPath(relative).parts),
+        root_layout = applications_link and path == root / '.DS_Store' and path.is_file() and not path.is_symlink()
+        require(root_layout or not any(part in ('__pycache__', '__MACOSX', '.DS_Store') or part.startswith('._') or part.endswith(('.pyc', '.pyo')) for part in pathlib.PurePosixPath(relative).parts),
                 'Generated cache or metadata sidecar is forbidden in preview inputs; rebuild from clean source.')
         if applications_link and path == root / 'Applications' and path.is_symlink():
             require(path.readlink() == pathlib.Path('/Applications'), 'Unsafe DMG Applications link.')
@@ -88,14 +99,17 @@ def tree_sha(value):
 class Preview:
     def __init__(self, args, runner=None):
         self.args = args
-        self.runner = runner or (lambda command: subprocess.run(command, capture_output=True, text=True, check=False))
+        self.runner = runner
         self.output = None
         self.commands = []
 
-    def run(self, *command):
+    def run(self, *command, timeout=None):
         command = [str(value) for value in command]
         try:
-            result = self.runner(command)
+            result = self.runner(command) if self.runner else subprocess.run(
+                command, capture_output=True, text=True, check=False, timeout=timeout)
+        except subprocess.TimeoutExpired as error:
+            result = subprocess.CompletedProcess(command, 124, '', f'Timed out after {timeout} seconds: {error}')
         except OSError as error:
             result = subprocess.CompletedProcess(command, 127, '', str(error))
         entry = dict(command=command, exitCode=result.returncode, stdout=result.stdout, stderr=result.stderr)
@@ -321,24 +335,110 @@ class Preview:
     def detach_image(self, mountpoint):
         # A failed attach can still have mounted a volume, so callers always attempt cleanup.
         try:
-            self.run('/usr/bin/hdiutil', 'detach', mountpoint)
+            self.run('/usr/bin/hdiutil', 'detach', mountpoint, timeout=20)
         except PreviewError:
-            self.run('/usr/bin/hdiutil', 'detach', '-force', mountpoint)
+            self.run('/usr/bin/hdiutil', 'detach', '-force', mountpoint, timeout=20)
+
+    def attach_image(self, archive, mountpoint, readonly):
+        flags = ['-readonly'] if readonly else ['-readwrite']
+        attached = self.run('/usr/bin/hdiutil', 'attach', *flags, '-nobrowse', '-noautoopen',
+                            '-mountpoint', mountpoint, '-plist', archive)
+        attachment = plistlib.loads(attached.encode())
+        mounts = [row.get('mount-point') for row in attachment.get('system-entities', []) if row.get('mount-point')]
+        require(mounts == [str(mountpoint)], 'DMG mounted at an unexpected location.')
+
+    def detach_after(self, mountpoint, failure):
+        try:
+            self.detach_image(mountpoint)
+        except PreviewError as error:
+            if failure is not None:
+                raise PreviewError(f'{failure}; DMG detach also failed; inspect {mountpoint} before removing output.') from error
+            raise
+
+    def dmg_layout(self, action, mountpoint, app_name):
+        script = pathlib.Path(__file__).with_name('write-dmg-layout.py')
+        result = json.loads(self.run(sys.executable, '-B', script, action, mountpoint, app_name, timeout=30))
+        require(isinstance(result, dict) and result.get('status') == 'verified', 'DMG layout metadata validation failed.')
+        return result
+
+    def configure_dmg(self, output, name, payload, app_name):
+        """Generate metadata from the real image without Finder or a GUI session."""
+        scripts = pathlib.Path(__file__).parent
+        background = payload / DMG_BACKGROUND
+        background.parent.mkdir()
+        self.run('/usr/bin/swift', scripts / 'draw-dmg-background.swift', background, timeout=120)
+        require(background.is_file() and background.stat().st_size > 0, 'DMG background was not generated.')
+        write_json(payload / '.release-info' / 'finder-layout.json', DMG_LAYOUT)
+        before_layout = dmg_tree(payload)
+        writable = output / (name + '-layout.dmg')
+        self.run('/usr/bin/hdiutil', 'create', '-quiet', '-volname', 'Crosscript Preview',
+                 '-srcfolder', payload, '-fs', 'HFS+', '-format', 'UDRW', writable)
+        mountpoint = output / 'layout-mounted'
+        mountpoint.mkdir()
+        failure = None
+        cleanup = []
+        try:
+            self.attach_image(writable, mountpoint, readonly=False)
+            layout_validation = self.dmg_layout('create', mountpoint, app_name)
+            layout = mountpoint / '.DS_Store'
+            require(layout.is_file() and not layout.is_symlink() and layout.stat().st_size > 0,
+                    'Layout generator did not save root .DS_Store metadata.')
+            # Only Apple-owned root housekeeping directories may be discarded. Any other
+            # extra member, nested metadata, App mutation or unsafe link fails the tree check.
+            for name in ('.fseventsd', '.Spotlight-V100', '.Trashes', '.TemporaryItems'):
+                generated = mountpoint / name
+                if generated.exists() or generated.is_symlink():
+                    require(generated.is_dir() and not generated.is_symlink(), 'Unsafe DMG housekeeping path.')
+                    shutil.rmtree(generated)
+                    cleanup.append(name)
+            # Copy the sole permitted generated metadata back into the immutable payload
+            # expectation; the complete mounted tree must still match, including artwork.
+            saved = payload / '.DS_Store'
+            with saved.open('xb') as stream:
+                stream.write(layout.read_bytes())
+            saved.chmod(stat.S_IMODE(layout.stat().st_mode))
+            require(dmg_tree(mountpoint) == dmg_tree(payload), 'Writable DMG payload changed during layout generation.')
+            layout_sha = sha(saved)
+        except BaseException as error:
+            failure = error
+            raise
+        finally:
+            self.detach_after(mountpoint, failure)
+        require(sha(payload / '.DS_Store') == layout_sha, 'Saved Finder layout changed.')
+        # The pre-layout tree is retained separately for audit; .DS_Store is the only
+        # payload addition made by the layout tool and every other byte was checked above.
+        return writable, dict(settings=DMG_LAYOUT, backgroundPath=DMG_BACKGROUND,
+                              backgroundSHA256=sha(background), layoutSHA256=layout_sha,
+                              preLayoutPayloadSHA256=tree_sha(before_layout),
+                              generatorSHA256=sha(scripts / 'draw-dmg-background.swift'),
+                              layoutScriptSHA256=sha(scripts / 'write-dmg-layout.py'),
+                              layoutVendorTreeSHA256=tree_sha(tree(scripts / 'vendor')),
+                              layoutGeneration='passed', layoutValidation=layout_validation,
+                              requiresFinderGUI=False, writableImageDetached=True,
+                              removedFilesystemHousekeeping=cleanup, visualInspection='not-run')
 
     def package_dmg(self):
         app, expected, inspection, report, notices, notice_hashes, output, name, payload, staged = self.package_payload('DMG')
+        materials = payload / '.release-info'
+        materials.mkdir()
+        # Keep the visual installation surface to two real Finder items. The exact
+        # external legal texts and integrity records remain accessible on the image.
+        for path in list(payload.iterdir()):
+            if path != staged and path != materials:
+                path.rename(materials / path.name)
         (payload / 'Applications').symlink_to('/Applications', target_is_directory=True)
-        (payload / 'INSTALL.txt').write_text(
+        (materials / 'INSTALL.txt').write_text(
             'Drag ' + app.name + ' to Applications, eject this disk image, then open the installed App from Applications.\n'
-            'Read PREVIEW.txt and the non-notarized-preview installation guide before opening:\n'
+            'Read .release-info/PREVIEW.txt and the non-notarized-preview installation guide before opening:\n'
             f'https://github.com/yqia03/crosscript/blob/v{self.args.version}-preview.{self.args.build}/docs/getting-started.md\n\n'
             '将 ' + app.name + ' 拖入 Applications（应用程序），推出此磁盘映像，再从“应用程序”打开已安装的 App。\n'
-            '打开前请阅读 PREVIEW.txt 及未公证预览版安装指南：\n'
-            f'https://github.com/yqia03/crosscript/blob/v{self.args.version}-preview.{self.args.build}/docs/getting-started.zh-CN.md\n')
+            '打开前请阅读 .release-info/PREVIEW.txt 及未公证预览版安装指南：\n'
+            f'https://github.com/yqia03/crosscript/blob/v{self.args.version}-preview.{self.args.build}/docs/getting-started.zh-CN.md\n'
+            'Finder 中按 Command-Shift-G，输入当前磁盘映像路径后加 /.release-info，可查看说明、许可和校验清单。\n')
+        writable, presentation = self.configure_dmg(output, name, payload, app.name)
         payload_before = dmg_tree(payload)
         archive = output / (name + '.dmg')
-        self.run('/usr/bin/hdiutil', 'create', '-quiet', '-volname', 'Crosscript Preview',
-                 '-srcfolder', payload, '-fs', 'HFS+', '-format', 'UDZO', archive)
+        self.run('/usr/bin/hdiutil', 'convert', writable, '-format', 'UDZO', '-o', archive)
         archive_sha = sha(archive)
         self.run('/usr/bin/hdiutil', 'verify', archive)
         mountpoint = output / 'mounted'
@@ -347,12 +447,9 @@ class Preview:
         copied.parent.mkdir()
         failure = None
         try:
-            attached = self.run('/usr/bin/hdiutil', 'attach', '-readonly', '-nobrowse', '-noautoopen',
-                                '-mountpoint', mountpoint, '-plist', archive)
-            attachment = plistlib.loads(attached.encode())
-            mounts = [row.get('mount-point') for row in attachment.get('system-entities', []) if row.get('mount-point')]
-            require(mounts == [str(mountpoint)], 'DMG mounted at an unexpected location.')
+            self.attach_image(archive, mountpoint, readonly=True)
             require(dmg_tree(mountpoint) == payload_before, 'Mounted DMG payload tree differs.')
+            presentation['readOnlyLayoutValidation'] = self.dmg_layout('verify', mountpoint, app.name)
             mounted = self.inspect(mountpoint / app.name, expected)
             require(mounted['manifest'] == inspection['manifest'], 'Mounted DMG App tree differs.')
             self.run('/usr/bin/ditto', mountpoint / app.name, copied)
@@ -363,21 +460,19 @@ class Preview:
             failure = error
             raise
         finally:
-            try:
-                self.detach_image(mountpoint)
-            except PreviewError as error:
-                if failure is not None:
-                    raise PreviewError(f'{failure}; DMG detach also failed; inspect {mountpoint} before removing output.') from error
-                raise
+            self.detach_after(mountpoint, failure)
         require(tree(app) == inspection['manifest'] and tree(staged) == inspection['manifest'], 'Input or staged App changed during DMG packaging.')
         require(dmg_tree(payload) == payload_before and sha(archive) == archive_sha, 'DMG payload/archive changed during verification.')
         require({path.name: sha(path) for path in notices} == notice_hashes, 'Notice inputs changed during DMG packaging.')
-        require({path.name: sha(payload / path.name) for path in notices} == notice_hashes, 'External notice copies differ.')
+        require({path.name: sha(materials / path.name) for path in notices} == notice_hashes, 'External notice copies differ.')
         (output / 'APP-MANIFEST.tsv').write_text(inspection['manifest'])
+        (output / 'DMG-PAYLOAD-MANIFEST.tsv').write_text(payload_before)
         (output / 'SHA256SUMS.txt').write_text(f'{archive_sha}  {archive.name}\n{tree_sha(inspection["manifest"])}  APP-MANIFEST.tsv\n')
         report.update(stage='package-dmg', status='packaged-and-verified-locally', archive=archive.name,
                       archiveFormat='UDZO', archiveSHA256=archive_sha, archiveBytes=archive.stat().st_size,
-                      externalNotices=notice_hashes, currentNoticesProveOlderAppMatchesCurrentSource=False,
+                      externalNotices=notice_hashes, externalMaterialsDirectory='.release-info',
+                      finderPresentation=presentation, payloadTreeSHA256=tree_sha(payload_before),
+                      currentNoticesProveOlderAppMatchesCurrentSource=False,
                       applicationsLink='/Applications', readOnlyMountVerified=True, imageVerification='passed',
                       fullInputAppUnchanged=True, fullStagedAppMatches=True, fullMountedPayloadMatches=True,
                       fullMountedAppMatches=True, fullCopiedAppMatches=True, mountedAdhocIntegrity='passed',

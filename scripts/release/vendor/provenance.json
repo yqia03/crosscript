@@ -1,0 +1,41 @@
+{
+  "schema": 1,
+  "purpose": "Build-time DMG layout generation; never bundled in the App",
+  "packages": [
+    {
+      "package": "ds_store",
+      "version": "1.3.3",
+      "license": "MIT",
+      "repository": "https://github.com/dmgbuild/ds_store",
+      "distributionPage": "https://pypi.org/project/ds_store/1.3.3/#files",
+      "wheel": "ds_store-1.3.3-py3-none-any.whl",
+      "wheelSHA256": "b92a371efbf1b4ccce2a04d1ed13fceacc4736c81ba09cf5aefb74c088160a35",
+      "retainedFilesSHA256": {
+        "ds_store/__init__.py": "a929478a3c647548151d08557a1c8d77b136e1354e8a1a20cad12e978c1a1dda",
+        "ds_store/__main__.py": "a56ce2bd7739eace7961f0c87d38988dcc996cb10893b21a701cbf1ab5553b42",
+        "ds_store/buddy.py": "794c59af2caf7007f96adba593115568775fcde024b25d16bf7ba19165d26fc1",
+        "ds_store/store.py": "c6e2b2a4868cb0937c1e74fabda6b4fe9697ea15f7637f8c0095341d2bb907f3",
+        "ds_store-LICENSE.txt": "7d0f4e9418ac55d7e6e03d4aead4cce9ecafe9ea533cf7fb89574193adcf9016"
+      },
+      "modifications": "none; only package Python sources and original license retained"
+    },
+    {
+      "package": "mac_alias",
+      "version": "2.2.3",
+      "license": "MIT",
+      "repository": "https://github.com/dmgbuild/mac_alias",
+      "distributionPage": "https://pypi.org/project/mac_alias/2.2.3/#files",
+      "wheel": "mac_alias-2.2.3-py3-none-any.whl",
+      "wheelSHA256": "7362b521d2132ef92f606a37abfed5fcd849ceb2f28b6f9743e014b02af92f0d",
+      "retainedFilesSHA256": {
+        "mac_alias/__init__.py": "5ecc74284ebce59f69d06a405629b0acc82eaf5dec1d615803a776b1ec3aa788",
+        "mac_alias/alias.py": "db022ce4c54612416c3762cd442a8d530944308f91d5a95a8bec20df7c44456b",
+        "mac_alias/bookmark.py": "092754896c3fc32b4260cf552e0f2337c562aad125e849e72ff70760cd37c7ed",
+        "mac_alias/osx.py": "8a8be6c5efef3339cbb15fb80fc376aec23c74b15808c9741d7b4c5e72fd0cea",
+        "mac_alias/utils.py": "35f52ec21392e1945e0e9a3877dc85adf64ca1a7940f08aca652fd3d94530fa7",
+        "mac_alias-LICENSE.txt": "b2eede0626e8dc9fa6f108c896345dbb193282156537c2025d8f5daedc4e58fe"
+      },
+      "modifications": "none; only package Python sources and original license retained"
+    }
+  ]
+}

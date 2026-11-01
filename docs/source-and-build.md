@@ -1,27 +1,27 @@
-# Crosscript source and build materials — 0.1.0 (6)
+# Crosscript source and build materials — 0.1.0 (7) candidate
 
-This document describes the build 6 distribution and its version-specific source/material links. The signed App's Info.plist records the exact source revision and source archive SHA-256. Source and materials become downloadable when this matching release is published; a missing link before publication is not evidence of delivery.
+This document describes the unpublished build 7 candidate and its planned version-specific source/material links. The published build 6 and its original files remain unchanged. A candidate built with the source-bound driver below records the exact source revision and source archive SHA-256 in its signed Info.plist. Source and materials become downloadable when this matching release is published; a missing link before publication is not evidence of delivery.
 
 - Project: https://github.com/yqia03/crosscript
-- Matching source: https://github.com/yqia03/crosscript/tree/v0.1.0-preview.6
-- Own-code license: https://github.com/yqia03/crosscript/blob/v0.1.0-preview.6/LICENSE
-- Third-party notices: https://github.com/yqia03/crosscript/blob/v0.1.0-preview.6/THIRD_PARTY_NOTICES.md
-- DMG, App ZIP and complete materials: https://github.com/yqia03/crosscript/releases/tag/v0.1.0-preview.6
+- Matching source: https://github.com/yqia03/crosscript/tree/v0.1.0-preview.7
+- Own-code license: https://github.com/yqia03/crosscript/blob/v0.1.0-preview.7/LICENSE
+- Third-party notices: https://github.com/yqia03/crosscript/blob/v0.1.0-preview.7/THIRD_PARTY_NOTICES.md
+- DMG, App ZIP and complete materials: https://github.com/yqia03/crosscript/releases/tag/v0.1.0-preview.7
 
 Crosscript's own code is AGPL-3.0-only; third-party components retain their own terms. The complete materials archive supplies the exact project source, integration changes, build/install/maintenance scripts, applicable third-party sources/notices and verification records. See [distribution materials](distribution-materials.md) and [third-party notices](../THIRD_PARTY_NOTICES.md). A version label or GitHub-generated source ZIP does not replace the App-bound source archive.
 
-中文：普通用户选择 DMG 或 App ZIP 安装即可，无需下载完整材料。需要源码、第三方材料及验证记录时，下载同版 `Crosscript-materials-0.1.0-6.tar.gz`。App 签名内记录精确源码版本与归档摘要；自有代码为 AGPL-3.0-only，第三方保留各自许可，完整许可文本也随 App 离线提供。
+中文：这是尚未公开发布的 build 7 候选，以下链接在同版正式公开后生效。普通用户选择 DMG 或 App ZIP 安装即可，无需下载完整材料。需要源码、第三方材料及验证记录时，下载同版 `Crosscript-materials-0.1.0-7.tar.gz`。通过下述源绑定驱动构建的候选会在 App 签名内记录精确源码版本与归档摘要；自有代码为 AGPL-3.0-only，第三方保留各自许可，完整许可文本也随 App 离线提供。
 
 ## Complete materials layout
 
-The outer archive has root `Crosscript-materials-0.1.0-6/`:
+The planned outer archive has root `Crosscript-materials-0.1.0-7/`:
 
-- `source/Crosscript-source-0.1.0-6.tar.gz`: the exact clean committed source snapshot used for this App.
-- `third-party/Crosscript-third-party-0.1.0-5-materials-v4.tar.gz`: the unchanged complete companion for the unchanged PDF runtime. Its original filename and historical records remain intact; inclusion in build 6 does not claim that its historical tests were rerun.
-- `evidence/`: build 6 source/build binding, App/package verification and actual test results, plus the record explaining runtime/material reuse.
+- `source/Crosscript-source-0.1.0-7.tar.gz`: the exact clean committed source snapshot used for this App.
+- `third-party/Crosscript-third-party-0.1.0-5-materials-v4.tar.gz`: the unchanged complete companion for the unchanged PDF runtime. Its original filename and historical records remain intact; inclusion in a new candidate does not claim that its historical tests were rerun.
+- `evidence/`: this candidate's source/build binding, App/package verification and actual test results, plus the record explaining runtime/material reuse.
 - `manifest.json`, `SHA256SUMS.txt` and `README.md`: archive contents, digests and directions.
 
-The Release body links the three downloads and displays their SHA-256 values. Individual JSON, scripts, Markdown and checksum files are kept in the materials archive rather than uploaded as extra assets. The build 5 tag, source, App, downloads and historical documentation remain available unchanged at [its original release](https://github.com/yqia03/crosscript/releases/tag/v0.1.0-preview.5).
+The matching Release body, when published, links the three downloads and displays their SHA-256 values. Individual JSON, scripts, Markdown and checksum files are kept in the materials archive rather than uploaded as extra assets. The build 5 tag, source, App, downloads and historical documentation remain available unchanged at [its original release](https://github.com/yqia03/crosscript/releases/tag/v0.1.0-preview.5).
 
 ## Build from source
 
@@ -29,7 +29,7 @@ Use Apple Silicon, Swift 6 and the macOS SDK. From the source root, select a fre
 
 ```sh
 WORKBENCH_SIGNING_IDENTITY=- WORKBENCH_SIGNING_KEYCHAIN='' \
-  WORKBENCH_APP_BUNDLE="$PWD/output/local-preview/TranslationWorkbench.app" \
+  WORKBENCH_APP_BUNDLE="$PWD/output/local-preview/Crosscript.app" \
   bash app/macos/scripts/build-app.sh release
 ```
 
@@ -40,9 +40,9 @@ python3 -B scripts/release/build-bound-candidate.py \
   --source "$PWD" --output /path/to/new-independent-output
 ```
 
-The driver archives tracked inputs, records the toolchain, restricts the build environment, denies build-process network access and embeds source identifiers before signing. It checks that source files remain unchanged. The ordinary build command also works from an extracted source archive; its original identifiers are in the companion build binding. Do not reuse an existing Release output or edit a signed App.
+The driver archives tracked inputs, records the toolchain, restricts the build environment, denies build-process network access and embeds source identifiers before signing. It checks that source files remain unchanged. The ordinary build command also works from an extracted source archive but does not embed source identifiers by default; the original distribution's identifiers are in its companion build binding. Do not reuse an existing Release output or edit a signed App.
 
-The preview uses ad-hoc integrity signing. Developer ID signing, notarization and stapling are not performed; the maintainer accepts the existing first-open restrictions for this packaging change. The DMG adds drag-to-Applications installation, not publisher authentication. Bundle identity, data paths and Keychain names stay unchanged. Package and signature verification do not establish another-Mac, minimum-OS, Gatekeeper or cloud-workflow acceptance; build 5's installation waiver is a historical record, not a build 6 passing result.
+The preview uses ad-hoc integrity signing. Developer ID signing, notarization and stapling are not performed; the maintainer accepts the existing first-open restrictions for this packaging change. The DMG adds drag-to-Applications installation, not publisher authentication. Bundle identity, data paths and Keychain names stay unchanged. Package and signature verification do not establish another-Mac, minimum-OS, Gatekeeper or cloud-workflow acceptance; build 5's installation waiver is a historical record, not a passing result for this candidate.
 
 See [release packaging](release-packaging.md) for DMG/ZIP roundtrip checks and the three-asset assembly command. Public delivery must match the source and material digests recorded for this candidate.
 
