@@ -1,25 +1,26 @@
-# Install and use Crosscript build 5
+# Install and use Crosscript build 6
 
-[简体中文](getting-started.zh-CN.md) · [Project overview](../README.md) · [Release](https://github.com/yqia03/crosscript/releases/tag/v0.1.0-preview.5)
+[简体中文](getting-started.zh-CN.md) · [Project overview](../README.md) · [Release](https://github.com/yqia03/crosscript/releases/tag/v0.1.0-preview.6)
 
-This guide describes the released Apple Silicon preview, **0.1.0 (5)**. The signed display name is **翻译工作台**, the bundle/executable is `TranslationWorkbench`, and the bundle ID is `dev.uown.translation-workbench`. These names are intentional; do not guess new data paths from Crosscript's release brand.
+This guide describes the Apple Silicon preview candidate **0.1.0 (6)**. Its downloads become available when the matching Release is published; check that page for publication and validation results. The display name remains **翻译工作台**, the bundle/executable is `TranslationWorkbench`, and the bundle ID is `dev.uown.translation-workbench`. Existing data paths and Keychain names stay the same.
 
 ## Download, check and open
 
-1. Download [Crosscript-preview-0.1.0-5.zip](https://github.com/yqia03/crosscript/releases/download/v0.1.0-preview.5/Crosscript-preview-0.1.0-5.zip). It is 169,789,128 bytes. Verify it in Terminal from the directory containing the ZIP:
+1. Choose **[DMG (recommended)](https://github.com/yqia03/crosscript/releases/download/v0.1.0-preview.6/Crosscript-preview-0.1.0-6.dmg)** or **[App ZIP](https://github.com/yqia03/crosscript/releases/download/v0.1.0-preview.6/Crosscript-preview-0.1.0-6.zip)**. You only need one. To check the download in Terminal, run the corresponding command and compare its SHA-256 with the matching Release body:
 
    ```sh
-   shasum -a 256 Crosscript-preview-0.1.0-5.zip
+   shasum -a 256 Crosscript-preview-0.1.0-6.dmg
+   # For the ZIP instead:
+   shasum -a 256 Crosscript-preview-0.1.0-6.zip
    ```
 
-   Expected SHA-256: `86b4693ce411664cfe388e29efe09280ec22ab6f696701baf1854d536f590f97`. Compare with the matching Release as well. A checksum confirms byte consistency; it does not authenticate the publisher. To check the complete 28-asset set, follow the Release's five download-name mappings before using `SHA256SUMS.txt`; the hosted ASCII names differ from five original Chinese manifest names.
-2. Quit an older copy and back up any materials you need. Extract the ZIP in Finder and move `TranslationWorkbench.app` to your chosen Applications directory, for example `/Applications`. Open the `.app` normally. The target is macOS 14.2+ on Apple Silicon; macOS 14.2 itself has not been physically tested.
-3. This preview has **ad-hoc integrity signing only**, without Developer ID authentication or Apple notarization. If macOS blocks an unidentified/unnotarized app, consult [Apple's per-app opening instructions](https://support.apple.com/en-us/102445). If the system offers **Open Anyway** under System Settings → Privacy & Security, choosing that exception is your decision and may be restricted by device policy. Do not disable global protection, remove quarantine or re-sign the app. Stop on a mismatched digest/signature, malware warning or a message that the app is damaged/modified; retain the exact message for a sanitized report.
+2. Quit any older copy and back up needed materials. For the DMG, open it, drag `TranslationWorkbench.app` to Applications, eject the disk image, then open the installed app. For the ZIP, extract it in Finder, move `TranslationWorkbench.app` to Applications, then open it. The target is macOS 14.2+ on Apple Silicon; macOS 14.2 itself has not been physically tested. No developer tools are required.
+3. This preview uses **ad-hoc integrity signing**, without Developer ID authentication or Apple notarization. If macOS blocks it, consult [Apple's per-app opening instructions](https://support.apple.com/en-us/102445). Use the system's applicable per-app flow without disabling global protection, removing quarantine or re-signing. Stop on a mismatched checksum/signature or malware/damaged-app warning and retain the exact message for a sanitized report.
 4. Open Settings to select English or Simplified Chinese and configure your services. Installing the app does not provide service accounts, API credit or keys.
 
-**Actual installation evidence:** build 5 second-Mac checks B01–B06 were not run. The maintainer explicitly waived them on 2026-10-30 and approved publication. This guide is not evidence of a successful second-Mac install, permission flow or cold runtime download, and does not inherit build 4's acceptance.
+The optional [complete materials archive](https://github.com/yqia03/crosscript/releases/download/v0.1.0-preview.6/Crosscript-materials-0.1.0-6.tar.gz) contains the exact source archive, third-party source/build materials, notices and evidence. It is not needed to install or run the app. Use the Release body for its checksum and the archive's index for its contents.
 
-The Release includes a [frozen Chinese installation/removal reference](https://github.com/yqia03/crosscript/releases/download/v0.1.0-preview.5/INSTALL-UNINSTALL-LIMITATIONS.zh-CN.md), manifest and static verifier. Its publication-pending and second-Mac-required statements record the earlier preparation state; the Release supplies the later approval and waiver. Its technical path/keychain references remain useful. Static integrity is distinct from Gatekeeper, launch and workflow acceptance.
+**Validation scope:** consult the matching Release for build 6 results. Historical build 5 second-Mac B01–B06 were not run and were waived on 2026-10-30; that waiver and older checks do not establish build 6 installation, permissions or cold-download acceptance. The [frozen build 5 installation/removal reference](https://github.com/yqia03/crosscript/releases/download/v0.1.0-preview.5/INSTALL-UNINSTALL-LIMITATIONS.zh-CN.md) remains historical; its data and Keychain paths are retained below.
 
 ## Configure services and understand data flow
 
@@ -55,7 +56,7 @@ File processing tasks queue with at most one background task running; interactiv
 
 ## Known limits and support
 
-The [overview's workflow evidence table](../README.md#data-costs-and-verification-limits) distinguishes historical validation from current gaps. In particular, official OpenAI transcription success is not verified; AiHubMix evidence does not cover every preset. Gemini long sessions, real reconnection and real file-based gap repair remain gaps. The previously stopped PDF batch and real/paid probes remain stopped. No new live/provider acceptance was run for these documentation updates.
+The [overview's workflow evidence table](../README.md#data-costs-and-verification-limits) distinguishes historical validation from current gaps. In particular, official OpenAI transcription success is not verified; AiHubMix evidence does not cover every preset. Gemini long sessions, real reconnection and real file-based gap repair remain gaps. The previously stopped PDF batch and real/paid probes remain stopped. Build 6 packaging does not establish new live/provider acceptance.
 
 For help or a bug, use [GitHub Issues](https://github.com/yqia03/crosscript/issues/new) with app/build, macOS, chip, workflow, provider/model, reproduction steps and the exact sanitized error. Remove keys, private documents/audio and machine-specific paths. Use the [private vulnerability report](https://github.com/yqia03/crosscript/security/advisories/new) for security-sensitive findings; see [SECURITY.md](../SECURITY.md). This is a personally maintained preview with no promised response time.
 
@@ -65,4 +66,4 @@ Stop and save work, finish/cancel tasks and back up needed materials. Removing `
 
 The default material root is `~/Library/Application Support/TranslationWorkbench/Recordings/`, unless a custom `--data-directory` was used. It contains recordings, `TextWorkspace/` (possibly older `TextMaterials/`), `PDFMaterials/`, configurations and `PDFRuntime/`. If you only want to clear PDF components, identify `PDFRuntime/` separately; do not delete the whole recordings root accidentally. Application preferences use `dev.uown.translation-workbench`.
 
-Prefer the app's targeted remove-key controls. The Keychain services are `TranslationWorkbench.TextPDFProviders` and `TranslationWorkbench.OpenAIAudio` (the latter also includes Gemini credentials). Removing local credentials does not revoke them remotely. External originals, exports, backups and provider retention are separate. No uninstall, deletion, secure-erasure or zero-residue test is claimed. See the frozen installation reference for the detailed path/account scope.
+Prefer the app's targeted remove-key controls. The Keychain services are `TranslationWorkbench.TextPDFProviders` and `TranslationWorkbench.OpenAIAudio` (the latter also includes Gemini credentials). Removing local credentials does not revoke them remotely. External originals, exports, backups and provider retention are separate. No uninstall, deletion, secure-erasure or zero-residue test is claimed. See the linked historical build 5 installation reference for the detailed path/account scope.

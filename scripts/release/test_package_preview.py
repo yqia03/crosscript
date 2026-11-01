@@ -33,6 +33,15 @@ class FakeTools:
         self.change_extracted_file = False
         self.change_source_at_zip = None
         self.add_metadata_sidecar = False
+        self.images = {}
+        self.active_mounts = set()
+        self.fail_attach = False
+        self.fail_detaches = 0
+        self.fail_image_verify = False
+        self.mounted_mutation = None
+        self.change_source_at_dmg = None
+        self.change_copied_file = False
+        self.invalid_mounted_signature = False
 
     def __call__(self, command):
         self.calls.append(command)
@@ -52,7 +61,8 @@ class FakeTools:
                 signature.mkdir(exist_ok=True)
                 (signature / 'CodeResources').write_text('synthetic ad-hoc signature')
             elif '--verify' in command:
-                code = 1 if self.invalid_signature else 0
+                on_mount = any(pathlib.Path(command[-1]).is_relative_to(path) for path in self.active_mounts)
+                code = 1 if self.invalid_signature or (on_mount and self.invalid_mounted_signature) else 0
                 error = 'CSSMERR_TP_NOT_TRUSTED' if code else ''
             elif '--entitlements' in command:
                 output = plistlib.dumps(self.entitlements).decode()
@@ -82,6 +92,42 @@ class FakeTools:
                     next(destination.glob('*/Input.app/Contents/Resources/example.txt')).write_text('tampered')
             else:
                 shutil.copytree(command[-2], command[-1])
+                if self.change_copied_file and 'copied' in pathlib.Path(command[-1]).parts:
+                    (pathlib.Path(command[-1]) / 'Contents/Resources/example.txt').write_text('tampered copy')
+        elif name == 'hdiutil':
+            if command[1] == 'create':
+                archive = pathlib.Path(command[-1])
+                source = pathlib.Path(command[command.index('-srcfolder') + 1])
+                image = archive.with_suffix('.contents')
+                shutil.copytree(source, image, symlinks=True)
+                self.images[archive] = image
+                archive.write_bytes(b'synthetic compressed image')
+                if self.change_source_at_dmg:
+                    self.change_source_at_dmg.write_text('changed while building image')
+            elif command[1] == 'verify':
+                code = 1 if self.fail_image_verify else 0
+            elif command[1] == 'attach':
+                mountpoint = pathlib.Path(command[command.index('-mountpoint') + 1])
+                shutil.copytree(self.images[pathlib.Path(command[-1])], mountpoint, dirs_exist_ok=True, symlinks=True)
+                self.active_mounts.add(mountpoint)
+                if self.mounted_mutation:
+                    self.mounted_mutation(mountpoint)
+                output = plistlib.dumps({'system-entities': [{'dev-entry': '/dev/disk99s1', 'mount-point': str(mountpoint)}]}).decode()
+                code = 1 if self.fail_attach else 0
+            elif command[1] == 'detach':
+                if self.fail_detaches:
+                    self.fail_detaches -= 1
+                    code = 1
+                else:
+                    mountpoint = pathlib.Path(command[-1])
+                    self.active_mounts.discard(mountpoint)
+                    for path in mountpoint.iterdir():
+                        if path.is_dir() and not path.is_symlink():
+                            shutil.rmtree(path)
+                        else:
+                            path.unlink()
+            else:
+                raise AssertionError(f'Unknown hdiutil command: {command}')
         else:
             raise AssertionError(f'Forbidden or unknown tool: {command}')
         return subprocess.CompletedProcess(command, code, output, error)
@@ -121,6 +167,11 @@ class PreviewTests(unittest.TestCase):
     def package(self):
         destination = self.root / 'package'
         code, result = self.invoke(['package', *self.common, '--output', str(destination)])
+        return code, result, destination
+
+    def package_dmg(self):
+        destination = self.root / 'dmg-package'
+        code, result = self.invoke(['package-dmg', *self.common, '--output', str(destination)])
         return code, result, destination
 
     def test_default_preflight_does_not_write_sign_upload_or_use_credentials(self):
@@ -261,6 +312,126 @@ class PreviewTests(unittest.TestCase):
         self.assertEqual(code, 1)
         self.assertIn('Input or staged App changed', result['error'])
         self.assertTrue((destination / 'failure.json').is_file())
+
+    def test_dmg_roundtrip_preserves_input_notices_modes_and_adhoc_signature(self):
+        code, result, destination = self.package_dmg()
+        self.assertEqual(code, 0, result)
+        self.assertEqual(result['stage'], 'package-dmg')
+        self.assertTrue(result['archive'].endswith('.dmg'))
+        self.assertTrue(result['fullMountedPayloadMatches'])
+        self.assertTrue(result['fullCopiedAppMatches'])
+        self.assertTrue(result['imageDetached'])
+        self.assertFalse(self.tools.active_mounts)
+        self.assertEqual(preview.tree(self.app), self.before)
+        self.assertEqual(preview.tree(destination / 'copied' / self.app.name), self.before)
+        self.assertEqual(set(result['externalNotices']), set(preview.NOTICES))
+        self.assertEqual(result['notarization'], 'not-performed')
+        self.assertEqual(result['developerIDSigning'], 'not-performed')
+        self.assertFalse(result['readyForPublication'])
+        self.assertFalse(any('--sign' in command for command in self.tools.calls))
+        create = next(c for c in self.tools.calls if c[1] == 'create')
+        self.assertEqual(create[create.index('-format') + 1], 'UDZO')
+        attach = next(c for c in self.tools.calls if c[1] == 'attach')
+        for flag in ('-readonly', '-nobrowse', '-noautoopen'):
+            self.assertIn(flag, attach)
+        mounted_verifies = [c for c in self.tools.calls if '--verify' in c and 'mounted' in pathlib.Path(c[-1]).parts]
+        copied_verifies = [c for c in self.tools.calls if '--verify' in c and 'copied' in pathlib.Path(c[-1]).parts]
+        self.assertTrue(mounted_verifies and copied_verifies)
+
+    def test_dmg_applications_link_is_the_only_symlink_exception(self):
+        payload = self.root / 'payload'
+        payload.mkdir()
+        (payload / 'Applications').symlink_to('/Applications')
+        self.assertIn('/Applications', preview.dmg_tree(payload))
+        with self.assertRaises(preview.PreviewError):
+            preview.tree(payload)
+        (payload / 'extra').symlink_to('/Applications')
+        with self.assertRaises(preview.PreviewError):
+            preview.dmg_tree(payload)
+        (payload / 'extra').unlink()
+        (payload / 'Applications').unlink()
+        (payload / 'Applications').symlink_to('/tmp')
+        with self.assertRaises(preview.PreviewError):
+            preview.dmg_tree(payload)
+
+    def test_dmg_mounted_payload_mismatches_always_detach_and_preserve_input(self):
+        def wrong_link(root):
+            (root / 'Applications').unlink()
+            (root / 'Applications').symlink_to('/tmp')
+
+        mutations = {
+            'file bytes': lambda root: (root / 'Input.app/Contents/Resources/example.txt').write_text('tampered'),
+            'permission mode': lambda root: (root / 'Input.app/Contents/MacOS/TranslationWorkbench').chmod(0o644),
+            'missing notice': lambda root: (root / 'LICENSE').unlink(),
+            'extra member': lambda root: (root / 'unexpected.txt').write_text('unexpected'),
+            'unsafe link': wrong_link,
+        }
+        for kind, mutate in mutations.items():
+            with self.subTest(kind=kind):
+                self.tools.mounted_mutation = mutate
+                code, result, destination = self.package_dmg()
+                self.assertEqual(code, 1, result)
+                self.assertFalse(self.tools.active_mounts)
+                self.assertEqual(preview.tree(self.app), self.before)
+                self.assertTrue((destination / 'failure.json').is_file())
+                self.assertFalse((destination / 'preview.json').exists())
+                shutil.rmtree(destination)
+
+    def test_dmg_partial_attach_failure_still_detaches(self):
+        self.tools.fail_attach = True
+        code, result, _ = self.package_dmg()
+        self.assertEqual(code, 1, result)
+        self.assertFalse(self.tools.active_mounts)
+        self.assertTrue(any(c[1] == 'detach' for c in self.tools.calls))
+        self.assertEqual(preview.tree(self.app), self.before)
+
+    def test_dmg_detach_failure_retries_with_force(self):
+        self.tools.fail_detaches = 1
+        code, result, _ = self.package_dmg()
+        self.assertEqual(code, 0, result)
+        self.assertFalse(self.tools.active_mounts)
+        detaches = [c for c in self.tools.calls if c[1] == 'detach']
+        self.assertEqual(len(detaches), 2)
+        self.assertIn('-force', detaches[-1])
+
+    def test_dmg_detach_failure_is_not_reported_as_success(self):
+        self.tools.fail_detaches = 2
+        self.tools.mounted_mutation = lambda root: (root / 'LICENSE').unlink()
+        code, result, destination = self.package_dmg()
+        self.assertEqual(code, 1, result)
+        self.assertIn('detach also failed', result['error'])
+        self.assertFalse((destination / 'preview.json').exists())
+        self.assertEqual(preview.tree(self.app), self.before)
+
+    def test_dmg_invalid_mounted_signature_detaches(self):
+        self.tools.invalid_mounted_signature = True
+        code, result, _ = self.package_dmg()
+        self.assertEqual(code, 1, result)
+        self.assertFalse(self.tools.active_mounts)
+        self.assertEqual(preview.tree(self.app), self.before)
+
+    def test_dmg_copy_mismatch_detaches(self):
+        self.tools.change_copied_file = True
+        code, result, _ = self.package_dmg()
+        self.assertEqual(code, 1, result)
+        self.assertIn('App copied from DMG differs', result['error'])
+        self.assertFalse(self.tools.active_mounts)
+        self.assertEqual(preview.tree(self.app), self.before)
+
+    def test_dmg_image_verification_failure_never_mounts(self):
+        self.tools.fail_image_verify = True
+        code, result, _ = self.package_dmg()
+        self.assertEqual(code, 1, result)
+        self.assertFalse(any(c[1] == 'attach' for c in self.tools.calls))
+        self.assertEqual(preview.tree(self.app), self.before)
+
+    def test_dmg_input_change_during_creation_is_failure(self):
+        self.tools.change_source_at_dmg = self.resource
+        code, result, destination = self.package_dmg()
+        self.assertEqual(code, 1, result)
+        self.assertIn('Input or staged App changed', result['error'])
+        self.assertFalse(self.tools.active_mounts)
+        self.assertFalse((destination / 'preview.json').exists())
 
 
 if __name__ == '__main__':

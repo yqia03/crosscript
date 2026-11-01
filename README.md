@@ -4,18 +4,24 @@
 
 A native translation and transcription workbench for Apple Silicon Macs. Bring your own API keys to translate text, Markdown and PDFs, transcribe recordings, and follow live bilingual captions. Original materials and editable results stay on your Mac; cloud processing sends the content needed for a task to your selected service.
 
-**Released preview: [0.1.0 build 5 / v0.1.0-preview.5](https://github.com/yqia03/crosscript/releases/tag/v0.1.0-preview.5).** This is an ad-hoc signed, non-notarized preview without Developer ID publisher authentication. Build 5 second-Mac checks B01–B06 were **not run**; the maintainer waived that gate and approved publication on 2026-10-30. A waiver is not a passing installation test.
+**Preview candidate: 0.1.0 build 6 / `v0.1.0-preview.6`.** Publication and validation results will be recorded on the [matching Release](https://github.com/yqia03/crosscript/releases/tag/v0.1.0-preview.6). Download links become available when it is published. This preview uses ad-hoc integrity signing without Developer ID publisher authentication or Apple notarization.
 
 ## Download and install
 
-Download [Crosscript-preview-0.1.0-5.zip](https://github.com/yqia03/crosscript/releases/download/v0.1.0-preview.5/Crosscript-preview-0.1.0-5.zip) from the matching Release. The same Release provides the exact source archive, third-party source/build materials and checksums. See the [installation and use guide](docs/getting-started.md) for integrity checks, first-open limits, setup, history, exports and removal.
+Choose one app download from the matching Release:
+
+- **[DMG — recommended](https://github.com/yqia03/crosscript/releases/download/v0.1.0-preview.6/Crosscript-preview-0.1.0-6.dmg):** open it, drag `TranslationWorkbench.app` to Applications, eject the disk image, then open the installed app.
+- **[App ZIP](https://github.com/yqia03/crosscript/releases/download/v0.1.0-preview.6/Crosscript-preview-0.1.0-6.zip):** extract in Finder, move the app to Applications, then open it.
+- **[Complete materials archive](https://github.com/yqia03/crosscript/releases/download/v0.1.0-preview.6/Crosscript-materials-0.1.0-6.tar.gz):** optional for ordinary use; contains the exact source archive, third-party source/build materials, notices and release evidence.
+
+Use the Release's SHA-256 values to check your download. The [installation and use guide](docs/getting-started.md) covers first open, services, history, exports and removal.
 
 - **Hardware:** Apple Silicon (arm64); no Intel build is provided.
 - **System target:** macOS 14.2 or later. That exact minimum OS has not been physically tested.
 - **Interface:** English and Simplified Chinese.
-- **App name:** the downloaded bundle is `TranslationWorkbench.app`; the signed display name is **翻译工作台**. Crosscript is the project/release brand; internal names and data paths remain TranslationWorkbench.
-- **First open:** unzip in Finder, move the app to your chosen Applications directory and open normally. macOS may block this non-notarized app. Follow the applicable per-app system flow described in the guide; stop on integrity, malware or damaged-app warnings.
-- **PDF preparation:** 22 inputs are bundled; 245 remaining pinned HTTPS inputs total 359,471,768 bytes (about 359 MB). Extra unpacking, installation and processing space is required. The app manages Python; users do not need Homebrew, Xcode or a separate Python installation.
+- **App name:** the bundle is `TranslationWorkbench.app`; the display name is **翻译工作台**. Internal names and data paths remain TranslationWorkbench.
+- **First open:** macOS may block this non-notarized app; see the guide's per-app opening instructions.
+- **PDF preparation:** 22 inputs are bundled; 245 remaining pinned HTTPS inputs total 359,471,768 bytes (about 359 MB). Extra installation and processing space is required. The app manages Python; users do not need Homebrew, Xcode or a separate Python installation.
 
 ## Four workflows
 
@@ -38,17 +44,17 @@ Credentials are stored in macOS Keychain. Original recordings, imported copies a
 | PDF | Focused offline runtime installation/reuse and component checks are recorded; they do not prove cold downloads on another Mac or arbitrary document quality. The earlier partial PDF batch remains stopped. Scanned images do not automatically gain OCR; layout, formulas and fonts may change. |
 | Recorded audio | AiHubMix has historical real-use validation; successful official OpenAI transcription and every preset's timestamp accuracy are not established. |
 | Gemini Live | Short historical real-service validation; long sessions, real reconnection and file-based gap repair retain gaps. No real Gemini file-repair success is claimed. Translated speech and fixed latency are not promised. |
-| Whole app / installation | License-component tests and packaging checks are scoped evidence. Build 5 second-Mac B01–B06 were not run and were waived; build 4 acceptance is not inherited. macOS 14.2 hardware testing and full workflow acceptance remain unverified. |
+| Whole app / installation | Build 6 validation results belong to its matching Release. Historical build 5 second-Mac B01–B06 were not run and were waived on 2026-10-30; that waiver and earlier checks do not establish build 6 acceptance. macOS 14.2 hardware testing and full workflow acceptance remain unverified. |
 
-Language choices are not a per-language quality guarantee; the initial validation focus is English and Simplified Chinese. Stopped PDF batches and live/paid service probes have not resumed. See the [current build 5 evidence index](docs/release-verification/build5/README.md), [public delivery and all continuing gaps](docs/release-verification/build5/public-delivery.md), [bounded gaps](docs/release-verification/build5/gaps.md) and [user-material scope](docs/release-verification/build5/user-materials.md).
+Language choices are not a per-language quality guarantee; the initial validation focus is English and Simplified Chinese. Stopped PDF batches and live/paid service probes have not resumed. See the [historical build 5 evidence index](docs/release-verification/build5/README.md), [public delivery and all continuing gaps](docs/release-verification/build5/public-delivery.md), [bounded gaps](docs/release-verification/build5/gaps.md) and [user-material scope](docs/release-verification/build5/user-materials.md).
 
 ## Source, contributions and support
 
 - [Report a bug / ask for help](https://github.com/yqia03/crosscript/issues/new): include app/build, macOS, chip, workflow, service/model and sanitized reproduction steps. See [CONTRIBUTING.md](CONTRIBUTING.md).
 - [Report a vulnerability privately](https://github.com/yqia03/crosscript/security/advisories/new): see [SECURITY.md](SECURITY.md); do not post credentials or exploitable security details in public issues.
-- [Exact build 5 source](https://github.com/yqia03/crosscript/releases/download/v0.1.0-preview.5/Crosscript-source-0.1.0-5.tar.gz) and [third-party materials](https://github.com/yqia03/crosscript/releases/download/v0.1.0-preview.5/Crosscript-third-party-0.1.0-5-materials-v4.tar.gz) accompany the preview. GitHub's automatically generated source ZIP is not the App-bound source archive.
+- The [complete build 6 materials archive](https://github.com/yqia03/crosscript/releases/download/v0.1.0-preview.6/Crosscript-materials-0.1.0-6.tar.gz) provides the exact source, third-party source/build materials and evidence. GitHub's automatically generated source ZIP does not replace the App-bound source archive inside it.
 
-The project is personally maintained with no guaranteed response time. Development requires Apple Silicon, Swift 6 and the macOS SDK. See [source/build instructions](docs/source-and-build.md) and [testing scope](docs/testing.md) before running tests or provider checks. Current documentation updates do not rebuild or alter the frozen build 5 tag, App or 28 release assets. Historical publication-pending wording in those objects is explained by the Release's later approval and waiver.
+The project is personally maintained with no guaranteed response time. Development requires Apple Silicon, Swift 6 and the macOS SDK. See [source/build instructions](docs/source-and-build.md) and [testing scope](docs/testing.md) before running tests or provider checks. The frozen [build 5 Release](https://github.com/yqia03/crosscript/releases/tag/v0.1.0-preview.5), tag, App and 28 assets remain available unchanged. Its later approval and waiver apply only to build 5.
 
 ## License
 

@@ -44,6 +44,18 @@ def write_json(path, value):
 
 def tree(root):
     """All paths, kinds, Unix permission bits and regular-file bytes; no xattrs."""
+    return _tree(root)
+
+
+def dmg_tree(root):
+    """The image payload permits exactly one symlink: Applications -> /Applications."""
+    link = root / 'Applications'
+    require(link.is_symlink() and link.readlink() == pathlib.Path('/Applications'),
+            'DMG requires Applications to link exactly to /Applications.')
+    return _tree(root, applications_link=True)
+
+
+def _tree(root, applications_link=False):
     require(root.is_dir() and not root.is_symlink(), 'Expected a non-symlink directory.')
     rows = []
     for path in [root] + sorted(root.rglob('*'), key=lambda item: bytes(item.relative_to(root))):
@@ -52,6 +64,10 @@ def tree(root):
                 'Control characters and backslashes are unsupported in preview paths.')
         require(not any(part in ('__pycache__', '__MACOSX', '.DS_Store') or part.startswith('._') or part.endswith(('.pyc', '.pyo')) for part in pathlib.PurePosixPath(relative).parts),
                 'Generated cache or metadata sidecar is forbidden in preview inputs; rebuild from clean source.')
+        if applications_link and path == root / 'Applications' and path.is_symlink():
+            require(path.readlink() == pathlib.Path('/Applications'), 'Unsafe DMG Applications link.')
+            rows.append(('l', '-', '-', '/Applications', relative))
+            continue
         require(not path.is_symlink(), 'Preview bundles must not contain symlinks; add an explicit policy first.')
         mode = stat.S_IMODE(path.lstat().st_mode)
         require(not mode & 0o7000, 'Special permission bits are unsupported in preview payloads.')
@@ -231,7 +247,7 @@ class Preview:
         write_json(output / 'prepared.json', report)
         return report
 
-    def package(self):
+    def package_payload(self, medium='ZIP'):
         app, expected, inspection, report = self.preflight()
         notice_root = pathlib.Path(self.args.notice_root).resolve()
         notices = [notice_root / name for name in NOTICES]
@@ -253,13 +269,17 @@ class Preview:
             'Existing ad-hoc signature integrity checked; no publisher identity is authenticated.\n'
             'Developer ID signing, notarization, stapling: not-performed.\n'
             'Default Gatekeeper acceptance and clean-Mac installation: not verified.\n'
-            'Ad-hoc integrity and this ZIP hash do not establish safety, licensing compliance or source provenance.\n'
-            f'Declared source commit: {self.args.source}; App build provenance: not verified by this packaging tool; see companion RELEASE-BINDING.json.\n'
+            f'Ad-hoc integrity and this {medium} hash do not establish safety, licensing compliance or source provenance.\n'
+            f'Declared source commit: {self.args.source}; App build provenance: not verified by this packaging tool; consult manifest.json and evidence/ in the complete release materials archive.\n'
             'LICENSE/THIRD_PARTY_NOTICES.md/CONTRIBUTING.md are current external texts;\n'
             'their inclusion does not prove that this App matches the current source or dependency updates.\n'
             'Use the non-notarized-preview installation guide; retain quarantine.\n'
             'A trusted-source per-App Open Anyway exception, where macOS offers it, is a user decision.\n'
             'Do not override damage/malware/revocation warnings or disable system protection.\n')
+        return app, expected, inspection, report, notices, notice_hashes, output, name, payload, staged
+
+    def package(self):
+        app, expected, inspection, report, notices, notice_hashes, output, name, payload, staged = self.package_payload()
         payload_before = tree(payload)
         archive = output / (name + '.zip')
         self.run('/usr/bin/ditto', '-c', '-k', '--norsrc', '--noextattr', '--qtn', '--noacl', '--keepParent', payload, archive)
@@ -298,10 +318,77 @@ class Preview:
         write_json(output / 'preview.json', report)
         return report
 
+    def detach_image(self, mountpoint):
+        # A failed attach can still have mounted a volume, so callers always attempt cleanup.
+        try:
+            self.run('/usr/bin/hdiutil', 'detach', mountpoint)
+        except PreviewError:
+            self.run('/usr/bin/hdiutil', 'detach', '-force', mountpoint)
+
+    def package_dmg(self):
+        app, expected, inspection, report, notices, notice_hashes, output, name, payload, staged = self.package_payload('DMG')
+        (payload / 'Applications').symlink_to('/Applications', target_is_directory=True)
+        (payload / 'INSTALL.txt').write_text(
+            'Drag ' + app.name + ' to Applications, eject this disk image, then open the installed App from Applications.\n'
+            'Read PREVIEW.txt and the non-notarized-preview installation guide before opening:\n'
+            f'https://github.com/yqia03/crosscript/blob/v{self.args.version}-preview.{self.args.build}/docs/getting-started.md\n\n'
+            '将 ' + app.name + ' 拖入 Applications（应用程序），推出此磁盘映像，再从“应用程序”打开已安装的 App。\n'
+            '打开前请阅读 PREVIEW.txt 及未公证预览版安装指南：\n'
+            f'https://github.com/yqia03/crosscript/blob/v{self.args.version}-preview.{self.args.build}/docs/getting-started.zh-CN.md\n')
+        payload_before = dmg_tree(payload)
+        archive = output / (name + '.dmg')
+        self.run('/usr/bin/hdiutil', 'create', '-quiet', '-volname', 'Crosscript Preview',
+                 '-srcfolder', payload, '-fs', 'HFS+', '-format', 'UDZO', archive)
+        archive_sha = sha(archive)
+        self.run('/usr/bin/hdiutil', 'verify', archive)
+        mountpoint = output / 'mounted'
+        mountpoint.mkdir()
+        copied = output / 'copied' / app.name
+        copied.parent.mkdir()
+        failure = None
+        try:
+            attached = self.run('/usr/bin/hdiutil', 'attach', '-readonly', '-nobrowse', '-noautoopen',
+                                '-mountpoint', mountpoint, '-plist', archive)
+            attachment = plistlib.loads(attached.encode())
+            mounts = [row.get('mount-point') for row in attachment.get('system-entities', []) if row.get('mount-point')]
+            require(mounts == [str(mountpoint)], 'DMG mounted at an unexpected location.')
+            require(dmg_tree(mountpoint) == payload_before, 'Mounted DMG payload tree differs.')
+            mounted = self.inspect(mountpoint / app.name, expected)
+            require(mounted['manifest'] == inspection['manifest'], 'Mounted DMG App tree differs.')
+            self.run('/usr/bin/ditto', mountpoint / app.name, copied)
+            copied_app = self.inspect(copied, expected)
+            require(copied_app['manifest'] == inspection['manifest'], 'App copied from DMG differs.')
+            require(dmg_tree(mountpoint) == payload_before, 'Mounted DMG payload changed during verification.')
+        except BaseException as error:
+            failure = error
+            raise
+        finally:
+            try:
+                self.detach_image(mountpoint)
+            except PreviewError as error:
+                if failure is not None:
+                    raise PreviewError(f'{failure}; DMG detach also failed; inspect {mountpoint} before removing output.') from error
+                raise
+        require(tree(app) == inspection['manifest'] and tree(staged) == inspection['manifest'], 'Input or staged App changed during DMG packaging.')
+        require(dmg_tree(payload) == payload_before and sha(archive) == archive_sha, 'DMG payload/archive changed during verification.')
+        require({path.name: sha(path) for path in notices} == notice_hashes, 'Notice inputs changed during DMG packaging.')
+        require({path.name: sha(payload / path.name) for path in notices} == notice_hashes, 'External notice copies differ.')
+        (output / 'APP-MANIFEST.tsv').write_text(inspection['manifest'])
+        (output / 'SHA256SUMS.txt').write_text(f'{archive_sha}  {archive.name}\n{tree_sha(inspection["manifest"])}  APP-MANIFEST.tsv\n')
+        report.update(stage='package-dmg', status='packaged-and-verified-locally', archive=archive.name,
+                      archiveFormat='UDZO', archiveSHA256=archive_sha, archiveBytes=archive.stat().st_size,
+                      externalNotices=notice_hashes, currentNoticesProveOlderAppMatchesCurrentSource=False,
+                      applicationsLink='/Applications', readOnlyMountVerified=True, imageVerification='passed',
+                      fullInputAppUnchanged=True, fullStagedAppMatches=True, fullMountedPayloadMatches=True,
+                      fullMountedAppMatches=True, fullCopiedAppMatches=True, mountedAdhocIntegrity='passed',
+                      copiedAdhocIntegrity='passed', imageDetached=True)
+        write_json(output / 'preview.json', report)
+        return report
+
 
 def main(argv=None, runner=None):
     parser = argparse.ArgumentParser(description=__doc__)
-    parser.add_argument('stage', choices=('preflight', 'prepare-adhoc', 'package'), default='preflight', nargs='?')
+    parser.add_argument('stage', choices=('preflight', 'prepare-adhoc', 'package', 'package-dmg'), default='preflight', nargs='?')
     parser.add_argument('--app', required=True)
     parser.add_argument('--source', required=True, help='Declared commit only; not a build-provenance attestation.')
     parser.add_argument('--source-root', default=str(ROOT))
@@ -317,7 +404,10 @@ def main(argv=None, runner=None):
         if args.stage == 'preflight':
             report = tool.preflight()[-1]
         else:
-            report = tool.prepare() if args.stage == 'prepare-adhoc' else tool.package()
+            if args.stage == 'prepare-adhoc':
+                report = tool.prepare()
+            else:
+                report = tool.package_dmg() if args.stage == 'package-dmg' else tool.package()
     except (PreviewError, OSError, ValueError, plistlib.InvalidFileException, zipfile.BadZipFile) as error:
         report = tool.status(args.stage)
         report.update(status='failed', error=str(error), commands=tool.commands)

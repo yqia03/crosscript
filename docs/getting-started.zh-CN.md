@@ -1,25 +1,26 @@
-# 安装与使用 Crosscript build 5
+# 安装与使用 Crosscript build 6
 
-[English](getting-started.md) · [项目首页](../README.zh-CN.md) · [Release](https://github.com/yqia03/crosscript/releases/tag/v0.1.0-preview.5)
+[English](getting-started.md) · [项目首页](../README.zh-CN.md) · [Release](https://github.com/yqia03/crosscript/releases/tag/v0.1.0-preview.6)
 
-本说明对应已发布的 Apple Silicon 预览版 **0.1.0 (5)**。已签名显示名称为 **翻译工作台**，包／可执行文件沿用 `TranslationWorkbench`，Bundle ID 为 `dev.uown.translation-workbench`。这些名称没有迁移，不要按 Crosscript 品牌猜测资料目录。
+本说明对应 Apple Silicon 预览候选版 **0.1.0 (6)**。下载在同版 Release 发布后生效，发布与验证结果请查看该页面。显示名称仍为 **翻译工作台**，包／可执行文件沿用 `TranslationWorkbench`，Bundle ID 为 `dev.uown.translation-workbench`，现有资料路径和钥匙串名称保持一致。
 
 ## 下载、校验与打开
 
-1. 下载 [Crosscript-preview-0.1.0-5.zip](https://github.com/yqia03/crosscript/releases/download/v0.1.0-preview.5/Crosscript-preview-0.1.0-5.zip)，大小为 169,789,128 bytes。在文件所在目录用终端执行：
+1. 选择 **[DMG（推荐）](https://github.com/yqia03/crosscript/releases/download/v0.1.0-preview.6/Crosscript-preview-0.1.0-6.dmg)** 或 **[App ZIP](https://github.com/yqia03/crosscript/releases/download/v0.1.0-preview.6/Crosscript-preview-0.1.0-6.zip)**，两者下载一个即可。如需校验，在文件所在目录用终端运行相应命令，将 SHA-256 与同版 Release 正文核对：
 
    ```sh
-   shasum -a 256 Crosscript-preview-0.1.0-5.zip
+   shasum -a 256 Crosscript-preview-0.1.0-6.dmg
+   # 如果下载的是 ZIP：
+   shasum -a 256 Crosscript-preview-0.1.0-6.zip
    ```
 
-   预期 SHA-256：`86b4693ce411664cfe388e29efe09280ec22ab6f696701baf1854d536f590f97`，同时与同版 Release 核对。摘要只能证明字节一致性，不验证发行者身份。若下载完整 28 项资产并使用 `SHA256SUMS.txt`，请先按 Release 的五项命名映射恢复清单原名；GitHub 上五个 ASCII 下载名与原中文名不同。
-2. 先退出旧版并备份需要保留的资料。用 Finder 解压，把 `TranslationWorkbench.app` 放入选定的应用程序目录（如 `/Applications`），正常打开 `.app`。目标为 Apple Silicon 与 macOS 14.2+；最低系统 macOS 14.2 尚未实机验证。
-3. 本预览版只有 **ad-hoc 完整性签名**，没有 Developer ID 发行者认证或 Apple 公证。如果系统阻止未识别／未公证应用，请参考 [Apple 单应用打开说明](https://support.apple.com/en-us/102445)。若“系统设置 → 隐私与安全性”提供“仍要打开”，是否采用该单应用例外由你决定，设备策略也可能限制此操作。不要关闭全局保护、删除 quarantine 或重签应用。摘要／签名不符，或出现恶意软件、被修改／损坏提示时应停止，并保留提示原文用于脱敏反馈。
+2. 先退出旧版并备份需要保留的资料。DMG：打开后将 `TranslationWorkbench.app` 拖到“应用程序”，推出磁盘映像，再打开已安装的应用。ZIP：用 Finder 解压，将 `TranslationWorkbench.app` 移到“应用程序”，再打开。目标为 Apple Silicon 与 macOS 14.2+；最低系统 macOS 14.2 尚未实机验证。无需安装开发工具。
+3. 本预览版采用 **ad-hoc 完整性签名**，没有 Developer ID 发行者认证或 Apple 公证。如果被 macOS 阻止，请参考 [Apple 单应用打开说明](https://support.apple.com/en-us/102445)，按系统提供的适用单应用流程处理，不关闭全局保护、删除 quarantine 或重签。摘要／签名不符，或出现恶意软件、损坏提示时应停止，并保留提示原文用于脱敏反馈。
 4. 在设置中选择英文／简体中文并添加服务。安装应用不附带服务账户、API 额度或密钥。
 
-**实际安装证据：** build 5 第二台 Mac B01–B06 未执行，维护者于 2026-10-30 明确豁免并批准发布。本说明不代表二机安装、权限流程或运行时冷下载已通过，也不继承 build 4 验收。
+可选的[完整材料归档](https://github.com/yqia03/crosscript/releases/download/v0.1.0-preview.6/Crosscript-materials-0.1.0-6.tar.gz)内含精确源码归档、第三方源码／构建材料、许可声明和证据，安装或运行应用无需下载它。校验值见 Release 正文，内部内容见归档索引。
 
-Release 提供[冻结的安装／卸载参考](https://github.com/yqia03/crosscript/releases/download/v0.1.0-preview.5/INSTALL-UNINSTALL-LIMITATIONS.zh-CN.md)、manifest 和静态核验脚本。参考中的“尚未发布／必须二机补验”记录较早的准备状态，后续批准与豁免以 Release 为准；技术路径与钥匙串范围仍可参考。静态完整性不等于 Gatekeeper、启动或完整工作流验收。
+**验证范围：** build 6 的验证结果请查看同版 Release。历史 build 5 第二台 Mac B01–B06 未执行，2026-10-30 的豁免仅适用于 build 5；该豁免和旧版检查不构成 build 6 安装、权限或冷下载验收。[冻结的 build 5 安装／卸载参考](https://github.com/yqia03/crosscript/releases/download/v0.1.0-preview.5/INSTALL-UNINSTALL-LIMITATIONS.zh-CN.md)保留历史状态，其中沿用的资料和钥匙串路径也列于下文。
 
 ## 配置服务、数据流与费用
 
@@ -55,7 +56,7 @@ App 管理 `babeldoc-0.6.4-py312-20261029-arm64-crosscript-v3`（含 Python 3.12
 
 ## 限制与反馈
 
-[首页逐工作流证据表](../README.zh-CN.md#资料费用与验证边界)区分历史验证与缺口。官方 OpenAI 成功转写未验证，AiHubMix 记录不覆盖所有预设；Gemini 长会话、真实断线恢复和真实文件补齐仍有缺口。此前停止的 PDF 批次和实时／付费探测保持停止，本轮文档更新没有执行新的真实服务验收。
+[首页逐工作流证据表](../README.zh-CN.md#资料费用与验证边界)区分历史验证与缺口。官方 OpenAI 成功转写未验证，AiHubMix 记录不覆盖所有预设；Gemini 长会话、真实断线恢复和真实文件补齐仍有缺口。此前停止的 PDF 批次和实时／付费探测保持停止，build 6 包装不构成新的真实服务验收。
 
 帮助或 bug 请用 [GitHub Issues](https://github.com/yqia03/crosscript/issues/new)，提供应用／build、macOS、芯片、工作流、服务／模型、复现步骤及脱敏错误。去除密钥、私人文档／音频和机器路径。安全问题用[私密漏洞报告](https://github.com/yqia03/crosscript/security/advisories/new)，见 [SECURITY.md](../SECURITY.md)。本项目由个人维护，不承诺响应时限。
 
@@ -65,4 +66,4 @@ App 管理 `babeldoc-0.6.4-py312-20261029-arm64-crosscript-v3`（含 Python 3.12
 
 默认资料根是 `~/Library/Application Support/TranslationWorkbench/Recordings/`；若用了 `--data-directory`，以实际指定目录为准。该根包含录音、`TextWorkspace/`（以及可能保留的旧 `TextMaterials/`）、`PDFMaterials/`、配置与 `PDFRuntime/`。只清理 PDF 组件时应单独识别 `PDFRuntime/`，避免误删整个资料根。偏好域为 `dev.uown.translation-workbench`。
 
-优先使用 App 针对目标的移除密钥控件。Keychain service 为 `TranslationWorkbench.TextPDFProviders` 与 `TranslationWorkbench.OpenAIAudio`（后者也包括 Gemini）。删除本机凭据不等于服务商撤销；外部原件、导出、备份与云端留存分别管理。本轮没有执行卸载、删除、安全擦除或“零残留”验证，详细路径／账户范围见冻结安装参考。
+优先使用 App 针对目标的移除密钥控件。Keychain service 为 `TranslationWorkbench.TextPDFProviders` 与 `TranslationWorkbench.OpenAIAudio`（后者也包括 Gemini）。删除本机凭据不等于服务商撤销；外部原件、导出、备份与云端留存分别管理。本轮没有执行卸载、删除、安全擦除或“零残留”验证，详细路径／账户范围见上方链接的历史 build 5 安装参考。

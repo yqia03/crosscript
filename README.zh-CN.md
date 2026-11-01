@@ -4,18 +4,24 @@
 
 面向 Apple Silicon Mac 的原生翻译与转写工作台。使用自己的 API Key 翻译文本、Markdown 和 PDF，转写录音并查看实时双语字幕。原始资料与可编辑结果保存在本机；云端处理会把任务所需内容发送给你选择的服务。
 
-**已发布预览版：[0.1.0 build 5 / v0.1.0-preview.5](https://github.com/yqia03/crosscript/releases/tag/v0.1.0-preview.5)。** 本版采用 ad-hoc 完整性签名，未经 Apple 公证，也没有 Developer ID 发行者认证。build 5 第二台 Mac B01–B06 检查**未执行**；维护者于 2026-10-30 明确豁免该门槛并批准发布。豁免不等于安装测试通过。
+**预览候选版：0.1.0 build 6 / `v0.1.0-preview.6`。** 发布与验证结果以[同版 Release](https://github.com/yqia03/crosscript/releases/tag/v0.1.0-preview.6)为准，下载链接在发布后生效。本预览版采用 ad-hoc 完整性签名，没有 Developer ID 发行者认证或 Apple 公证。
 
 ## 下载与安装
 
-从同版 Release 下载 [Crosscript-preview-0.1.0-5.zip](https://github.com/yqia03/crosscript/releases/download/v0.1.0-preview.5/Crosscript-preview-0.1.0-5.zip)。该 Release 同时提供精确源码归档、第三方源码／构建材料及校验清单。[安装与使用说明](docs/getting-started.zh-CN.md)覆盖校验、首次打开限制、服务配置、历史、导出和卸载。
+从同版 Release 选择一种应用下载：
+
+- **[DMG（推荐）](https://github.com/yqia03/crosscript/releases/download/v0.1.0-preview.6/Crosscript-preview-0.1.0-6.dmg)：** 打开后将 `TranslationWorkbench.app` 拖到“应用程序”，推出磁盘映像，再打开已安装的应用。
+- **[App ZIP](https://github.com/yqia03/crosscript/releases/download/v0.1.0-preview.6/Crosscript-preview-0.1.0-6.zip)：** 用 Finder 解压，将应用移到“应用程序”，再打开。
+- **[完整材料归档](https://github.com/yqia03/crosscript/releases/download/v0.1.0-preview.6/Crosscript-materials-0.1.0-6.tar.gz)：** 普通使用无需下载；内含精确源码归档、第三方源码／构建材料、许可声明和发布证据。
+
+下载后可按 Release 正文的 SHA-256 校验。[安装与使用说明](docs/getting-started.zh-CN.md)覆盖首次打开、服务配置、历史、导出和卸载。
 
 - **硬件：** Apple Silicon（arm64），目前没有 Intel 版。
 - **系统目标：** macOS 14.2 或更新；尚未在最低版本 macOS 14.2 实机验证。
 - **界面：** 简体中文与英文。
-- **应用名称：** 下载的包为 `TranslationWorkbench.app`，已签名显示名称为 **翻译工作台**。Crosscript 是项目／发行品牌，内部名称和资料路径仍沿用 TranslationWorkbench。
-- **首次打开：** 用 Finder 解压，将应用放入选定的应用程序目录并正常打开。未公证应用可能被 macOS 阻止；按使用说明中的适用单应用系统流程处理，若出现完整性、恶意软件或损坏提示则停止。
-- **PDF 准备：** App 内置 22 个输入，另有 245 个固定 HTTPS 输入首次下载，共 359,471,768 bytes（约 359 MB）；还需展开、安装和处理空间。Python 由 App 管理，普通用户无需另装 Homebrew、Xcode 或 Python。
+- **应用名称：** 包为 `TranslationWorkbench.app`，显示名称为 **翻译工作台**，内部名称和资料路径仍沿用 TranslationWorkbench。
+- **首次打开：** 未公证应用可能被 macOS 阻止，适用的单应用打开流程见使用说明。
+- **PDF 准备：** App 内置 22 个输入，另有 245 个固定 HTTPS 输入首次下载，共 359,471,768 bytes（约 359 MB）；还需安装和处理空间。Python 由 App 管理，普通用户无需另装 Homebrew、Xcode 或 Python。
 
 ## 四条工作流
 
@@ -38,19 +44,19 @@
 | PDF | 有聚焦离线安装／复用和组件证据，不等于另一台 Mac 冷下载或任意 PDF 质量验证。此前部分完成的 PDF 批次保持停止；扫描图片不会自动获得 OCR，版式、公式和字体可能改变。 |
 | 录后转写 | AiHubMix 有历史真实使用记录；官方 OpenAI 成功转写及各预设时间定位精度尚未全部建立证据。 |
 | Gemini Live | 有短时历史真实服务验证；长会话、真实断线恢复和文件补齐仍有缺口，不声称真实 Gemini 文件补齐成功；不承诺译文语音或固定延迟。 |
-| 全应用／安装 | 许可组件和包装检查只覆盖各自范围。build 5 第二台 Mac B01–B06 未执行且已豁免，不继承 build 4 验收；macOS 14.2 实机与完整工作流验收仍未覆盖。 |
+| 全应用／安装 | build 6 验证结果以同版 Release 为准。历史 build 5 第二台 Mac B01–B06 未执行，2026-10-30 的豁免仅适用于 build 5；旧版检查不构成 build 6 验收。macOS 14.2 实机与完整工作流验收仍未覆盖。 |
 
-语言菜单不等于逐语言质量保证，初始验证重点为简体中文和英文。此前停止的 PDF 批次、实时／付费探测没有恢复。见 [build 5 当前证据与用户材料范围](docs/release-verification/build5/user-materials.md)。
+语言菜单不等于逐语言质量保证，初始验证重点为简体中文和英文。此前停止的 PDF 批次、实时／付费探测没有恢复。见 [build 5 历史证据与用户材料范围](docs/release-verification/build5/user-materials.md)。
 
-[Build 5 当前证据总索引](docs/release-verification/build5/README.md)、[公开交付与全部后续缺口](docs/release-verification/build5/public-delivery.md)及[有界证据缺口](docs/release-verification/build5/gaps.md)汇总源码、组件材料、历史记录及后续核验范围。
+[Build 5 历史证据总索引](docs/release-verification/build5/README.md)、[公开交付与全部后续缺口](docs/release-verification/build5/public-delivery.md)及[有界证据缺口](docs/release-verification/build5/gaps.md)汇总源码、组件材料、历史记录及后续核验范围。
 
 ## 源码、贡献与支持
 
 - [反馈问题／请求帮助](https://github.com/yqia03/crosscript/issues/new)：附应用版本／build、macOS、芯片、工作流、服务／模型和脱敏复现步骤，见[贡献指南](CONTRIBUTING.md)。
 - [私密报告漏洞](https://github.com/yqia03/crosscript/security/advisories/new)：见 [SECURITY.md](SECURITY.md)，不要在公开 issue 贴凭据或可利用的安全细节。
-- 同版提供[精确 build 5 源码](https://github.com/yqia03/crosscript/releases/download/v0.1.0-preview.5/Crosscript-source-0.1.0-5.tar.gz)与[第三方材料](https://github.com/yqia03/crosscript/releases/download/v0.1.0-preview.5/Crosscript-third-party-0.1.0-5-materials-v4.tar.gz)。GitHub 自动生成的源码 ZIP 不替代与 App 绑定的源码归档。
+- [build 6 完整材料归档](https://github.com/yqia03/crosscript/releases/download/v0.1.0-preview.6/Crosscript-materials-0.1.0-6.tar.gz)提供精确源码、第三方源码／构建材料和证据。GitHub 自动生成的源码 ZIP 不替代归档内与 App 绑定的精确源码。
 
-项目由个人维护，不承诺响应时限。开发构建需要 Apple Silicon、Swift 6 与 macOS SDK，见[源码／构建说明](docs/source-and-build.md)和[测试范围](docs/testing.md)。当前文档更新不重建或修改已冻结的 build 5 标签、App 或 28 项资产；其中的历史“待发布”文字按 Release 中后续批准与豁免解释。
+项目由个人维护，不承诺响应时限。开发构建需要 Apple Silicon、Swift 6 与 macOS SDK，见[源码／构建说明](docs/source-and-build.md)和[测试范围](docs/testing.md)。已冻结的 [build 5 Release](https://github.com/yqia03/crosscript/releases/tag/v0.1.0-preview.5)、标签、App 与 28 项资产保留不变，其中的后续批准与豁免仅适用于 build 5。
 
 ## 许可证
 
