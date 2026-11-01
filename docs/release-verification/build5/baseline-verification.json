@@ -1,0 +1,194 @@
+{
+  "schema": "crosscript-build5-baseline-verification-v1",
+  "checkedAtUTC": "2026-11-01T09:31:19.532637+00:00",
+  "method": "Read-only local hash/size checks against current Release API digests; exact source archive/manifest/release checkout comparison; indexed material members compared from archive; ZIP Info.plist read directly. No App launch/build/service request.",
+  "releaseCommit": "e8e62031cc9a84934dc1b95e3c2f7bc564e83f95",
+  "releaseTree": "ffa50501cbe21e0c9141d40a912db8e0dd8282bb",
+  "assets": [
+    {
+      "name": "APP-MANIFEST.tsv",
+      "bytes": 16069,
+      "sha256": "766edf1577aa1884b7e3b52d390d851ccea011d5b1831f6b5ee2bcdd8e04e90d",
+      "matchesReleaseAPIDigest": true
+    },
+    {
+      "name": "BUILD-EVIDENCE.json",
+      "bytes": 2549,
+      "sha256": "1eb7eb81a08df1cda4340dc6126596f93400f36d2850d2f96f8b52b2c13c44ac",
+      "matchesReleaseAPIDigest": true
+    },
+    {
+      "name": "Crosscript-preview-0.1.0-5.zip",
+      "bytes": 169789128,
+      "sha256": "86b4693ce411664cfe388e29efe09280ec22ab6f696701baf1854d536f590f97",
+      "matchesReleaseAPIDigest": true
+    },
+    {
+      "name": "Crosscript-source-0.1.0-5.tar.gz",
+      "bytes": 168612071,
+      "sha256": "cca34e44250e281e5fc3509610b16a6f0d10259cf5ec50ddc536be08711de291",
+      "matchesReleaseAPIDigest": true
+    },
+    {
+      "name": "Crosscript-third-party-0.1.0-5-materials-v4.tar.gz",
+      "bytes": 1667240667,
+      "sha256": "25049788ea1f9b1c638164e2743d0089b71d828ce0729c28d02238bfd375cf89",
+      "matchesReleaseAPIDigest": true
+    },
+    {
+      "name": "CURRENT-MATERIALS-INDEX.json",
+      "bytes": 4775,
+      "sha256": "05d65f613e87a09b1434466083d3ac191905ca053979f7fd9a2fa76bd4f8dadd",
+      "matchesReleaseAPIDigest": true
+    },
+    {
+      "name": "GENERATOR-TEST-EVIDENCE.json",
+      "bytes": 5202,
+      "sha256": "88d32df6343fa5cfae3e8ebb872fc92cadd7fca3e74581c0e321178c63734139",
+      "matchesReleaseAPIDigest": true
+    },
+    {
+      "name": "INSTALL-UNINSTALL-LIMITATIONS.zh-CN.md",
+      "bytes": 11071,
+      "sha256": "4903a5069362609169b3fa77e0a45560d4267a011b5e13acb53dca06412e8b1d",
+      "matchesReleaseAPIDigest": true
+    },
+    {
+      "name": "LICENSE-UI-VERIFICATION.json",
+      "bytes": 6510,
+      "sha256": "3fa3913772e7fb595e370156323ee4dcd05a7dd6144c03ce004f3c6a18bd180d",
+      "matchesReleaseAPIDigest": true
+    },
+    {
+      "name": "MATERIALS-V4-VERIFICATION.json",
+      "bytes": 857,
+      "sha256": "3d8d8c2f223ce86abc92154b4240a4dc4f0c6fdebdae963a4c89124efac202b3",
+      "matchesReleaseAPIDigest": true
+    },
+    {
+      "name": "OPENSSL-VERIFICATION.json",
+      "bytes": 2598,
+      "sha256": "250b920e1611163816ddf7f3f68422980ef34b2efd5b4209d8329e9b9987d0ea",
+      "matchesReleaseAPIDigest": true
+    },
+    {
+      "name": "PACKAGE-INDEPENDENT-REVIEW.json",
+      "bytes": 5680,
+      "sha256": "2b078421c84d3097d071b28e162d6c760b06a65dca3dc2cf8df1370a89dedab3",
+      "matchesReleaseAPIDigest": true
+    },
+    {
+      "name": "PACKAGE-METADATA-VERIFICATION.json",
+      "bytes": 995,
+      "sha256": "4f55e1d408e4a4e9d4f97e573bcacb747de082df442cdcc9db5161da8643fb75",
+      "matchesReleaseAPIDigest": true
+    },
+    {
+      "name": "PUBLIC-SOURCE-REVIEW.json",
+      "bytes": 7644,
+      "sha256": "205be562b52235b3f0bcccfab9b14fc56ad328d27882d79330b575e346d9efcf",
+      "matchesReleaseAPIDigest": true
+    },
+    {
+      "name": "PUBLICATION-PLAN.zh-CN.md",
+      "bytes": 2461,
+      "sha256": "bbb1531db1209b326c764e19fc093c33cc73dcb69e322bd496e4a34afe0f2ed4",
+      "matchesReleaseAPIDigest": true
+    },
+    {
+      "name": "README.md",
+      "bytes": 1929,
+      "sha256": "a315c785aafcd91e9ba4c6a5c5a0e2c870145b8c3c30f98c7525035e8f1e0f2c",
+      "matchesReleaseAPIDigest": true
+    },
+    {
+      "name": "README.zh-CN.md",
+      "bytes": 1241,
+      "sha256": "3b5716afbbd637456cb069471eac14bdbaf0831b7234bce9e51147d1b04f7dea",
+      "matchesReleaseAPIDigest": true
+    },
+    {
+      "name": "RELEASE-ASSETS.json",
+      "bytes": 4901,
+      "sha256": "b4dae8ce2c61737ba22265ae98daaa60dd443c8a155467017332bad3011980c6",
+      "matchesReleaseAPIDigest": true
+    },
+    {
+      "name": "RELEASE-BINDING.json",
+      "bytes": 7484,
+      "sha256": "0b45217f7b383a49d0c8c4efe9e5605eb9df096c2433136c9360d98b0c6193b8",
+      "matchesReleaseAPIDigest": true
+    },
+    {
+      "name": "RELEASE-NOTES.zh-CN.md",
+      "bytes": 6778,
+      "sha256": "2174b659d9c110ebef9aacf3a4f745dcfa80b01b50d3cc828ed0312c6602fa13",
+      "matchesReleaseAPIDigest": true
+    },
+    {
+      "name": "RELEASE-READINESS-build5.zh-CN.md",
+      "bytes": 8736,
+      "sha256": "47d8b4106536e75d2f28e675635ff233522dee416076317848efa9612182c1d3",
+      "matchesReleaseAPIDigest": true
+    },
+    {
+      "name": "RUNTIME-VALIDATION-SUMMARY.json",
+      "bytes": 5283,
+      "sha256": "2edcd9308e77d2327d88395112214fc9f97c267d7594838f8f8c7445af9c9ab5",
+      "matchesReleaseAPIDigest": true
+    },
+    {
+      "name": "SECOND-MAC-CHECKLIST.zh-CN.md",
+      "bytes": 6636,
+      "sha256": "707580df467c1d48d63d5c78f86ac358de39f1842fac8214f109208763303cd4",
+      "matchesReleaseAPIDigest": true
+    },
+    {
+      "name": "SECOND-MAC-RESULTS-TEMPLATE.zh-CN.md",
+      "bytes": 1149,
+      "sha256": "baac35e1043148d5291f4e5eae9b2dc19c3958aefbd9c5369fb5c30befcd2109",
+      "matchesReleaseAPIDigest": true
+    },
+    {
+      "name": "SHA256SUMS.txt",
+      "bytes": 2493,
+      "sha256": "737e23802fe25fc2034192e5d658145d448be528797d0bfd4e6dce5ddc56241b",
+      "matchesReleaseAPIDigest": true
+    },
+    {
+      "name": "SOURCE-FILES.json",
+      "bytes": 74759,
+      "sha256": "4cd184504383e5c5bd085d140c1c16ce1d167d2501e284e6bdbb8dcabe8765f4",
+      "matchesReleaseAPIDigest": true
+    },
+    {
+      "name": "TEST-EVIDENCE.json",
+      "bytes": 3800,
+      "sha256": "d42f8e519de0acaf15e83900286f99c2d0985e70c151a2d5cdb47c7d6531cbf3",
+      "matchesReleaseAPIDigest": true
+    },
+    {
+      "name": "verify-preview-app.sh",
+      "bytes": 11035,
+      "sha256": "ec00dd4ab4d507f1c6e8f92bd44973d9b564c1e1d91ed6259795ab6faf2fd24d",
+      "matchesReleaseAPIDigest": true
+    }
+  ],
+  "sourceFilesVerified": 371,
+  "materialIndexMembersVerified": 11,
+  "materialPayloadScope": "Index/overlay/binding members only; not a fresh full 13199-file material verification. Asset and component review assigned to #3-#5.",
+  "appIdentity": {
+    "CFBundleDisplayName": "\u7ffb\u8bd1\u5de5\u4f5c\u53f0",
+    "CFBundleName": "TranslationWorkbench",
+    "CFBundleExecutable": "TranslationWorkbench",
+    "CFBundleIdentifier": "dev.uown.translation-workbench",
+    "CFBundleShortVersionString": "0.1.0",
+    "CFBundleVersion": "5",
+    "LSMinimumSystemVersion": "14.2",
+    "CrosscriptSourceRevision": "2c57e25d44f879904cf4208074ba5bf21a01d8e2",
+    "CrosscriptSourceArchiveSHA256": "cca34e44250e281e5fc3509610b16a6f0d10259cf5ec50ddc536be08711de291"
+  },
+  "runtimeManifestSHA256": "2fce7f0f1a5c1ef758d59e6ae7b529e8d953920baed9f6561f71a3ec2aeea64b",
+  "coverageSHA256": "c767558cf95f3e5bdfd10d2e75400dcb865d4c7bed932c0aa42d5c4c46b20bbc",
+  "passed": true
+}
