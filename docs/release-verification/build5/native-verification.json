@@ -1,0 +1,5340 @@
+{
+  "schema": "crosscript-build5-native-evidence-v1",
+  "checkedAtUTC": "2026-11-01T09:37:13.744051+00:00",
+  "method": "Read-only complete regular-file Mach-O magic scan and SHA256/size join of preserved build5 freshly installed runtime; separate preview ZIP scan; selected OpenCV wheel native-member byte comparison; native index dependency resolution; scoped delivered reference rehash using explicit origin-reference-map path semantics. No build, runtime execution or network.",
+  "indexSHA256": "7ddc87660bda36fc8cf80c14c29e5ae5641d37dcf66689b7810b3d06d4e1d3de",
+  "baselineJoin": {
+    "assigned": 451,
+    "observedMachORegularFiles": 451,
+    "matched": 451,
+    "missing": [],
+    "extra": [],
+    "symlinkPolicy": "Internal aliases not counted again as regular native objects; dependency targets canonicalized.",
+    "allNativeObjectsIncludedRegardlessOfInvocation": true
+  },
+  "previewNativeObjects": [
+    {
+      "path": "Crosscript-preview-0.1.0-5/TranslationWorkbench.app/Contents/MacOS/TranslationWorkbench",
+      "sha256": "da0e75ea0c65631cdf43d64e90b3f6a82f97d3482d4a8521ed14437f9f8ff41d",
+      "bytes": 13492896,
+      "scope": "own App executable; source/build binding in #3/#8, not a missing third-party runtime row"
+    }
+  ],
+  "selectedWheel": {
+    "path": "current/openssl/artifacts/opencv_python_headless-5.0.0.93-3crosscriptopenssl-cp37-abi3-macosx_14_0_arm64.whl",
+    "sha256": "4f8048e641ec2a06c70e1e092cd4271ebd5cf94d9311b3125992dcc5efa8638d",
+    "nativeMembers": 0,
+    "allNativeMembersMatchIndexAndInstalledBytes": true
+  },
+  "materialStatusCounts": {
+    "standalone-python-native-inputs-and-notices-present": 11,
+    "permissive-container-notices-retained-no-identified-source-delivery-gap": 322,
+    "copyleft-exact-version-source-and-full-terms-present": 5,
+    "specific-nested-notice-materials-supplemented": 5,
+    "source-and-notices-present-bottle-code-proven": 85,
+    "source-build-notices-assembled-strong-correspondence": 10,
+    "controlled-selected-build-source-config-commands-notices-and-focused-validation-delivered": 2,
+    "source-build-recipe-notices-and-focused-validation-delivered": 2,
+    "source-build-notices-assembled-version-correspondence": 3,
+    "source-build-notices-assembled-strong-version-correspondence": 1,
+    "mpl-covered-eigen-source-materials-present": 3,
+    "source-notices-assembled-version-correspondence": 2
+  },
+  "dependencySummary": {
+    "macOS-system-reference-not-distributed": 824,
+    "distributed-native-target": 332
+  },
+  "unresolvedDependencies": [],
+  "nativeObjects": [
+    {
+      "currentIndexRecord": "I0#/nativeBinaries/0",
+      "observedInstalledMatch": true,
+      "sourceNoticeBuildEvidence": "I1#/nativeBinaries/0",
+      "selectedBuildProvenance": null,
+      "selectedSourceIndex": null,
+      "originalBytesRetained": true,
+      "distributedLoadTargetRows": []
+    },
+    {
+      "currentIndexRecord": "I0#/nativeBinaries/1",
+      "observedInstalledMatch": true,
+      "sourceNoticeBuildEvidence": "I1#/nativeBinaries/11",
+      "selectedBuildProvenance": null,
+      "selectedSourceIndex": null,
+      "originalBytesRetained": true,
+      "distributedLoadTargetRows": []
+    },
+    {
+      "currentIndexRecord": "I0#/nativeBinaries/2",
+      "observedInstalledMatch": true,
+      "sourceNoticeBuildEvidence": "I1#/nativeBinaries/1",
+      "selectedBuildProvenance": null,
+      "selectedSourceIndex": null,
+      "originalBytesRetained": true,
+      "distributedLoadTargetRows": []
+    },
+    {
+      "currentIndexRecord": "I0#/nativeBinaries/3",
+      "observedInstalledMatch": true,
+      "sourceNoticeBuildEvidence": "I1#/nativeBinaries/2",
+      "selectedBuildProvenance": null,
+      "selectedSourceIndex": null,
+      "originalBytesRetained": true,
+      "distributedLoadTargetRows": []
+    },
+    {
+      "currentIndexRecord": "I0#/nativeBinaries/4",
+      "observedInstalledMatch": true,
+      "sourceNoticeBuildEvidence": "I1#/nativeBinaries/3",
+      "selectedBuildProvenance": null,
+      "selectedSourceIndex": null,
+      "originalBytesRetained": true,
+      "distributedLoadTargetRows": []
+    },
+    {
+      "currentIndexRecord": "I0#/nativeBinaries/5",
+      "observedInstalledMatch": true,
+      "sourceNoticeBuildEvidence": "I1#/nativeBinaries/4",
+      "selectedBuildProvenance": null,
+      "selectedSourceIndex": null,
+      "originalBytesRetained": true,
+      "distributedLoadTargetRows": []
+    },
+    {
+      "currentIndexRecord": "I0#/nativeBinaries/6",
+      "observedInstalledMatch": true,
+      "sourceNoticeBuildEvidence": "I1#/nativeBinaries/5",
+      "selectedBuildProvenance": null,
+      "selectedSourceIndex": null,
+      "originalBytesRetained": true,
+      "distributedLoadTargetRows": []
+    },
+    {
+      "currentIndexRecord": "I0#/nativeBinaries/7",
+      "observedInstalledMatch": true,
+      "sourceNoticeBuildEvidence": "I1#/nativeBinaries/6",
+      "selectedBuildProvenance": null,
+      "selectedSourceIndex": null,
+      "originalBytesRetained": true,
+      "distributedLoadTargetRows": []
+    },
+    {
+      "currentIndexRecord": "I0#/nativeBinaries/8",
+      "observedInstalledMatch": true,
+      "sourceNoticeBuildEvidence": "I1#/nativeBinaries/7",
+      "selectedBuildProvenance": null,
+      "selectedSourceIndex": null,
+      "originalBytesRetained": true,
+      "distributedLoadTargetRows": []
+    },
+    {
+      "currentIndexRecord": "I0#/nativeBinaries/9",
+      "observedInstalledMatch": true,
+      "sourceNoticeBuildEvidence": "I1#/nativeBinaries/8",
+      "selectedBuildProvenance": null,
+      "selectedSourceIndex": null,
+      "originalBytesRetained": true,
+      "distributedLoadTargetRows": [
+        5,
+        6
+      ]
+    },
+    {
+      "currentIndexRecord": "I0#/nativeBinaries/10",
+      "observedInstalledMatch": true,
+      "sourceNoticeBuildEvidence": "I1#/nativeBinaries/12",
+      "selectedBuildProvenance": null,
+      "selectedSourceIndex": null,
+      "originalBytesRetained": true,
+      "distributedLoadTargetRows": []
+    },
+    {
+      "currentIndexRecord": "I0#/nativeBinaries/11",
+      "observedInstalledMatch": true,
+      "sourceNoticeBuildEvidence": "I1#/nativeBinaries/27",
+      "selectedBuildProvenance": null,
+      "selectedSourceIndex": null,
+      "originalBytesRetained": true,
+      "distributedLoadTargetRows": []
+    },
+    {
+      "currentIndexRecord": "I0#/nativeBinaries/12",
+      "observedInstalledMatch": true,
+      "sourceNoticeBuildEvidence": "I1#/nativeBinaries/28",
+      "selectedBuildProvenance": null,
+      "selectedSourceIndex": null,
+      "originalBytesRetained": true,
+      "distributedLoadTargetRows": []
+    },
+    {
+      "currentIndexRecord": "I0#/nativeBinaries/13",
+      "observedInstalledMatch": true,
+      "sourceNoticeBuildEvidence": "I1#/nativeBinaries/29",
+      "selectedBuildProvenance": null,
+      "selectedSourceIndex": null,
+      "originalBytesRetained": true,
+      "distributedLoadTargetRows": []
+    },
+    {
+      "currentIndexRecord": "I0#/nativeBinaries/14",
+      "observedInstalledMatch": true,
+      "sourceNoticeBuildEvidence": "I1#/nativeBinaries/30",
+      "selectedBuildProvenance": null,
+      "selectedSourceIndex": null,
+      "originalBytesRetained": true,
+      "distributedLoadTargetRows": []
+    },
+    {
+      "currentIndexRecord": "I0#/nativeBinaries/15",
+      "observedInstalledMatch": true,
+      "sourceNoticeBuildEvidence": "I1#/nativeBinaries/31",
+      "selectedBuildProvenance": null,
+      "selectedSourceIndex": null,
+      "originalBytesRetained": true,
+      "distributedLoadTargetRows": [
+        14
+      ]
+    },
+    {
+      "currentIndexRecord": "I0#/nativeBinaries/16",
+      "observedInstalledMatch": true,
+      "sourceNoticeBuildEvidence": "I1#/nativeBinaries/32",
+      "selectedBuildProvenance": null,
+      "selectedSourceIndex": null,
+      "originalBytesRetained": true,
+      "distributedLoadTargetRows": [
+        15,
+        22,
+        29
+      ]
+    },
+    {
+      "currentIndexRecord": "I0#/nativeBinaries/17",
+      "observedInstalledMatch": true,
+      "sourceNoticeBuildEvidence": "I1#/nativeBinaries/33",
+      "selectedBuildProvenance": null,
+      "selectedSourceIndex": null,
+      "originalBytesRetained": true,
+      "distributedLoadTargetRows": [
+        16
+      ]
+    },
+    {
+      "currentIndexRecord": "I0#/nativeBinaries/18",
+      "observedInstalledMatch": true,
+      "sourceNoticeBuildEvidence": "I1#/nativeBinaries/34",
+      "selectedBuildProvenance": null,
+      "selectedSourceIndex": null,
+      "originalBytesRetained": true,
+      "distributedLoadTargetRows": []
+    },
+    {
+      "currentIndexRecord": "I0#/nativeBinaries/19",
+      "observedInstalledMatch": true,
+      "sourceNoticeBuildEvidence": "I1#/nativeBinaries/35",
+      "selectedBuildProvenance": null,
+      "selectedSourceIndex": null,
+      "originalBytesRetained": true,
+      "distributedLoadTargetRows": []
+    },
+    {
+      "currentIndexRecord": "I0#/nativeBinaries/20",
+      "observedInstalledMatch": true,
+      "sourceNoticeBuildEvidence": "I1#/nativeBinaries/36",
+      "selectedBuildProvenance": null,
+      "selectedSourceIndex": null,
+      "originalBytesRetained": true,
+      "distributedLoadTargetRows": []
+    },
+    {
+      "currentIndexRecord": "I0#/nativeBinaries/21",
+      "observedInstalledMatch": true,
+      "sourceNoticeBuildEvidence": "I1#/nativeBinaries/37",
+      "selectedBuildProvenance": null,
+      "selectedSourceIndex": null,
+      "originalBytesRetained": true,
+      "distributedLoadTargetRows": []
+    },
+    {
+      "currentIndexRecord": "I0#/nativeBinaries/22",
+      "observedInstalledMatch": true,
+      "sourceNoticeBuildEvidence": "I1#/nativeBinaries/38",
+      "selectedBuildProvenance": null,
+      "selectedSourceIndex": null,
+      "originalBytesRetained": true,
+      "distributedLoadTargetRows": [
+        29
+      ]
+    },
+    {
+      "currentIndexRecord": "I0#/nativeBinaries/23",
+      "observedInstalledMatch": true,
+      "sourceNoticeBuildEvidence": "I1#/nativeBinaries/39",
+      "selectedBuildProvenance": null,
+      "selectedSourceIndex": null,
+      "originalBytesRetained": true,
+      "distributedLoadTargetRows": []
+    },
+    {
+      "currentIndexRecord": "I0#/nativeBinaries/24",
+      "observedInstalledMatch": true,
+      "sourceNoticeBuildEvidence": "I1#/nativeBinaries/40",
+      "selectedBuildProvenance": null,
+      "selectedSourceIndex": null,
+      "originalBytesRetained": true,
+      "distributedLoadTargetRows": [
+        18,
+        20,
+        29
+      ]
+    },
+    {
+      "currentIndexRecord": "I0#/nativeBinaries/25",
+      "observedInstalledMatch": true,
+      "sourceNoticeBuildEvidence": "I1#/nativeBinaries/41",
+      "selectedBuildProvenance": null,
+      "selectedSourceIndex": null,
+      "originalBytesRetained": true,
+      "distributedLoadTargetRows": [
+        23
+      ]
+    },
+    {
+      "currentIndexRecord": "I0#/nativeBinaries/26",
+      "observedInstalledMatch": true,
+      "sourceNoticeBuildEvidence": "I1#/nativeBinaries/42",
+      "selectedBuildProvenance": null,
+      "selectedSourceIndex": null,
+      "originalBytesRetained": true,
+      "distributedLoadTargetRows": [
+        25
+      ]
+    },
+    {
+      "currentIndexRecord": "I0#/nativeBinaries/27",
+      "observedInstalledMatch": true,
+      "sourceNoticeBuildEvidence": "I1#/nativeBinaries/43",
+      "selectedBuildProvenance": null,
+      "selectedSourceIndex": null,
+      "originalBytesRetained": true,
+      "distributedLoadTargetRows": [
+        25
+      ]
+    },
+    {
+      "currentIndexRecord": "I0#/nativeBinaries/28",
+      "observedInstalledMatch": true,
+      "sourceNoticeBuildEvidence": "I1#/nativeBinaries/44",
+      "selectedBuildProvenance": null,
+      "selectedSourceIndex": null,
+      "originalBytesRetained": true,
+      "distributedLoadTargetRows": [
+        12
+      ]
+    },
+    {
+      "currentIndexRecord": "I0#/nativeBinaries/29",
+      "observedInstalledMatch": true,
+      "sourceNoticeBuildEvidence": "I1#/nativeBinaries/45",
+      "selectedBuildProvenance": null,
+      "selectedSourceIndex": null,
+      "originalBytesRetained": true,
+      "distributedLoadTargetRows": []
+    },
+    {
+      "currentIndexRecord": "I0#/nativeBinaries/30",
+      "observedInstalledMatch": true,
+      "sourceNoticeBuildEvidence": "I1#/nativeBinaries/46",
+      "selectedBuildProvenance": null,
+      "selectedSourceIndex": null,
+      "originalBytesRetained": true,
+      "distributedLoadTargetRows": [
+        13
+      ]
+    },
+    {
+      "currentIndexRecord": "I0#/nativeBinaries/31",
+      "observedInstalledMatch": true,
+      "sourceNoticeBuildEvidence": "I1#/nativeBinaries/47",
+      "selectedBuildProvenance": null,
+      "selectedSourceIndex": null,
+      "originalBytesRetained": true,
+      "distributedLoadTargetRows": [
+        18,
+        21,
+        24,
+        28,
+        29
+      ]
+    },
+    {
+      "currentIndexRecord": "I0#/nativeBinaries/32",
+      "observedInstalledMatch": true,
+      "sourceNoticeBuildEvidence": "I1#/nativeBinaries/48",
+      "selectedBuildProvenance": null,
+      "selectedSourceIndex": null,
+      "originalBytesRetained": true,
+      "distributedLoadTargetRows": [
+        19
+      ]
+    },
+    {
+      "currentIndexRecord": "I0#/nativeBinaries/33",
+      "observedInstalledMatch": true,
+      "sourceNoticeBuildEvidence": "I1#/nativeBinaries/49",
+      "selectedBuildProvenance": null,
+      "selectedSourceIndex": null,
+      "originalBytesRetained": true,
+      "distributedLoadTargetRows": [
+        16,
+        17
+      ]
+    },
+    {
+      "currentIndexRecord": "I0#/nativeBinaries/34",
+      "observedInstalledMatch": true,
+      "sourceNoticeBuildEvidence": "I1#/nativeBinaries/50",
+      "selectedBuildProvenance": null,
+      "selectedSourceIndex": null,
+      "originalBytesRetained": true,
+      "distributedLoadTargetRows": []
+    },
+    {
+      "currentIndexRecord": "I0#/nativeBinaries/35",
+      "observedInstalledMatch": true,
+      "sourceNoticeBuildEvidence": "I1#/nativeBinaries/51",
+      "selectedBuildProvenance": null,
+      "selectedSourceIndex": null,
+      "originalBytesRetained": true,
+      "distributedLoadTargetRows": []
+    },
+    {
+      "currentIndexRecord": "I0#/nativeBinaries/36",
+      "observedInstalledMatch": true,
+      "sourceNoticeBuildEvidence": "I1#/nativeBinaries/52",
+      "selectedBuildProvenance": null,
+      "selectedSourceIndex": null,
+      "originalBytesRetained": true,
+      "distributedLoadTargetRows": []
+    },
+    {
+      "currentIndexRecord": "I0#/nativeBinaries/37",
+      "observedInstalledMatch": true,
+      "sourceNoticeBuildEvidence": "I1#/nativeBinaries/53",
+      "selectedBuildProvenance": null,
+      "selectedSourceIndex": null,
+      "originalBytesRetained": true,
+      "distributedLoadTargetRows": [
+        25,
+        26,
+        27
+      ]
+    },
+    {
+      "currentIndexRecord": "I0#/nativeBinaries/38",
+      "observedInstalledMatch": true,
+      "sourceNoticeBuildEvidence": "I1#/nativeBinaries/54",
+      "selectedBuildProvenance": null,
+      "selectedSourceIndex": null,
+      "originalBytesRetained": true,
+      "distributedLoadTargetRows": []
+    },
+    {
+      "currentIndexRecord": "I0#/nativeBinaries/39",
+      "observedInstalledMatch": true,
+      "sourceNoticeBuildEvidence": "I1#/nativeBinaries/55",
+      "selectedBuildProvenance": null,
+      "selectedSourceIndex": null,
+      "originalBytesRetained": true,
+      "distributedLoadTargetRows": []
+    },
+    {
+      "currentIndexRecord": "I0#/nativeBinaries/40",
+      "observedInstalledMatch": true,
+      "sourceNoticeBuildEvidence": "I1#/nativeBinaries/56",
+      "selectedBuildProvenance": null,
+      "selectedSourceIndex": null,
+      "originalBytesRetained": true,
+      "distributedLoadTargetRows": []
+    },
+    {
+      "currentIndexRecord": "I0#/nativeBinaries/41",
+      "observedInstalledMatch": true,
+      "sourceNoticeBuildEvidence": "I1#/nativeBinaries/57",
+      "selectedBuildProvenance": null,
+      "selectedSourceIndex": null,
+      "originalBytesRetained": true,
+      "distributedLoadTargetRows": []
+    },
+    {
+      "currentIndexRecord": "I0#/nativeBinaries/42",
+      "observedInstalledMatch": true,
+      "sourceNoticeBuildEvidence": "I1#/nativeBinaries/13",
+      "selectedBuildProvenance": null,
+      "selectedSourceIndex": null,
+      "originalBytesRetained": true,
+      "distributedLoadTargetRows": []
+    },
+    {
+      "currentIndexRecord": "I0#/nativeBinaries/43",
+      "observedInstalledMatch": true,
+      "sourceNoticeBuildEvidence": "I1#/nativeBinaries/14",
+      "selectedBuildProvenance": null,
+      "selectedSourceIndex": null,
+      "originalBytesRetained": true,
+      "distributedLoadTargetRows": []
+    },
+    {
+      "currentIndexRecord": "I0#/nativeBinaries/44",
+      "observedInstalledMatch": true,
+      "sourceNoticeBuildEvidence": "I1#/nativeBinaries/15",
+      "selectedBuildProvenance": null,
+      "selectedSourceIndex": null,
+      "originalBytesRetained": true,
+      "distributedLoadTargetRows": []
+    },
+    {
+      "currentIndexRecord": "I0#/nativeBinaries/45",
+      "observedInstalledMatch": true,
+      "sourceNoticeBuildEvidence": "I1#/nativeBinaries/16",
+      "selectedBuildProvenance": null,
+      "selectedSourceIndex": null,
+      "originalBytesRetained": true,
+      "distributedLoadTargetRows": []
+    },
+    {
+      "currentIndexRecord": "I0#/nativeBinaries/46",
+      "observedInstalledMatch": true,
+      "sourceNoticeBuildEvidence": "I1#/nativeBinaries/17",
+      "selectedBuildProvenance": null,
+      "selectedSourceIndex": null,
+      "originalBytesRetained": true,
+      "distributedLoadTargetRows": []
+    },
+    {
+      "currentIndexRecord": "I0#/nativeBinaries/47",
+      "observedInstalledMatch": true,
+      "sourceNoticeBuildEvidence": "I1#/nativeBinaries/18",
+      "selectedBuildProvenance": null,
+      "selectedSourceIndex": null,
+      "originalBytesRetained": true,
+      "distributedLoadTargetRows": []
+    },
+    {
+      "currentIndexRecord": "I0#/nativeBinaries/48",
+      "observedInstalledMatch": true,
+      "sourceNoticeBuildEvidence": "I1#/nativeBinaries/19",
+      "selectedBuildProvenance": null,
+      "selectedSourceIndex": null,
+      "originalBytesRetained": true,
+      "distributedLoadTargetRows": []
+    },
+    {
+      "currentIndexRecord": "I0#/nativeBinaries/49",
+      "observedInstalledMatch": true,
+      "sourceNoticeBuildEvidence": "I1#/nativeBinaries/20",
+      "selectedBuildProvenance": null,
+      "selectedSourceIndex": null,
+      "originalBytesRetained": true,
+      "distributedLoadTargetRows": []
+    },
+    {
+      "currentIndexRecord": "I0#/nativeBinaries/50",
+      "observedInstalledMatch": true,
+      "sourceNoticeBuildEvidence": "I1#/nativeBinaries/21",
+      "selectedBuildProvenance": null,
+      "selectedSourceIndex": null,
+      "originalBytesRetained": true,
+      "distributedLoadTargetRows": []
+    },
+    {
+      "currentIndexRecord": "I0#/nativeBinaries/51",
+      "observedInstalledMatch": true,
+      "sourceNoticeBuildEvidence": "I1#/nativeBinaries/22",
+      "selectedBuildProvenance": null,
+      "selectedSourceIndex": null,
+      "originalBytesRetained": true,
+      "distributedLoadTargetRows": []
+    },
+    {
+      "currentIndexRecord": "I0#/nativeBinaries/52",
+      "observedInstalledMatch": true,
+      "sourceNoticeBuildEvidence": "I1#/nativeBinaries/23",
+      "selectedBuildProvenance": null,
+      "selectedSourceIndex": null,
+      "originalBytesRetained": true,
+      "distributedLoadTargetRows": []
+    },
+    {
+      "currentIndexRecord": "I0#/nativeBinaries/53",
+      "observedInstalledMatch": true,
+      "sourceNoticeBuildEvidence": "I1#/nativeBinaries/24",
+      "selectedBuildProvenance": null,
+      "selectedSourceIndex": null,
+      "originalBytesRetained": true,
+      "distributedLoadTargetRows": []
+    },
+    {
+      "currentIndexRecord": "I0#/nativeBinaries/54",
+      "observedInstalledMatch": true,
+      "sourceNoticeBuildEvidence": "I1#/nativeBinaries/25",
+      "selectedBuildProvenance": null,
+      "selectedSourceIndex": null,
+      "originalBytesRetained": true,
+      "distributedLoadTargetRows": []
+    },
+    {
+      "currentIndexRecord": "I0#/nativeBinaries/55",
+      "observedInstalledMatch": true,
+      "sourceNoticeBuildEvidence": "I1#/nativeBinaries/26",
+      "selectedBuildProvenance": null,
+      "selectedSourceIndex": null,
+      "originalBytesRetained": true,
+      "distributedLoadTargetRows": []
+    },
+    {
+      "currentIndexRecord": "I0#/nativeBinaries/56",
+      "observedInstalledMatch": true,
+      "sourceNoticeBuildEvidence": "I1#/nativeBinaries/58",
+      "selectedBuildProvenance": null,
+      "selectedSourceIndex": null,
+      "originalBytesRetained": true,
+      "distributedLoadTargetRows": []
+    },
+    {
+      "currentIndexRecord": "I0#/nativeBinaries/57",
+      "observedInstalledMatch": true,
+      "sourceNoticeBuildEvidence": "I1#/nativeBinaries/59",
+      "selectedBuildProvenance": null,
+      "selectedSourceIndex": null,
+      "originalBytesRetained": true,
+      "distributedLoadTargetRows": []
+    },
+    {
+      "currentIndexRecord": "I0#/nativeBinaries/58",
+      "observedInstalledMatch": true,
+      "sourceNoticeBuildEvidence": "I1#/nativeBinaries/60",
+      "selectedBuildProvenance": null,
+      "selectedSourceIndex": null,
+      "originalBytesRetained": true,
+      "distributedLoadTargetRows": []
+    },
+    {
+      "currentIndexRecord": "I0#/nativeBinaries/59",
+      "observedInstalledMatch": true,
+      "sourceNoticeBuildEvidence": "I2#/nativeBinaries/40",
+      "selectedBuildProvenance": null,
+      "selectedSourceIndex": null,
+      "originalBytesRetained": true,
+      "distributedLoadTargetRows": []
+    },
+    {
+      "currentIndexRecord": "I0#/nativeBinaries/60",
+      "observedInstalledMatch": true,
+      "sourceNoticeBuildEvidence": "I2#/nativeBinaries/41",
+      "selectedBuildProvenance": null,
+      "selectedSourceIndex": null,
+      "originalBytesRetained": true,
+      "distributedLoadTargetRows": [
+        59
+      ]
+    },
+    {
+      "currentIndexRecord": "I0#/nativeBinaries/61",
+      "observedInstalledMatch": true,
+      "sourceNoticeBuildEvidence": "I2#/nativeBinaries/27",
+      "selectedBuildProvenance": null,
+      "selectedSourceIndex": null,
+      "originalBytesRetained": true,
+      "distributedLoadTargetRows": []
+    },
+    {
+      "currentIndexRecord": "I0#/nativeBinaries/62",
+      "observedInstalledMatch": true,
+      "sourceNoticeBuildEvidence": "I2#/nativeBinaries/42",
+      "selectedBuildProvenance": null,
+      "selectedSourceIndex": null,
+      "originalBytesRetained": true,
+      "distributedLoadTargetRows": [
+        59,
+        60,
+        61,
+        63
+      ]
+    },
+    {
+      "currentIndexRecord": "I0#/nativeBinaries/63",
+      "observedInstalledMatch": true,
+      "sourceNoticeBuildEvidence": "I2#/nativeBinaries/43",
+      "selectedBuildProvenance": null,
+      "selectedSourceIndex": null,
+      "originalBytesRetained": true,
+      "distributedLoadTargetRows": [
+        61,
+        87
+      ]
+    },
+    {
+      "currentIndexRecord": "I0#/nativeBinaries/64",
+      "observedInstalledMatch": true,
+      "sourceNoticeBuildEvidence": "I2#/nativeBinaries/76",
+      "selectedBuildProvenance": null,
+      "selectedSourceIndex": null,
+      "originalBytesRetained": true,
+      "distributedLoadTargetRows": []
+    },
+    {
+      "currentIndexRecord": "I0#/nativeBinaries/65",
+      "observedInstalledMatch": true,
+      "sourceNoticeBuildEvidence": "I2#/nativeBinaries/80",
+      "selectedBuildProvenance": null,
+      "selectedSourceIndex": null,
+      "originalBytesRetained": true,
+      "distributedLoadTargetRows": []
+    },
+    {
+      "currentIndexRecord": "I0#/nativeBinaries/66",
+      "observedInstalledMatch": true,
+      "sourceNoticeBuildEvidence": "I2#/nativeBinaries/61",
+      "selectedBuildProvenance": null,
+      "selectedSourceIndex": null,
+      "originalBytesRetained": true,
+      "distributedLoadTargetRows": [
+        154
+      ]
+    },
+    {
+      "currentIndexRecord": "I0#/nativeBinaries/67",
+      "observedInstalledMatch": true,
+      "sourceNoticeBuildEvidence": "I2#/nativeBinaries/62",
+      "selectedBuildProvenance": null,
+      "selectedSourceIndex": null,
+      "originalBytesRetained": true,
+      "distributedLoadTargetRows": []
+    },
+    {
+      "currentIndexRecord": "I0#/nativeBinaries/68",
+      "observedInstalledMatch": true,
+      "sourceNoticeBuildEvidence": "I2#/nativeBinaries/67",
+      "selectedBuildProvenance": null,
+      "selectedSourceIndex": null,
+      "originalBytesRetained": true,
+      "distributedLoadTargetRows": []
+    },
+    {
+      "currentIndexRecord": "I0#/nativeBinaries/69",
+      "observedInstalledMatch": true,
+      "sourceNoticeBuildEvidence": "I2#/nativeBinaries/49",
+      "selectedBuildProvenance": null,
+      "selectedSourceIndex": null,
+      "originalBytesRetained": true,
+      "distributedLoadTargetRows": [
+        143
+      ]
+    },
+    {
+      "currentIndexRecord": "I0#/nativeBinaries/70",
+      "observedInstalledMatch": true,
+      "sourceNoticeBuildEvidence": "I2#/nativeBinaries/52",
+      "selectedBuildProvenance": null,
+      "selectedSourceIndex": null,
+      "originalBytesRetained": true,
+      "distributedLoadTargetRows": [
+        79,
+        107,
+        108,
+        157
+      ]
+    },
+    {
+      "currentIndexRecord": "I0#/nativeBinaries/71",
+      "observedInstalledMatch": true,
+      "sourceNoticeBuildEvidence": "I2#/nativeBinaries/0",
+      "selectedBuildProvenance": null,
+      "selectedSourceIndex": null,
+      "originalBytesRetained": true,
+      "distributedLoadTargetRows": [
+        119
+      ]
+    },
+    {
+      "currentIndexRecord": "I0#/nativeBinaries/72",
+      "observedInstalledMatch": true,
+      "sourceNoticeBuildEvidence": "I2#/nativeBinaries/53",
+      "selectedBuildProvenance": null,
+      "selectedSourceIndex": null,
+      "originalBytesRetained": true,
+      "distributedLoadTargetRows": [
+        89,
+        90,
+        96,
+        140
+      ]
+    },
+    {
+      "currentIndexRecord": "I0#/nativeBinaries/73",
+      "observedInstalledMatch": true,
+      "sourceNoticeBuildEvidence": "I3#/nativeBinaries/73",
+      "selectedBuildProvenance": null,
+      "selectedSourceIndex": null,
+      "originalBytesRetained": true,
+      "distributedLoadTargetRows": [
+        65,
+        66,
+        69,
+        71,
+        78,
+        86,
+        102,
+        104,
+        108,
+        110,
+        112,
+        113,
+        114,
+        115,
+        116,
+        121,
+        126,
+        128,
+        129,
+        133,
+        137,
+        138,
+        143,
+        144,
+        145,
+        146,
+        147,
+        148,
+        149,
+        150
+      ]
+    },
+    {
+      "currentIndexRecord": "I0#/nativeBinaries/74",
+      "observedInstalledMatch": true,
+      "sourceNoticeBuildEvidence": "I3#/nativeBinaries/74",
+      "selectedBuildProvenance": null,
+      "selectedSourceIndex": null,
+      "originalBytesRetained": true,
+      "distributedLoadTargetRows": [
+        64,
+        65,
+        66,
+        69,
+        70,
+        71,
+        72,
+        73,
+        75,
+        76,
+        78,
+        80,
+        86,
+        88,
+        89,
+        94,
+        96,
+        102,
+        104,
+        108,
+        110,
+        112,
+        113,
+        114,
+        115,
+        116,
+        120,
+        121,
+        122,
+        123,
+        124,
+        126,
+        128,
+        129,
+        130,
+        131,
+        133,
+        134,
+        136,
+        137,
+        138,
+        142,
+        143,
+        144,
+        145,
+        146,
+        147,
+        148,
+        149,
+        150,
+        151,
+        152,
+        153,
+        154,
+        155,
+        156
+      ]
+    },
+    {
+      "currentIndexRecord": "I0#/nativeBinaries/75",
+      "observedInstalledMatch": true,
+      "sourceNoticeBuildEvidence": "I3#/nativeBinaries/75",
+      "selectedBuildProvenance": null,
+      "selectedSourceIndex": null,
+      "originalBytesRetained": true,
+      "distributedLoadTargetRows": [
+        65,
+        66,
+        69,
+        70,
+        71,
+        72,
+        73,
+        76,
+        78,
+        80,
+        86,
+        88,
+        89,
+        94,
+        96,
+        102,
+        104,
+        108,
+        110,
+        112,
+        113,
+        114,
+        115,
+        116,
+        120,
+        121,
+        122,
+        123,
+        124,
+        126,
+        128,
+        129,
+        130,
+        131,
+        133,
+        134,
+        136,
+        137,
+        138,
+        142,
+        143,
+        144,
+        145,
+        146,
+        147,
+        148,
+        149,
+        150,
+        155,
+        156
+      ]
+    },
+    {
+      "currentIndexRecord": "I0#/nativeBinaries/76",
+      "observedInstalledMatch": true,
+      "sourceNoticeBuildEvidence": "I3#/nativeBinaries/76",
+      "selectedBuildProvenance": null,
+      "selectedSourceIndex": null,
+      "originalBytesRetained": true,
+      "distributedLoadTargetRows": [
+        65,
+        66,
+        69,
+        71,
+        73,
+        78,
+        80,
+        86,
+        94,
+        102,
+        104,
+        108,
+        110,
+        112,
+        113,
+        114,
+        115,
+        116,
+        121,
+        122,
+        126,
+        128,
+        129,
+        130,
+        131,
+        133,
+        137,
+        138,
+        143,
+        144,
+        145,
+        146,
+        147,
+        148,
+        149,
+        150,
+        156
+      ]
+    },
+    {
+      "currentIndexRecord": "I0#/nativeBinaries/77",
+      "observedInstalledMatch": true,
+      "sourceNoticeBuildEvidence": "I2#/nativeBinaries/33",
+      "selectedBuildProvenance": null,
+      "selectedSourceIndex": null,
+      "originalBytesRetained": true,
+      "distributedLoadTargetRows": [
+        69
+      ]
+    },
+    {
+      "currentIndexRecord": "I0#/nativeBinaries/78",
+      "observedInstalledMatch": true,
+      "sourceNoticeBuildEvidence": "I3#/nativeBinaries/78",
+      "selectedBuildProvenance": null,
+      "selectedSourceIndex": null,
+      "originalBytesRetained": true,
+      "distributedLoadTargetRows": [
+        66
+      ]
+    },
+    {
+      "currentIndexRecord": "I0#/nativeBinaries/79",
+      "observedInstalledMatch": true,
+      "sourceNoticeBuildEvidence": "I2#/nativeBinaries/54",
+      "selectedBuildProvenance": null,
+      "selectedSourceIndex": null,
+      "originalBytesRetained": true,
+      "distributedLoadTargetRows": []
+    },
+    {
+      "currentIndexRecord": "I0#/nativeBinaries/80",
+      "observedInstalledMatch": true,
+      "sourceNoticeBuildEvidence": "I2#/nativeBinaries/5",
+      "selectedBuildProvenance": null,
+      "selectedSourceIndex": null,
+      "originalBytesRetained": true,
+      "distributedLoadTargetRows": [
+        88,
+        89
+      ]
+    },
+    {
+      "currentIndexRecord": "I0#/nativeBinaries/81",
+      "observedInstalledMatch": true,
+      "sourceNoticeBuildEvidence": "I2#/nativeBinaries/16",
+      "selectedBuildProvenance": null,
+      "selectedSourceIndex": null,
+      "originalBytesRetained": true,
+      "distributedLoadTargetRows": []
+    },
+    {
+      "currentIndexRecord": "I0#/nativeBinaries/82",
+      "observedInstalledMatch": true,
+      "sourceNoticeBuildEvidence": "I2#/nativeBinaries/17",
+      "selectedBuildProvenance": null,
+      "selectedSourceIndex": null,
+      "originalBytesRetained": true,
+      "distributedLoadTargetRows": [
+        81
+      ]
+    },
+    {
+      "currentIndexRecord": "I0#/nativeBinaries/83",
+      "observedInstalledMatch": true,
+      "sourceNoticeBuildEvidence": "I2#/nativeBinaries/18",
+      "selectedBuildProvenance": null,
+      "selectedSourceIndex": null,
+      "originalBytesRetained": true,
+      "distributedLoadTargetRows": [
+        81
+      ]
+    },
+    {
+      "currentIndexRecord": "I0#/nativeBinaries/84",
+      "observedInstalledMatch": true,
+      "sourceNoticeBuildEvidence": "I2#/nativeBinaries/19",
+      "selectedBuildProvenance": null,
+      "selectedSourceIndex": null,
+      "originalBytesRetained": true,
+      "distributedLoadTargetRows": []
+    },
+    {
+      "currentIndexRecord": "I0#/nativeBinaries/85",
+      "observedInstalledMatch": true,
+      "sourceNoticeBuildEvidence": "I2#/nativeBinaries/71",
+      "selectedBuildProvenance": "I4",
+      "selectedSourceIndex": "I5",
+      "originalBytesRetained": false,
+      "distributedLoadTargetRows": []
+    },
+    {
+      "currentIndexRecord": "I0#/nativeBinaries/86",
+      "observedInstalledMatch": true,
+      "sourceNoticeBuildEvidence": "I2#/nativeBinaries/50",
+      "selectedBuildProvenance": null,
+      "selectedSourceIndex": null,
+      "originalBytesRetained": true,
+      "distributedLoadTargetRows": []
+    },
+    {
+      "currentIndexRecord": "I0#/nativeBinaries/87",
+      "observedInstalledMatch": true,
+      "sourceNoticeBuildEvidence": "I2#/nativeBinaries/34",
+      "selectedBuildProvenance": null,
+      "selectedSourceIndex": null,
+      "originalBytesRetained": true,
+      "distributedLoadTargetRows": []
+    },
+    {
+      "currentIndexRecord": "I0#/nativeBinaries/88",
+      "observedInstalledMatch": true,
+      "sourceNoticeBuildEvidence": "I2#/nativeBinaries/20",
+      "selectedBuildProvenance": null,
+      "selectedSourceIndex": null,
+      "originalBytesRetained": true,
+      "distributedLoadTargetRows": [
+        89
+      ]
+    },
+    {
+      "currentIndexRecord": "I0#/nativeBinaries/89",
+      "observedInstalledMatch": true,
+      "sourceNoticeBuildEvidence": "I2#/nativeBinaries/21",
+      "selectedBuildProvenance": null,
+      "selectedSourceIndex": null,
+      "originalBytesRetained": true,
+      "distributedLoadTargetRows": [
+        119
+      ]
+    },
+    {
+      "currentIndexRecord": "I0#/nativeBinaries/90",
+      "observedInstalledMatch": true,
+      "sourceNoticeBuildEvidence": "I2#/nativeBinaries/22",
+      "selectedBuildProvenance": null,
+      "selectedSourceIndex": null,
+      "originalBytesRetained": true,
+      "distributedLoadTargetRows": []
+    },
+    {
+      "currentIndexRecord": "I0#/nativeBinaries/91",
+      "observedInstalledMatch": true,
+      "sourceNoticeBuildEvidence": "I2#/nativeBinaries/23",
+      "selectedBuildProvenance": null,
+      "selectedSourceIndex": null,
+      "originalBytesRetained": true,
+      "distributedLoadTargetRows": []
+    },
+    {
+      "currentIndexRecord": "I0#/nativeBinaries/92",
+      "observedInstalledMatch": true,
+      "sourceNoticeBuildEvidence": "I2#/nativeBinaries/2",
+      "selectedBuildProvenance": null,
+      "selectedSourceIndex": null,
+      "originalBytesRetained": true,
+      "distributedLoadTargetRows": [
+        100,
+        118
+      ]
+    },
+    {
+      "currentIndexRecord": "I0#/nativeBinaries/93",
+      "observedInstalledMatch": true,
+      "sourceNoticeBuildEvidence": "I2#/nativeBinaries/3",
+      "selectedBuildProvenance": "I6",
+      "selectedSourceIndex": "I7",
+      "originalBytesRetained": false,
+      "distributedLoadTargetRows": []
+    },
+    {
+      "currentIndexRecord": "I0#/nativeBinaries/94",
+      "observedInstalledMatch": true,
+      "sourceNoticeBuildEvidence": "I2#/nativeBinaries/4",
+      "selectedBuildProvenance": null,
+      "selectedSourceIndex": null,
+      "originalBytesRetained": true,
+      "distributedLoadTargetRows": [
+        93,
+        97,
+        99,
+        100,
+        111,
+        117,
+        135,
+        141
+      ]
+    },
+    {
+      "currentIndexRecord": "I0#/nativeBinaries/95",
+      "observedInstalledMatch": true,
+      "sourceNoticeBuildEvidence": "I2#/nativeBinaries/24",
+      "selectedBuildProvenance": null,
+      "selectedSourceIndex": null,
+      "originalBytesRetained": true,
+      "distributedLoadTargetRows": []
+    },
+    {
+      "currentIndexRecord": "I0#/nativeBinaries/96",
+      "observedInstalledMatch": true,
+      "sourceNoticeBuildEvidence": "I2#/nativeBinaries/25",
+      "selectedBuildProvenance": null,
+      "selectedSourceIndex": null,
+      "originalBytesRetained": true,
+      "distributedLoadTargetRows": [
+        89,
+        92,
+        95
+      ]
+    },
+    {
+      "currentIndexRecord": "I0#/nativeBinaries/97",
+      "observedInstalledMatch": true,
+      "sourceNoticeBuildEvidence": "I2#/nativeBinaries/12",
+      "selectedBuildProvenance": null,
+      "selectedSourceIndex": null,
+      "originalBytesRetained": true,
+      "distributedLoadTargetRows": [
+        93,
+        111
+      ]
+    },
+    {
+      "currentIndexRecord": "I0#/nativeBinaries/98",
+      "observedInstalledMatch": true,
+      "sourceNoticeBuildEvidence": "I2#/nativeBinaries/26",
+      "selectedBuildProvenance": null,
+      "selectedSourceIndex": null,
+      "originalBytesRetained": true,
+      "distributedLoadTargetRows": []
+    },
+    {
+      "currentIndexRecord": "I0#/nativeBinaries/99",
+      "observedInstalledMatch": true,
+      "sourceNoticeBuildEvidence": "I2#/nativeBinaries/6",
+      "selectedBuildProvenance": null,
+      "selectedSourceIndex": null,
+      "originalBytesRetained": true,
+      "distributedLoadTargetRows": [
+        100,
+        141
+      ]
+    },
+    {
+      "currentIndexRecord": "I0#/nativeBinaries/100",
+      "observedInstalledMatch": true,
+      "sourceNoticeBuildEvidence": "I2#/nativeBinaries/1",
+      "selectedBuildProvenance": null,
+      "selectedSourceIndex": null,
+      "originalBytesRetained": true,
+      "distributedLoadTargetRows": []
+    },
+    {
+      "currentIndexRecord": "I0#/nativeBinaries/101",
+      "observedInstalledMatch": true,
+      "sourceNoticeBuildEvidence": "I2#/nativeBinaries/28",
+      "selectedBuildProvenance": null,
+      "selectedSourceIndex": null,
+      "originalBytesRetained": true,
+      "distributedLoadTargetRows": []
+    },
+    {
+      "currentIndexRecord": "I0#/nativeBinaries/102",
+      "observedInstalledMatch": true,
+      "sourceNoticeBuildEvidence": "I2#/nativeBinaries/29",
+      "selectedBuildProvenance": null,
+      "selectedSourceIndex": null,
+      "originalBytesRetained": true,
+      "distributedLoadTargetRows": [
+        81,
+        82,
+        83,
+        98,
+        103
+      ]
+    },
+    {
+      "currentIndexRecord": "I0#/nativeBinaries/103",
+      "observedInstalledMatch": true,
+      "sourceNoticeBuildEvidence": "I2#/nativeBinaries/30",
+      "selectedBuildProvenance": null,
+      "selectedSourceIndex": null,
+      "originalBytesRetained": true,
+      "distributedLoadTargetRows": [
+        98,
+        105
+      ]
+    },
+    {
+      "currentIndexRecord": "I0#/nativeBinaries/104",
+      "observedInstalledMatch": true,
+      "sourceNoticeBuildEvidence": "I2#/nativeBinaries/31",
+      "selectedBuildProvenance": null,
+      "selectedSourceIndex": null,
+      "originalBytesRetained": true,
+      "distributedLoadTargetRows": []
+    },
+    {
+      "currentIndexRecord": "I0#/nativeBinaries/105",
+      "observedInstalledMatch": true,
+      "sourceNoticeBuildEvidence": "I2#/nativeBinaries/38",
+      "selectedBuildProvenance": null,
+      "selectedSourceIndex": null,
+      "originalBytesRetained": true,
+      "distributedLoadTargetRows": []
+    },
+    {
+      "currentIndexRecord": "I0#/nativeBinaries/106",
+      "observedInstalledMatch": true,
+      "sourceNoticeBuildEvidence": "I2#/nativeBinaries/32",
+      "selectedBuildProvenance": null,
+      "selectedSourceIndex": null,
+      "originalBytesRetained": true,
+      "distributedLoadTargetRows": [
+        91,
+        101,
+        115,
+        119,
+        139,
+        147,
+        148
+      ]
+    },
+    {
+      "currentIndexRecord": "I0#/nativeBinaries/107",
+      "observedInstalledMatch": true,
+      "sourceNoticeBuildEvidence": "I2#/nativeBinaries/39",
+      "selectedBuildProvenance": null,
+      "selectedSourceIndex": null,
+      "originalBytesRetained": true,
+      "distributedLoadTargetRows": []
+    },
+    {
+      "currentIndexRecord": "I0#/nativeBinaries/108",
+      "observedInstalledMatch": true,
+      "sourceNoticeBuildEvidence": "I2#/nativeBinaries/15",
+      "selectedBuildProvenance": null,
+      "selectedSourceIndex": null,
+      "originalBytesRetained": true,
+      "distributedLoadTargetRows": []
+    },
+    {
+      "currentIndexRecord": "I0#/nativeBinaries/109",
+      "observedInstalledMatch": true,
+      "sourceNoticeBuildEvidence": "I2#/nativeBinaries/68",
+      "selectedBuildProvenance": null,
+      "selectedSourceIndex": null,
+      "originalBytesRetained": true,
+      "distributedLoadTargetRows": []
+    },
+    {
+      "currentIndexRecord": "I0#/nativeBinaries/110",
+      "observedInstalledMatch": true,
+      "sourceNoticeBuildEvidence": "I2#/nativeBinaries/51",
+      "selectedBuildProvenance": null,
+      "selectedSourceIndex": null,
+      "originalBytesRetained": true,
+      "distributedLoadTargetRows": []
+    },
+    {
+      "currentIndexRecord": "I0#/nativeBinaries/111",
+      "observedInstalledMatch": true,
+      "sourceNoticeBuildEvidence": "I2#/nativeBinaries/13",
+      "selectedBuildProvenance": null,
+      "selectedSourceIndex": null,
+      "originalBytesRetained": true,
+      "distributedLoadTargetRows": []
+    },
+    {
+      "currentIndexRecord": "I0#/nativeBinaries/112",
+      "observedInstalledMatch": true,
+      "sourceNoticeBuildEvidence": "I2#/nativeBinaries/55",
+      "selectedBuildProvenance": null,
+      "selectedSourceIndex": null,
+      "originalBytesRetained": true,
+      "distributedLoadTargetRows": []
+    },
+    {
+      "currentIndexRecord": "I0#/nativeBinaries/113",
+      "observedInstalledMatch": true,
+      "sourceNoticeBuildEvidence": "I2#/nativeBinaries/69",
+      "selectedBuildProvenance": null,
+      "selectedSourceIndex": null,
+      "originalBytesRetained": true,
+      "distributedLoadTargetRows": []
+    },
+    {
+      "currentIndexRecord": "I0#/nativeBinaries/114",
+      "observedInstalledMatch": true,
+      "sourceNoticeBuildEvidence": "I2#/nativeBinaries/70",
+      "selectedBuildProvenance": null,
+      "selectedSourceIndex": null,
+      "originalBytesRetained": true,
+      "distributedLoadTargetRows": []
+    },
+    {
+      "currentIndexRecord": "I0#/nativeBinaries/115",
+      "observedInstalledMatch": true,
+      "sourceNoticeBuildEvidence": "I2#/nativeBinaries/44",
+      "selectedBuildProvenance": null,
+      "selectedSourceIndex": null,
+      "originalBytesRetained": true,
+      "distributedLoadTargetRows": []
+    },
+    {
+      "currentIndexRecord": "I0#/nativeBinaries/116",
+      "observedInstalledMatch": true,
+      "sourceNoticeBuildEvidence": "I2#/nativeBinaries/73",
+      "selectedBuildProvenance": null,
+      "selectedSourceIndex": null,
+      "originalBytesRetained": true,
+      "distributedLoadTargetRows": []
+    },
+    {
+      "currentIndexRecord": "I0#/nativeBinaries/117",
+      "observedInstalledMatch": true,
+      "sourceNoticeBuildEvidence": "I2#/nativeBinaries/14",
+      "selectedBuildProvenance": null,
+      "selectedSourceIndex": null,
+      "originalBytesRetained": true,
+      "distributedLoadTargetRows": []
+    },
+    {
+      "currentIndexRecord": "I0#/nativeBinaries/118",
+      "observedInstalledMatch": true,
+      "sourceNoticeBuildEvidence": "I2#/nativeBinaries/74",
+      "selectedBuildProvenance": null,
+      "selectedSourceIndex": null,
+      "originalBytesRetained": true,
+      "distributedLoadTargetRows": []
+    },
+    {
+      "currentIndexRecord": "I0#/nativeBinaries/119",
+      "observedInstalledMatch": true,
+      "sourceNoticeBuildEvidence": "I2#/nativeBinaries/35",
+      "selectedBuildProvenance": null,
+      "selectedSourceIndex": null,
+      "originalBytesRetained": true,
+      "distributedLoadTargetRows": []
+    },
+    {
+      "currentIndexRecord": "I0#/nativeBinaries/120",
+      "observedInstalledMatch": true,
+      "sourceNoticeBuildEvidence": "I3#/nativeBinaries/120",
+      "selectedBuildProvenance": null,
+      "selectedSourceIndex": null,
+      "originalBytesRetained": true,
+      "distributedLoadTargetRows": [
+        66,
+        78
+      ]
+    },
+    {
+      "currentIndexRecord": "I0#/nativeBinaries/121",
+      "observedInstalledMatch": true,
+      "sourceNoticeBuildEvidence": "I2#/nativeBinaries/75",
+      "selectedBuildProvenance": null,
+      "selectedSourceIndex": null,
+      "originalBytesRetained": true,
+      "distributedLoadTargetRows": []
+    },
+    {
+      "currentIndexRecord": "I0#/nativeBinaries/122",
+      "observedInstalledMatch": true,
+      "sourceNoticeBuildEvidence": "I2#/nativeBinaries/7",
+      "selectedBuildProvenance": null,
+      "selectedSourceIndex": null,
+      "originalBytesRetained": true,
+      "distributedLoadTargetRows": [
+        84,
+        109
+      ]
+    },
+    {
+      "currentIndexRecord": "I0#/nativeBinaries/123",
+      "observedInstalledMatch": true,
+      "sourceNoticeBuildEvidence": "I3#/nativeBinaries/123",
+      "selectedBuildProvenance": null,
+      "selectedSourceIndex": null,
+      "originalBytesRetained": true,
+      "distributedLoadTargetRows": [
+        124
+      ]
+    },
+    {
+      "currentIndexRecord": "I0#/nativeBinaries/124",
+      "observedInstalledMatch": true,
+      "sourceNoticeBuildEvidence": "I2#/nativeBinaries/8",
+      "selectedBuildProvenance": null,
+      "selectedSourceIndex": null,
+      "originalBytesRetained": true,
+      "distributedLoadTargetRows": []
+    },
+    {
+      "currentIndexRecord": "I0#/nativeBinaries/125",
+      "observedInstalledMatch": true,
+      "sourceNoticeBuildEvidence": "I2#/nativeBinaries/45",
+      "selectedBuildProvenance": null,
+      "selectedSourceIndex": null,
+      "originalBytesRetained": true,
+      "distributedLoadTargetRows": []
+    },
+    {
+      "currentIndexRecord": "I0#/nativeBinaries/126",
+      "observedInstalledMatch": true,
+      "sourceNoticeBuildEvidence": "I2#/nativeBinaries/77",
+      "selectedBuildProvenance": null,
+      "selectedSourceIndex": null,
+      "originalBytesRetained": true,
+      "distributedLoadTargetRows": []
+    },
+    {
+      "currentIndexRecord": "I0#/nativeBinaries/127",
+      "observedInstalledMatch": true,
+      "sourceNoticeBuildEvidence": "I2#/nativeBinaries/56",
+      "selectedBuildProvenance": null,
+      "selectedSourceIndex": null,
+      "originalBytesRetained": true,
+      "distributedLoadTargetRows": []
+    },
+    {
+      "currentIndexRecord": "I0#/nativeBinaries/128",
+      "observedInstalledMatch": true,
+      "sourceNoticeBuildEvidence": "I3#/nativeBinaries/128",
+      "selectedBuildProvenance": null,
+      "selectedSourceIndex": null,
+      "originalBytesRetained": true,
+      "distributedLoadTargetRows": []
+    },
+    {
+      "currentIndexRecord": "I0#/nativeBinaries/129",
+      "observedInstalledMatch": true,
+      "sourceNoticeBuildEvidence": "I2#/nativeBinaries/78",
+      "selectedBuildProvenance": null,
+      "selectedSourceIndex": null,
+      "originalBytesRetained": true,
+      "distributedLoadTargetRows": []
+    },
+    {
+      "currentIndexRecord": "I0#/nativeBinaries/130",
+      "observedInstalledMatch": true,
+      "sourceNoticeBuildEvidence": "I2#/nativeBinaries/79",
+      "selectedBuildProvenance": null,
+      "selectedSourceIndex": null,
+      "originalBytesRetained": true,
+      "distributedLoadTargetRows": [
+        85,
+        132
+      ]
+    },
+    {
+      "currentIndexRecord": "I0#/nativeBinaries/131",
+      "observedInstalledMatch": true,
+      "sourceNoticeBuildEvidence": "I2#/nativeBinaries/9",
+      "selectedBuildProvenance": null,
+      "selectedSourceIndex": null,
+      "originalBytesRetained": true,
+      "distributedLoadTargetRows": [
+        85
+      ]
+    },
+    {
+      "currentIndexRecord": "I0#/nativeBinaries/132",
+      "observedInstalledMatch": true,
+      "sourceNoticeBuildEvidence": "I2#/nativeBinaries/72",
+      "selectedBuildProvenance": "I4",
+      "selectedSourceIndex": "I5",
+      "originalBytesRetained": false,
+      "distributedLoadTargetRows": [
+        85
+      ]
+    },
+    {
+      "currentIndexRecord": "I0#/nativeBinaries/133",
+      "observedInstalledMatch": true,
+      "sourceNoticeBuildEvidence": "I3#/nativeBinaries/133",
+      "selectedBuildProvenance": null,
+      "selectedSourceIndex": null,
+      "originalBytesRetained": true,
+      "distributedLoadTargetRows": [
+        66,
+        78,
+        128
+      ]
+    },
+    {
+      "currentIndexRecord": "I0#/nativeBinaries/134",
+      "observedInstalledMatch": true,
+      "sourceNoticeBuildEvidence": "I3#/nativeBinaries/134",
+      "selectedBuildProvenance": null,
+      "selectedSourceIndex": null,
+      "originalBytesRetained": true,
+      "distributedLoadTargetRows": [
+        66,
+        78
+      ]
+    },
+    {
+      "currentIndexRecord": "I0#/nativeBinaries/135",
+      "observedInstalledMatch": true,
+      "sourceNoticeBuildEvidence": "I2#/nativeBinaries/10",
+      "selectedBuildProvenance": null,
+      "selectedSourceIndex": null,
+      "originalBytesRetained": true,
+      "distributedLoadTargetRows": []
+    },
+    {
+      "currentIndexRecord": "I0#/nativeBinaries/136",
+      "observedInstalledMatch": true,
+      "sourceNoticeBuildEvidence": "I2#/nativeBinaries/81",
+      "selectedBuildProvenance": null,
+      "selectedSourceIndex": null,
+      "originalBytesRetained": true,
+      "distributedLoadTargetRows": [
+        70,
+        106
+      ]
+    },
+    {
+      "currentIndexRecord": "I0#/nativeBinaries/137",
+      "observedInstalledMatch": true,
+      "sourceNoticeBuildEvidence": "I2#/nativeBinaries/82",
+      "selectedBuildProvenance": null,
+      "selectedSourceIndex": null,
+      "originalBytesRetained": true,
+      "distributedLoadTargetRows": []
+    },
+    {
+      "currentIndexRecord": "I0#/nativeBinaries/138",
+      "observedInstalledMatch": true,
+      "sourceNoticeBuildEvidence": "I2#/nativeBinaries/83",
+      "selectedBuildProvenance": null,
+      "selectedSourceIndex": null,
+      "originalBytesRetained": true,
+      "distributedLoadTargetRows": [
+        112
+      ]
+    },
+    {
+      "currentIndexRecord": "I0#/nativeBinaries/139",
+      "observedInstalledMatch": true,
+      "sourceNoticeBuildEvidence": "I2#/nativeBinaries/36",
+      "selectedBuildProvenance": null,
+      "selectedSourceIndex": null,
+      "originalBytesRetained": true,
+      "distributedLoadTargetRows": [
+        101,
+        108,
+        157
+      ]
+    },
+    {
+      "currentIndexRecord": "I0#/nativeBinaries/140",
+      "observedInstalledMatch": true,
+      "sourceNoticeBuildEvidence": "I2#/nativeBinaries/37",
+      "selectedBuildProvenance": null,
+      "selectedSourceIndex": null,
+      "originalBytesRetained": true,
+      "distributedLoadTargetRows": []
+    },
+    {
+      "currentIndexRecord": "I0#/nativeBinaries/141",
+      "observedInstalledMatch": true,
+      "sourceNoticeBuildEvidence": "I2#/nativeBinaries/11",
+      "selectedBuildProvenance": null,
+      "selectedSourceIndex": null,
+      "originalBytesRetained": true,
+      "distributedLoadTargetRows": []
+    },
+    {
+      "currentIndexRecord": "I0#/nativeBinaries/142",
+      "observedInstalledMatch": true,
+      "sourceNoticeBuildEvidence": "I3#/nativeBinaries/142",
+      "selectedBuildProvenance": null,
+      "selectedSourceIndex": null,
+      "originalBytesRetained": true,
+      "distributedLoadTargetRows": []
+    },
+    {
+      "currentIndexRecord": "I0#/nativeBinaries/143",
+      "observedInstalledMatch": true,
+      "sourceNoticeBuildEvidence": "I2#/nativeBinaries/57",
+      "selectedBuildProvenance": null,
+      "selectedSourceIndex": null,
+      "originalBytesRetained": true,
+      "distributedLoadTargetRows": []
+    },
+    {
+      "currentIndexRecord": "I0#/nativeBinaries/144",
+      "observedInstalledMatch": true,
+      "sourceNoticeBuildEvidence": "I2#/nativeBinaries/58",
+      "selectedBuildProvenance": null,
+      "selectedSourceIndex": null,
+      "originalBytesRetained": true,
+      "distributedLoadTargetRows": [
+        112
+      ]
+    },
+    {
+      "currentIndexRecord": "I0#/nativeBinaries/145",
+      "observedInstalledMatch": true,
+      "sourceNoticeBuildEvidence": "I2#/nativeBinaries/59",
+      "selectedBuildProvenance": null,
+      "selectedSourceIndex": null,
+      "originalBytesRetained": true,
+      "distributedLoadTargetRows": [
+        112,
+        144
+      ]
+    },
+    {
+      "currentIndexRecord": "I0#/nativeBinaries/146",
+      "observedInstalledMatch": true,
+      "sourceNoticeBuildEvidence": "I2#/nativeBinaries/60",
+      "selectedBuildProvenance": null,
+      "selectedSourceIndex": null,
+      "originalBytesRetained": true,
+      "distributedLoadTargetRows": []
+    },
+    {
+      "currentIndexRecord": "I0#/nativeBinaries/147",
+      "observedInstalledMatch": true,
+      "sourceNoticeBuildEvidence": "I2#/nativeBinaries/46",
+      "selectedBuildProvenance": null,
+      "selectedSourceIndex": null,
+      "originalBytesRetained": true,
+      "distributedLoadTargetRows": [
+        125
+      ]
+    },
+    {
+      "currentIndexRecord": "I0#/nativeBinaries/148",
+      "observedInstalledMatch": true,
+      "sourceNoticeBuildEvidence": "I2#/nativeBinaries/47",
+      "selectedBuildProvenance": null,
+      "selectedSourceIndex": null,
+      "originalBytesRetained": true,
+      "distributedLoadTargetRows": [
+        125,
+        147
+      ]
+    },
+    {
+      "currentIndexRecord": "I0#/nativeBinaries/149",
+      "observedInstalledMatch": true,
+      "sourceNoticeBuildEvidence": "I3#/nativeBinaries/149",
+      "selectedBuildProvenance": null,
+      "selectedSourceIndex": null,
+      "originalBytesRetained": true,
+      "distributedLoadTargetRows": []
+    },
+    {
+      "currentIndexRecord": "I0#/nativeBinaries/150",
+      "observedInstalledMatch": true,
+      "sourceNoticeBuildEvidence": "I3#/nativeBinaries/150",
+      "selectedBuildProvenance": null,
+      "selectedSourceIndex": null,
+      "originalBytesRetained": true,
+      "distributedLoadTargetRows": []
+    },
+    {
+      "currentIndexRecord": "I0#/nativeBinaries/151",
+      "observedInstalledMatch": true,
+      "sourceNoticeBuildEvidence": "I2#/nativeBinaries/63",
+      "selectedBuildProvenance": null,
+      "selectedSourceIndex": null,
+      "originalBytesRetained": true,
+      "distributedLoadTargetRows": [
+        67,
+        68,
+        154
+      ]
+    },
+    {
+      "currentIndexRecord": "I0#/nativeBinaries/152",
+      "observedInstalledMatch": true,
+      "sourceNoticeBuildEvidence": "I2#/nativeBinaries/64",
+      "selectedBuildProvenance": null,
+      "selectedSourceIndex": null,
+      "originalBytesRetained": true,
+      "distributedLoadTargetRows": [
+        67,
+        68,
+        154
+      ]
+    },
+    {
+      "currentIndexRecord": "I0#/nativeBinaries/153",
+      "observedInstalledMatch": true,
+      "sourceNoticeBuildEvidence": "I2#/nativeBinaries/65",
+      "selectedBuildProvenance": null,
+      "selectedSourceIndex": null,
+      "originalBytesRetained": true,
+      "distributedLoadTargetRows": [
+        67,
+        68,
+        154
+      ]
+    },
+    {
+      "currentIndexRecord": "I0#/nativeBinaries/154",
+      "observedInstalledMatch": true,
+      "sourceNoticeBuildEvidence": "I2#/nativeBinaries/66",
+      "selectedBuildProvenance": null,
+      "selectedSourceIndex": null,
+      "originalBytesRetained": true,
+      "distributedLoadTargetRows": [
+        67,
+        68
+      ]
+    },
+    {
+      "currentIndexRecord": "I0#/nativeBinaries/155",
+      "observedInstalledMatch": true,
+      "sourceNoticeBuildEvidence": "I2#/nativeBinaries/85",
+      "selectedBuildProvenance": null,
+      "selectedSourceIndex": null,
+      "originalBytesRetained": true,
+      "distributedLoadTargetRows": []
+    },
+    {
+      "currentIndexRecord": "I0#/nativeBinaries/156",
+      "observedInstalledMatch": true,
+      "sourceNoticeBuildEvidence": "I2#/nativeBinaries/84",
+      "selectedBuildProvenance": "I6",
+      "selectedSourceIndex": "I7",
+      "originalBytesRetained": false,
+      "distributedLoadTargetRows": [
+        127
+      ]
+    },
+    {
+      "currentIndexRecord": "I0#/nativeBinaries/157",
+      "observedInstalledMatch": true,
+      "sourceNoticeBuildEvidence": "I2#/nativeBinaries/48",
+      "selectedBuildProvenance": null,
+      "selectedSourceIndex": null,
+      "originalBytesRetained": true,
+      "distributedLoadTargetRows": []
+    },
+    {
+      "currentIndexRecord": "I0#/nativeBinaries/158",
+      "observedInstalledMatch": true,
+      "sourceNoticeBuildEvidence": "I1#/nativeBinaries/61",
+      "selectedBuildProvenance": null,
+      "selectedSourceIndex": null,
+      "originalBytesRetained": true,
+      "distributedLoadTargetRows": [
+        59,
+        60,
+        61,
+        62,
+        63,
+        73,
+        74,
+        76,
+        77,
+        78,
+        134
+      ]
+    },
+    {
+      "currentIndexRecord": "I0#/nativeBinaries/159",
+      "observedInstalledMatch": true,
+      "sourceNoticeBuildEvidence": "I3#/nativeBinaries/159",
+      "selectedBuildProvenance": null,
+      "selectedSourceIndex": null,
+      "originalBytesRetained": true,
+      "distributedLoadTargetRows": []
+    },
+    {
+      "currentIndexRecord": "I0#/nativeBinaries/160",
+      "observedInstalledMatch": true,
+      "sourceNoticeBuildEvidence": "I1#/nativeBinaries/62",
+      "selectedBuildProvenance": null,
+      "selectedSourceIndex": null,
+      "originalBytesRetained": true,
+      "distributedLoadTargetRows": []
+    },
+    {
+      "currentIndexRecord": "I0#/nativeBinaries/161",
+      "observedInstalledMatch": true,
+      "sourceNoticeBuildEvidence": "I1#/nativeBinaries/63",
+      "selectedBuildProvenance": null,
+      "selectedSourceIndex": null,
+      "originalBytesRetained": true,
+      "distributedLoadTargetRows": []
+    },
+    {
+      "currentIndexRecord": "I0#/nativeBinaries/162",
+      "observedInstalledMatch": true,
+      "sourceNoticeBuildEvidence": "I1#/nativeBinaries/64",
+      "selectedBuildProvenance": null,
+      "selectedSourceIndex": null,
+      "originalBytesRetained": true,
+      "distributedLoadTargetRows": []
+    },
+    {
+      "currentIndexRecord": "I0#/nativeBinaries/163",
+      "observedInstalledMatch": true,
+      "sourceNoticeBuildEvidence": "I1#/nativeBinaries/65",
+      "selectedBuildProvenance": null,
+      "selectedSourceIndex": null,
+      "originalBytesRetained": true,
+      "distributedLoadTargetRows": []
+    },
+    {
+      "currentIndexRecord": "I0#/nativeBinaries/164",
+      "observedInstalledMatch": true,
+      "sourceNoticeBuildEvidence": "I1#/nativeBinaries/66",
+      "selectedBuildProvenance": null,
+      "selectedSourceIndex": null,
+      "originalBytesRetained": true,
+      "distributedLoadTargetRows": []
+    },
+    {
+      "currentIndexRecord": "I0#/nativeBinaries/165",
+      "observedInstalledMatch": true,
+      "sourceNoticeBuildEvidence": "I1#/nativeBinaries/67",
+      "selectedBuildProvenance": null,
+      "selectedSourceIndex": null,
+      "originalBytesRetained": true,
+      "distributedLoadTargetRows": []
+    },
+    {
+      "currentIndexRecord": "I0#/nativeBinaries/166",
+      "observedInstalledMatch": true,
+      "sourceNoticeBuildEvidence": "I1#/nativeBinaries/68",
+      "selectedBuildProvenance": null,
+      "selectedSourceIndex": null,
+      "originalBytesRetained": true,
+      "distributedLoadTargetRows": []
+    },
+    {
+      "currentIndexRecord": "I0#/nativeBinaries/167",
+      "observedInstalledMatch": true,
+      "sourceNoticeBuildEvidence": "I1#/nativeBinaries/69",
+      "selectedBuildProvenance": null,
+      "selectedSourceIndex": null,
+      "originalBytesRetained": true,
+      "distributedLoadTargetRows": []
+    },
+    {
+      "currentIndexRecord": "I0#/nativeBinaries/168",
+      "observedInstalledMatch": true,
+      "sourceNoticeBuildEvidence": "I1#/nativeBinaries/70",
+      "selectedBuildProvenance": null,
+      "selectedSourceIndex": null,
+      "originalBytesRetained": true,
+      "distributedLoadTargetRows": []
+    },
+    {
+      "currentIndexRecord": "I0#/nativeBinaries/169",
+      "observedInstalledMatch": true,
+      "sourceNoticeBuildEvidence": "I1#/nativeBinaries/71",
+      "selectedBuildProvenance": null,
+      "selectedSourceIndex": null,
+      "originalBytesRetained": true,
+      "distributedLoadTargetRows": []
+    },
+    {
+      "currentIndexRecord": "I0#/nativeBinaries/170",
+      "observedInstalledMatch": true,
+      "sourceNoticeBuildEvidence": "I1#/nativeBinaries/72",
+      "selectedBuildProvenance": null,
+      "selectedSourceIndex": null,
+      "originalBytesRetained": true,
+      "distributedLoadTargetRows": []
+    },
+    {
+      "currentIndexRecord": "I0#/nativeBinaries/171",
+      "observedInstalledMatch": true,
+      "sourceNoticeBuildEvidence": "I1#/nativeBinaries/73",
+      "selectedBuildProvenance": null,
+      "selectedSourceIndex": null,
+      "originalBytesRetained": true,
+      "distributedLoadTargetRows": []
+    },
+    {
+      "currentIndexRecord": "I0#/nativeBinaries/172",
+      "observedInstalledMatch": true,
+      "sourceNoticeBuildEvidence": "I1#/nativeBinaries/74",
+      "selectedBuildProvenance": null,
+      "selectedSourceIndex": null,
+      "originalBytesRetained": true,
+      "distributedLoadTargetRows": []
+    },
+    {
+      "currentIndexRecord": "I0#/nativeBinaries/173",
+      "observedInstalledMatch": true,
+      "sourceNoticeBuildEvidence": "I1#/nativeBinaries/75",
+      "selectedBuildProvenance": null,
+      "selectedSourceIndex": null,
+      "originalBytesRetained": true,
+      "distributedLoadTargetRows": []
+    },
+    {
+      "currentIndexRecord": "I0#/nativeBinaries/174",
+      "observedInstalledMatch": true,
+      "sourceNoticeBuildEvidence": "I1#/nativeBinaries/76",
+      "selectedBuildProvenance": null,
+      "selectedSourceIndex": null,
+      "originalBytesRetained": true,
+      "distributedLoadTargetRows": []
+    },
+    {
+      "currentIndexRecord": "I0#/nativeBinaries/175",
+      "observedInstalledMatch": true,
+      "sourceNoticeBuildEvidence": "I1#/nativeBinaries/77",
+      "selectedBuildProvenance": null,
+      "selectedSourceIndex": null,
+      "originalBytesRetained": true,
+      "distributedLoadTargetRows": []
+    },
+    {
+      "currentIndexRecord": "I0#/nativeBinaries/176",
+      "observedInstalledMatch": true,
+      "sourceNoticeBuildEvidence": "I1#/nativeBinaries/78",
+      "selectedBuildProvenance": null,
+      "selectedSourceIndex": null,
+      "originalBytesRetained": true,
+      "distributedLoadTargetRows": []
+    },
+    {
+      "currentIndexRecord": "I0#/nativeBinaries/177",
+      "observedInstalledMatch": true,
+      "sourceNoticeBuildEvidence": "I1#/nativeBinaries/79",
+      "selectedBuildProvenance": null,
+      "selectedSourceIndex": null,
+      "originalBytesRetained": true,
+      "distributedLoadTargetRows": []
+    },
+    {
+      "currentIndexRecord": "I0#/nativeBinaries/178",
+      "observedInstalledMatch": true,
+      "sourceNoticeBuildEvidence": "I1#/nativeBinaries/80",
+      "selectedBuildProvenance": null,
+      "selectedSourceIndex": null,
+      "originalBytesRetained": true,
+      "distributedLoadTargetRows": []
+    },
+    {
+      "currentIndexRecord": "I0#/nativeBinaries/179",
+      "observedInstalledMatch": true,
+      "sourceNoticeBuildEvidence": "I1#/nativeBinaries/81",
+      "selectedBuildProvenance": null,
+      "selectedSourceIndex": null,
+      "originalBytesRetained": true,
+      "distributedLoadTargetRows": []
+    },
+    {
+      "currentIndexRecord": "I0#/nativeBinaries/180",
+      "observedInstalledMatch": true,
+      "sourceNoticeBuildEvidence": "I1#/nativeBinaries/82",
+      "selectedBuildProvenance": null,
+      "selectedSourceIndex": null,
+      "originalBytesRetained": true,
+      "distributedLoadTargetRows": []
+    },
+    {
+      "currentIndexRecord": "I0#/nativeBinaries/181",
+      "observedInstalledMatch": true,
+      "sourceNoticeBuildEvidence": "I1#/nativeBinaries/83",
+      "selectedBuildProvenance": null,
+      "selectedSourceIndex": null,
+      "originalBytesRetained": true,
+      "distributedLoadTargetRows": []
+    },
+    {
+      "currentIndexRecord": "I0#/nativeBinaries/182",
+      "observedInstalledMatch": true,
+      "sourceNoticeBuildEvidence": "I1#/nativeBinaries/84",
+      "selectedBuildProvenance": null,
+      "selectedSourceIndex": null,
+      "originalBytesRetained": true,
+      "distributedLoadTargetRows": []
+    },
+    {
+      "currentIndexRecord": "I0#/nativeBinaries/183",
+      "observedInstalledMatch": true,
+      "sourceNoticeBuildEvidence": "I1#/nativeBinaries/85",
+      "selectedBuildProvenance": null,
+      "selectedSourceIndex": null,
+      "originalBytesRetained": true,
+      "distributedLoadTargetRows": []
+    },
+    {
+      "currentIndexRecord": "I0#/nativeBinaries/184",
+      "observedInstalledMatch": true,
+      "sourceNoticeBuildEvidence": "I1#/nativeBinaries/86",
+      "selectedBuildProvenance": null,
+      "selectedSourceIndex": null,
+      "originalBytesRetained": true,
+      "distributedLoadTargetRows": []
+    },
+    {
+      "currentIndexRecord": "I0#/nativeBinaries/185",
+      "observedInstalledMatch": true,
+      "sourceNoticeBuildEvidence": "I1#/nativeBinaries/87",
+      "selectedBuildProvenance": null,
+      "selectedSourceIndex": null,
+      "originalBytesRetained": true,
+      "distributedLoadTargetRows": []
+    },
+    {
+      "currentIndexRecord": "I0#/nativeBinaries/186",
+      "observedInstalledMatch": true,
+      "sourceNoticeBuildEvidence": "I1#/nativeBinaries/88",
+      "selectedBuildProvenance": null,
+      "selectedSourceIndex": null,
+      "originalBytesRetained": true,
+      "distributedLoadTargetRows": []
+    },
+    {
+      "currentIndexRecord": "I0#/nativeBinaries/187",
+      "observedInstalledMatch": true,
+      "sourceNoticeBuildEvidence": "I1#/nativeBinaries/89",
+      "selectedBuildProvenance": null,
+      "selectedSourceIndex": null,
+      "originalBytesRetained": true,
+      "distributedLoadTargetRows": []
+    },
+    {
+      "currentIndexRecord": "I0#/nativeBinaries/188",
+      "observedInstalledMatch": true,
+      "sourceNoticeBuildEvidence": "I1#/nativeBinaries/90",
+      "selectedBuildProvenance": null,
+      "selectedSourceIndex": null,
+      "originalBytesRetained": true,
+      "distributedLoadTargetRows": []
+    },
+    {
+      "currentIndexRecord": "I0#/nativeBinaries/189",
+      "observedInstalledMatch": true,
+      "sourceNoticeBuildEvidence": "I1#/nativeBinaries/91",
+      "selectedBuildProvenance": null,
+      "selectedSourceIndex": null,
+      "originalBytesRetained": true,
+      "distributedLoadTargetRows": []
+    },
+    {
+      "currentIndexRecord": "I0#/nativeBinaries/190",
+      "observedInstalledMatch": true,
+      "sourceNoticeBuildEvidence": "I1#/nativeBinaries/92",
+      "selectedBuildProvenance": null,
+      "selectedSourceIndex": null,
+      "originalBytesRetained": true,
+      "distributedLoadTargetRows": []
+    },
+    {
+      "currentIndexRecord": "I0#/nativeBinaries/191",
+      "observedInstalledMatch": true,
+      "sourceNoticeBuildEvidence": "I1#/nativeBinaries/93",
+      "selectedBuildProvenance": null,
+      "selectedSourceIndex": null,
+      "originalBytesRetained": true,
+      "distributedLoadTargetRows": []
+    },
+    {
+      "currentIndexRecord": "I0#/nativeBinaries/192",
+      "observedInstalledMatch": true,
+      "sourceNoticeBuildEvidence": "I1#/nativeBinaries/94",
+      "selectedBuildProvenance": null,
+      "selectedSourceIndex": null,
+      "originalBytesRetained": true,
+      "distributedLoadTargetRows": []
+    },
+    {
+      "currentIndexRecord": "I0#/nativeBinaries/193",
+      "observedInstalledMatch": true,
+      "sourceNoticeBuildEvidence": "I1#/nativeBinaries/95",
+      "selectedBuildProvenance": null,
+      "selectedSourceIndex": null,
+      "originalBytesRetained": true,
+      "distributedLoadTargetRows": []
+    },
+    {
+      "currentIndexRecord": "I0#/nativeBinaries/194",
+      "observedInstalledMatch": true,
+      "sourceNoticeBuildEvidence": "I1#/nativeBinaries/96",
+      "selectedBuildProvenance": null,
+      "selectedSourceIndex": null,
+      "originalBytesRetained": true,
+      "distributedLoadTargetRows": []
+    },
+    {
+      "currentIndexRecord": "I0#/nativeBinaries/195",
+      "observedInstalledMatch": true,
+      "sourceNoticeBuildEvidence": "I1#/nativeBinaries/97",
+      "selectedBuildProvenance": null,
+      "selectedSourceIndex": null,
+      "originalBytesRetained": true,
+      "distributedLoadTargetRows": []
+    },
+    {
+      "currentIndexRecord": "I0#/nativeBinaries/196",
+      "observedInstalledMatch": true,
+      "sourceNoticeBuildEvidence": "I1#/nativeBinaries/98",
+      "selectedBuildProvenance": null,
+      "selectedSourceIndex": null,
+      "originalBytesRetained": true,
+      "distributedLoadTargetRows": []
+    },
+    {
+      "currentIndexRecord": "I0#/nativeBinaries/197",
+      "observedInstalledMatch": true,
+      "sourceNoticeBuildEvidence": "I1#/nativeBinaries/99",
+      "selectedBuildProvenance": null,
+      "selectedSourceIndex": null,
+      "originalBytesRetained": true,
+      "distributedLoadTargetRows": []
+    },
+    {
+      "currentIndexRecord": "I0#/nativeBinaries/198",
+      "observedInstalledMatch": true,
+      "sourceNoticeBuildEvidence": "I1#/nativeBinaries/100",
+      "selectedBuildProvenance": null,
+      "selectedSourceIndex": null,
+      "originalBytesRetained": true,
+      "distributedLoadTargetRows": []
+    },
+    {
+      "currentIndexRecord": "I0#/nativeBinaries/199",
+      "observedInstalledMatch": true,
+      "sourceNoticeBuildEvidence": "I1#/nativeBinaries/101",
+      "selectedBuildProvenance": null,
+      "selectedSourceIndex": null,
+      "originalBytesRetained": true,
+      "distributedLoadTargetRows": [
+        201,
+        202
+      ]
+    },
+    {
+      "currentIndexRecord": "I0#/nativeBinaries/200",
+      "observedInstalledMatch": true,
+      "sourceNoticeBuildEvidence": "I1#/nativeBinaries/102",
+      "selectedBuildProvenance": null,
+      "selectedSourceIndex": null,
+      "originalBytesRetained": true,
+      "distributedLoadTargetRows": [
+        202
+      ]
+    },
+    {
+      "currentIndexRecord": "I0#/nativeBinaries/201",
+      "observedInstalledMatch": true,
+      "sourceNoticeBuildEvidence": "I1#/nativeBinaries/103",
+      "selectedBuildProvenance": null,
+      "selectedSourceIndex": null,
+      "originalBytesRetained": true,
+      "distributedLoadTargetRows": []
+    },
+    {
+      "currentIndexRecord": "I0#/nativeBinaries/202",
+      "observedInstalledMatch": true,
+      "sourceNoticeBuildEvidence": "I1#/nativeBinaries/104",
+      "selectedBuildProvenance": null,
+      "selectedSourceIndex": null,
+      "originalBytesRetained": true,
+      "distributedLoadTargetRows": [
+        201
+      ]
+    },
+    {
+      "currentIndexRecord": "I0#/nativeBinaries/203",
+      "observedInstalledMatch": true,
+      "sourceNoticeBuildEvidence": "I1#/nativeBinaries/105",
+      "selectedBuildProvenance": null,
+      "selectedSourceIndex": null,
+      "originalBytesRetained": true,
+      "distributedLoadTargetRows": []
+    },
+    {
+      "currentIndexRecord": "I0#/nativeBinaries/204",
+      "observedInstalledMatch": true,
+      "sourceNoticeBuildEvidence": "I1#/nativeBinaries/106",
+      "selectedBuildProvenance": null,
+      "selectedSourceIndex": null,
+      "originalBytesRetained": true,
+      "distributedLoadTargetRows": []
+    },
+    {
+      "currentIndexRecord": "I0#/nativeBinaries/205",
+      "observedInstalledMatch": true,
+      "sourceNoticeBuildEvidence": "I1#/nativeBinaries/107",
+      "selectedBuildProvenance": null,
+      "selectedSourceIndex": null,
+      "originalBytesRetained": true,
+      "distributedLoadTargetRows": []
+    },
+    {
+      "currentIndexRecord": "I0#/nativeBinaries/206",
+      "observedInstalledMatch": true,
+      "sourceNoticeBuildEvidence": "I1#/nativeBinaries/108",
+      "selectedBuildProvenance": null,
+      "selectedSourceIndex": null,
+      "originalBytesRetained": true,
+      "distributedLoadTargetRows": []
+    },
+    {
+      "currentIndexRecord": "I0#/nativeBinaries/207",
+      "observedInstalledMatch": true,
+      "sourceNoticeBuildEvidence": "I1#/nativeBinaries/109",
+      "selectedBuildProvenance": null,
+      "selectedSourceIndex": null,
+      "originalBytesRetained": true,
+      "distributedLoadTargetRows": []
+    },
+    {
+      "currentIndexRecord": "I0#/nativeBinaries/208",
+      "observedInstalledMatch": true,
+      "sourceNoticeBuildEvidence": "I1#/nativeBinaries/110",
+      "selectedBuildProvenance": null,
+      "selectedSourceIndex": null,
+      "originalBytesRetained": true,
+      "distributedLoadTargetRows": []
+    },
+    {
+      "currentIndexRecord": "I0#/nativeBinaries/209",
+      "observedInstalledMatch": true,
+      "sourceNoticeBuildEvidence": "I3#/nativeBinaries/209",
+      "selectedBuildProvenance": null,
+      "selectedSourceIndex": null,
+      "originalBytesRetained": true,
+      "distributedLoadTargetRows": []
+    },
+    {
+      "currentIndexRecord": "I0#/nativeBinaries/210",
+      "observedInstalledMatch": true,
+      "sourceNoticeBuildEvidence": "I3#/nativeBinaries/210",
+      "selectedBuildProvenance": null,
+      "selectedSourceIndex": null,
+      "originalBytesRetained": true,
+      "distributedLoadTargetRows": [
+        209
+      ]
+    },
+    {
+      "currentIndexRecord": "I0#/nativeBinaries/211",
+      "observedInstalledMatch": true,
+      "sourceNoticeBuildEvidence": "I8#/components/1",
+      "selectedBuildProvenance": null,
+      "selectedSourceIndex": null,
+      "originalBytesRetained": true,
+      "distributedLoadTargetRows": []
+    },
+    {
+      "currentIndexRecord": "I0#/nativeBinaries/212",
+      "observedInstalledMatch": true,
+      "sourceNoticeBuildEvidence": "I8#/components/0",
+      "selectedBuildProvenance": null,
+      "selectedSourceIndex": null,
+      "originalBytesRetained": true,
+      "distributedLoadTargetRows": [
+        211,
+        213
+      ]
+    },
+    {
+      "currentIndexRecord": "I0#/nativeBinaries/213",
+      "observedInstalledMatch": true,
+      "sourceNoticeBuildEvidence": "I8#/components/2",
+      "selectedBuildProvenance": null,
+      "selectedSourceIndex": null,
+      "originalBytesRetained": true,
+      "distributedLoadTargetRows": []
+    },
+    {
+      "currentIndexRecord": "I0#/nativeBinaries/214",
+      "observedInstalledMatch": true,
+      "sourceNoticeBuildEvidence": "I1#/nativeBinaries/111",
+      "selectedBuildProvenance": null,
+      "selectedSourceIndex": null,
+      "originalBytesRetained": true,
+      "distributedLoadTargetRows": []
+    },
+    {
+      "currentIndexRecord": "I0#/nativeBinaries/215",
+      "observedInstalledMatch": true,
+      "sourceNoticeBuildEvidence": "I1#/nativeBinaries/112",
+      "selectedBuildProvenance": null,
+      "selectedSourceIndex": null,
+      "originalBytesRetained": true,
+      "distributedLoadTargetRows": []
+    },
+    {
+      "currentIndexRecord": "I0#/nativeBinaries/216",
+      "observedInstalledMatch": true,
+      "sourceNoticeBuildEvidence": "I1#/nativeBinaries/113",
+      "selectedBuildProvenance": null,
+      "selectedSourceIndex": null,
+      "originalBytesRetained": true,
+      "distributedLoadTargetRows": []
+    },
+    {
+      "currentIndexRecord": "I0#/nativeBinaries/217",
+      "observedInstalledMatch": true,
+      "sourceNoticeBuildEvidence": "I1#/nativeBinaries/114",
+      "selectedBuildProvenance": null,
+      "selectedSourceIndex": null,
+      "originalBytesRetained": true,
+      "distributedLoadTargetRows": []
+    },
+    {
+      "currentIndexRecord": "I0#/nativeBinaries/218",
+      "observedInstalledMatch": true,
+      "sourceNoticeBuildEvidence": "I1#/nativeBinaries/115",
+      "selectedBuildProvenance": null,
+      "selectedSourceIndex": null,
+      "originalBytesRetained": true,
+      "distributedLoadTargetRows": []
+    },
+    {
+      "currentIndexRecord": "I0#/nativeBinaries/219",
+      "observedInstalledMatch": true,
+      "sourceNoticeBuildEvidence": "I1#/nativeBinaries/116",
+      "selectedBuildProvenance": null,
+      "selectedSourceIndex": null,
+      "originalBytesRetained": true,
+      "distributedLoadTargetRows": []
+    },
+    {
+      "currentIndexRecord": "I0#/nativeBinaries/220",
+      "observedInstalledMatch": true,
+      "sourceNoticeBuildEvidence": "I1#/nativeBinaries/117",
+      "selectedBuildProvenance": null,
+      "selectedSourceIndex": null,
+      "originalBytesRetained": true,
+      "distributedLoadTargetRows": []
+    },
+    {
+      "currentIndexRecord": "I0#/nativeBinaries/221",
+      "observedInstalledMatch": true,
+      "sourceNoticeBuildEvidence": "I1#/nativeBinaries/118",
+      "selectedBuildProvenance": null,
+      "selectedSourceIndex": null,
+      "originalBytesRetained": true,
+      "distributedLoadTargetRows": []
+    },
+    {
+      "currentIndexRecord": "I0#/nativeBinaries/222",
+      "observedInstalledMatch": true,
+      "sourceNoticeBuildEvidence": "I1#/nativeBinaries/119",
+      "selectedBuildProvenance": null,
+      "selectedSourceIndex": null,
+      "originalBytesRetained": true,
+      "distributedLoadTargetRows": []
+    },
+    {
+      "currentIndexRecord": "I0#/nativeBinaries/223",
+      "observedInstalledMatch": true,
+      "sourceNoticeBuildEvidence": "I1#/nativeBinaries/120",
+      "selectedBuildProvenance": null,
+      "selectedSourceIndex": null,
+      "originalBytesRetained": true,
+      "distributedLoadTargetRows": []
+    },
+    {
+      "currentIndexRecord": "I0#/nativeBinaries/224",
+      "observedInstalledMatch": true,
+      "sourceNoticeBuildEvidence": "I1#/nativeBinaries/121",
+      "selectedBuildProvenance": null,
+      "selectedSourceIndex": null,
+      "originalBytesRetained": true,
+      "distributedLoadTargetRows": []
+    },
+    {
+      "currentIndexRecord": "I0#/nativeBinaries/225",
+      "observedInstalledMatch": true,
+      "sourceNoticeBuildEvidence": "I1#/nativeBinaries/122",
+      "selectedBuildProvenance": null,
+      "selectedSourceIndex": null,
+      "originalBytesRetained": true,
+      "distributedLoadTargetRows": []
+    },
+    {
+      "currentIndexRecord": "I0#/nativeBinaries/226",
+      "observedInstalledMatch": true,
+      "sourceNoticeBuildEvidence": "I1#/nativeBinaries/123",
+      "selectedBuildProvenance": null,
+      "selectedSourceIndex": null,
+      "originalBytesRetained": true,
+      "distributedLoadTargetRows": []
+    },
+    {
+      "currentIndexRecord": "I0#/nativeBinaries/227",
+      "observedInstalledMatch": true,
+      "sourceNoticeBuildEvidence": "I1#/nativeBinaries/124",
+      "selectedBuildProvenance": null,
+      "selectedSourceIndex": null,
+      "originalBytesRetained": true,
+      "distributedLoadTargetRows": []
+    },
+    {
+      "currentIndexRecord": "I0#/nativeBinaries/228",
+      "observedInstalledMatch": true,
+      "sourceNoticeBuildEvidence": "I1#/nativeBinaries/125",
+      "selectedBuildProvenance": null,
+      "selectedSourceIndex": null,
+      "originalBytesRetained": true,
+      "distributedLoadTargetRows": []
+    },
+    {
+      "currentIndexRecord": "I0#/nativeBinaries/229",
+      "observedInstalledMatch": true,
+      "sourceNoticeBuildEvidence": "I1#/nativeBinaries/126",
+      "selectedBuildProvenance": null,
+      "selectedSourceIndex": null,
+      "originalBytesRetained": true,
+      "distributedLoadTargetRows": []
+    },
+    {
+      "currentIndexRecord": "I0#/nativeBinaries/230",
+      "observedInstalledMatch": true,
+      "sourceNoticeBuildEvidence": "I1#/nativeBinaries/127",
+      "selectedBuildProvenance": null,
+      "selectedSourceIndex": null,
+      "originalBytesRetained": true,
+      "distributedLoadTargetRows": []
+    },
+    {
+      "currentIndexRecord": "I0#/nativeBinaries/231",
+      "observedInstalledMatch": true,
+      "sourceNoticeBuildEvidence": "I1#/nativeBinaries/128",
+      "selectedBuildProvenance": null,
+      "selectedSourceIndex": null,
+      "originalBytesRetained": true,
+      "distributedLoadTargetRows": []
+    },
+    {
+      "currentIndexRecord": "I0#/nativeBinaries/232",
+      "observedInstalledMatch": true,
+      "sourceNoticeBuildEvidence": "I1#/nativeBinaries/129",
+      "selectedBuildProvenance": null,
+      "selectedSourceIndex": null,
+      "originalBytesRetained": true,
+      "distributedLoadTargetRows": []
+    },
+    {
+      "currentIndexRecord": "I0#/nativeBinaries/233",
+      "observedInstalledMatch": true,
+      "sourceNoticeBuildEvidence": "I1#/nativeBinaries/130",
+      "selectedBuildProvenance": null,
+      "selectedSourceIndex": null,
+      "originalBytesRetained": true,
+      "distributedLoadTargetRows": []
+    },
+    {
+      "currentIndexRecord": "I0#/nativeBinaries/234",
+      "observedInstalledMatch": true,
+      "sourceNoticeBuildEvidence": "I1#/nativeBinaries/131",
+      "selectedBuildProvenance": null,
+      "selectedSourceIndex": null,
+      "originalBytesRetained": true,
+      "distributedLoadTargetRows": []
+    },
+    {
+      "currentIndexRecord": "I0#/nativeBinaries/235",
+      "observedInstalledMatch": true,
+      "sourceNoticeBuildEvidence": "I1#/nativeBinaries/132",
+      "selectedBuildProvenance": null,
+      "selectedSourceIndex": null,
+      "originalBytesRetained": true,
+      "distributedLoadTargetRows": []
+    },
+    {
+      "currentIndexRecord": "I0#/nativeBinaries/236",
+      "observedInstalledMatch": true,
+      "sourceNoticeBuildEvidence": "I1#/nativeBinaries/133",
+      "selectedBuildProvenance": null,
+      "selectedSourceIndex": null,
+      "originalBytesRetained": true,
+      "distributedLoadTargetRows": []
+    },
+    {
+      "currentIndexRecord": "I0#/nativeBinaries/237",
+      "observedInstalledMatch": true,
+      "sourceNoticeBuildEvidence": "I1#/nativeBinaries/134",
+      "selectedBuildProvenance": null,
+      "selectedSourceIndex": null,
+      "originalBytesRetained": true,
+      "distributedLoadTargetRows": []
+    },
+    {
+      "currentIndexRecord": "I0#/nativeBinaries/238",
+      "observedInstalledMatch": true,
+      "sourceNoticeBuildEvidence": "I1#/nativeBinaries/135",
+      "selectedBuildProvenance": null,
+      "selectedSourceIndex": null,
+      "originalBytesRetained": true,
+      "distributedLoadTargetRows": []
+    },
+    {
+      "currentIndexRecord": "I0#/nativeBinaries/239",
+      "observedInstalledMatch": true,
+      "sourceNoticeBuildEvidence": "I1#/nativeBinaries/136",
+      "selectedBuildProvenance": null,
+      "selectedSourceIndex": null,
+      "originalBytesRetained": true,
+      "distributedLoadTargetRows": []
+    },
+    {
+      "currentIndexRecord": "I0#/nativeBinaries/240",
+      "observedInstalledMatch": true,
+      "sourceNoticeBuildEvidence": "I1#/nativeBinaries/137",
+      "selectedBuildProvenance": null,
+      "selectedSourceIndex": null,
+      "originalBytesRetained": true,
+      "distributedLoadTargetRows": []
+    },
+    {
+      "currentIndexRecord": "I0#/nativeBinaries/241",
+      "observedInstalledMatch": true,
+      "sourceNoticeBuildEvidence": "I1#/nativeBinaries/138",
+      "selectedBuildProvenance": null,
+      "selectedSourceIndex": null,
+      "originalBytesRetained": true,
+      "distributedLoadTargetRows": []
+    },
+    {
+      "currentIndexRecord": "I0#/nativeBinaries/242",
+      "observedInstalledMatch": true,
+      "sourceNoticeBuildEvidence": "I1#/nativeBinaries/139",
+      "selectedBuildProvenance": null,
+      "selectedSourceIndex": null,
+      "originalBytesRetained": true,
+      "distributedLoadTargetRows": []
+    },
+    {
+      "currentIndexRecord": "I0#/nativeBinaries/243",
+      "observedInstalledMatch": true,
+      "sourceNoticeBuildEvidence": "I1#/nativeBinaries/140",
+      "selectedBuildProvenance": null,
+      "selectedSourceIndex": null,
+      "originalBytesRetained": true,
+      "distributedLoadTargetRows": []
+    },
+    {
+      "currentIndexRecord": "I0#/nativeBinaries/244",
+      "observedInstalledMatch": true,
+      "sourceNoticeBuildEvidence": "I1#/nativeBinaries/141",
+      "selectedBuildProvenance": null,
+      "selectedSourceIndex": null,
+      "originalBytesRetained": true,
+      "distributedLoadTargetRows": []
+    },
+    {
+      "currentIndexRecord": "I0#/nativeBinaries/245",
+      "observedInstalledMatch": true,
+      "sourceNoticeBuildEvidence": "I1#/nativeBinaries/142",
+      "selectedBuildProvenance": null,
+      "selectedSourceIndex": null,
+      "originalBytesRetained": true,
+      "distributedLoadTargetRows": []
+    },
+    {
+      "currentIndexRecord": "I0#/nativeBinaries/246",
+      "observedInstalledMatch": true,
+      "sourceNoticeBuildEvidence": "I1#/nativeBinaries/143",
+      "selectedBuildProvenance": null,
+      "selectedSourceIndex": null,
+      "originalBytesRetained": true,
+      "distributedLoadTargetRows": []
+    },
+    {
+      "currentIndexRecord": "I0#/nativeBinaries/247",
+      "observedInstalledMatch": true,
+      "sourceNoticeBuildEvidence": "I1#/nativeBinaries/144",
+      "selectedBuildProvenance": null,
+      "selectedSourceIndex": null,
+      "originalBytesRetained": true,
+      "distributedLoadTargetRows": []
+    },
+    {
+      "currentIndexRecord": "I0#/nativeBinaries/248",
+      "observedInstalledMatch": true,
+      "sourceNoticeBuildEvidence": "I1#/nativeBinaries/145",
+      "selectedBuildProvenance": null,
+      "selectedSourceIndex": null,
+      "originalBytesRetained": true,
+      "distributedLoadTargetRows": []
+    },
+    {
+      "currentIndexRecord": "I0#/nativeBinaries/249",
+      "observedInstalledMatch": true,
+      "sourceNoticeBuildEvidence": "I1#/nativeBinaries/146",
+      "selectedBuildProvenance": null,
+      "selectedSourceIndex": null,
+      "originalBytesRetained": true,
+      "distributedLoadTargetRows": []
+    },
+    {
+      "currentIndexRecord": "I0#/nativeBinaries/250",
+      "observedInstalledMatch": true,
+      "sourceNoticeBuildEvidence": "I1#/nativeBinaries/147",
+      "selectedBuildProvenance": null,
+      "selectedSourceIndex": null,
+      "originalBytesRetained": true,
+      "distributedLoadTargetRows": []
+    },
+    {
+      "currentIndexRecord": "I0#/nativeBinaries/251",
+      "observedInstalledMatch": true,
+      "sourceNoticeBuildEvidence": "I1#/nativeBinaries/148",
+      "selectedBuildProvenance": null,
+      "selectedSourceIndex": null,
+      "originalBytesRetained": true,
+      "distributedLoadTargetRows": []
+    },
+    {
+      "currentIndexRecord": "I0#/nativeBinaries/252",
+      "observedInstalledMatch": true,
+      "sourceNoticeBuildEvidence": "I1#/nativeBinaries/149",
+      "selectedBuildProvenance": null,
+      "selectedSourceIndex": null,
+      "originalBytesRetained": true,
+      "distributedLoadTargetRows": []
+    },
+    {
+      "currentIndexRecord": "I0#/nativeBinaries/253",
+      "observedInstalledMatch": true,
+      "sourceNoticeBuildEvidence": "I1#/nativeBinaries/150",
+      "selectedBuildProvenance": null,
+      "selectedSourceIndex": null,
+      "originalBytesRetained": true,
+      "distributedLoadTargetRows": []
+    },
+    {
+      "currentIndexRecord": "I0#/nativeBinaries/254",
+      "observedInstalledMatch": true,
+      "sourceNoticeBuildEvidence": "I1#/nativeBinaries/151",
+      "selectedBuildProvenance": null,
+      "selectedSourceIndex": null,
+      "originalBytesRetained": true,
+      "distributedLoadTargetRows": []
+    },
+    {
+      "currentIndexRecord": "I0#/nativeBinaries/255",
+      "observedInstalledMatch": true,
+      "sourceNoticeBuildEvidence": "I1#/nativeBinaries/152",
+      "selectedBuildProvenance": null,
+      "selectedSourceIndex": null,
+      "originalBytesRetained": true,
+      "distributedLoadTargetRows": []
+    },
+    {
+      "currentIndexRecord": "I0#/nativeBinaries/256",
+      "observedInstalledMatch": true,
+      "sourceNoticeBuildEvidence": "I1#/nativeBinaries/153",
+      "selectedBuildProvenance": null,
+      "selectedSourceIndex": null,
+      "originalBytesRetained": true,
+      "distributedLoadTargetRows": []
+    },
+    {
+      "currentIndexRecord": "I0#/nativeBinaries/257",
+      "observedInstalledMatch": true,
+      "sourceNoticeBuildEvidence": "I1#/nativeBinaries/154",
+      "selectedBuildProvenance": null,
+      "selectedSourceIndex": null,
+      "originalBytesRetained": true,
+      "distributedLoadTargetRows": []
+    },
+    {
+      "currentIndexRecord": "I0#/nativeBinaries/258",
+      "observedInstalledMatch": true,
+      "sourceNoticeBuildEvidence": "I1#/nativeBinaries/155",
+      "selectedBuildProvenance": null,
+      "selectedSourceIndex": null,
+      "originalBytesRetained": true,
+      "distributedLoadTargetRows": []
+    },
+    {
+      "currentIndexRecord": "I0#/nativeBinaries/259",
+      "observedInstalledMatch": true,
+      "sourceNoticeBuildEvidence": "I1#/nativeBinaries/156",
+      "selectedBuildProvenance": null,
+      "selectedSourceIndex": null,
+      "originalBytesRetained": true,
+      "distributedLoadTargetRows": [
+        212
+      ]
+    },
+    {
+      "currentIndexRecord": "I0#/nativeBinaries/260",
+      "observedInstalledMatch": true,
+      "sourceNoticeBuildEvidence": "I1#/nativeBinaries/157",
+      "selectedBuildProvenance": null,
+      "selectedSourceIndex": null,
+      "originalBytesRetained": true,
+      "distributedLoadTargetRows": []
+    },
+    {
+      "currentIndexRecord": "I0#/nativeBinaries/261",
+      "observedInstalledMatch": true,
+      "sourceNoticeBuildEvidence": "I1#/nativeBinaries/158",
+      "selectedBuildProvenance": null,
+      "selectedSourceIndex": null,
+      "originalBytesRetained": true,
+      "distributedLoadTargetRows": []
+    },
+    {
+      "currentIndexRecord": "I0#/nativeBinaries/262",
+      "observedInstalledMatch": true,
+      "sourceNoticeBuildEvidence": "I1#/nativeBinaries/159",
+      "selectedBuildProvenance": null,
+      "selectedSourceIndex": null,
+      "originalBytesRetained": true,
+      "distributedLoadTargetRows": []
+    },
+    {
+      "currentIndexRecord": "I0#/nativeBinaries/263",
+      "observedInstalledMatch": true,
+      "sourceNoticeBuildEvidence": "I1#/nativeBinaries/160",
+      "selectedBuildProvenance": null,
+      "selectedSourceIndex": null,
+      "originalBytesRetained": true,
+      "distributedLoadTargetRows": []
+    },
+    {
+      "currentIndexRecord": "I0#/nativeBinaries/264",
+      "observedInstalledMatch": true,
+      "sourceNoticeBuildEvidence": "I1#/nativeBinaries/161",
+      "selectedBuildProvenance": null,
+      "selectedSourceIndex": null,
+      "originalBytesRetained": true,
+      "distributedLoadTargetRows": []
+    },
+    {
+      "currentIndexRecord": "I0#/nativeBinaries/265",
+      "observedInstalledMatch": true,
+      "sourceNoticeBuildEvidence": "I1#/nativeBinaries/162",
+      "selectedBuildProvenance": null,
+      "selectedSourceIndex": null,
+      "originalBytesRetained": true,
+      "distributedLoadTargetRows": []
+    },
+    {
+      "currentIndexRecord": "I0#/nativeBinaries/266",
+      "observedInstalledMatch": true,
+      "sourceNoticeBuildEvidence": "I1#/nativeBinaries/163",
+      "selectedBuildProvenance": null,
+      "selectedSourceIndex": null,
+      "originalBytesRetained": true,
+      "distributedLoadTargetRows": []
+    },
+    {
+      "currentIndexRecord": "I0#/nativeBinaries/267",
+      "observedInstalledMatch": true,
+      "sourceNoticeBuildEvidence": "I1#/nativeBinaries/164",
+      "selectedBuildProvenance": null,
+      "selectedSourceIndex": null,
+      "originalBytesRetained": true,
+      "distributedLoadTargetRows": []
+    },
+    {
+      "currentIndexRecord": "I0#/nativeBinaries/268",
+      "observedInstalledMatch": true,
+      "sourceNoticeBuildEvidence": "I1#/nativeBinaries/165",
+      "selectedBuildProvenance": null,
+      "selectedSourceIndex": null,
+      "originalBytesRetained": true,
+      "distributedLoadTargetRows": []
+    },
+    {
+      "currentIndexRecord": "I0#/nativeBinaries/269",
+      "observedInstalledMatch": true,
+      "sourceNoticeBuildEvidence": "I1#/nativeBinaries/166",
+      "selectedBuildProvenance": null,
+      "selectedSourceIndex": null,
+      "originalBytesRetained": true,
+      "distributedLoadTargetRows": []
+    },
+    {
+      "currentIndexRecord": "I0#/nativeBinaries/270",
+      "observedInstalledMatch": true,
+      "sourceNoticeBuildEvidence": "I1#/nativeBinaries/167",
+      "selectedBuildProvenance": null,
+      "selectedSourceIndex": null,
+      "originalBytesRetained": true,
+      "distributedLoadTargetRows": []
+    },
+    {
+      "currentIndexRecord": "I0#/nativeBinaries/271",
+      "observedInstalledMatch": true,
+      "sourceNoticeBuildEvidence": "I1#/nativeBinaries/168",
+      "selectedBuildProvenance": null,
+      "selectedSourceIndex": null,
+      "originalBytesRetained": true,
+      "distributedLoadTargetRows": []
+    },
+    {
+      "currentIndexRecord": "I0#/nativeBinaries/272",
+      "observedInstalledMatch": true,
+      "sourceNoticeBuildEvidence": "I1#/nativeBinaries/169",
+      "selectedBuildProvenance": null,
+      "selectedSourceIndex": null,
+      "originalBytesRetained": true,
+      "distributedLoadTargetRows": []
+    },
+    {
+      "currentIndexRecord": "I0#/nativeBinaries/273",
+      "observedInstalledMatch": true,
+      "sourceNoticeBuildEvidence": "I1#/nativeBinaries/170",
+      "selectedBuildProvenance": null,
+      "selectedSourceIndex": null,
+      "originalBytesRetained": true,
+      "distributedLoadTargetRows": []
+    },
+    {
+      "currentIndexRecord": "I0#/nativeBinaries/274",
+      "observedInstalledMatch": true,
+      "sourceNoticeBuildEvidence": "I1#/nativeBinaries/171",
+      "selectedBuildProvenance": null,
+      "selectedSourceIndex": null,
+      "originalBytesRetained": true,
+      "distributedLoadTargetRows": []
+    },
+    {
+      "currentIndexRecord": "I0#/nativeBinaries/275",
+      "observedInstalledMatch": true,
+      "sourceNoticeBuildEvidence": "I1#/nativeBinaries/172",
+      "selectedBuildProvenance": null,
+      "selectedSourceIndex": null,
+      "originalBytesRetained": true,
+      "distributedLoadTargetRows": []
+    },
+    {
+      "currentIndexRecord": "I0#/nativeBinaries/276",
+      "observedInstalledMatch": true,
+      "sourceNoticeBuildEvidence": "I1#/nativeBinaries/173",
+      "selectedBuildProvenance": null,
+      "selectedSourceIndex": null,
+      "originalBytesRetained": true,
+      "distributedLoadTargetRows": []
+    },
+    {
+      "currentIndexRecord": "I0#/nativeBinaries/277",
+      "observedInstalledMatch": true,
+      "sourceNoticeBuildEvidence": "I1#/nativeBinaries/174",
+      "selectedBuildProvenance": null,
+      "selectedSourceIndex": null,
+      "originalBytesRetained": true,
+      "distributedLoadTargetRows": []
+    },
+    {
+      "currentIndexRecord": "I0#/nativeBinaries/278",
+      "observedInstalledMatch": true,
+      "sourceNoticeBuildEvidence": "I1#/nativeBinaries/175",
+      "selectedBuildProvenance": null,
+      "selectedSourceIndex": null,
+      "originalBytesRetained": true,
+      "distributedLoadTargetRows": []
+    },
+    {
+      "currentIndexRecord": "I0#/nativeBinaries/279",
+      "observedInstalledMatch": true,
+      "sourceNoticeBuildEvidence": "I1#/nativeBinaries/176",
+      "selectedBuildProvenance": null,
+      "selectedSourceIndex": null,
+      "originalBytesRetained": true,
+      "distributedLoadTargetRows": []
+    },
+    {
+      "currentIndexRecord": "I0#/nativeBinaries/280",
+      "observedInstalledMatch": true,
+      "sourceNoticeBuildEvidence": "I1#/nativeBinaries/177",
+      "selectedBuildProvenance": null,
+      "selectedSourceIndex": null,
+      "originalBytesRetained": true,
+      "distributedLoadTargetRows": []
+    },
+    {
+      "currentIndexRecord": "I0#/nativeBinaries/281",
+      "observedInstalledMatch": true,
+      "sourceNoticeBuildEvidence": "I1#/nativeBinaries/178",
+      "selectedBuildProvenance": null,
+      "selectedSourceIndex": null,
+      "originalBytesRetained": true,
+      "distributedLoadTargetRows": []
+    },
+    {
+      "currentIndexRecord": "I0#/nativeBinaries/282",
+      "observedInstalledMatch": true,
+      "sourceNoticeBuildEvidence": "I1#/nativeBinaries/179",
+      "selectedBuildProvenance": null,
+      "selectedSourceIndex": null,
+      "originalBytesRetained": true,
+      "distributedLoadTargetRows": []
+    },
+    {
+      "currentIndexRecord": "I0#/nativeBinaries/283",
+      "observedInstalledMatch": true,
+      "sourceNoticeBuildEvidence": "I1#/nativeBinaries/180",
+      "selectedBuildProvenance": null,
+      "selectedSourceIndex": null,
+      "originalBytesRetained": true,
+      "distributedLoadTargetRows": []
+    },
+    {
+      "currentIndexRecord": "I0#/nativeBinaries/284",
+      "observedInstalledMatch": true,
+      "sourceNoticeBuildEvidence": "I1#/nativeBinaries/181",
+      "selectedBuildProvenance": null,
+      "selectedSourceIndex": null,
+      "originalBytesRetained": true,
+      "distributedLoadTargetRows": []
+    },
+    {
+      "currentIndexRecord": "I0#/nativeBinaries/285",
+      "observedInstalledMatch": true,
+      "sourceNoticeBuildEvidence": "I1#/nativeBinaries/182",
+      "selectedBuildProvenance": null,
+      "selectedSourceIndex": null,
+      "originalBytesRetained": true,
+      "distributedLoadTargetRows": []
+    },
+    {
+      "currentIndexRecord": "I0#/nativeBinaries/286",
+      "observedInstalledMatch": true,
+      "sourceNoticeBuildEvidence": "I1#/nativeBinaries/183",
+      "selectedBuildProvenance": null,
+      "selectedSourceIndex": null,
+      "originalBytesRetained": true,
+      "distributedLoadTargetRows": []
+    },
+    {
+      "currentIndexRecord": "I0#/nativeBinaries/287",
+      "observedInstalledMatch": true,
+      "sourceNoticeBuildEvidence": "I1#/nativeBinaries/184",
+      "selectedBuildProvenance": null,
+      "selectedSourceIndex": null,
+      "originalBytesRetained": true,
+      "distributedLoadTargetRows": []
+    },
+    {
+      "currentIndexRecord": "I0#/nativeBinaries/288",
+      "observedInstalledMatch": true,
+      "sourceNoticeBuildEvidence": "I1#/nativeBinaries/185",
+      "selectedBuildProvenance": null,
+      "selectedSourceIndex": null,
+      "originalBytesRetained": true,
+      "distributedLoadTargetRows": []
+    },
+    {
+      "currentIndexRecord": "I0#/nativeBinaries/289",
+      "observedInstalledMatch": true,
+      "sourceNoticeBuildEvidence": "I1#/nativeBinaries/186",
+      "selectedBuildProvenance": null,
+      "selectedSourceIndex": null,
+      "originalBytesRetained": true,
+      "distributedLoadTargetRows": []
+    },
+    {
+      "currentIndexRecord": "I0#/nativeBinaries/290",
+      "observedInstalledMatch": true,
+      "sourceNoticeBuildEvidence": "I1#/nativeBinaries/187",
+      "selectedBuildProvenance": null,
+      "selectedSourceIndex": null,
+      "originalBytesRetained": true,
+      "distributedLoadTargetRows": []
+    },
+    {
+      "currentIndexRecord": "I0#/nativeBinaries/291",
+      "observedInstalledMatch": true,
+      "sourceNoticeBuildEvidence": "I1#/nativeBinaries/188",
+      "selectedBuildProvenance": null,
+      "selectedSourceIndex": null,
+      "originalBytesRetained": true,
+      "distributedLoadTargetRows": []
+    },
+    {
+      "currentIndexRecord": "I0#/nativeBinaries/292",
+      "observedInstalledMatch": true,
+      "sourceNoticeBuildEvidence": "I1#/nativeBinaries/189",
+      "selectedBuildProvenance": null,
+      "selectedSourceIndex": null,
+      "originalBytesRetained": true,
+      "distributedLoadTargetRows": []
+    },
+    {
+      "currentIndexRecord": "I0#/nativeBinaries/293",
+      "observedInstalledMatch": true,
+      "sourceNoticeBuildEvidence": "I1#/nativeBinaries/190",
+      "selectedBuildProvenance": null,
+      "selectedSourceIndex": null,
+      "originalBytesRetained": true,
+      "distributedLoadTargetRows": []
+    },
+    {
+      "currentIndexRecord": "I0#/nativeBinaries/294",
+      "observedInstalledMatch": true,
+      "sourceNoticeBuildEvidence": "I1#/nativeBinaries/191",
+      "selectedBuildProvenance": null,
+      "selectedSourceIndex": null,
+      "originalBytesRetained": true,
+      "distributedLoadTargetRows": []
+    },
+    {
+      "currentIndexRecord": "I0#/nativeBinaries/295",
+      "observedInstalledMatch": true,
+      "sourceNoticeBuildEvidence": "I1#/nativeBinaries/192",
+      "selectedBuildProvenance": null,
+      "selectedSourceIndex": null,
+      "originalBytesRetained": true,
+      "distributedLoadTargetRows": []
+    },
+    {
+      "currentIndexRecord": "I0#/nativeBinaries/296",
+      "observedInstalledMatch": true,
+      "sourceNoticeBuildEvidence": "I1#/nativeBinaries/193",
+      "selectedBuildProvenance": null,
+      "selectedSourceIndex": null,
+      "originalBytesRetained": true,
+      "distributedLoadTargetRows": []
+    },
+    {
+      "currentIndexRecord": "I0#/nativeBinaries/297",
+      "observedInstalledMatch": true,
+      "sourceNoticeBuildEvidence": "I1#/nativeBinaries/194",
+      "selectedBuildProvenance": null,
+      "selectedSourceIndex": null,
+      "originalBytesRetained": true,
+      "distributedLoadTargetRows": []
+    },
+    {
+      "currentIndexRecord": "I0#/nativeBinaries/298",
+      "observedInstalledMatch": true,
+      "sourceNoticeBuildEvidence": "I1#/nativeBinaries/195",
+      "selectedBuildProvenance": null,
+      "selectedSourceIndex": null,
+      "originalBytesRetained": true,
+      "distributedLoadTargetRows": []
+    },
+    {
+      "currentIndexRecord": "I0#/nativeBinaries/299",
+      "observedInstalledMatch": true,
+      "sourceNoticeBuildEvidence": "I1#/nativeBinaries/196",
+      "selectedBuildProvenance": null,
+      "selectedSourceIndex": null,
+      "originalBytesRetained": true,
+      "distributedLoadTargetRows": []
+    },
+    {
+      "currentIndexRecord": "I0#/nativeBinaries/300",
+      "observedInstalledMatch": true,
+      "sourceNoticeBuildEvidence": "I1#/nativeBinaries/197",
+      "selectedBuildProvenance": null,
+      "selectedSourceIndex": null,
+      "originalBytesRetained": true,
+      "distributedLoadTargetRows": []
+    },
+    {
+      "currentIndexRecord": "I0#/nativeBinaries/301",
+      "observedInstalledMatch": true,
+      "sourceNoticeBuildEvidence": "I1#/nativeBinaries/198",
+      "selectedBuildProvenance": null,
+      "selectedSourceIndex": null,
+      "originalBytesRetained": true,
+      "distributedLoadTargetRows": []
+    },
+    {
+      "currentIndexRecord": "I0#/nativeBinaries/302",
+      "observedInstalledMatch": true,
+      "sourceNoticeBuildEvidence": "I1#/nativeBinaries/199",
+      "selectedBuildProvenance": null,
+      "selectedSourceIndex": null,
+      "originalBytesRetained": true,
+      "distributedLoadTargetRows": []
+    },
+    {
+      "currentIndexRecord": "I0#/nativeBinaries/303",
+      "observedInstalledMatch": true,
+      "sourceNoticeBuildEvidence": "I1#/nativeBinaries/200",
+      "selectedBuildProvenance": null,
+      "selectedSourceIndex": null,
+      "originalBytesRetained": true,
+      "distributedLoadTargetRows": []
+    },
+    {
+      "currentIndexRecord": "I0#/nativeBinaries/304",
+      "observedInstalledMatch": true,
+      "sourceNoticeBuildEvidence": "I1#/nativeBinaries/201",
+      "selectedBuildProvenance": null,
+      "selectedSourceIndex": null,
+      "originalBytesRetained": true,
+      "distributedLoadTargetRows": []
+    },
+    {
+      "currentIndexRecord": "I0#/nativeBinaries/305",
+      "observedInstalledMatch": true,
+      "sourceNoticeBuildEvidence": "I1#/nativeBinaries/202",
+      "selectedBuildProvenance": null,
+      "selectedSourceIndex": null,
+      "originalBytesRetained": true,
+      "distributedLoadTargetRows": []
+    },
+    {
+      "currentIndexRecord": "I0#/nativeBinaries/306",
+      "observedInstalledMatch": true,
+      "sourceNoticeBuildEvidence": "I1#/nativeBinaries/203",
+      "selectedBuildProvenance": null,
+      "selectedSourceIndex": null,
+      "originalBytesRetained": true,
+      "distributedLoadTargetRows": []
+    },
+    {
+      "currentIndexRecord": "I0#/nativeBinaries/307",
+      "observedInstalledMatch": true,
+      "sourceNoticeBuildEvidence": "I1#/nativeBinaries/204",
+      "selectedBuildProvenance": null,
+      "selectedSourceIndex": null,
+      "originalBytesRetained": true,
+      "distributedLoadTargetRows": []
+    },
+    {
+      "currentIndexRecord": "I0#/nativeBinaries/308",
+      "observedInstalledMatch": true,
+      "sourceNoticeBuildEvidence": "I1#/nativeBinaries/205",
+      "selectedBuildProvenance": null,
+      "selectedSourceIndex": null,
+      "originalBytesRetained": true,
+      "distributedLoadTargetRows": []
+    },
+    {
+      "currentIndexRecord": "I0#/nativeBinaries/309",
+      "observedInstalledMatch": true,
+      "sourceNoticeBuildEvidence": "I1#/nativeBinaries/206",
+      "selectedBuildProvenance": null,
+      "selectedSourceIndex": null,
+      "originalBytesRetained": true,
+      "distributedLoadTargetRows": []
+    },
+    {
+      "currentIndexRecord": "I0#/nativeBinaries/310",
+      "observedInstalledMatch": true,
+      "sourceNoticeBuildEvidence": "I1#/nativeBinaries/207",
+      "selectedBuildProvenance": null,
+      "selectedSourceIndex": null,
+      "originalBytesRetained": true,
+      "distributedLoadTargetRows": []
+    },
+    {
+      "currentIndexRecord": "I0#/nativeBinaries/311",
+      "observedInstalledMatch": true,
+      "sourceNoticeBuildEvidence": "I1#/nativeBinaries/208",
+      "selectedBuildProvenance": null,
+      "selectedSourceIndex": null,
+      "originalBytesRetained": true,
+      "distributedLoadTargetRows": []
+    },
+    {
+      "currentIndexRecord": "I0#/nativeBinaries/312",
+      "observedInstalledMatch": true,
+      "sourceNoticeBuildEvidence": "I1#/nativeBinaries/209",
+      "selectedBuildProvenance": null,
+      "selectedSourceIndex": null,
+      "originalBytesRetained": true,
+      "distributedLoadTargetRows": []
+    },
+    {
+      "currentIndexRecord": "I0#/nativeBinaries/313",
+      "observedInstalledMatch": true,
+      "sourceNoticeBuildEvidence": "I1#/nativeBinaries/210",
+      "selectedBuildProvenance": null,
+      "selectedSourceIndex": null,
+      "originalBytesRetained": true,
+      "distributedLoadTargetRows": []
+    },
+    {
+      "currentIndexRecord": "I0#/nativeBinaries/314",
+      "observedInstalledMatch": true,
+      "sourceNoticeBuildEvidence": "I1#/nativeBinaries/211",
+      "selectedBuildProvenance": null,
+      "selectedSourceIndex": null,
+      "originalBytesRetained": true,
+      "distributedLoadTargetRows": []
+    },
+    {
+      "currentIndexRecord": "I0#/nativeBinaries/315",
+      "observedInstalledMatch": true,
+      "sourceNoticeBuildEvidence": "I1#/nativeBinaries/212",
+      "selectedBuildProvenance": null,
+      "selectedSourceIndex": null,
+      "originalBytesRetained": true,
+      "distributedLoadTargetRows": []
+    },
+    {
+      "currentIndexRecord": "I0#/nativeBinaries/316",
+      "observedInstalledMatch": true,
+      "sourceNoticeBuildEvidence": "I1#/nativeBinaries/213",
+      "selectedBuildProvenance": null,
+      "selectedSourceIndex": null,
+      "originalBytesRetained": true,
+      "distributedLoadTargetRows": []
+    },
+    {
+      "currentIndexRecord": "I0#/nativeBinaries/317",
+      "observedInstalledMatch": true,
+      "sourceNoticeBuildEvidence": "I1#/nativeBinaries/214",
+      "selectedBuildProvenance": null,
+      "selectedSourceIndex": null,
+      "originalBytesRetained": true,
+      "distributedLoadTargetRows": []
+    },
+    {
+      "currentIndexRecord": "I0#/nativeBinaries/318",
+      "observedInstalledMatch": true,
+      "sourceNoticeBuildEvidence": "I1#/nativeBinaries/215",
+      "selectedBuildProvenance": null,
+      "selectedSourceIndex": null,
+      "originalBytesRetained": true,
+      "distributedLoadTargetRows": []
+    },
+    {
+      "currentIndexRecord": "I0#/nativeBinaries/319",
+      "observedInstalledMatch": true,
+      "sourceNoticeBuildEvidence": "I1#/nativeBinaries/216",
+      "selectedBuildProvenance": null,
+      "selectedSourceIndex": null,
+      "originalBytesRetained": true,
+      "distributedLoadTargetRows": []
+    },
+    {
+      "currentIndexRecord": "I0#/nativeBinaries/320",
+      "observedInstalledMatch": true,
+      "sourceNoticeBuildEvidence": "I1#/nativeBinaries/217",
+      "selectedBuildProvenance": null,
+      "selectedSourceIndex": null,
+      "originalBytesRetained": true,
+      "distributedLoadTargetRows": []
+    },
+    {
+      "currentIndexRecord": "I0#/nativeBinaries/321",
+      "observedInstalledMatch": true,
+      "sourceNoticeBuildEvidence": "I1#/nativeBinaries/218",
+      "selectedBuildProvenance": null,
+      "selectedSourceIndex": null,
+      "originalBytesRetained": true,
+      "distributedLoadTargetRows": []
+    },
+    {
+      "currentIndexRecord": "I0#/nativeBinaries/322",
+      "observedInstalledMatch": true,
+      "sourceNoticeBuildEvidence": "I1#/nativeBinaries/219",
+      "selectedBuildProvenance": null,
+      "selectedSourceIndex": null,
+      "originalBytesRetained": true,
+      "distributedLoadTargetRows": []
+    },
+    {
+      "currentIndexRecord": "I0#/nativeBinaries/323",
+      "observedInstalledMatch": true,
+      "sourceNoticeBuildEvidence": "I1#/nativeBinaries/220",
+      "selectedBuildProvenance": null,
+      "selectedSourceIndex": null,
+      "originalBytesRetained": true,
+      "distributedLoadTargetRows": []
+    },
+    {
+      "currentIndexRecord": "I0#/nativeBinaries/324",
+      "observedInstalledMatch": true,
+      "sourceNoticeBuildEvidence": "I1#/nativeBinaries/221",
+      "selectedBuildProvenance": null,
+      "selectedSourceIndex": null,
+      "originalBytesRetained": true,
+      "distributedLoadTargetRows": []
+    },
+    {
+      "currentIndexRecord": "I0#/nativeBinaries/325",
+      "observedInstalledMatch": true,
+      "sourceNoticeBuildEvidence": "I1#/nativeBinaries/222",
+      "selectedBuildProvenance": null,
+      "selectedSourceIndex": null,
+      "originalBytesRetained": true,
+      "distributedLoadTargetRows": []
+    },
+    {
+      "currentIndexRecord": "I0#/nativeBinaries/326",
+      "observedInstalledMatch": true,
+      "sourceNoticeBuildEvidence": "I1#/nativeBinaries/223",
+      "selectedBuildProvenance": null,
+      "selectedSourceIndex": null,
+      "originalBytesRetained": true,
+      "distributedLoadTargetRows": []
+    },
+    {
+      "currentIndexRecord": "I0#/nativeBinaries/327",
+      "observedInstalledMatch": true,
+      "sourceNoticeBuildEvidence": "I1#/nativeBinaries/224",
+      "selectedBuildProvenance": null,
+      "selectedSourceIndex": null,
+      "originalBytesRetained": true,
+      "distributedLoadTargetRows": []
+    },
+    {
+      "currentIndexRecord": "I0#/nativeBinaries/328",
+      "observedInstalledMatch": true,
+      "sourceNoticeBuildEvidence": "I1#/nativeBinaries/225",
+      "selectedBuildProvenance": null,
+      "selectedSourceIndex": null,
+      "originalBytesRetained": true,
+      "distributedLoadTargetRows": []
+    },
+    {
+      "currentIndexRecord": "I0#/nativeBinaries/329",
+      "observedInstalledMatch": true,
+      "sourceNoticeBuildEvidence": "I1#/nativeBinaries/226",
+      "selectedBuildProvenance": null,
+      "selectedSourceIndex": null,
+      "originalBytesRetained": true,
+      "distributedLoadTargetRows": []
+    },
+    {
+      "currentIndexRecord": "I0#/nativeBinaries/330",
+      "observedInstalledMatch": true,
+      "sourceNoticeBuildEvidence": "I1#/nativeBinaries/227",
+      "selectedBuildProvenance": null,
+      "selectedSourceIndex": null,
+      "originalBytesRetained": true,
+      "distributedLoadTargetRows": []
+    },
+    {
+      "currentIndexRecord": "I0#/nativeBinaries/331",
+      "observedInstalledMatch": true,
+      "sourceNoticeBuildEvidence": "I1#/nativeBinaries/228",
+      "selectedBuildProvenance": null,
+      "selectedSourceIndex": null,
+      "originalBytesRetained": true,
+      "distributedLoadTargetRows": []
+    },
+    {
+      "currentIndexRecord": "I0#/nativeBinaries/332",
+      "observedInstalledMatch": true,
+      "sourceNoticeBuildEvidence": "I1#/nativeBinaries/229",
+      "selectedBuildProvenance": null,
+      "selectedSourceIndex": null,
+      "originalBytesRetained": true,
+      "distributedLoadTargetRows": []
+    },
+    {
+      "currentIndexRecord": "I0#/nativeBinaries/333",
+      "observedInstalledMatch": true,
+      "sourceNoticeBuildEvidence": "I1#/nativeBinaries/230",
+      "selectedBuildProvenance": null,
+      "selectedSourceIndex": null,
+      "originalBytesRetained": true,
+      "distributedLoadTargetRows": []
+    },
+    {
+      "currentIndexRecord": "I0#/nativeBinaries/334",
+      "observedInstalledMatch": true,
+      "sourceNoticeBuildEvidence": "I1#/nativeBinaries/231",
+      "selectedBuildProvenance": null,
+      "selectedSourceIndex": null,
+      "originalBytesRetained": true,
+      "distributedLoadTargetRows": []
+    },
+    {
+      "currentIndexRecord": "I0#/nativeBinaries/335",
+      "observedInstalledMatch": true,
+      "sourceNoticeBuildEvidence": "I1#/nativeBinaries/232",
+      "selectedBuildProvenance": null,
+      "selectedSourceIndex": null,
+      "originalBytesRetained": true,
+      "distributedLoadTargetRows": []
+    },
+    {
+      "currentIndexRecord": "I0#/nativeBinaries/336",
+      "observedInstalledMatch": true,
+      "sourceNoticeBuildEvidence": "I1#/nativeBinaries/233",
+      "selectedBuildProvenance": null,
+      "selectedSourceIndex": null,
+      "originalBytesRetained": true,
+      "distributedLoadTargetRows": []
+    },
+    {
+      "currentIndexRecord": "I0#/nativeBinaries/337",
+      "observedInstalledMatch": true,
+      "sourceNoticeBuildEvidence": "I1#/nativeBinaries/234",
+      "selectedBuildProvenance": null,
+      "selectedSourceIndex": null,
+      "originalBytesRetained": true,
+      "distributedLoadTargetRows": []
+    },
+    {
+      "currentIndexRecord": "I0#/nativeBinaries/338",
+      "observedInstalledMatch": true,
+      "sourceNoticeBuildEvidence": "I1#/nativeBinaries/235",
+      "selectedBuildProvenance": null,
+      "selectedSourceIndex": null,
+      "originalBytesRetained": true,
+      "distributedLoadTargetRows": []
+    },
+    {
+      "currentIndexRecord": "I0#/nativeBinaries/339",
+      "observedInstalledMatch": true,
+      "sourceNoticeBuildEvidence": "I1#/nativeBinaries/236",
+      "selectedBuildProvenance": null,
+      "selectedSourceIndex": null,
+      "originalBytesRetained": true,
+      "distributedLoadTargetRows": []
+    },
+    {
+      "currentIndexRecord": "I0#/nativeBinaries/340",
+      "observedInstalledMatch": true,
+      "sourceNoticeBuildEvidence": "I1#/nativeBinaries/237",
+      "selectedBuildProvenance": null,
+      "selectedSourceIndex": null,
+      "originalBytesRetained": true,
+      "distributedLoadTargetRows": []
+    },
+    {
+      "currentIndexRecord": "I0#/nativeBinaries/341",
+      "observedInstalledMatch": true,
+      "sourceNoticeBuildEvidence": "I1#/nativeBinaries/238",
+      "selectedBuildProvenance": null,
+      "selectedSourceIndex": null,
+      "originalBytesRetained": true,
+      "distributedLoadTargetRows": []
+    },
+    {
+      "currentIndexRecord": "I0#/nativeBinaries/342",
+      "observedInstalledMatch": true,
+      "sourceNoticeBuildEvidence": "I1#/nativeBinaries/239",
+      "selectedBuildProvenance": null,
+      "selectedSourceIndex": null,
+      "originalBytesRetained": true,
+      "distributedLoadTargetRows": []
+    },
+    {
+      "currentIndexRecord": "I0#/nativeBinaries/343",
+      "observedInstalledMatch": true,
+      "sourceNoticeBuildEvidence": "I1#/nativeBinaries/240",
+      "selectedBuildProvenance": null,
+      "selectedSourceIndex": null,
+      "originalBytesRetained": true,
+      "distributedLoadTargetRows": []
+    },
+    {
+      "currentIndexRecord": "I0#/nativeBinaries/344",
+      "observedInstalledMatch": true,
+      "sourceNoticeBuildEvidence": "I1#/nativeBinaries/241",
+      "selectedBuildProvenance": null,
+      "selectedSourceIndex": null,
+      "originalBytesRetained": true,
+      "distributedLoadTargetRows": []
+    },
+    {
+      "currentIndexRecord": "I0#/nativeBinaries/345",
+      "observedInstalledMatch": true,
+      "sourceNoticeBuildEvidence": "I1#/nativeBinaries/242",
+      "selectedBuildProvenance": null,
+      "selectedSourceIndex": null,
+      "originalBytesRetained": true,
+      "distributedLoadTargetRows": []
+    },
+    {
+      "currentIndexRecord": "I0#/nativeBinaries/346",
+      "observedInstalledMatch": true,
+      "sourceNoticeBuildEvidence": "I1#/nativeBinaries/243",
+      "selectedBuildProvenance": null,
+      "selectedSourceIndex": null,
+      "originalBytesRetained": true,
+      "distributedLoadTargetRows": []
+    },
+    {
+      "currentIndexRecord": "I0#/nativeBinaries/347",
+      "observedInstalledMatch": true,
+      "sourceNoticeBuildEvidence": "I1#/nativeBinaries/244",
+      "selectedBuildProvenance": null,
+      "selectedSourceIndex": null,
+      "originalBytesRetained": true,
+      "distributedLoadTargetRows": []
+    },
+    {
+      "currentIndexRecord": "I0#/nativeBinaries/348",
+      "observedInstalledMatch": true,
+      "sourceNoticeBuildEvidence": "I1#/nativeBinaries/245",
+      "selectedBuildProvenance": null,
+      "selectedSourceIndex": null,
+      "originalBytesRetained": true,
+      "distributedLoadTargetRows": []
+    },
+    {
+      "currentIndexRecord": "I0#/nativeBinaries/349",
+      "observedInstalledMatch": true,
+      "sourceNoticeBuildEvidence": "I1#/nativeBinaries/246",
+      "selectedBuildProvenance": null,
+      "selectedSourceIndex": null,
+      "originalBytesRetained": true,
+      "distributedLoadTargetRows": []
+    },
+    {
+      "currentIndexRecord": "I0#/nativeBinaries/350",
+      "observedInstalledMatch": true,
+      "sourceNoticeBuildEvidence": "I1#/nativeBinaries/247",
+      "selectedBuildProvenance": null,
+      "selectedSourceIndex": null,
+      "originalBytesRetained": true,
+      "distributedLoadTargetRows": []
+    },
+    {
+      "currentIndexRecord": "I0#/nativeBinaries/351",
+      "observedInstalledMatch": true,
+      "sourceNoticeBuildEvidence": "I1#/nativeBinaries/248",
+      "selectedBuildProvenance": null,
+      "selectedSourceIndex": null,
+      "originalBytesRetained": true,
+      "distributedLoadTargetRows": []
+    },
+    {
+      "currentIndexRecord": "I0#/nativeBinaries/352",
+      "observedInstalledMatch": true,
+      "sourceNoticeBuildEvidence": "I1#/nativeBinaries/249",
+      "selectedBuildProvenance": null,
+      "selectedSourceIndex": null,
+      "originalBytesRetained": true,
+      "distributedLoadTargetRows": []
+    },
+    {
+      "currentIndexRecord": "I0#/nativeBinaries/353",
+      "observedInstalledMatch": true,
+      "sourceNoticeBuildEvidence": "I1#/nativeBinaries/250",
+      "selectedBuildProvenance": null,
+      "selectedSourceIndex": null,
+      "originalBytesRetained": true,
+      "distributedLoadTargetRows": []
+    },
+    {
+      "currentIndexRecord": "I0#/nativeBinaries/354",
+      "observedInstalledMatch": true,
+      "sourceNoticeBuildEvidence": "I1#/nativeBinaries/251",
+      "selectedBuildProvenance": null,
+      "selectedSourceIndex": null,
+      "originalBytesRetained": true,
+      "distributedLoadTargetRows": []
+    },
+    {
+      "currentIndexRecord": "I0#/nativeBinaries/355",
+      "observedInstalledMatch": true,
+      "sourceNoticeBuildEvidence": "I1#/nativeBinaries/252",
+      "selectedBuildProvenance": null,
+      "selectedSourceIndex": null,
+      "originalBytesRetained": true,
+      "distributedLoadTargetRows": []
+    },
+    {
+      "currentIndexRecord": "I0#/nativeBinaries/356",
+      "observedInstalledMatch": true,
+      "sourceNoticeBuildEvidence": "I1#/nativeBinaries/253",
+      "selectedBuildProvenance": null,
+      "selectedSourceIndex": null,
+      "originalBytesRetained": true,
+      "distributedLoadTargetRows": []
+    },
+    {
+      "currentIndexRecord": "I0#/nativeBinaries/357",
+      "observedInstalledMatch": true,
+      "sourceNoticeBuildEvidence": "I1#/nativeBinaries/254",
+      "selectedBuildProvenance": null,
+      "selectedSourceIndex": null,
+      "originalBytesRetained": true,
+      "distributedLoadTargetRows": []
+    },
+    {
+      "currentIndexRecord": "I0#/nativeBinaries/358",
+      "observedInstalledMatch": true,
+      "sourceNoticeBuildEvidence": "I1#/nativeBinaries/255",
+      "selectedBuildProvenance": null,
+      "selectedSourceIndex": null,
+      "originalBytesRetained": true,
+      "distributedLoadTargetRows": []
+    },
+    {
+      "currentIndexRecord": "I0#/nativeBinaries/359",
+      "observedInstalledMatch": true,
+      "sourceNoticeBuildEvidence": "I1#/nativeBinaries/256",
+      "selectedBuildProvenance": null,
+      "selectedSourceIndex": null,
+      "originalBytesRetained": true,
+      "distributedLoadTargetRows": []
+    },
+    {
+      "currentIndexRecord": "I0#/nativeBinaries/360",
+      "observedInstalledMatch": true,
+      "sourceNoticeBuildEvidence": "I1#/nativeBinaries/257",
+      "selectedBuildProvenance": null,
+      "selectedSourceIndex": null,
+      "originalBytesRetained": true,
+      "distributedLoadTargetRows": []
+    },
+    {
+      "currentIndexRecord": "I0#/nativeBinaries/361",
+      "observedInstalledMatch": true,
+      "sourceNoticeBuildEvidence": "I1#/nativeBinaries/258",
+      "selectedBuildProvenance": null,
+      "selectedSourceIndex": null,
+      "originalBytesRetained": true,
+      "distributedLoadTargetRows": []
+    },
+    {
+      "currentIndexRecord": "I0#/nativeBinaries/362",
+      "observedInstalledMatch": true,
+      "sourceNoticeBuildEvidence": "I1#/nativeBinaries/259",
+      "selectedBuildProvenance": null,
+      "selectedSourceIndex": null,
+      "originalBytesRetained": true,
+      "distributedLoadTargetRows": []
+    },
+    {
+      "currentIndexRecord": "I0#/nativeBinaries/363",
+      "observedInstalledMatch": true,
+      "sourceNoticeBuildEvidence": "I1#/nativeBinaries/260",
+      "selectedBuildProvenance": null,
+      "selectedSourceIndex": null,
+      "originalBytesRetained": true,
+      "distributedLoadTargetRows": []
+    },
+    {
+      "currentIndexRecord": "I0#/nativeBinaries/364",
+      "observedInstalledMatch": true,
+      "sourceNoticeBuildEvidence": "I1#/nativeBinaries/261",
+      "selectedBuildProvenance": null,
+      "selectedSourceIndex": null,
+      "originalBytesRetained": true,
+      "distributedLoadTargetRows": []
+    },
+    {
+      "currentIndexRecord": "I0#/nativeBinaries/365",
+      "observedInstalledMatch": true,
+      "sourceNoticeBuildEvidence": "I1#/nativeBinaries/262",
+      "selectedBuildProvenance": null,
+      "selectedSourceIndex": null,
+      "originalBytesRetained": true,
+      "distributedLoadTargetRows": []
+    },
+    {
+      "currentIndexRecord": "I0#/nativeBinaries/366",
+      "observedInstalledMatch": true,
+      "sourceNoticeBuildEvidence": "I1#/nativeBinaries/263",
+      "selectedBuildProvenance": null,
+      "selectedSourceIndex": null,
+      "originalBytesRetained": true,
+      "distributedLoadTargetRows": []
+    },
+    {
+      "currentIndexRecord": "I0#/nativeBinaries/367",
+      "observedInstalledMatch": true,
+      "sourceNoticeBuildEvidence": "I1#/nativeBinaries/264",
+      "selectedBuildProvenance": null,
+      "selectedSourceIndex": null,
+      "originalBytesRetained": true,
+      "distributedLoadTargetRows": []
+    },
+    {
+      "currentIndexRecord": "I0#/nativeBinaries/368",
+      "observedInstalledMatch": true,
+      "sourceNoticeBuildEvidence": "I1#/nativeBinaries/265",
+      "selectedBuildProvenance": null,
+      "selectedSourceIndex": null,
+      "originalBytesRetained": true,
+      "distributedLoadTargetRows": []
+    },
+    {
+      "currentIndexRecord": "I0#/nativeBinaries/369",
+      "observedInstalledMatch": true,
+      "sourceNoticeBuildEvidence": "I1#/nativeBinaries/266",
+      "selectedBuildProvenance": null,
+      "selectedSourceIndex": null,
+      "originalBytesRetained": true,
+      "distributedLoadTargetRows": []
+    },
+    {
+      "currentIndexRecord": "I0#/nativeBinaries/370",
+      "observedInstalledMatch": true,
+      "sourceNoticeBuildEvidence": "I1#/nativeBinaries/267",
+      "selectedBuildProvenance": null,
+      "selectedSourceIndex": null,
+      "originalBytesRetained": true,
+      "distributedLoadTargetRows": []
+    },
+    {
+      "currentIndexRecord": "I0#/nativeBinaries/371",
+      "observedInstalledMatch": true,
+      "sourceNoticeBuildEvidence": "I1#/nativeBinaries/268",
+      "selectedBuildProvenance": null,
+      "selectedSourceIndex": null,
+      "originalBytesRetained": true,
+      "distributedLoadTargetRows": []
+    },
+    {
+      "currentIndexRecord": "I0#/nativeBinaries/372",
+      "observedInstalledMatch": true,
+      "sourceNoticeBuildEvidence": "I1#/nativeBinaries/269",
+      "selectedBuildProvenance": null,
+      "selectedSourceIndex": null,
+      "originalBytesRetained": true,
+      "distributedLoadTargetRows": []
+    },
+    {
+      "currentIndexRecord": "I0#/nativeBinaries/373",
+      "observedInstalledMatch": true,
+      "sourceNoticeBuildEvidence": "I1#/nativeBinaries/270",
+      "selectedBuildProvenance": null,
+      "selectedSourceIndex": null,
+      "originalBytesRetained": true,
+      "distributedLoadTargetRows": []
+    },
+    {
+      "currentIndexRecord": "I0#/nativeBinaries/374",
+      "observedInstalledMatch": true,
+      "sourceNoticeBuildEvidence": "I1#/nativeBinaries/271",
+      "selectedBuildProvenance": null,
+      "selectedSourceIndex": null,
+      "originalBytesRetained": true,
+      "distributedLoadTargetRows": []
+    },
+    {
+      "currentIndexRecord": "I0#/nativeBinaries/375",
+      "observedInstalledMatch": true,
+      "sourceNoticeBuildEvidence": "I1#/nativeBinaries/272",
+      "selectedBuildProvenance": null,
+      "selectedSourceIndex": null,
+      "originalBytesRetained": true,
+      "distributedLoadTargetRows": []
+    },
+    {
+      "currentIndexRecord": "I0#/nativeBinaries/376",
+      "observedInstalledMatch": true,
+      "sourceNoticeBuildEvidence": "I1#/nativeBinaries/273",
+      "selectedBuildProvenance": null,
+      "selectedSourceIndex": null,
+      "originalBytesRetained": true,
+      "distributedLoadTargetRows": []
+    },
+    {
+      "currentIndexRecord": "I0#/nativeBinaries/377",
+      "observedInstalledMatch": true,
+      "sourceNoticeBuildEvidence": "I1#/nativeBinaries/274",
+      "selectedBuildProvenance": null,
+      "selectedSourceIndex": null,
+      "originalBytesRetained": true,
+      "distributedLoadTargetRows": []
+    },
+    {
+      "currentIndexRecord": "I0#/nativeBinaries/378",
+      "observedInstalledMatch": true,
+      "sourceNoticeBuildEvidence": "I1#/nativeBinaries/275",
+      "selectedBuildProvenance": null,
+      "selectedSourceIndex": null,
+      "originalBytesRetained": true,
+      "distributedLoadTargetRows": [
+        374
+      ]
+    },
+    {
+      "currentIndexRecord": "I0#/nativeBinaries/379",
+      "observedInstalledMatch": true,
+      "sourceNoticeBuildEvidence": "I1#/nativeBinaries/276",
+      "selectedBuildProvenance": null,
+      "selectedSourceIndex": null,
+      "originalBytesRetained": true,
+      "distributedLoadTargetRows": []
+    },
+    {
+      "currentIndexRecord": "I0#/nativeBinaries/380",
+      "observedInstalledMatch": true,
+      "sourceNoticeBuildEvidence": "I1#/nativeBinaries/277",
+      "selectedBuildProvenance": null,
+      "selectedSourceIndex": null,
+      "originalBytesRetained": true,
+      "distributedLoadTargetRows": []
+    },
+    {
+      "currentIndexRecord": "I0#/nativeBinaries/381",
+      "observedInstalledMatch": true,
+      "sourceNoticeBuildEvidence": "I1#/nativeBinaries/278",
+      "selectedBuildProvenance": null,
+      "selectedSourceIndex": null,
+      "originalBytesRetained": true,
+      "distributedLoadTargetRows": []
+    },
+    {
+      "currentIndexRecord": "I0#/nativeBinaries/382",
+      "observedInstalledMatch": true,
+      "sourceNoticeBuildEvidence": "I1#/nativeBinaries/279",
+      "selectedBuildProvenance": null,
+      "selectedSourceIndex": null,
+      "originalBytesRetained": true,
+      "distributedLoadTargetRows": []
+    },
+    {
+      "currentIndexRecord": "I0#/nativeBinaries/383",
+      "observedInstalledMatch": true,
+      "sourceNoticeBuildEvidence": "I1#/nativeBinaries/280",
+      "selectedBuildProvenance": null,
+      "selectedSourceIndex": null,
+      "originalBytesRetained": true,
+      "distributedLoadTargetRows": []
+    },
+    {
+      "currentIndexRecord": "I0#/nativeBinaries/384",
+      "observedInstalledMatch": true,
+      "sourceNoticeBuildEvidence": "I1#/nativeBinaries/281",
+      "selectedBuildProvenance": null,
+      "selectedSourceIndex": null,
+      "originalBytesRetained": true,
+      "distributedLoadTargetRows": [
+        374
+      ]
+    },
+    {
+      "currentIndexRecord": "I0#/nativeBinaries/385",
+      "observedInstalledMatch": true,
+      "sourceNoticeBuildEvidence": "I1#/nativeBinaries/282",
+      "selectedBuildProvenance": null,
+      "selectedSourceIndex": null,
+      "originalBytesRetained": true,
+      "distributedLoadTargetRows": [
+        374
+      ]
+    },
+    {
+      "currentIndexRecord": "I0#/nativeBinaries/386",
+      "observedInstalledMatch": true,
+      "sourceNoticeBuildEvidence": "I1#/nativeBinaries/283",
+      "selectedBuildProvenance": null,
+      "selectedSourceIndex": null,
+      "originalBytesRetained": true,
+      "distributedLoadTargetRows": [
+        374
+      ]
+    },
+    {
+      "currentIndexRecord": "I0#/nativeBinaries/387",
+      "observedInstalledMatch": true,
+      "sourceNoticeBuildEvidence": "I1#/nativeBinaries/284",
+      "selectedBuildProvenance": null,
+      "selectedSourceIndex": null,
+      "originalBytesRetained": true,
+      "distributedLoadTargetRows": [
+        374
+      ]
+    },
+    {
+      "currentIndexRecord": "I0#/nativeBinaries/388",
+      "observedInstalledMatch": true,
+      "sourceNoticeBuildEvidence": "I1#/nativeBinaries/285",
+      "selectedBuildProvenance": null,
+      "selectedSourceIndex": null,
+      "originalBytesRetained": true,
+      "distributedLoadTargetRows": []
+    },
+    {
+      "currentIndexRecord": "I0#/nativeBinaries/389",
+      "observedInstalledMatch": true,
+      "sourceNoticeBuildEvidence": "I1#/nativeBinaries/286",
+      "selectedBuildProvenance": null,
+      "selectedSourceIndex": null,
+      "originalBytesRetained": true,
+      "distributedLoadTargetRows": []
+    },
+    {
+      "currentIndexRecord": "I0#/nativeBinaries/390",
+      "observedInstalledMatch": true,
+      "sourceNoticeBuildEvidence": "I1#/nativeBinaries/287",
+      "selectedBuildProvenance": null,
+      "selectedSourceIndex": null,
+      "originalBytesRetained": true,
+      "distributedLoadTargetRows": []
+    },
+    {
+      "currentIndexRecord": "I0#/nativeBinaries/391",
+      "observedInstalledMatch": true,
+      "sourceNoticeBuildEvidence": "I1#/nativeBinaries/288",
+      "selectedBuildProvenance": null,
+      "selectedSourceIndex": null,
+      "originalBytesRetained": true,
+      "distributedLoadTargetRows": []
+    },
+    {
+      "currentIndexRecord": "I0#/nativeBinaries/392",
+      "observedInstalledMatch": true,
+      "sourceNoticeBuildEvidence": "I1#/nativeBinaries/289",
+      "selectedBuildProvenance": null,
+      "selectedSourceIndex": null,
+      "originalBytesRetained": true,
+      "distributedLoadTargetRows": [
+        374
+      ]
+    },
+    {
+      "currentIndexRecord": "I0#/nativeBinaries/393",
+      "observedInstalledMatch": true,
+      "sourceNoticeBuildEvidence": "I1#/nativeBinaries/290",
+      "selectedBuildProvenance": null,
+      "selectedSourceIndex": null,
+      "originalBytesRetained": true,
+      "distributedLoadTargetRows": [
+        374
+      ]
+    },
+    {
+      "currentIndexRecord": "I0#/nativeBinaries/394",
+      "observedInstalledMatch": true,
+      "sourceNoticeBuildEvidence": "I1#/nativeBinaries/291",
+      "selectedBuildProvenance": null,
+      "selectedSourceIndex": null,
+      "originalBytesRetained": true,
+      "distributedLoadTargetRows": [
+        374
+      ]
+    },
+    {
+      "currentIndexRecord": "I0#/nativeBinaries/395",
+      "observedInstalledMatch": true,
+      "sourceNoticeBuildEvidence": "I1#/nativeBinaries/292",
+      "selectedBuildProvenance": null,
+      "selectedSourceIndex": null,
+      "originalBytesRetained": true,
+      "distributedLoadTargetRows": []
+    },
+    {
+      "currentIndexRecord": "I0#/nativeBinaries/396",
+      "observedInstalledMatch": true,
+      "sourceNoticeBuildEvidence": "I1#/nativeBinaries/293",
+      "selectedBuildProvenance": null,
+      "selectedSourceIndex": null,
+      "originalBytesRetained": true,
+      "distributedLoadTargetRows": [
+        374
+      ]
+    },
+    {
+      "currentIndexRecord": "I0#/nativeBinaries/397",
+      "observedInstalledMatch": true,
+      "sourceNoticeBuildEvidence": "I1#/nativeBinaries/294",
+      "selectedBuildProvenance": null,
+      "selectedSourceIndex": null,
+      "originalBytesRetained": true,
+      "distributedLoadTargetRows": [
+        374
+      ]
+    },
+    {
+      "currentIndexRecord": "I0#/nativeBinaries/398",
+      "observedInstalledMatch": true,
+      "sourceNoticeBuildEvidence": "I1#/nativeBinaries/295",
+      "selectedBuildProvenance": null,
+      "selectedSourceIndex": null,
+      "originalBytesRetained": true,
+      "distributedLoadTargetRows": []
+    },
+    {
+      "currentIndexRecord": "I0#/nativeBinaries/399",
+      "observedInstalledMatch": true,
+      "sourceNoticeBuildEvidence": "I1#/nativeBinaries/296",
+      "selectedBuildProvenance": null,
+      "selectedSourceIndex": null,
+      "originalBytesRetained": true,
+      "distributedLoadTargetRows": []
+    },
+    {
+      "currentIndexRecord": "I0#/nativeBinaries/400",
+      "observedInstalledMatch": true,
+      "sourceNoticeBuildEvidence": "I1#/nativeBinaries/297",
+      "selectedBuildProvenance": null,
+      "selectedSourceIndex": null,
+      "originalBytesRetained": true,
+      "distributedLoadTargetRows": []
+    },
+    {
+      "currentIndexRecord": "I0#/nativeBinaries/401",
+      "observedInstalledMatch": true,
+      "sourceNoticeBuildEvidence": "I1#/nativeBinaries/298",
+      "selectedBuildProvenance": null,
+      "selectedSourceIndex": null,
+      "originalBytesRetained": true,
+      "distributedLoadTargetRows": []
+    },
+    {
+      "currentIndexRecord": "I0#/nativeBinaries/402",
+      "observedInstalledMatch": true,
+      "sourceNoticeBuildEvidence": "I1#/nativeBinaries/299",
+      "selectedBuildProvenance": null,
+      "selectedSourceIndex": null,
+      "originalBytesRetained": true,
+      "distributedLoadTargetRows": [
+        374
+      ]
+    },
+    {
+      "currentIndexRecord": "I0#/nativeBinaries/403",
+      "observedInstalledMatch": true,
+      "sourceNoticeBuildEvidence": "I1#/nativeBinaries/300",
+      "selectedBuildProvenance": null,
+      "selectedSourceIndex": null,
+      "originalBytesRetained": true,
+      "distributedLoadTargetRows": []
+    },
+    {
+      "currentIndexRecord": "I0#/nativeBinaries/404",
+      "observedInstalledMatch": true,
+      "sourceNoticeBuildEvidence": "I1#/nativeBinaries/301",
+      "selectedBuildProvenance": null,
+      "selectedSourceIndex": null,
+      "originalBytesRetained": true,
+      "distributedLoadTargetRows": []
+    },
+    {
+      "currentIndexRecord": "I0#/nativeBinaries/405",
+      "observedInstalledMatch": true,
+      "sourceNoticeBuildEvidence": "I1#/nativeBinaries/302",
+      "selectedBuildProvenance": null,
+      "selectedSourceIndex": null,
+      "originalBytesRetained": true,
+      "distributedLoadTargetRows": [
+        374
+      ]
+    },
+    {
+      "currentIndexRecord": "I0#/nativeBinaries/406",
+      "observedInstalledMatch": true,
+      "sourceNoticeBuildEvidence": "I1#/nativeBinaries/303",
+      "selectedBuildProvenance": null,
+      "selectedSourceIndex": null,
+      "originalBytesRetained": true,
+      "distributedLoadTargetRows": [
+        374
+      ]
+    },
+    {
+      "currentIndexRecord": "I0#/nativeBinaries/407",
+      "observedInstalledMatch": true,
+      "sourceNoticeBuildEvidence": "I1#/nativeBinaries/304",
+      "selectedBuildProvenance": null,
+      "selectedSourceIndex": null,
+      "originalBytesRetained": true,
+      "distributedLoadTargetRows": [
+        374
+      ]
+    },
+    {
+      "currentIndexRecord": "I0#/nativeBinaries/408",
+      "observedInstalledMatch": true,
+      "sourceNoticeBuildEvidence": "I1#/nativeBinaries/305",
+      "selectedBuildProvenance": null,
+      "selectedSourceIndex": null,
+      "originalBytesRetained": true,
+      "distributedLoadTargetRows": []
+    },
+    {
+      "currentIndexRecord": "I0#/nativeBinaries/409",
+      "observedInstalledMatch": true,
+      "sourceNoticeBuildEvidence": "I1#/nativeBinaries/306",
+      "selectedBuildProvenance": null,
+      "selectedSourceIndex": null,
+      "originalBytesRetained": true,
+      "distributedLoadTargetRows": []
+    },
+    {
+      "currentIndexRecord": "I0#/nativeBinaries/410",
+      "observedInstalledMatch": true,
+      "sourceNoticeBuildEvidence": "I1#/nativeBinaries/307",
+      "selectedBuildProvenance": null,
+      "selectedSourceIndex": null,
+      "originalBytesRetained": true,
+      "distributedLoadTargetRows": [
+        374
+      ]
+    },
+    {
+      "currentIndexRecord": "I0#/nativeBinaries/411",
+      "observedInstalledMatch": true,
+      "sourceNoticeBuildEvidence": "I1#/nativeBinaries/308",
+      "selectedBuildProvenance": null,
+      "selectedSourceIndex": null,
+      "originalBytesRetained": true,
+      "distributedLoadTargetRows": [
+        374
+      ]
+    },
+    {
+      "currentIndexRecord": "I0#/nativeBinaries/412",
+      "observedInstalledMatch": true,
+      "sourceNoticeBuildEvidence": "I1#/nativeBinaries/309",
+      "selectedBuildProvenance": null,
+      "selectedSourceIndex": null,
+      "originalBytesRetained": true,
+      "distributedLoadTargetRows": [
+        374
+      ]
+    },
+    {
+      "currentIndexRecord": "I0#/nativeBinaries/413",
+      "observedInstalledMatch": true,
+      "sourceNoticeBuildEvidence": "I1#/nativeBinaries/310",
+      "selectedBuildProvenance": null,
+      "selectedSourceIndex": null,
+      "originalBytesRetained": true,
+      "distributedLoadTargetRows": []
+    },
+    {
+      "currentIndexRecord": "I0#/nativeBinaries/414",
+      "observedInstalledMatch": true,
+      "sourceNoticeBuildEvidence": "I1#/nativeBinaries/311",
+      "selectedBuildProvenance": null,
+      "selectedSourceIndex": null,
+      "originalBytesRetained": true,
+      "distributedLoadTargetRows": []
+    },
+    {
+      "currentIndexRecord": "I0#/nativeBinaries/415",
+      "observedInstalledMatch": true,
+      "sourceNoticeBuildEvidence": "I1#/nativeBinaries/312",
+      "selectedBuildProvenance": null,
+      "selectedSourceIndex": null,
+      "originalBytesRetained": true,
+      "distributedLoadTargetRows": []
+    },
+    {
+      "currentIndexRecord": "I0#/nativeBinaries/416",
+      "observedInstalledMatch": true,
+      "sourceNoticeBuildEvidence": "I1#/nativeBinaries/313",
+      "selectedBuildProvenance": null,
+      "selectedSourceIndex": null,
+      "originalBytesRetained": true,
+      "distributedLoadTargetRows": []
+    },
+    {
+      "currentIndexRecord": "I0#/nativeBinaries/417",
+      "observedInstalledMatch": true,
+      "sourceNoticeBuildEvidence": "I1#/nativeBinaries/314",
+      "selectedBuildProvenance": null,
+      "selectedSourceIndex": null,
+      "originalBytesRetained": true,
+      "distributedLoadTargetRows": []
+    },
+    {
+      "currentIndexRecord": "I0#/nativeBinaries/418",
+      "observedInstalledMatch": true,
+      "sourceNoticeBuildEvidence": "I1#/nativeBinaries/315",
+      "selectedBuildProvenance": null,
+      "selectedSourceIndex": null,
+      "originalBytesRetained": true,
+      "distributedLoadTargetRows": []
+    },
+    {
+      "currentIndexRecord": "I0#/nativeBinaries/419",
+      "observedInstalledMatch": true,
+      "sourceNoticeBuildEvidence": "I1#/nativeBinaries/316",
+      "selectedBuildProvenance": null,
+      "selectedSourceIndex": null,
+      "originalBytesRetained": true,
+      "distributedLoadTargetRows": []
+    },
+    {
+      "currentIndexRecord": "I0#/nativeBinaries/420",
+      "observedInstalledMatch": true,
+      "sourceNoticeBuildEvidence": "I1#/nativeBinaries/317",
+      "selectedBuildProvenance": null,
+      "selectedSourceIndex": null,
+      "originalBytesRetained": true,
+      "distributedLoadTargetRows": []
+    },
+    {
+      "currentIndexRecord": "I0#/nativeBinaries/421",
+      "observedInstalledMatch": true,
+      "sourceNoticeBuildEvidence": "I1#/nativeBinaries/318",
+      "selectedBuildProvenance": null,
+      "selectedSourceIndex": null,
+      "originalBytesRetained": true,
+      "distributedLoadTargetRows": []
+    },
+    {
+      "currentIndexRecord": "I0#/nativeBinaries/422",
+      "observedInstalledMatch": true,
+      "sourceNoticeBuildEvidence": "I1#/nativeBinaries/319",
+      "selectedBuildProvenance": null,
+      "selectedSourceIndex": null,
+      "originalBytesRetained": true,
+      "distributedLoadTargetRows": []
+    },
+    {
+      "currentIndexRecord": "I0#/nativeBinaries/423",
+      "observedInstalledMatch": true,
+      "sourceNoticeBuildEvidence": "I1#/nativeBinaries/320",
+      "selectedBuildProvenance": null,
+      "selectedSourceIndex": null,
+      "originalBytesRetained": true,
+      "distributedLoadTargetRows": []
+    },
+    {
+      "currentIndexRecord": "I0#/nativeBinaries/424",
+      "observedInstalledMatch": true,
+      "sourceNoticeBuildEvidence": "I1#/nativeBinaries/321",
+      "selectedBuildProvenance": null,
+      "selectedSourceIndex": null,
+      "originalBytesRetained": true,
+      "distributedLoadTargetRows": []
+    },
+    {
+      "currentIndexRecord": "I0#/nativeBinaries/425",
+      "observedInstalledMatch": true,
+      "sourceNoticeBuildEvidence": "I1#/nativeBinaries/322",
+      "selectedBuildProvenance": null,
+      "selectedSourceIndex": null,
+      "originalBytesRetained": true,
+      "distributedLoadTargetRows": []
+    },
+    {
+      "currentIndexRecord": "I0#/nativeBinaries/426",
+      "observedInstalledMatch": true,
+      "sourceNoticeBuildEvidence": "I1#/nativeBinaries/323",
+      "selectedBuildProvenance": null,
+      "selectedSourceIndex": null,
+      "originalBytesRetained": true,
+      "distributedLoadTargetRows": []
+    },
+    {
+      "currentIndexRecord": "I0#/nativeBinaries/427",
+      "observedInstalledMatch": true,
+      "sourceNoticeBuildEvidence": "I1#/nativeBinaries/324",
+      "selectedBuildProvenance": null,
+      "selectedSourceIndex": null,
+      "originalBytesRetained": true,
+      "distributedLoadTargetRows": []
+    },
+    {
+      "currentIndexRecord": "I0#/nativeBinaries/428",
+      "observedInstalledMatch": true,
+      "sourceNoticeBuildEvidence": "I1#/nativeBinaries/325",
+      "selectedBuildProvenance": null,
+      "selectedSourceIndex": null,
+      "originalBytesRetained": true,
+      "distributedLoadTargetRows": []
+    },
+    {
+      "currentIndexRecord": "I0#/nativeBinaries/429",
+      "observedInstalledMatch": true,
+      "sourceNoticeBuildEvidence": "I1#/nativeBinaries/326",
+      "selectedBuildProvenance": null,
+      "selectedSourceIndex": null,
+      "originalBytesRetained": true,
+      "distributedLoadTargetRows": []
+    },
+    {
+      "currentIndexRecord": "I0#/nativeBinaries/430",
+      "observedInstalledMatch": true,
+      "sourceNoticeBuildEvidence": "I1#/nativeBinaries/327",
+      "selectedBuildProvenance": null,
+      "selectedSourceIndex": null,
+      "originalBytesRetained": true,
+      "distributedLoadTargetRows": []
+    },
+    {
+      "currentIndexRecord": "I0#/nativeBinaries/431",
+      "observedInstalledMatch": true,
+      "sourceNoticeBuildEvidence": "I1#/nativeBinaries/328",
+      "selectedBuildProvenance": null,
+      "selectedSourceIndex": null,
+      "originalBytesRetained": true,
+      "distributedLoadTargetRows": []
+    },
+    {
+      "currentIndexRecord": "I0#/nativeBinaries/432",
+      "observedInstalledMatch": true,
+      "sourceNoticeBuildEvidence": "I1#/nativeBinaries/329",
+      "selectedBuildProvenance": null,
+      "selectedSourceIndex": null,
+      "originalBytesRetained": true,
+      "distributedLoadTargetRows": []
+    },
+    {
+      "currentIndexRecord": "I0#/nativeBinaries/433",
+      "observedInstalledMatch": true,
+      "sourceNoticeBuildEvidence": "I1#/nativeBinaries/330",
+      "selectedBuildProvenance": null,
+      "selectedSourceIndex": null,
+      "originalBytesRetained": true,
+      "distributedLoadTargetRows": []
+    },
+    {
+      "currentIndexRecord": "I0#/nativeBinaries/434",
+      "observedInstalledMatch": true,
+      "sourceNoticeBuildEvidence": "I1#/nativeBinaries/331",
+      "selectedBuildProvenance": null,
+      "selectedSourceIndex": null,
+      "originalBytesRetained": true,
+      "distributedLoadTargetRows": [
+        374
+      ]
+    },
+    {
+      "currentIndexRecord": "I0#/nativeBinaries/435",
+      "observedInstalledMatch": true,
+      "sourceNoticeBuildEvidence": "I1#/nativeBinaries/332",
+      "selectedBuildProvenance": null,
+      "selectedSourceIndex": null,
+      "originalBytesRetained": true,
+      "distributedLoadTargetRows": []
+    },
+    {
+      "currentIndexRecord": "I0#/nativeBinaries/436",
+      "observedInstalledMatch": true,
+      "sourceNoticeBuildEvidence": "I1#/nativeBinaries/333",
+      "selectedBuildProvenance": null,
+      "selectedSourceIndex": null,
+      "originalBytesRetained": true,
+      "distributedLoadTargetRows": []
+    },
+    {
+      "currentIndexRecord": "I0#/nativeBinaries/437",
+      "observedInstalledMatch": true,
+      "sourceNoticeBuildEvidence": "I1#/nativeBinaries/334",
+      "selectedBuildProvenance": null,
+      "selectedSourceIndex": null,
+      "originalBytesRetained": true,
+      "distributedLoadTargetRows": []
+    },
+    {
+      "currentIndexRecord": "I0#/nativeBinaries/438",
+      "observedInstalledMatch": true,
+      "sourceNoticeBuildEvidence": "I1#/nativeBinaries/335",
+      "selectedBuildProvenance": null,
+      "selectedSourceIndex": null,
+      "originalBytesRetained": true,
+      "distributedLoadTargetRows": []
+    },
+    {
+      "currentIndexRecord": "I0#/nativeBinaries/439",
+      "observedInstalledMatch": true,
+      "sourceNoticeBuildEvidence": "I1#/nativeBinaries/336",
+      "selectedBuildProvenance": null,
+      "selectedSourceIndex": null,
+      "originalBytesRetained": true,
+      "distributedLoadTargetRows": []
+    },
+    {
+      "currentIndexRecord": "I0#/nativeBinaries/440",
+      "observedInstalledMatch": true,
+      "sourceNoticeBuildEvidence": "I1#/nativeBinaries/337",
+      "selectedBuildProvenance": null,
+      "selectedSourceIndex": null,
+      "originalBytesRetained": true,
+      "distributedLoadTargetRows": []
+    },
+    {
+      "currentIndexRecord": "I0#/nativeBinaries/441",
+      "observedInstalledMatch": true,
+      "sourceNoticeBuildEvidence": "I1#/nativeBinaries/338",
+      "selectedBuildProvenance": null,
+      "selectedSourceIndex": null,
+      "originalBytesRetained": true,
+      "distributedLoadTargetRows": []
+    },
+    {
+      "currentIndexRecord": "I0#/nativeBinaries/442",
+      "observedInstalledMatch": true,
+      "sourceNoticeBuildEvidence": "I1#/nativeBinaries/339",
+      "selectedBuildProvenance": null,
+      "selectedSourceIndex": null,
+      "originalBytesRetained": true,
+      "distributedLoadTargetRows": []
+    },
+    {
+      "currentIndexRecord": "I0#/nativeBinaries/443",
+      "observedInstalledMatch": true,
+      "sourceNoticeBuildEvidence": "I1#/nativeBinaries/340",
+      "selectedBuildProvenance": null,
+      "selectedSourceIndex": null,
+      "originalBytesRetained": true,
+      "distributedLoadTargetRows": []
+    },
+    {
+      "currentIndexRecord": "I0#/nativeBinaries/444",
+      "observedInstalledMatch": true,
+      "sourceNoticeBuildEvidence": "I1#/nativeBinaries/341",
+      "selectedBuildProvenance": null,
+      "selectedSourceIndex": null,
+      "originalBytesRetained": true,
+      "distributedLoadTargetRows": []
+    },
+    {
+      "currentIndexRecord": "I0#/nativeBinaries/445",
+      "observedInstalledMatch": true,
+      "sourceNoticeBuildEvidence": "I1#/nativeBinaries/342",
+      "selectedBuildProvenance": null,
+      "selectedSourceIndex": null,
+      "originalBytesRetained": true,
+      "distributedLoadTargetRows": []
+    },
+    {
+      "currentIndexRecord": "I0#/nativeBinaries/446",
+      "observedInstalledMatch": true,
+      "sourceNoticeBuildEvidence": "I1#/nativeBinaries/343",
+      "selectedBuildProvenance": null,
+      "selectedSourceIndex": null,
+      "originalBytesRetained": true,
+      "distributedLoadTargetRows": []
+    },
+    {
+      "currentIndexRecord": "I0#/nativeBinaries/447",
+      "observedInstalledMatch": true,
+      "sourceNoticeBuildEvidence": "I1#/nativeBinaries/344",
+      "selectedBuildProvenance": null,
+      "selectedSourceIndex": null,
+      "originalBytesRetained": true,
+      "distributedLoadTargetRows": []
+    },
+    {
+      "currentIndexRecord": "I0#/nativeBinaries/448",
+      "observedInstalledMatch": true,
+      "sourceNoticeBuildEvidence": "I1#/nativeBinaries/345",
+      "selectedBuildProvenance": null,
+      "selectedSourceIndex": null,
+      "originalBytesRetained": true,
+      "distributedLoadTargetRows": []
+    },
+    {
+      "currentIndexRecord": "I0#/nativeBinaries/449",
+      "observedInstalledMatch": true,
+      "sourceNoticeBuildEvidence": "I1#/nativeBinaries/9",
+      "selectedBuildProvenance": null,
+      "selectedSourceIndex": null,
+      "originalBytesRetained": true,
+      "distributedLoadTargetRows": []
+    },
+    {
+      "currentIndexRecord": "I0#/nativeBinaries/450",
+      "observedInstalledMatch": true,
+      "sourceNoticeBuildEvidence": "I1#/nativeBinaries/10",
+      "selectedBuildProvenance": null,
+      "selectedSourceIndex": null,
+      "originalBytesRetained": true,
+      "distributedLoadTargetRows": []
+    }
+  ],
+  "componentRecords": [
+    {
+      "component": "aribb24",
+      "version": "1.0.4",
+      "record": "I2#/components/0",
+      "classification": "lgpl"
+    },
+    {
+      "component": "gettext",
+      "version": "0.25",
+      "record": "I2#/components/1",
+      "classification": "lgpl"
+    },
+    {
+      "component": "glib",
+      "version": "2.84.3",
+      "record": "I2#/components/2",
+      "classification": "lgpl"
+    },
+    {
+      "component": "gmp",
+      "version": "6.3.0",
+      "record": "I2#/components/3",
+      "classification": "lgpl"
+    },
+    {
+      "component": "gnutls",
+      "version": "3.8.9",
+      "record": "I2#/components/4",
+      "classification": "lgpl"
+    },
+    {
+      "component": "libbluray",
+      "version": "1.3.4",
+      "record": "I2#/components/5",
+      "classification": "lgpl"
+    },
+    {
+      "component": "libidn2",
+      "version": "2.3.8",
+      "record": "I2#/components/6",
+      "classification": "lgpl"
+    },
+    {
+      "component": "librist",
+      "version": "0.2.11",
+      "record": "I2#/components/7",
+      "classification": "lgpl"
+    },
+    {
+      "component": "libsamplerate",
+      "version": "0.2.2",
+      "record": "I2#/components/8",
+      "classification": "lgpl"
+    },
+    {
+      "component": "libssh",
+      "version": "0.11.1",
+      "record": "I2#/components/9",
+      "classification": "lgpl"
+    },
+    {
+      "component": "libtasn1",
+      "version": "4.20.0",
+      "record": "I2#/components/10",
+      "classification": "lgpl"
+    },
+    {
+      "component": "libunistring",
+      "version": "1.3",
+      "record": "I2#/components/11",
+      "classification": "lgpl"
+    },
+    {
+      "component": "nettle",
+      "version": "3.10.1",
+      "record": "I2#/components/12",
+      "classification": "lgpl"
+    },
+    {
+      "component": "p11-kit",
+      "version": "0.25.5",
+      "record": "I2#/components/13",
+      "classification": "lgpl"
+    },
+    {
+      "component": "xz",
+      "version": "5.8.1",
+      "record": "I2#/components/14",
+      "classification": "lgpl"
+    },
+    {
+      "component": "brotli",
+      "version": "1.1.0",
+      "record": "I2#/components/15",
+      "classification": "fonts-images"
+    },
+    {
+      "component": "cjson",
+      "version": "1.7.18",
+      "record": "I2#/components/16",
+      "classification": "fonts-images"
+    },
+    {
+      "component": "fontconfig",
+      "version": "2.16.0",
+      "record": "I2#/components/17",
+      "classification": "fonts-images"
+    },
+    {
+      "component": "freetype",
+      "version": "2.13.3",
+      "record": "I2#/components/18",
+      "classification": "fonts-images"
+    },
+    {
+      "component": "fribidi",
+      "version": "1.0.16",
+      "record": "I2#/components/19",
+      "classification": "fonts-images"
+    },
+    {
+      "component": "giflib",
+      "version": "5.2.2",
+      "record": "I2#/components/20",
+      "classification": "fonts-images"
+    },
+    {
+      "component": "graphite2",
+      "version": "1.3.14",
+      "record": "I2#/components/21",
+      "classification": "fonts-images"
+    },
+    {
+      "component": "harfbuzz",
+      "version": "11.2.1",
+      "record": "I2#/components/22",
+      "classification": "fonts-images"
+    },
+    {
+      "component": "highway",
+      "version": "1.2.0",
+      "record": "I2#/components/23",
+      "classification": "fonts-images"
+    },
+    {
+      "component": "imath",
+      "version": "3.1.12",
+      "record": "I2#/components/24",
+      "classification": "fonts-images"
+    },
+    {
+      "component": "jpeg-turbo",
+      "version": "3.1.1",
+      "record": "I2#/components/25",
+      "classification": "fonts-images"
+    },
+    {
+      "component": "jpeg-xl",
+      "version": "0.11.1_1",
+      "record": "I2#/components/26",
+      "classification": "fonts-images"
+    },
+    {
+      "component": "leptonica",
+      "version": "1.85.0",
+      "record": "I2#/components/27",
+      "classification": "fonts-images"
+    },
+    {
+      "component": "libavif",
+      "version": "1.3.0",
+      "record": "I2#/components/28",
+      "classification": "fonts-images"
+    },
+    {
+      "component": "libdeflate",
+      "version": "1.24",
+      "record": "I2#/components/29",
+      "classification": "fonts-images"
+    },
+    {
+      "component": "libpng",
+      "version": "1.6.49",
+      "record": "I2#/components/30",
+      "classification": "fonts-images"
+    },
+    {
+      "component": "libtiff",
+      "version": "4.7.0",
+      "record": "I2#/components/31",
+      "classification": "fonts-images"
+    },
+    {
+      "component": "libunibreak",
+      "version": "6.1",
+      "record": "I2#/components/32",
+      "classification": "fonts-images"
+    },
+    {
+      "component": "little-cms2",
+      "version": "2.17",
+      "record": "I2#/components/33",
+      "classification": "fonts-images"
+    },
+    {
+      "component": "lz4",
+      "version": "1.10.0",
+      "record": "I2#/components/34",
+      "classification": "fonts-images"
+    },
+    {
+      "component": "openexr",
+      "version": "3.3.4",
+      "record": "I2#/components/35",
+      "classification": "fonts-images"
+    },
+    {
+      "component": "openjpeg",
+      "version": "2.5.3",
+      "record": "I2#/components/36",
+      "classification": "fonts-images"
+    },
+    {
+      "component": "webp",
+      "version": "1.5.0",
+      "record": "I2#/components/37",
+      "classification": "fonts-images"
+    },
+    {
+      "component": "zstd",
+      "version": "1.5.7",
+      "record": "I2#/components/38",
+      "classification": "fonts-images"
+    },
+    {
+      "component": "aom",
+      "version": "3.12.1",
+      "record": "I2#/components/39",
+      "classification": "media-other"
+    },
+    {
+      "component": "dav1d",
+      "version": "1.5.1",
+      "record": "I2#/components/40",
+      "classification": "media-other"
+    },
+    {
+      "component": "lame",
+      "version": "3.100",
+      "record": "I2#/components/41",
+      "classification": "media-other"
+    },
+    {
+      "component": "libarchive",
+      "version": "3.8.1",
+      "record": "I2#/components/42",
+      "classification": "media-other"
+    },
+    {
+      "component": "libass",
+      "version": "0.17.4",
+      "record": "I2#/components/43",
+      "classification": "media-other"
+    },
+    {
+      "component": "libb2",
+      "version": "0.98.1",
+      "record": "I2#/components/44",
+      "classification": "media-other"
+    },
+    {
+      "component": "libogg",
+      "version": "1.3.5",
+      "record": "I2#/components/45",
+      "classification": "media-other"
+    },
+    {
+      "component": "libsodium",
+      "version": "1.0.20",
+      "record": "I2#/components/46",
+      "classification": "media-other"
+    },
+    {
+      "component": "libvmaf",
+      "version": "3.0.0",
+      "record": "I2#/components/47",
+      "classification": "media-other"
+    },
+    {
+      "component": "libvorbis",
+      "version": "1.3.7",
+      "record": "I2#/components/48",
+      "classification": "media-other"
+    },
+    {
+      "component": "libvpx",
+      "version": "1.15.2",
+      "record": "I2#/components/49",
+      "classification": "media-other"
+    },
+    {
+      "component": "libx11",
+      "version": "1.8.12",
+      "record": "I2#/components/50",
+      "classification": "media-other"
+    },
+    {
+      "component": "libxau",
+      "version": "1.0.12",
+      "record": "I2#/components/51",
+      "classification": "media-other"
+    },
+    {
+      "component": "libxcb",
+      "version": "1.17.0",
+      "record": "I2#/components/52",
+      "classification": "media-other"
+    },
+    {
+      "component": "libxdmcp",
+      "version": "1.1.5",
+      "record": "I2#/components/53",
+      "classification": "media-other"
+    },
+    {
+      "component": "mbedtls",
+      "version": "3.6.3.1",
+      "record": "I2#/components/54",
+      "classification": "media-other"
+    },
+    {
+      "component": "opencore-amr",
+      "version": "0.1.6",
+      "record": "I2#/components/55",
+      "classification": "media-other"
+    },
+    {
+      "component": "openssl@3",
+      "version": null,
+      "record": "I2#/components/56",
+      "classification": "media-other"
+    },
+    {
+      "component": "opus",
+      "version": "1.5.2",
+      "record": "I2#/components/57",
+      "classification": "media-other"
+    },
+    {
+      "component": "pcre2",
+      "version": "10.45",
+      "record": "I2#/components/58",
+      "classification": "media-other"
+    },
+    {
+      "component": "rav1e",
+      "version": "0.8.0",
+      "record": "I2#/components/59",
+      "classification": "media-other"
+    },
+    {
+      "component": "sdl2",
+      "version": "2.32.8",
+      "record": "I2#/components/60",
+      "classification": "media-other"
+    },
+    {
+      "component": "snappy",
+      "version": "1.2.2",
+      "record": "I2#/components/61",
+      "classification": "media-other"
+    },
+    {
+      "component": "speex",
+      "version": "1.2.1",
+      "record": "I2#/components/62",
+      "classification": "media-other"
+    },
+    {
+      "component": "srt",
+      "version": "1.5.4",
+      "record": "I2#/components/63",
+      "classification": "media-other"
+    },
+    {
+      "component": "svt-av1",
+      "version": "3.0.2",
+      "record": "I2#/components/64",
+      "classification": "media-other"
+    },
+    {
+      "component": "tesseract",
+      "version": "5.5.1",
+      "record": "I2#/components/65",
+      "classification": "media-other"
+    },
+    {
+      "component": "theora",
+      "version": "1.1.1",
+      "record": "I2#/components/66",
+      "classification": "media-other"
+    },
+    {
+      "component": "zeromq",
+      "version": "4.3.5",
+      "record": "I2#/components/67",
+      "classification": "media-other"
+    },
+    {
+      "component": "zimg",
+      "version": "3.0.5",
+      "record": "I2#/components/68",
+      "classification": "media-other"
+    },
+    {
+      "component": "cpython-standalone-or-unassigned",
+      "version": "3.12.15",
+      "record": "I1#/components/0",
+      "classification": "standalone-python-native-inputs-and-notices-present"
+    },
+    {
+      "component": "ruff",
+      "version": "0.17.0",
+      "record": "I1#/components/1",
+      "classification": "permissive-container-notices-retained-no-identified-source-delivery-gap"
+    },
+    {
+      "component": "chardet",
+      "version": "7.6.0",
+      "record": "I1#/components/2",
+      "classification": "permissive-container-notices-retained-no-identified-source-delivery-gap"
+    },
+    {
+      "component": "levenshtein",
+      "version": "0.27.5",
+      "record": "I1#/components/3",
+      "classification": "copyleft-exact-version-source-and-full-terms-present"
+    },
+    {
+      "component": "pillow",
+      "version": "12.3.0",
+      "record": "I1#/components/4",
+      "classification": "permissive-container-notices-retained-no-identified-source-delivery-gap"
+    },
+    {
+      "component": "cffi",
+      "version": "2.1.1",
+      "record": "I1#/components/5",
+      "classification": "permissive-container-notices-retained-no-identified-source-delivery-gap"
+    },
+    {
+      "component": "backports-zstd",
+      "version": "1.8.0",
+      "record": "I1#/components/6",
+      "classification": "specific-nested-notice-materials-supplemented"
+    },
+    {
+      "component": "bitarray",
+      "version": "3.12.2",
+      "record": "I1#/components/7",
+      "classification": "permissive-container-notices-retained-no-identified-source-delivery-gap"
+    },
+    {
+      "component": "charset-normalizer",
+      "version": "3.5.2",
+      "record": "I1#/components/8",
+      "classification": "permissive-container-notices-retained-no-identified-source-delivery-gap"
+    },
+    {
+      "component": "cryptography",
+      "version": "50.0.2",
+      "record": "I1#/components/9",
+      "classification": "specific-nested-notice-materials-supplemented"
+    },
+    {
+      "component": "opencv-python-headless",
+      "version": "5.0.0.93",
+      "record": "I1#/components/10",
+      "classification": "permissive-container-notices-retained-no-identified-source-delivery-gap"
+    },
+    {
+      "component": "protobuf",
+      "version": "7.36.2",
+      "record": "I1#/components/11",
+      "classification": "permissive-container-notices-retained-no-identified-source-delivery-gap"
+    },
+    {
+      "component": "hf-xet",
+      "version": "1.7.0",
+      "record": "I1#/components/12",
+      "classification": "permissive-container-notices-retained-no-identified-source-delivery-gap"
+    },
+    {
+      "component": "hyperscan",
+      "version": "0.9.1",
+      "record": "I1#/components/13",
+      "classification": "specific-nested-notice-materials-supplemented"
+    },
+    {
+      "component": "jiter",
+      "version": "0.17.0",
+      "record": "I1#/components/14",
+      "classification": "permissive-container-notices-retained-no-identified-source-delivery-gap"
+    },
+    {
+      "component": "lxml",
+      "version": "6.1.3",
+      "record": "I1#/components/15",
+      "classification": "permissive-container-notices-retained-no-identified-source-delivery-gap"
+    },
+    {
+      "component": "markupsafe",
+      "version": "3.0.4",
+      "record": "I1#/components/16",
+      "classification": "permissive-container-notices-retained-no-identified-source-delivery-gap"
+    },
+    {
+      "component": "ml-dtypes",
+      "version": "0.6.0",
+      "record": "I1#/components/17",
+      "classification": "mpl-covered-eigen-source-materials-present"
+    },
+    {
+      "component": "msgpack",
+      "version": "1.2.3",
+      "record": "I1#/components/18",
+      "classification": "permissive-container-notices-retained-no-identified-source-delivery-gap"
+    },
+    {
+      "component": "numpy",
+      "version": "2.5.4",
+      "record": "I1#/components/19",
+      "classification": "permissive-container-notices-retained-no-identified-source-delivery-gap"
+    },
+    {
+      "component": "onnx",
+      "version": "1.23.2",
+      "record": "I1#/components/20",
+      "classification": "permissive-container-notices-retained-no-identified-source-delivery-gap"
+    },
+    {
+      "component": "onnxruntime",
+      "version": "1.31.0",
+      "record": "I1#/components/21",
+      "classification": "mpl-covered-eigen-source-materials-present"
+    },
+    {
+      "component": "orjson",
+      "version": "3.11.3",
+      "record": "I1#/components/22",
+      "classification": "permissive-container-notices-retained-no-identified-source-delivery-gap"
+    },
+    {
+      "component": "psutil",
+      "version": "7.2.2",
+      "record": "I1#/components/23",
+      "classification": "permissive-container-notices-retained-no-identified-source-delivery-gap"
+    },
+    {
+      "component": "pydantic-core",
+      "version": "2.50.1",
+      "record": "I1#/components/24",
+      "classification": "permissive-container-notices-retained-no-identified-source-delivery-gap"
+    },
+    {
+      "component": "pymupdf",
+      "version": "1.28.2",
+      "record": "I1#/components/25",
+      "classification": "copyleft-exact-version-source-and-full-terms-present"
+    },
+    {
+      "component": "rapidfuzz",
+      "version": "3.14.6",
+      "record": "I1#/components/26",
+      "classification": "permissive-container-notices-retained-no-identified-source-delivery-gap"
+    },
+    {
+      "component": "regex",
+      "version": "2026.9.29",
+      "record": "I1#/components/27",
+      "classification": "permissive-container-notices-retained-no-identified-source-delivery-gap"
+    },
+    {
+      "component": "scipy",
+      "version": "1.18.1",
+      "record": "I1#/components/28",
+      "classification": "permissive-container-notices-retained-no-identified-source-delivery-gap"
+    },
+    {
+      "component": "scikit-image",
+      "version": "0.26.0",
+      "record": "I1#/components/29",
+      "classification": "permissive-container-notices-retained-no-identified-source-delivery-gap"
+    },
+    {
+      "component": "scikit-learn",
+      "version": "1.9.1",
+      "record": "I1#/components/30",
+      "classification": "permissive-container-notices-retained-no-identified-source-delivery-gap"
+    },
+    {
+      "component": "tibs",
+      "version": "2.0.2",
+      "record": "I1#/components/31",
+      "classification": "permissive-container-notices-retained-no-identified-source-delivery-gap"
+    },
+    {
+      "component": "tiktoken",
+      "version": "0.14.0",
+      "record": "I1#/components/32",
+      "classification": "permissive-container-notices-retained-no-identified-source-delivery-gap"
+    },
+    {
+      "component": "uharfbuzz",
+      "version": "0.56.3",
+      "record": "I1#/components/33",
+      "classification": "specific-nested-notice-materials-supplemented"
+    },
+    {
+      "component": "pyyaml",
+      "version": "6.0.3",
+      "record": "I1#/components/34",
+      "classification": "permissive-container-notices-retained-no-identified-source-delivery-gap"
+    }
+  ],
+  "limitations": [
+    "Fresh observations establish current bytes and structural joins; historical operation results were read, not rerun.",
+    "No claim arbitrary toolchain source rebuilds reproduce selected dylib bytes.",
+    "Optional/build/platform locked sources are supersets; static compiled membership is not proved by archive presence.",
+    "No new second-Mac, macOS14.2 physical, whole-workflow, paid or real-network acceptance."
+  ],
+  "sourceNoticeReferenceVerification": {
+    "uniqueDeliveredFilesRehashed": 2518,
+    "filesWithIndexedDigest": 2275,
+    "indexedSHA256Comparisons": 4211,
+    "mismatches": [],
+    "selection": "Delivered references in origin-reference-map.json for current native index, seven sourceMaterialIndices, native v2/initial native index, and controlled native/OpenSSL provenance. Canonical path semantics from the map, not guessed path bases.",
+    "sortedResultLedgerSHA256": "81692d519585bdeded62502bc1f25df70e95e76d15e30b9d3d7c1844b658e072",
+    "referenceMapSHA256": "991c8cc8f0af191c8c5fa3e9834bae59ed4029837f46f7ee62dbd0fefb5751b8",
+    "referenceMapSchema": "crosscript-independent-material-reference-review-v1"
+  },
+  "reviewedEntryPoints": [
+    {
+      "path": "origin-materials/2026-10-26/gap-closure-v2/native/opencv-86-original-inputs.reconciled.json",
+      "sha256": "288f8daa0afeab068885d8e330bbb217292ce826393fceae446df7eea0512fbb",
+      "bytes": 342306
+    },
+    {
+      "path": "origin-materials/2026-10-26/gap-closure-v2/native/other-native-index.json",
+      "sha256": "4fe7dfd503e68583e0c0eb4cd919a531a3dadbe9bd52ddfc6e229da6fd631d12",
+      "bytes": 381584
+    },
+    {
+      "path": "origin-materials/2026-10-26/gap-closure-v2/native/gcc/index.json",
+      "sha256": "fcfa883c1960b124e96de4313a00b34911f0fccf3265d65d3782be7301624b7f",
+      "bytes": 12646
+    },
+    {
+      "path": "current/native/source-index.json",
+      "sha256": "dd0aaa6f8a936f81c3c3128808e3ec4d65b0c48e40ea40dbb538fca0310916ab",
+      "bytes": 3877
+    },
+    {
+      "path": "current/rav1e/index.json",
+      "sha256": "2f5fbbe932b771d00d29873e03b28b58bbb4a9235f8d31db46dd23348766f2ab",
+      "bytes": 798824
+    },
+    {
+      "path": "current/openssl/source-index.json",
+      "sha256": "0408dfe23b0115a7893b6caaa0977de87b800b15a432113030e27cfcd334e6e0",
+      "bytes": 1079
+    },
+    {
+      "path": "current/native-selected-inputs.json",
+      "sha256": "fecfc210499c54140463c8cb1d1c93fa661a89089bb56cc7e31b13bafea6530f",
+      "bytes": 1583
+    },
+    {
+      "path": "current/native/provenance.json",
+      "sha256": "bbffa50c92065350b5c9a239fdb163efef5ba6f3dc54c60c0c93cc8bf2f1b31a",
+      "bytes": 4963
+    },
+    {
+      "path": "current/native/records/build-1/result.json",
+      "sha256": "8ba88bc20c7c24a8dc08234652090c4fc931c7c9913dd33a47548e094977d857",
+      "bytes": 3865
+    },
+    {
+      "path": "current/native/records/build-2/result.json",
+      "sha256": "aa2a6474fdefbb190adb630ebe4f6ee5ad29ca50b59bd2ef9c6d5a0e6c344326",
+      "bytes": 4597
+    },
+    {
+      "path": "current/native/README.zh-CN.md",
+      "sha256": "bb42aa8dc3b03d14cf0c1552d830c6b9435771382774b53a45f51ad4c6138a2f",
+      "bytes": 7375
+    },
+    {
+      "path": "current/native/build_native.py",
+      "sha256": "57d4d3ad32af4e1850322e69f0ed55fe207706895bbde28f88eb3963be1eaa27",
+      "bytes": 9753
+    },
+    {
+      "path": "current/native/prepare_inputs.py",
+      "sha256": "8d4146ecc936dab5db903a9bc40ca81be9a58c7ebd45974b0ecdbdbb6a0775b4",
+      "bytes": 1674
+    },
+    {
+      "path": "current/native/repack_wheel.py",
+      "sha256": "bd79c1a545b1b555f63b0af15e1c0024ff292afe2607f5e5080fa09f84c494ed",
+      "bytes": 5135
+    },
+    {
+      "path": "current/openssl/provenance.json",
+      "sha256": "d7e90a30fcfa82d96fb04a9fbf64045182bd9071e8a25b23989030fafb4795fd",
+      "bytes": 4017
+    },
+    {
+      "path": "current/openssl/result.json",
+      "sha256": "1ab726a2391f4ec7abd49056f705ff2c4e1594fc5f04b8beb0c8236b4dba9655",
+      "bytes": 2858
+    },
+    {
+      "path": "current/openssl/verification.json",
+      "sha256": "250b920e1611163816ddf7f3f68422980ef34b2efd5b4209d8329e9b9987d0ea",
+      "bytes": 2598
+    },
+    {
+      "path": "current/openssl/records/portable-replay.json",
+      "sha256": "90c38189ea0c698db98d7e6ad79cf7201145e4426f861ac0f9ff37419ba446cf",
+      "bytes": 776
+    },
+    {
+      "path": "current/openssl/README.zh-CN.md",
+      "sha256": "208041a0028f9190cfbea2a97ce217f794f3d863288561be4e70cc344b9651a2",
+      "bytes": 7323
+    },
+    {
+      "path": "current/openssl/build_openssl.py",
+      "sha256": "fa5bc9f8ec799280821cd10f4a929ee3fe6e3d78674d352955c86522b50ca0ca",
+      "bytes": 6221
+    },
+    {
+      "path": "current/openssl/repack_from_official.py",
+      "sha256": "881fd25bab6c5ebf39271f7268a29af428e7e69e215338f688970c0732aebb1d",
+      "bytes": 2772
+    },
+    {
+      "path": "current/openssl/repack_wheel.py",
+      "sha256": "865c6611be488cfadfd7c37a3e3009f73000998fc700e0c76bb2842e0c78152d",
+      "bytes": 4824
+    },
+    {
+      "path": "origin-materials/2026-10-26/gap-closure-v2/rebuild/delivery/README.md",
+      "sha256": "b7fc7d8b20a14290ade4005022c8e3222dc6b039ce641fb03fc55bc4c6c39ffa",
+      "bytes": 10108
+    },
+    {
+      "path": "origin-materials/2026-10-26/gap-closure-v2/rebuild/delivery/rebuild_soxr.py",
+      "sha256": "241c49603e1bdd250d66ab7df653e869c7184ef4fbb44a6d9aad45252f108cf2",
+      "bytes": 17549
+    },
+    {
+      "path": "origin-materials/2026-10-26/gap-closure-v2/rebuild/delivery/result.sanitized.json",
+      "sha256": "c66c039d773d4f4037a6ffbc14fbc1deb10b51d96e9d797cece250035651dd9a",
+      "bytes": 5990
+    }
+  ],
+  "controlledSelectedChains": [
+    {
+      "library": "libgmp.10.dylib",
+      "selectedSHA256": "ade1a64325a2418f4ea6143ab0914ba1eaf62496b307fd8e05b1a02cd460498c",
+      "selectedArtifactAndProvenanceAndInstalledBytesMatch": true,
+      "buildResultMatchesSelected": true,
+      "sourcePatches": []
+    },
+    {
+      "library": "libzmq.5.dylib",
+      "selectedSHA256": "3ec540381c648b832af9089faa54dfb292012bc6261ea82dcf7619236b629d35",
+      "selectedArtifactAndProvenanceAndInstalledBytesMatch": true,
+      "buildResultMatchesSelected": true,
+      "sourcePatches": []
+    },
+    {
+      "library": "libcrypto.3.dylib",
+      "selectedSHA256": "13aa519f1e6d13d3eb3968448e1166e5de03b70fa7b4ec5282e5c21318ab855e",
+      "selectedArtifactAndProvenanceAndInstalledBytesMatch": true,
+      "buildResultMatchesSelected": true,
+      "sourcePatches": []
+    },
+    {
+      "library": "libssl.3.dylib",
+      "selectedSHA256": "a2bdd0fd427991bdf846b87f1af9f697c6fae9f208accdb9dfad142b958b319d",
+      "selectedArtifactAndProvenanceAndInstalledBytesMatch": true,
+      "buildResultMatchesSelected": true,
+      "sourcePatches": []
+    }
+  ],
+  "perObjectUnknownPolicy": "null selectedBuildProvenance/selectedSourceIndex means no separate current controlled-replacement record, not source absent or reproduced; consult sourceNoticeBuildEvidence and componentRecords. Historical source presence/producer correspondence must be read at its stated strength.",
+  "indexAliases": {
+    "I0": "current/native-index.json",
+    "I1": "origin-materials/2026-10-26/gap-closure-v2/native/other-native-index.json",
+    "I2": "origin-materials/2026-10-26/gap-closure-v2/native/opencv-86-original-inputs.reconciled.json",
+    "I3": "origin-materials/2026-10-26/third-party/native/native-component-index.json",
+    "I4": "current/openssl/provenance.json",
+    "I5": "current/openssl/source-index.json",
+    "I6": "current/native/provenance.json",
+    "I7": "current/native/source-index.json",
+    "I8": "origin-materials/2026-10-26/gap-closure-v2/native/gcc/index.json"
+  },
+  "recordFormat": "I<number> aliases resolve with indexAliases. currentIndexRecord is an exact JSON pointer; its record supplies path/version/hash/size/materialStatus. observedInstalledMatch means independently scanned regular-file magic + observed SHA256/bytes equaled that selected record. distributedLoadTargetRows are zero-based nativeObjects array offsets, each resolving to its exact target record. Full dependency strings remain in the hash-bound native index; system edges are counted separately."
+}
