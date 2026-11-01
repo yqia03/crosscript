@@ -1,5 +1,9 @@
 # Third-party distribution materials
 
+> **Historical build-input documentation (2026-10-29).** The preparation states below are preserved for traceability. Build 5 is now published as [v0.1.0-preview.5](https://github.com/yqia03/crosscript/releases/tag/v0.1.0-preview.5); second-Mac B01–B06 were **not run** and were explicitly waived on 2026-10-30. See the [current user guide](getting-started.md) / [中文使用说明](getting-started.zh-CN.md) and [user-material verification](release-verification/build5/user-materials.md). This development-branch annotation does not change the frozen tag, source archive, signed App or release assets; future builds must bind their own changed inputs.
+
+> **历史构建输入说明：** 下文保留当时的待发布／待验状态，后续批准与豁免以 Release 为准，不能把未执行改写为通过。
+
 The build 5 companion is **Crosscript-third-party-0.1.0-5-materials-v4.tar.gz**. Its final digest and relationship to the source and App must be recorded in `RELEASE-BINDING.json` and `SHA256SUMS.txt`. This is local release preparation, not public availability or publication approval.
 
 The archive root is `Crosscript-third-party-materials-v4/`. Start with `CURRENT-INDEX.json`, then `current/runtime-artifact-index.json`, `current/component-index.json`, `current/native-index.json` and `current/asset-index.json`. These identify the selected `babeldoc-0.6.4-py312-20261029-arm64-crosscript-v3` bytes. `origin-materials/2026-10-26/` retains historical evidence and sources; its old status fields must not override the current indexes.

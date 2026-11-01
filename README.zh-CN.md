@@ -1,108 +1,55 @@
 # Crosscript
 
-**Translation Workbench for macOS**
+**面向 macOS 的翻译工作台** · [English](README.md)
 
-[English](README.md) · 简体中文
+面向 Apple Silicon Mac 的原生翻译与转写工作台。使用自己的 API Key 翻译文本、Markdown 和 PDF，转写录音并查看实时双语字幕。原始资料与可编辑结果保存在本机；云端处理会把任务所需内容发送给你选择的服务。
 
-面向 Apple Silicon Mac 的原生翻译与转写工作台。使用你自己的 API Key，翻译文本、Markdown 和 PDF，转写录音，并查看实时双语字幕；原始资料与可编辑结果保存在你的 Mac 上。
+**已发布预览版：[0.1.0 build 5 / v0.1.0-preview.5](https://github.com/yqia03/crosscript/releases/tag/v0.1.0-preview.5)。** 本版采用 ad-hoc 完整性签名，未经 Apple 公证，也没有 Developer ID 发行者认证。build 5 第二台 Mac B01–B06 检查**未执行**；维护者于 2026-10-30 明确豁免该门槛并批准发布。豁免不等于安装测试通过。
 
-这是一个从个人日常需求出发、由个人维护的项目，希望也能帮助有相似需求的人。
+## 下载与安装
 
-## 发布状态
+从同版 Release 下载 [Crosscript-preview-0.1.0-5.zip](https://github.com/yqia03/crosscript/releases/download/v0.1.0-preview.5/Crosscript-preview-0.1.0-5.zip)。该 Release 同时提供精确源码归档、第三方源码／构建材料及校验清单。[安装与使用说明](docs/getting-started.zh-CN.md)覆盖校验、首次打开限制、服务配置、历史、导出和卸载。
 
-**0.1.0 预览版正在准备，尚未公开发布，目前没有公开安装包下载。** 项目自有代码采用 AGPL-3.0-only；计划在源码审查、第三方分发材料和普通用户安装验证完成后，将源码与未做 Developer ID 签名／Apple 公证的预览包一起首发。
+- **硬件：** Apple Silicon（arm64），目前没有 Intel 版。
+- **系统目标：** macOS 14.2 或更新；尚未在最低版本 macOS 14.2 实机验证。
+- **界面：** 简体中文与英文。
+- **应用名称：** 下载的包为 `TranslationWorkbench.app`，已签名显示名称为 **翻译工作台**。Crosscript 是项目／发行品牌，内部名称和资料路径仍沿用 TranslationWorkbench。
+- **首次打开：** 用 Finder 解压，将应用放入选定的应用程序目录并正常打开。未公证应用可能被 macOS 阻止；按使用说明中的适用单应用系统流程处理，若出现完整性、恶意软件或损坏提示则停止。
+- **PDF 准备：** App 内置 22 个输入，另有 245 个固定 HTTPS 输入首次下载，共 359,471,768 bytes（约 359 MB）；还需展开、安装和处理空间。Python 由 App 管理，普通用户无需另装 Homebrew、Xcode 或 Python。
 
-当前仓库中的本地开发包不等于正式发行包。待完成事项见[发布准备清单](docs/release-preparation.md)。
+## 四条工作流
 
-预览包计划使用无需开发者证书的 ad-hoc 签名做完整性校验，不提供已验证的发行者身份或 Apple 公证票据。macOS 可能阻止首次打开；届时提供 Apple 官方针对单个应用的“仍要打开”步骤及适用限制，另一台 Mac 的实际安装仍待验证。见 [Apple 说明](https://support.apple.com/en-us/102445)。
-
-## 可以做什么
-
-| 工作流 | 能力 | 服务与使用边界 |
+| 工作流 | 使用与保留结果 | 服务边界 |
 | --- | --- | --- |
-| 文本与 Markdown 翻译 | 原文/译文对照、译文编辑、独立翻译历史、复制、单语及双语 Markdown 导出；共用提示词和术语表。 | 使用设置中的文本默认服务。按翻译按钮或 Enter 明确提交，Shift+Enter 换行；采用非流式请求，收到完整结果后一次展示。 |
-| PDF 翻译 | BabelDOC 驱动的翻译、单语/双语 PDF、预览与导出、工作列表和后台排队，以及分组高级设置。 | 使用所选文本/PDF 服务配置。首次需要下载运行组件；复杂版式和扫描件有适用限制。 |
-| 录音与录后转写 | 麦克风、整台电脑或指定应用声音录制，音频文件导入；转写后可编辑、按可用时间定位回听、保留多个结果并导出。 | 录音保存或导入后，由你主动发起转写。仅提供固定的 OpenAI/AiHubMix 模型预设，每次录音选择一种音源。 |
-| 实时双语字幕 | Gemini Live 原文与译文、独立字幕窗、本地录音、历史编辑及缺口处理入口。 | Gemini Live 单独适配，使用独立的服务配置与密钥。应用显示双语文字，不承诺译文语音播报。 |
+| 文本 / Markdown | 明确提交、原译文对照、编辑、独立历史，导出 TXT、Markdown 或双语 Markdown | 配置的 OpenAI-compatible 文本地址与模型 |
+| PDF 翻译 | BabelDOC 托管运行时、单语／双语 PDF、预览、历史及导出；共用提示词和术语表 | 所选 PDF／文本服务 |
+| 录音与录后转写 | 麦克风或系统声音（含指定应用）、音频导入、编辑、回听及导出；每次录音一种音源 | 固定 OpenAI / AiHubMix 预设，不提供任意音频地址或模型 |
+| 同声传译（实时双语字幕） | Gemini Live 原文与译文、可选独立字幕窗、本地录音及可编辑双语历史 | 单独适配的 Gemini Live 协议与凭据 |
 
-文本与 PDF 共用提示词预设和术语表，可分别选择默认服务。文本翻译独立于后台任务队列；文件处理任务排队执行。源语言可以在本机自动检测，检测本身不会提交翻译。
+先在设置中配置服务与自己的密钥，文本与 PDF 可选不同默认配置。文本翻译使用文本默认服务，按翻译按钮或 Enter 提交，Shift+Enter 换行。打开历史、编辑文字和保存设置本身不提交翻译。文件任务共用后台队列，交互式文本翻译仍可使用。
 
-## 系统要求与首次使用
+## 资料、费用与验证边界
 
-- Apple Silicon Mac（M 系列芯片）；当前不提供 Intel 版本。
-- 当前最低系统目标为 **macOS 14.2+**，但尚未在 macOS 14.2 实机验证，不能据此理解为所有目标系统和依赖均已通过测试。
-- 简体中文、英文界面，可跟随系统或手动切换。
-- 云端翻译和识别需要网络，以及对应服务可用的 API Key 和账户额度。
+密钥存于 macOS 钥匙串。原始录音、导入副本及结果保存在本机，直至你主动删除。明确翻译、转写、连接检查或同传可能向服务商发送内容并产生费用，失败或不完整结果也可能计费。本地保存不等于离线处理；Gemini 即使只在应用显示文字，也可能产生计费音频。发送内容前请核对所选服务的价格、留存政策与账户限制。
 
-运行应用后，先在设置中添加需要的服务：
+| 工作流／平台 | 已有证据与剩余边界 |
+| --- | --- |
+| 文本 / Markdown | 保留现有实现及限定历史检查；OpenAI-compatible 不证明每个服务、模型、参数或语言都已验证。本轮没有新增云端服务验收。 |
+| PDF | 有聚焦离线安装／复用和组件证据，不等于另一台 Mac 冷下载或任意 PDF 质量验证。此前部分完成的 PDF 批次保持停止；扫描图片不会自动获得 OCR，版式、公式和字体可能改变。 |
+| 录后转写 | AiHubMix 有历史真实使用记录；官方 OpenAI 成功转写及各预设时间定位精度尚未全部建立证据。 |
+| Gemini Live | 有短时历史真实服务验证；长会话、真实断线恢复和文件补齐仍有缺口，不声称真实 Gemini 文件补齐成功；不承诺译文语音或固定延迟。 |
+| 全应用／安装 | 许可组件和包装检查只覆盖各自范围。build 5 第二台 Mac B01–B06 未执行且已豁免，不继承 build 4 验收；macOS 14.2 实机与完整工作流验收仍未覆盖。 |
 
-1. **文本/PDF：** 配置服务地址、模型和 API Key，选择文本与 PDF 各自的默认配置。文本页统一使用文本默认服务。
-2. **录后转写：** 选择 OpenAI 或 AiHubMix 的固定预设，保存该服务的密钥。目前预设为 OpenAI `whisper-1`、`gpt-4o-transcribe-diarize`，以及 AiHubMix `whisper-large-v3`、`whisper-large-v3-turbo`、`whisper-1`。
-3. **实时双语字幕：** 单独配置 Gemini Live 的 API Key。文本/PDF 或录后转写的密钥不会自动转用于此服务。
-4. **PDF：** 首次使用时由应用自动准备托管运行环境，显示下载进度并支持失败重试；成功后复用。应用已附带部分字体与运行组件，其余锁定输入首次下载约 **359 MB**；安装和解包还需要额外磁盘空间，普通用户无需手动安装 Python。
+语言菜单不等于逐语言质量保证，初始验证重点为简体中文和英文。此前停止的 PDF 批次、实时／付费探测没有恢复。见 [build 5 当前证据与用户材料范围](docs/release-verification/build5/user-materials.md)。
 
-保存配置本身不会开始录音或发起翻译。录音时根据所选音源授予麦克风或系统音频录制权限；系统声音采集使用 macOS 的屏幕与系统音频录制权限，应用不保留屏幕画面。
+## 源码、贡献与支持
 
-## 资料、密钥与费用
+- [反馈问题／请求帮助](https://github.com/yqia03/crosscript/issues/new)：附应用版本／build、macOS、芯片、工作流、服务／模型和脱敏复现步骤，见[贡献指南](CONTRIBUTING.md)。
+- [私密报告漏洞](https://github.com/yqia03/crosscript/security/advisories/new)：见 [SECURITY.md](SECURITY.md)，不要在公开 issue 贴凭据或可利用的安全细节。
+- 同版提供[精确 build 5 源码](https://github.com/yqia03/crosscript/releases/download/v0.1.0-preview.5/Crosscript-source-0.1.0-5.tar.gz)与[第三方材料](https://github.com/yqia03/crosscript/releases/download/v0.1.0-preview.5/Crosscript-third-party-0.1.0-5-materials-v4.tar.gz)。GitHub 自动生成的源码 ZIP 不替代与 App 绑定的源码归档。
 
-原始录音、导入文件的独立副本及保存的结果由应用在本机保管。你可以重新打开历史、编辑、回听和导出；重新处理音频或 PDF 会保留旧结果及其编辑，文本每次明确提交形成独立历史记录。
+项目由个人维护，不承诺响应时限。开发构建需要 Apple Silicon、Swift 6 与 macOS SDK，见[源码／构建说明](docs/source-and-build.md)和[测试范围](docs/testing.md)。当前文档更新不重建或修改已冻结的 build 5 标签、App 或 28 项资产；其中的历史“待发布”文字按 Release 中后续批准与豁免解释。
 
-**本地保存不等于离线处理。** 当你提交翻译/转写任务或开始实时双语字幕时，相关文字或音频会发送给所选云端服务。PDF 翻译会将提取的文字和相关翻译指令交给所选服务处理。密钥保存在 macOS 钥匙串中，并按服务和连接目标隔离。
+## 许可证
 
-翻译与识别可能产生服务商费用，由你向相应服务商支付，价格、账户限制和内容留存政策由该服务决定。Gemini 实时模型可能生成计费音频，即使应用只显示双语文字，也不能据此理解为没有音频费用。
-
-## 预览版的能力边界
-
-- 文本/PDF 提供 OpenAI-compatible 配置和 DeepSeek 等预设；兼容协议不代表每个服务、模型和参数组合都已验证。
-- 录后转写不提供任意兼容端点或自定义模型入口。AiHubMix 的已有真实使用结果不能代替 OpenAI 官方或所有预设模型的成功验证；段落时间能力也不等于所有语言和模型都达到相同定位精度。
-- Gemini Live 与 OpenAI-compatible 接口分别适配。长会话、真实断线恢复及双语文件补齐仍保留各自的验证缺口；文件补齐尚无真实 Gemini 服务成功记录。
-- 语言菜单的可选项不等于逐语言翻译质量已验证。当前完整验收重点为简体中文和英文。
-- PDF 不保证任意版式、公式或字体无损；纯图片扫描件不会自动获得 OCR 识别。批量 PDF 的完整真实服务流程仍有未完成的验证。
-- 普通用户无开发环境的首次安装、PDF 组件首次准备及最新源码对应的候选验证，仍是公开首发前需要完成的工作。Developer ID 签名与 Apple 公证已不作为本次预览版的条件。
-
-这些边界会随实际验证更新，具体首发条件见[发布准备清单](docs/release-preparation.md)。
-
-## 从源码构建
-
-以下命令面向开发者，在仓库根目录执行。需要 Apple Silicon Mac 和 Swift 6 工具链（Xcode 或相应 Command Line Tools）；开发工具要求与普通用户安装要求不同。
-
-调试构建并启动：
-
-```sh
-bash app/macos/scripts/build-app.sh debug
-open app/macos/.build/app/TranslationWorkbench.app
-```
-
-退出该应用后，可以构建并启动 Release 开发包：
-
-```sh
-WORKBENCH_SIGNING_IDENTITY=- WORKBENCH_SIGNING_KEYCHAIN='' bash app/macos/scripts/build-app.sh release
-open app/macos/.build/app/TranslationWorkbench.app
-```
-
-项目品牌已定为 Crosscript，当前内部构建产物仍名为 `TranslationWorkbench.app`。上述命令显式选择 ad-hoc 签名，不使用本地签名身份或钥匙串。计划中的公开预览包同样使用 ad-hoc 签名，不做 Developer ID 签名或公证，本次发行计划无需加入 Apple Developer Program。ad-hoc 签名不验证发行者身份。
-
-Debug 与 Release 测试入口：
-
-```sh
-bash app/macos/scripts/test.sh -c debug
-bash app/macos/scripts/test.sh -c release
-```
-
-原生 AppKit 用例需要独立进程，真实 PDF bridge 集成测试还需要已准备的托管运行时。完整候选回归使用[隔离回归脚本](scripts/dev/run-final-local-regression.py)，其参数包括固定源码提交、独立输出目录及运行时路径；不能将缺少相关前置条件的通用测试运行视为完整发行验收。
-
-## 反馈与贡献
-
-欢迎提交问题反馈和 PR。项目由个人维护，不承诺响应或修复时限。反馈时请说明系统版本、芯片、工作流、所选服务和模型，以及可复现步骤；公开反馈中请勿附带 API Key 或未经处理的私人录音、文档。
-
-自有代码贡献采用 [AGPL-3.0-only](LICENSE)，具体要求见[贡献指南](CONTRIBUTING.md)。第三方内容保留其原有授权。
-
-## 许可证与第三方组件
-
-Crosscript 自有代码采用 **GNU Affero General Public License v3.0 only（AGPL-3.0-only）**，完整条款见 [LICENSE](LICENSE)。允许在遵守许可证的前提下商用、修改和再分发，不额外禁止出售、商业嵌入、收费服务或捐赠。
-
-分发受许可证约束的作品时，须按规定提供对应源码并保留通知；支持远程网络交互的受约束修改版还须按 AGPL 向相应用户提供获取源码的机会。仅本机私人修改使用本身不要求向公众发布修改。
-
-第三方代码、运行时、模型和字体继续适用各自许可，见[第三方通知与范围](THIRD_PARTY_NOTICES.md)及 [PDF 组件通知](app/macos/Sources/TranslationWorkbench/Resources/PDF/Notices/README.md)。本地 build 5 配套材料已收录匹配源码／构建输入、修改通知和当前索引，包括已批准的字体身份更名与 GMP／ZeroMQ／OpenSSL 受控构建。实际对外获取方式、整包人审和另一台普通 Mac 安装仍是独立门槛，见[分发材料说明](docs/distribution-materials.md)。
-
-已确认公开目标为 [yqia03/crosscript](https://github.com/yqia03/crosscript)。本候选采用 build 5，许可、同版源码和完整材料的[版本入口](docs/source-and-build.md)待发布后生效；当前不声称链接已可访问。旧 build 4 的用户声明验收不替代本候选的新增验证。
+自有代码采用 **AGPL-3.0-only**，见 [LICENSE](LICENSE) 与[贡献条款](CONTRIBUTING.md)。允许遵守许可条件的商用、修改和再分发，并适用对应源码及远程网络交互要求。第三方组件保留各自许可，见[第三方通知](THIRD_PARTY_NOTICES.md)、[PDF 组件声明](app/macos/Sources/TranslationWorkbench/Resources/PDF/Notices/README.md)及[分发材料](docs/distribution-materials.md)。材料可取得不等于每项原生产构建已复现或整栈法律结论。
