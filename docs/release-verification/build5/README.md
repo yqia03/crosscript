@@ -1,8 +1,10 @@
 # Build 5 current evidence index
 
-Reviewed 2026-11-01 for [#7](https://github.com/yqia03/crosscript/issues/7). The published version is [v0.1.0-preview.5](https://github.com/yqia03/crosscript/releases/tag/v0.1.0-preview.5), App **0.1.0 (5)**. The source, selected component materials and preserved release bytes are traceable within the scope below. Publication approval, byte agreement, actual executed tests and remaining evidence limits are separate facts. This index is maintained documentation; the tag, signed App and 28 release assets remain frozen.
+Reviewed 2026-11-01 for [#7](https://github.com/yqia03/crosscript/issues/7), with final [#10 public delivery](public-delivery.md). The published version is [v0.1.0-preview.5](https://github.com/yqia03/crosscript/releases/tag/v0.1.0-preview.5), App **0.1.0 (5)**. The source, selected component materials and preserved release bytes are traceable within the scope below. Publication approval, byte agreement, actual executed tests and remaining evidence limits are separate facts. This index is maintained documentation; the tag, signed App and 28 release assets remain frozen.
 
 For use and installation, start with the [English guide](../../getting-started.md) / [中文使用说明](../../getting-started.zh-CN.md). For unresolved evidence, use the stable IDs in [gaps.md](gaps.md). Audit-ticket closure does not turn those items into passes.
+
+The maintained guides, policies and #2–#10 evidence are delivered on `codex/build5-release-evidence`, awaiting merge to `main`. Existing anonymous `main` page observations do not claim that these revised documents are already merged. The frozen tag/archive still identifies the original build 5 source tree.
 
 ## Current status and evidence routes
 
@@ -16,7 +18,7 @@ For use and installation, start with the [English guide](../../getting-started.m
 | Source/release/material reconciliation | [Reconciliation JSON](source-distribution-verification.json), this index | #7: complete #2-to-#3/#4/#5 joins and correct historical/current interpretation |
 | Final signed App / ZIP binding | [Candidate integrity](candidate-integrity.md), [bounded verification](candidate-integrity-verification.json) | #8: historical clean Release build and exact focused-test scopes, actual package binding and fresh anonymously downloaded App static pass; no full suite, full-App launch or ordinary-Mac acceptance |
 | Installation and compatibility | [Second-Mac status and supplement](second-mac.md), [actual status JSON](second-mac-verification.json), [future template](second-mac-results-template.md) | #9: B01–B06 not run; explicit 2026-10-30 waiver and approval recorded for the exact #8 candidate. All future supplementary cases remain not-run and need a new explicit arrangement; G10/G11 remain |
-| Public recipient access and final follow-through | [Anonymous asset observations](anonymous-assets-verification.json), [#10](https://github.com/yqia03/crosscript/issues/10) | All 28 assets anonymously retrieved and matched on 2026-11-01; #10 consolidates public links, final hashes and continuing gaps |
+| Public recipient access and final follow-through | [Public delivery](public-delivery.md), [final JSON](public-delivery-verification.json), [anonymous assets](anonymous-assets-verification.json) | #10: all 26 payload rows plus index/checksum files, 27 checksum entries and five hosted-name mappings match actual bytes; signed App links and feedback routes observed; G01–G14 each retain a disposition and minimal next action |
 
 The owner's 2026-10-30 publication approval and second-Mac waiver are recorded in the current Release. They supersede earlier publication-pending decisions, without changing any historical test outcome. Build 4 acceptance is never inherited. Stopped PDF batches and live/paid probes remain stopped.
 

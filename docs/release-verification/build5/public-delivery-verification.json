@@ -1,0 +1,514 @@
+{
+  "schema": "crosscript-build5-public-delivery-verification-v1",
+  "checkedAtUTC": "2026-11-01T10:08:35.289440+00:00",
+  "ticket": "https://github.com/yqia03/crosscript/issues/10",
+  "release": "https://github.com/yqia03/crosscript/releases/tag/v0.1.0-preview.5",
+  "scope": "Existing public delivery, actual downloaded bytes, every release-asset row and filename mapping, binding-record reconciliation, dated anonymous endpoint observations and retained evidence gaps. No runtime or universal rights/privacy acceptance.",
+  "source": {
+    "publicCommit": "47c1b0cb53326da4b6590fc873ca91016139d659",
+    "annotatedTagObject": "e8e62031cc9a84934dc1b95e3c2f7bc564e83f95",
+    "buildInputCommit": "2c57e25d44f879904cf4208074ba5bf21a01d8e2",
+    "sharedOriginalTree": "ffa50501cbe21e0c9141d40a912db8e0dd8282bb",
+    "fileManifestSHA256": "4cd184504383e5c5bd085d140c1c16ce1d167d2501e284e6bdbb8dcabe8765f4",
+    "files": 371,
+    "mutuallyExclusiveManifestGroups": {
+      "app": 237,
+      "docs": 8,
+      "root": 7,
+      "scripts": 34,
+      "tests": 85
+    },
+    "developmentEvidenceCommitsAreNotFrozenBuild5Source": true
+  },
+  "assetCheck": {
+    "downloadObservation": "anonymous-assets-verification.json",
+    "observedAtUTC": "2026-11-01T09:31:05.674422+00:00",
+    "all28ActualLocalDigestsRechecked": true,
+    "releaseAssetPayloadRowsMatched": 26,
+    "additionalIndexAndChecksumFilesMatched": 2,
+    "checksumEntriesMatched": 27,
+    "selfChecksum": false,
+    "allRows": [
+      {
+        "downloadName": "APP-MANIFEST.tsv",
+        "manifestName": "APP-MANIFEST.tsv",
+        "releaseAPIAndAnonymousBytesMatch": true,
+        "checksumEntryMatches": true
+      },
+      {
+        "downloadName": "BUILD-EVIDENCE.json",
+        "manifestName": "BUILD-EVIDENCE.json",
+        "releaseAPIAndAnonymousBytesMatch": true,
+        "checksumEntryMatches": true
+      },
+      {
+        "downloadName": "Crosscript-preview-0.1.0-5.zip",
+        "manifestName": "Crosscript-preview-0.1.0-5.zip",
+        "releaseAPIAndAnonymousBytesMatch": true,
+        "checksumEntryMatches": true
+      },
+      {
+        "downloadName": "Crosscript-source-0.1.0-5.tar.gz",
+        "manifestName": "Crosscript-source-0.1.0-5.tar.gz",
+        "releaseAPIAndAnonymousBytesMatch": true,
+        "checksumEntryMatches": true
+      },
+      {
+        "downloadName": "Crosscript-third-party-0.1.0-5-materials-v4.tar.gz",
+        "manifestName": "Crosscript-third-party-0.1.0-5-materials-v4.tar.gz",
+        "releaseAPIAndAnonymousBytesMatch": true,
+        "checksumEntryMatches": true
+      },
+      {
+        "downloadName": "CURRENT-MATERIALS-INDEX.json",
+        "manifestName": "CURRENT-MATERIALS-INDEX.json",
+        "releaseAPIAndAnonymousBytesMatch": true,
+        "checksumEntryMatches": true
+      },
+      {
+        "downloadName": "GENERATOR-TEST-EVIDENCE.json",
+        "manifestName": "GENERATOR-TEST-EVIDENCE.json",
+        "releaseAPIAndAnonymousBytesMatch": true,
+        "checksumEntryMatches": true
+      },
+      {
+        "downloadName": "INSTALL-UNINSTALL-LIMITATIONS.zh-CN.md",
+        "manifestName": "安装卸载与已知限制.md",
+        "releaseAPIAndAnonymousBytesMatch": true,
+        "checksumEntryMatches": true
+      },
+      {
+        "downloadName": "LICENSE-UI-VERIFICATION.json",
+        "manifestName": "LICENSE-UI-VERIFICATION.json",
+        "releaseAPIAndAnonymousBytesMatch": true,
+        "checksumEntryMatches": true
+      },
+      {
+        "downloadName": "MATERIALS-V4-VERIFICATION.json",
+        "manifestName": "MATERIALS-V4-VERIFICATION.json",
+        "releaseAPIAndAnonymousBytesMatch": true,
+        "checksumEntryMatches": true
+      },
+      {
+        "downloadName": "OPENSSL-VERIFICATION.json",
+        "manifestName": "OPENSSL-VERIFICATION.json",
+        "releaseAPIAndAnonymousBytesMatch": true,
+        "checksumEntryMatches": true
+      },
+      {
+        "downloadName": "PACKAGE-INDEPENDENT-REVIEW.json",
+        "manifestName": "PACKAGE-INDEPENDENT-REVIEW.json",
+        "releaseAPIAndAnonymousBytesMatch": true,
+        "checksumEntryMatches": true
+      },
+      {
+        "downloadName": "PACKAGE-METADATA-VERIFICATION.json",
+        "manifestName": "PACKAGE-METADATA-VERIFICATION.json",
+        "releaseAPIAndAnonymousBytesMatch": true,
+        "checksumEntryMatches": true
+      },
+      {
+        "downloadName": "PUBLIC-SOURCE-REVIEW.json",
+        "manifestName": "PUBLIC-SOURCE-REVIEW.json",
+        "releaseAPIAndAnonymousBytesMatch": true,
+        "checksumEntryMatches": true
+      },
+      {
+        "downloadName": "PUBLICATION-PLAN.zh-CN.md",
+        "manifestName": "PUBLICATION-PLAN.zh-CN.md",
+        "releaseAPIAndAnonymousBytesMatch": true,
+        "checksumEntryMatches": true
+      },
+      {
+        "downloadName": "README.md",
+        "manifestName": "README.md",
+        "releaseAPIAndAnonymousBytesMatch": true,
+        "checksumEntryMatches": true
+      },
+      {
+        "downloadName": "README.zh-CN.md",
+        "manifestName": "README.zh-CN.md",
+        "releaseAPIAndAnonymousBytesMatch": true,
+        "checksumEntryMatches": true
+      },
+      {
+        "downloadName": "RELEASE-ASSETS.json",
+        "manifestName": "RELEASE-ASSETS.json",
+        "releaseAPIAndAnonymousBytesMatch": true,
+        "checksumEntryMatches": true
+      },
+      {
+        "downloadName": "RELEASE-BINDING.json",
+        "manifestName": "RELEASE-BINDING.json",
+        "releaseAPIAndAnonymousBytesMatch": true,
+        "checksumEntryMatches": true
+      },
+      {
+        "downloadName": "RELEASE-NOTES.zh-CN.md",
+        "manifestName": "发布说明.md",
+        "releaseAPIAndAnonymousBytesMatch": true,
+        "checksumEntryMatches": true
+      },
+      {
+        "downloadName": "RELEASE-READINESS-build5.zh-CN.md",
+        "manifestName": "发布准备报告-build5.md",
+        "releaseAPIAndAnonymousBytesMatch": true,
+        "checksumEntryMatches": true
+      },
+      {
+        "downloadName": "RUNTIME-VALIDATION-SUMMARY.json",
+        "manifestName": "RUNTIME-VALIDATION-SUMMARY.json",
+        "releaseAPIAndAnonymousBytesMatch": true,
+        "checksumEntryMatches": true
+      },
+      {
+        "downloadName": "SECOND-MAC-CHECKLIST.zh-CN.md",
+        "manifestName": "第二台Mac安装验收清单.md",
+        "releaseAPIAndAnonymousBytesMatch": true,
+        "checksumEntryMatches": true
+      },
+      {
+        "downloadName": "SECOND-MAC-RESULTS-TEMPLATE.zh-CN.md",
+        "manifestName": "安装验收结果模板.md",
+        "releaseAPIAndAnonymousBytesMatch": true,
+        "checksumEntryMatches": true
+      },
+      {
+        "downloadName": "SHA256SUMS.txt",
+        "manifestName": "SHA256SUMS.txt",
+        "releaseAPIAndAnonymousBytesMatch": true,
+        "checksumEntryMatches": false
+      },
+      {
+        "downloadName": "SOURCE-FILES.json",
+        "manifestName": "SOURCE-FILES.json",
+        "releaseAPIAndAnonymousBytesMatch": true,
+        "checksumEntryMatches": true
+      },
+      {
+        "downloadName": "TEST-EVIDENCE.json",
+        "manifestName": "TEST-EVIDENCE.json",
+        "releaseAPIAndAnonymousBytesMatch": true,
+        "checksumEntryMatches": true
+      },
+      {
+        "downloadName": "verify-preview-app.sh",
+        "manifestName": "verify-preview-app.sh",
+        "releaseAPIAndAnonymousBytesMatch": true,
+        "checksumEntryMatches": true
+      }
+    ]
+  },
+  "bindingAssetJoins": [
+    {
+      "record": "RELEASE-BINDING.json#/source/archive",
+      "asset": "Crosscript-source-0.1.0-5.tar.gz",
+      "sha256": "cca34e44250e281e5fc3509610b16a6f0d10259cf5ec50ddc536be08711de291",
+      "matched": true
+    },
+    {
+      "record": "RELEASE-BINDING.json#/source/fileManifest",
+      "asset": "SOURCE-FILES.json",
+      "sha256": "4cd184504383e5c5bd085d140c1c16ce1d167d2501e284e6bdbb8dcabe8765f4",
+      "matched": true
+    },
+    {
+      "record": "RELEASE-BINDING.json#/app/preview",
+      "asset": "Crosscript-preview-0.1.0-5.zip",
+      "sha256": "86b4693ce411664cfe388e29efe09280ec22ab6f696701baf1854d536f590f97",
+      "matched": true
+    },
+    {
+      "record": "RELEASE-BINDING.json#/app/treeManifest",
+      "asset": "APP-MANIFEST.tsv",
+      "sha256": "766edf1577aa1884b7e3b52d390d851ccea011d5b1831f6b5ee2bcdd8e04e90d",
+      "matched": true
+    },
+    {
+      "record": "RELEASE-BINDING.json#/app/verificationHelper",
+      "asset": "verify-preview-app.sh",
+      "sha256": "ec00dd4ab4d507f1c6e8f92bd44973d9b564c1e1d91ed6259795ab6faf2fd24d",
+      "matched": true
+    },
+    {
+      "record": "RELEASE-BINDING.json#/materials/archive",
+      "asset": "Crosscript-third-party-0.1.0-5-materials-v4.tar.gz",
+      "sha256": "25049788ea1f9b1c638164e2743d0089b71d828ce0729c28d02238bfd375cf89",
+      "matched": true
+    },
+    {
+      "record": "RELEASE-BINDING.json#/materials/currentIndex",
+      "asset": "CURRENT-MATERIALS-INDEX.json",
+      "sha256": "05d65f613e87a09b1434466083d3ac191905ca053979f7fd9a2fa76bd4f8dadd",
+      "matched": true
+    },
+    {
+      "record": "PACKAGE-METADATA-VERIFICATION.json#/previewZIP",
+      "asset": "Crosscript-preview-0.1.0-5.zip",
+      "sha256": "86b4693ce411664cfe388e29efe09280ec22ab6f696701baf1854d536f590f97",
+      "matched": true
+    },
+    {
+      "record": "PUBLIC-SOURCE-REVIEW.json#/sourceArchive",
+      "asset": "Crosscript-source-0.1.0-5.tar.gz",
+      "sha256": "cca34e44250e281e5fc3509610b16a6f0d10259cf5ec50ddc536be08711de291",
+      "matched": true
+    },
+    {
+      "record": "MATERIALS-V4-VERIFICATION.json",
+      "asset": "Crosscript-third-party-0.1.0-5-materials-v4.tar.gz",
+      "sha256": "25049788ea1f9b1c638164e2743d0089b71d828ce0729c28d02238bfd375cf89",
+      "matched": true
+    },
+    {
+      "record": "candidate-integrity-verification.json",
+      "asset": "BUILD-EVIDENCE.json",
+      "sha256": "1eb7eb81a08df1cda4340dc6126596f93400f36d2850d2f96f8b52b2c13c44ac",
+      "matched": true
+    },
+    {
+      "record": "candidate-integrity-verification.json",
+      "asset": "TEST-EVIDENCE.json",
+      "sha256": "d42f8e519de0acaf15e83900286f99c2d0985e70c151a2d5cdb47c7d6531cbf3",
+      "matched": true
+    },
+    {
+      "record": "candidate-integrity-verification.json",
+      "asset": "RUNTIME-VALIDATION-SUMMARY.json",
+      "sha256": "2edcd9308e77d2327d88395112214fc9f97c267d7594838f8f8c7445af9c9ab5",
+      "matched": true
+    },
+    {
+      "record": "candidate-integrity-verification.json",
+      "asset": "GENERATOR-TEST-EVIDENCE.json",
+      "sha256": "88d32df6343fa5cfae3e8ebb872fc92cadd7fca3e74581c0e321178c63734139",
+      "matched": true
+    },
+    {
+      "record": "candidate-integrity-verification.json",
+      "asset": "LICENSE-UI-VERIFICATION.json",
+      "sha256": "3fa3913772e7fb595e370156323ee4dcd05a7dd6144c03ce004f3c6a18bd180d",
+      "matched": true
+    },
+    {
+      "record": "candidate-integrity-verification.json",
+      "asset": "PACKAGE-INDEPENDENT-REVIEW.json",
+      "sha256": "2b078421c84d3097d071b28e162d6c760b06a65dca3dc2cf8df1370a89dedab3",
+      "matched": true
+    },
+    {
+      "record": "candidate-integrity-verification.json",
+      "asset": "PACKAGE-METADATA-VERIFICATION.json",
+      "sha256": "4f55e1d408e4a4e9d4f97e573bcacb747de082df442cdcc9db5161da8643fb75",
+      "matched": true
+    },
+    {
+      "record": "candidate-integrity-verification.json",
+      "asset": "PUBLIC-SOURCE-REVIEW.json",
+      "sha256": "205be562b52235b3f0bcccfab9b14fc56ad328d27882d79330b575e346d9efcf",
+      "matched": true
+    },
+    {
+      "record": "candidate-integrity-verification.json",
+      "asset": "RELEASE-BINDING.json",
+      "sha256": "0b45217f7b383a49d0c8c4efe9e5605eb9df096c2433136c9360d98b0c6193b8",
+      "matched": true
+    },
+    {
+      "record": "candidate-integrity-verification.json",
+      "asset": "APP-MANIFEST.tsv",
+      "sha256": "766edf1577aa1884b7e3b52d390d851ccea011d5b1831f6b5ee2bcdd8e04e90d",
+      "matched": true
+    },
+    {
+      "record": "candidate-integrity-verification.json",
+      "asset": "verify-preview-app.sh",
+      "sha256": "ec00dd4ab4d507f1c6e8f92bd44973d9b564c1e1d91ed6259795ab6faf2fd24d",
+      "matched": true
+    },
+    {
+      "record": "candidate-integrity-verification.json",
+      "asset": "SHA256SUMS.txt",
+      "sha256": "737e23802fe25fc2034192e5d658145d448be528797d0bfd4e6dce5ddc56241b",
+      "matched": true
+    },
+    {
+      "record": "candidate-integrity-verification.json",
+      "asset": "Crosscript-preview-0.1.0-5.zip",
+      "sha256": "86b4693ce411664cfe388e29efe09280ec22ab6f696701baf1854d536f590f97",
+      "matched": true
+    },
+    {
+      "record": "candidate-integrity-verification.json",
+      "asset": "Crosscript-source-0.1.0-5.tar.gz",
+      "sha256": "cca34e44250e281e5fc3509610b16a6f0d10259cf5ec50ddc536be08711de291",
+      "matched": true
+    },
+    {
+      "record": "candidate-integrity-verification.json",
+      "asset": "Crosscript-third-party-0.1.0-5-materials-v4.tar.gz",
+      "sha256": "25049788ea1f9b1c638164e2743d0089b71d828ce0729c28d02238bfd375cf89",
+      "matched": true
+    },
+    {
+      "record": "candidate-integrity-verification.json",
+      "asset": "CURRENT-MATERIALS-INDEX.json",
+      "sha256": "05d65f613e87a09b1434466083d3ac191905ca053979f7fd9a2fa76bd4f8dadd",
+      "matched": true
+    }
+  ],
+  "bindingIdentityJoins": {
+    "sourceCommitTreeArchiveManifestAndSignedMetadata": true,
+    "packageZIPAndAppExecutable": true,
+    "materialsArchiveDeliveryIndexInternalChecksums": true,
+    "currentRuntimeIDAndManifest": true,
+    "allFourCurrentIndexDigests": true,
+    "licenseUIFiveSourceInputHashesAgainstSourceManifest": true,
+    "allFiveUILinksAgainstAnonymousObservations": true,
+    "releaseBodySourceArchiveHashesNameMappingsAndWaiver": true,
+    "tagObjectPeeledCommitAndTree": true
+  },
+  "fullByteEvidenceReused": {
+    "source": "baseline-verification.json:371 files",
+    "materialMembers": "materials-byte-verification.json:13199 regular members;13197 delivery-index entries;13198 checksums",
+    "appTree": "candidate-integrity-verification.json:freshStaticObservation;100 files;no launch",
+    "selectedMaterials": "source-distribution-verification.json:all current index/report joins"
+  },
+  "anonymousLinks": {
+    "checkedAtUTC": "2026-11-01T09:31:58.584362+00:00",
+    "method": "Unauthenticated HTTPS GET; no authorization headers or cookies",
+    "checks": [
+      {
+        "url": "https://github.com/yqia03/crosscript",
+        "httpStatus": 200,
+        "curlExit": 0
+      },
+      {
+        "url": "https://github.com/yqia03/crosscript/tree/v0.1.0-preview.5",
+        "httpStatus": 200,
+        "curlExit": 0
+      },
+      {
+        "url": "https://github.com/yqia03/crosscript/blob/v0.1.0-preview.5/LICENSE",
+        "httpStatus": 200,
+        "curlExit": 0
+      },
+      {
+        "url": "https://github.com/yqia03/crosscript/blob/v0.1.0-preview.5/THIRD_PARTY_NOTICES.md",
+        "httpStatus": 200,
+        "curlExit": 0
+      },
+      {
+        "url": "https://github.com/yqia03/crosscript/releases/tag/v0.1.0-preview.5",
+        "httpStatus": 200,
+        "curlExit": 0
+      },
+      {
+        "url": "https://github.com/yqia03/crosscript/issues",
+        "httpStatus": 200,
+        "curlExit": 0
+      },
+      {
+        "url": "https://github.com/yqia03/crosscript/blob/main/CONTRIBUTING.md",
+        "httpStatus": 200,
+        "curlExit": 0
+      }
+    ]
+  },
+  "feedbackEndpointObservation": {
+    "checkedAtUTC": "2026-11-01T10:06:04.016362+00:00",
+    "method": "Unauthenticated HTTPS GET following redirects; no Authorization headers or cookies; no form submission",
+    "checks": [
+      {
+        "url": "https://github.com/yqia03/crosscript/issues/new",
+        "curlExit": 0,
+        "httpStatus": 200,
+        "effectiveURL": "https://github.com/login?return_to=https%3A%2F%2Fgithub.com%2Fyqia03%2Fcrosscript%2Fissues%2Fnew"
+      },
+      {
+        "url": "https://github.com/yqia03/crosscript/security/advisories/new",
+        "curlExit": 0,
+        "httpStatus": 200,
+        "effectiveURL": "https://github.com/login?return_to=https%3A%2F%2Fgithub.com%2Fyqia03%2Fcrosscript%2Fsecurity%2Fadvisories%2Fnew"
+      },
+      {
+        "url": "https://github.com/yqia03/crosscript/blob/main/CONTRIBUTING.md",
+        "curlExit": 0,
+        "httpStatus": 200,
+        "effectiveURL": "https://github.com/yqia03/crosscript/blob/main/CONTRIBUTING.md"
+      }
+    ]
+  },
+  "repositoryEntryPoints": {
+    "checkedAtUTC": "2026-11-01T09:38:53.805201+00:00",
+    "repository": {
+      "description": "Apple Silicon translation workbench for text, PDFs, recordings and live bilingual captions. AGPL-3.0-only.",
+      "full_name": "yqia03/crosscript",
+      "has_issues": true,
+      "homepage": "https://github.com/yqia03/crosscript/releases/tag/v0.1.0-preview.5",
+      "private": false,
+      "topics": [
+        "apple-silicon",
+        "babeldoc",
+        "gemini",
+        "macos",
+        "pdf",
+        "swift",
+        "swiftui",
+        "transcription",
+        "translation"
+      ]
+    },
+    "privateVulnerabilityReporting": {
+      "enabled": true
+    },
+    "reportURL": "https://github.com/yqia03/crosscript/security/advisories/new",
+    "bugURL": "https://github.com/yqia03/crosscript/issues/new",
+    "scope": "Repository description/homepage/topics updated and private vulnerability reporting enabled under #6/#10. No message, advisory or release created."
+  },
+  "frozenRemotePreservation": {
+    "checkedAtUTC": "2026-11-01T10:01:31.251116+00:00",
+    "release": "https://github.com/yqia03/crosscript/releases/tag/v0.1.0-preview.5",
+    "assetCount": 28,
+    "allAssetIdentitiesUnchanged": true,
+    "releaseBodyUnchanged": true,
+    "tagRef": {
+      "sha": "e8e62031cc9a84934dc1b95e3c2f7bc564e83f95",
+      "type": "tag",
+      "url": "https://api.github.com/repos/yqia03/crosscript/git/tags/e8e62031cc9a84934dc1b95e3c2f7bc564e83f95"
+    }
+  },
+  "releaseBodySHA256": "502c740be9a6486c6b2136b1e6db38a6d736300732c601112377959f575e7dd4",
+  "publicationState": {
+    "frozenReleasePublished": true,
+    "currentGuidesAndEvidenceDeliveredOn": "codex/build5-release-evidence integration branch; main merge pending",
+    "currentGuidesObservedOnMain": false,
+    "frozenPreparationFlagsPreserved": true,
+    "build5SecondMac": "B01-B06 not-run; explicitly waived 2026-10-30",
+    "macOS14_2PhysicalTest": "not-run"
+  },
+  "migration": {
+    "dailyDevelopmentAndIssueTracker": "yqia03/crosscript",
+    "oldPrivateRemote": "deleted; confirmed user/tracker fact, not new anonymous verification",
+    "privateRecovery": "nonpublic; selected referenced Git history plus3655 selected regular working files; exact exclusions in baseline.md and G12"
+  },
+  "gapDisposition": {
+    "G01": "retained-bounded-evidence-limit",
+    "G02": "retained-bounded-evidence-limit",
+    "G03": "retained-bounded-evidence-limit",
+    "G04": "retained-bounded-evidence-limit",
+    "G05": "retained-bounded-evidence-limit",
+    "G06": "retained-bounded-evidence-limit",
+    "G07": "retained-bounded-evidence-limit",
+    "G08": "retained-bounded-evidence-limit",
+    "G09": "retained-bounded-evidence-limit",
+    "G10": "retained-not-run-with-explicit-existing-release-waiver",
+    "G11": "retained-bounded-evidence-limit",
+    "G12": "retained-bounded-evidence-limit",
+    "G13": "public-access-and-final-handoff-observed; maintained-document-main-merge-pending; historical-record-scope-retained",
+    "G14": "retained-bounded-evidence-limit"
+  },
+  "futureScope": "Retain limitations. Any frozen source/App/runtime/material-byte change or new publication needs a separately explicit scope, new affected identities and checks. No provider budget, second Mac, rebuild or paused batch authorized here.",
+  "errors": [],
+  "passedForStatedDeliveryScope": true
+}

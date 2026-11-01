@@ -40,7 +40,7 @@ Credentials are stored in macOS Keychain. Original recordings, imported copies a
 | Gemini Live | Short historical real-service validation; long sessions, real reconnection and file-based gap repair retain gaps. No real Gemini file-repair success is claimed. Translated speech and fixed latency are not promised. |
 | Whole app / installation | License-component tests and packaging checks are scoped evidence. Build 5 second-Mac B01–B06 were not run and were waived; build 4 acceptance is not inherited. macOS 14.2 hardware testing and full workflow acceptance remain unverified. |
 
-Language choices are not a per-language quality guarantee; the initial validation focus is English and Simplified Chinese. Stopped PDF batches and live/paid service probes have not resumed. See the [current build 5 evidence index](docs/release-verification/build5/README.md), [bounded gaps](docs/release-verification/build5/gaps.md) and [user-material scope](docs/release-verification/build5/user-materials.md).
+Language choices are not a per-language quality guarantee; the initial validation focus is English and Simplified Chinese. Stopped PDF batches and live/paid service probes have not resumed. See the [current build 5 evidence index](docs/release-verification/build5/README.md), [public delivery and all continuing gaps](docs/release-verification/build5/public-delivery.md), [bounded gaps](docs/release-verification/build5/gaps.md) and [user-material scope](docs/release-verification/build5/user-materials.md).
 
 ## Source, contributions and support
 
