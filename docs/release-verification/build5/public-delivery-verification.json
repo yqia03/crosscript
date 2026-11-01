@@ -485,7 +485,8 @@
     "currentGuidesObservedOnMain": false,
     "frozenPreparationFlagsPreserved": true,
     "build5SecondMac": "B01-B06 not-run; explicitly waived 2026-10-30",
-    "macOS14_2PhysicalTest": "not-run"
+    "macOS14_2PhysicalTest": "not-run",
+    "observationScope": "Historical state at checkedAtUTC; see mainMergeFollowUp for the later authorized main merge."
   },
   "migration": {
     "dailyDevelopmentAndIssueTracker": "yqia03/crosscript",
@@ -510,5 +511,16 @@
   },
   "futureScope": "Retain limitations. Any frozen source/App/runtime/material-byte change or new publication needs a separately explicit scope, new affected identities and checks. No provider budget, second Mac, rebuild or paused batch authorized here.",
   "errors": [],
-  "passedForStatedDeliveryScope": true
+  "passedForStatedDeliveryScope": true,
+  "mainMergeFollowUp": {
+    "checkedAtUTC": "2026-11-01T13:46:33.498469+00:00",
+    "sourceBranch": "codex/build5-release-evidence",
+    "reviewedCommit": "2e90ef64ae4a5a26e254703209add483c2e5a6b3",
+    "previousMainCommit": "47c1b0cb53326da4b6590fc873ca91016139d659",
+    "targetBranch": "main",
+    "method": "fast-forward with expected-head check; no force update",
+    "remoteMainCommitObserved": "2e90ef64ae4a5a26e254703209add483c2e5a6b3",
+    "verification": "After the GitHub ref update succeeded, git fetch origin confirmed origin/main at the reviewed commit; the clean local main was fast-forwarded to the same commit.",
+    "scope": "Main branch delivery of the reviewed documentation and evidence. Earlier anonymous observations and technical test limits remain unchanged; no new build, release, App execution or provider request."
+  }
 }

@@ -4,7 +4,7 @@ Reviewed 2026-11-01 for [#7](https://github.com/yqia03/crosscript/issues/7), wit
 
 For use and installation, start with the [English guide](../../getting-started.md) / [中文使用说明](../../getting-started.zh-CN.md). For unresolved evidence, use the stable IDs in [gaps.md](gaps.md). Audit-ticket closure does not turn those items into passes.
 
-The maintained guides, policies and #2–#10 evidence are delivered on `codex/build5-release-evidence`, awaiting merge to `main`. Existing anonymous `main` page observations do not claim that these revised documents are already merged. The frozen tag/archive still identifies the original build 5 source tree.
+The maintained guides, policies and #2–#10 evidence were merged into `main` on 2026-11-01 by fast-forwarding to reviewed commit [`2e90ef6`](https://github.com/yqia03/crosscript/commit/2e90ef64ae4a5a26e254703209add483c2e5a6b3). The later merge verification is recorded separately in [public delivery](public-delivery-verification.json); earlier anonymous page observations retain their original scope. The frozen tag/archive still identifies the original build 5 source tree.
 
 ## Current status and evidence routes
 
