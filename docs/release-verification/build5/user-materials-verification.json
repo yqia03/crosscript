@@ -1,0 +1,236 @@
+{
+  "schema": "crosscript-build5-user-materials-v1",
+  "checkedDate": "2026-11-01",
+  "release": "https://github.com/yqia03/crosscript/releases/tag/v0.1.0-preview.5",
+  "scope": "Documentation and historical isolated-component image/sample audit; no production App launch, rebuild, provider request or second-Mac test.",
+  "frozenInputs": [
+    {
+      "path": "app/macos/Sources/TranslationWorkbench/LicenseNotices.swift",
+      "sha256": "be2f23debe5221015bb84a2d3e068cb24eb15f021dce9ef94021eb53e2bac725",
+      "matchesReleasedVerification": true
+    },
+    {
+      "path": "app/macos/Sources/WorkbenchCore/AppLanguage.swift",
+      "sha256": "930a20b5ccd4eafcf77fbba130b7af1759f2108294e3d7ac2370d9d72470005e",
+      "matchesReleasedVerification": true
+    },
+    {
+      "path": "LICENSE",
+      "sha256": "d8a6cc31abc16b6748c7a21f21611f5a1ec33f67d22ca23d7da1c19b95496bee",
+      "matchesReleasedVerification": true
+    },
+    {
+      "path": "THIRD_PARTY_NOTICES.md",
+      "sha256": "6ee9cb4c8ed971b230b91b4f99b862c39b075ebdd660f4515eb8be0d2725dc34",
+      "matchesReleasedVerification": true
+    }
+  ],
+  "licenseUIVerificationAsset": {
+    "name": "LICENSE-UI-VERIFICATION.json",
+    "sha256": "3fa3913772e7fb595e370156323ee4dcd05a7dd6144c03ce004f3c6a18bd180d",
+    "recordedAtUTC": "2026-10-29T16:32:36.798432+00:00",
+    "scope": "Actual component and real language module in isolated helper, not production App startup/full workflow/second-Mac validation."
+  },
+  "screenshots": [
+    {
+      "path": "images/en-default-top.png",
+      "sourceEvidencePath": "run-final-normal/images/en-default-top.png",
+      "originalSHA256": "7ddbe3db8778dec1d5b056d40d623a561fd0216f25f1ee9fdc0fa7d4b1686708",
+      "sha256": "26a51ecbe8e54be47c5d0364c7971c82c9f3c25fa93507c05c357e5d5b2cc92a",
+      "bytes": 285301,
+      "disposition": "Published lossless metadata-sanitized derivative of the historical screenshot, not a new screenshot or exact-file copy.",
+      "decodedPixelSHA256": "36dac36b4c95df4193484d77f1fa75ac5c60ae2ef4e426e1ead430596645e090",
+      "decodedPixelsEqual": true,
+      "compressedImageDataEqual": true,
+      "iccProfile": {
+        "originalSHA256": "f9812403f10ba90aee698c58537167ef26d4ff7067844aaba287a1aec5936e3e",
+        "sanitizedSHA256": "c4cfa84771ac80bc8fdadd819834375a1c49659d252bcdc83a493367ffd1863f",
+        "bytes": 4064,
+        "changes": "Zeroed proprietary mmod device-identifying payload after its type/reserved bytes; zeroed profile ID (already zero in input). All other profile bytes and every other tag payload unchanged.",
+        "allColorTransformTagBytesEqual": true,
+        "unchangedTagNames": [
+          "desc",
+          "dscm",
+          "cprt",
+          "wtpt",
+          "rXYZ",
+          "gXYZ",
+          "bXYZ",
+          "rTRC",
+          "aarg",
+          "vcgt",
+          "ndin",
+          "vcgp",
+          "bTRC",
+          "gTRC",
+          "aabg",
+          "aagg"
+        ]
+      },
+      "removedChunkTypes": [
+        "eXIf"
+      ],
+      "remainingChunkTypes": [
+        "IDAT",
+        "IEND",
+        "IHDR",
+        "cICP",
+        "iCCP",
+        "pHYs"
+      ],
+      "visualReview": "Final metadata-sanitized image inspected: readable EN/ZH license component and five public URLs, unchanged historical publication-pending wording; no visible private text, credential or machine path.",
+      "scope": "Actual isolated license component with real language module; not production App startup, workflow demo or second-Mac installation."
+    },
+    {
+      "path": "images/zh-default-top.png",
+      "sourceEvidencePath": "run-final-normal/images/zh-default-top.png",
+      "originalSHA256": "2ca77ec16157fe5dbc8bb3027f1ccffba0c8790c48592394fa1216324d5180d0",
+      "sha256": "abfc81d360e60218f9ef1cd78ad3c4c057ea73b1a1f2d48f65832bf74a0d9352",
+      "bytes": 295381,
+      "disposition": "Published lossless metadata-sanitized derivative of the historical screenshot, not a new screenshot or exact-file copy.",
+      "decodedPixelSHA256": "ac57d1d16db46ce88a0192ab8f54ae52ca8de19210f104cbd7c31693a0251182",
+      "decodedPixelsEqual": true,
+      "compressedImageDataEqual": true,
+      "iccProfile": {
+        "originalSHA256": "f9812403f10ba90aee698c58537167ef26d4ff7067844aaba287a1aec5936e3e",
+        "sanitizedSHA256": "c4cfa84771ac80bc8fdadd819834375a1c49659d252bcdc83a493367ffd1863f",
+        "bytes": 4064,
+        "changes": "Zeroed proprietary mmod device-identifying payload after its type/reserved bytes; zeroed profile ID (already zero in input). All other profile bytes and every other tag payload unchanged.",
+        "allColorTransformTagBytesEqual": true,
+        "unchangedTagNames": [
+          "desc",
+          "dscm",
+          "cprt",
+          "wtpt",
+          "rXYZ",
+          "gXYZ",
+          "bXYZ",
+          "rTRC",
+          "aarg",
+          "vcgt",
+          "ndin",
+          "vcgp",
+          "bTRC",
+          "gTRC",
+          "aabg",
+          "aagg"
+        ]
+      },
+      "removedChunkTypes": [
+        "eXIf"
+      ],
+      "remainingChunkTypes": [
+        "IDAT",
+        "IEND",
+        "IHDR",
+        "cICP",
+        "iCCP",
+        "pHYs"
+      ],
+      "visualReview": "Final metadata-sanitized image inspected: readable EN/ZH license component and five public URLs, unchanged historical publication-pending wording; no visible private text, credential or machine path.",
+      "scope": "Actual isolated license component with real language module; not production App startup, workflow demo or second-Mac installation."
+    }
+  ],
+  "syntheticSample": {
+    "path": "tests/fixtures/pdf/synthetic-one-page.pdf",
+    "sha256": "02f4f326897d1e154b5d527bf6e6edf8eea1bfd657d41b5dad388a37697a30cd",
+    "bytes": 745,
+    "generator": "scripts/pdf/generate_synthetic_fixture.py",
+    "regeneratedByteIdentically": true,
+    "content": "Three original test sentences; base Helvetica reference only; no author/embedded metadata, image, embedded font or imported source.",
+    "provenance": "Authored for release preparation 2026-10-26; AGPL-3.0-only per generator and fixture README.",
+    "translationOrRenderingAcceptance": false
+  },
+  "pdfManifest": {
+    "path": "app/macos/Sources/TranslationWorkbench/Resources/PDF/runtime-manifest.json",
+    "id": "babeldoc-0.6.4-py312-20261029-arm64-crosscript-v3",
+    "inputs": 267,
+    "bundledInputs": 22,
+    "httpsInputs": 245,
+    "httpsBytes": 359471768
+  },
+  "repositoryEntryPoints": {
+    "checkedAtUTC": "2026-11-01T09:38:53.805201+00:00",
+    "repository": {
+      "description": "Apple Silicon translation workbench for text, PDFs, recordings and live bilingual captions. AGPL-3.0-only.",
+      "full_name": "yqia03/crosscript",
+      "has_issues": true,
+      "homepage": "https://github.com/yqia03/crosscript/releases/tag/v0.1.0-preview.5",
+      "private": false,
+      "topics": [
+        "apple-silicon",
+        "babeldoc",
+        "gemini",
+        "macos",
+        "pdf",
+        "swift",
+        "swiftui",
+        "transcription",
+        "translation"
+      ]
+    },
+    "privateVulnerabilityReporting": {
+      "enabled": true
+    },
+    "reportURL": "https://github.com/yqia03/crosscript/security/advisories/new",
+    "bugURL": "https://github.com/yqia03/crosscript/issues/new",
+    "scope": "Repository description/homepage/topics updated and private vulnerability reporting enabled under #6/#10. No message, advisory or release created."
+  },
+  "anonymousAvailability": {
+    "linksCheckedAtUTC": "2026-11-01T09:31:58.584362+00:00",
+    "checks": [
+      {
+        "url": "https://github.com/yqia03/crosscript",
+        "httpStatus": 200,
+        "curlExit": 0
+      },
+      {
+        "url": "https://github.com/yqia03/crosscript/tree/v0.1.0-preview.5",
+        "httpStatus": 200,
+        "curlExit": 0
+      },
+      {
+        "url": "https://github.com/yqia03/crosscript/blob/v0.1.0-preview.5/LICENSE",
+        "httpStatus": 200,
+        "curlExit": 0
+      },
+      {
+        "url": "https://github.com/yqia03/crosscript/blob/v0.1.0-preview.5/THIRD_PARTY_NOTICES.md",
+        "httpStatus": 200,
+        "curlExit": 0
+      },
+      {
+        "url": "https://github.com/yqia03/crosscript/releases/tag/v0.1.0-preview.5",
+        "httpStatus": 200,
+        "curlExit": 0
+      },
+      {
+        "url": "https://github.com/yqia03/crosscript/issues",
+        "httpStatus": 200,
+        "curlExit": 0
+      },
+      {
+        "url": "https://github.com/yqia03/crosscript/blob/main/CONTRIBUTING.md",
+        "httpStatus": 200,
+        "curlExit": 0
+      }
+    ],
+    "assetsCheckedAtUTC": "2026-11-01T09:31:05.674422+00:00",
+    "assetCount": 28,
+    "allDownloadedAssetsMatchReleaseAPI": true,
+    "source": "Root verification observations copied into this scoped record; not a new UI/support-form submission."
+  },
+  "notRun": [
+    "Production App startup or workflow demo",
+    "Build 5 second-Mac B01–B06 (waived 2026-10-30)",
+    "macOS 14.2 physical device check",
+    "Live/paid provider probes and stopped PDF batch",
+    "Uninstall/deletion or secure-erasure verification"
+  ],
+  "appleFirstOpenReference": {
+    "url": "https://support.apple.com/en-us/102445",
+    "rootCheckedDate": "2026-11-01",
+    "sourcePageDate": "2026-05-27",
+    "scope": "Root checked official Apple guidance: per-app Open Anyway after a first opening attempt under Privacy & Security, only for trustworthy/untampered apps; damaged/malware alerts remain distinct. No local flow executed."
+  }
+}

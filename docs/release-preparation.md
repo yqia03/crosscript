@@ -1,5 +1,9 @@
 # Preview release acceptance gates
 
+> **Historical build-input documentation (2026-10-29).** The preparation states below are preserved for traceability. Build 5 is now published as [v0.1.0-preview.5](https://github.com/yqia03/crosscript/releases/tag/v0.1.0-preview.5); second-Mac B01–B06 were **not run** and were explicitly waived on 2026-10-30. See the [current user guide](getting-started.md) / [中文使用说明](getting-started.zh-CN.md) and [user-material verification](release-verification/build5/user-materials.md). This development-branch annotation does not change the frozen tag, source archive, signed App or release assets; future builds must bind their own changed inputs.
+
+> **历史构建输入说明：** 下文保留当时的待发布／待验状态，后续批准与豁免以 Release 为准，不能把未执行改写为通过。
+
 The planned first release is Crosscript 0.1.0 preview with all four workflows: text/Markdown, PDF translation, recording with post-recording transcription, and live bilingual captions. Own code remains AGPL-3.0-only; compliant commercial use is allowed. Third-party licenses remain unchanged.
 
 The preview uses ad-hoc signing and is not Developer ID signed, notarized or stapled. Apple Developer Program enrollment is not a prerequisite. Minimum macOS 14.2 remains a declared target with validation on that exact OS still deferred.

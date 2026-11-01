@@ -1,5 +1,9 @@
 # Crosscript source and build materials
 
+> **Historical build-input documentation (2026-10-29).** The preparation states below are preserved for traceability. Build 5 is now published as [v0.1.0-preview.5](https://github.com/yqia03/crosscript/releases/tag/v0.1.0-preview.5); second-Mac B01–B06 were **not run** and were explicitly waived on 2026-10-30. See the [current user guide](getting-started.md) / [中文使用说明](getting-started.zh-CN.md) and [user-material verification](release-verification/build5/user-materials.md). This development-branch annotation does not change the frozen tag, source archive, signed App or release assets; future builds must bind their own changed inputs.
+
+> **历史构建输入说明：** 下文保留当时的待发布／待验状态，后续批准与豁免以 Release 为准，不能把未执行改写为通过。
+
 Preparation status, 2026-10-29: this is the build 5 candidate, with approved App source-access links and controlled OpenSSL 3.6.0 replacement preparation. The confirmed destination is https://github.com/yqia03/crosscript. This candidate is not published; the links below become available only when the matching source and release are published. Final hashes and checks belong in RELEASE-BINDING.json. A missing page before publication is not a working download.
 
 Crosscript's own code is licensed under AGPL-3.0-only. The release must provide this project's exact source, integration modifications, necessary build/install scripts, and the applicable third-party source and notice materials together with the matching preview. See [distribution materials](distribution-materials.md), [third-party notices](../THIRD_PARTY_NOTICES.md) and [release gates](release-preparation.md). A version label alone does not bind an executable to its source.
