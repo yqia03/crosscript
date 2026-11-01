@@ -1,0 +1,14 @@
+{
+  "checkedAtUTC": "2026-11-01T09:31:31.674980+00:00",
+  "archive": "Crosscript-third-party-0.1.0-5-materials-v4.tar.gz",
+  "archiveSHA256": "25049788ea1f9b1c638164e2743d0089b71d828ce0729c28d02238bfd375cf89",
+  "archiveFiles": 13199,
+  "archiveFileBytes": 2017283447,
+  "indexedFiles": 13197,
+  "checksumEntries": 13198,
+  "expandedCopyMatchesArchive": true,
+  "deliveryIndexSHA256": "d68f75de5d32638b38010f6b381aea779c6b6704f00cf5e45140ae4442caebe4",
+  "internalChecksumsSHA256": "a744209c0d7176e7d3298a24f23d09d2145ca41c1f85d1d3e1197da7f5e2792c",
+  "errors": [],
+  "scope": "Every regular archive member hashed against existing expanded copy; complete indexed members checked against DELIVERY-INDEX and SHA256SUMS. No build or legal conclusion."
+}

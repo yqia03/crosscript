@@ -1,5 +1,7 @@
 # Build 5 native distribution and recipient materials
 
+[Current evidence index](README.md) · [Bounded gaps and next actions](gaps.md)
+
 Evidence review for [#4](https://github.com/yqia03/crosscript/issues/4), checked 2026-11-01 against the [build 5 baseline](baseline.md). The selected native bytes and their delivered source/notice/build records can be joined without changing the release. This review establishes distribution membership and the stated evidence strengths; it does not certify every original producer build, every static dependency or every replacement operation.
 
 Use the published [materials archive](https://github.com/yqia03/crosscript/releases/download/v0.1.0-preview.5/Crosscript-third-party-0.1.0-5-materials-v4.tar.gz), SHA-256 `25049788ea1f9b1c638164e2743d0089b71d828ce0729c28d02238bfd375cf89`. Paths below are relative to its `Crosscript-third-party-materials-v4/` root. Start at `CURRENT-INDEX.json`, then `current/native-index.json` (SHA-256 `7ddc87660bda36fc8cf80c14c29e5ae5641d37dcf66689b7810b3d06d4e1d3de`). Historical files under `origin-materials/2026-10-26/` supply retained evidence, not current selection authority.

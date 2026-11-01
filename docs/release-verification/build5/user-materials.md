@@ -1,5 +1,7 @@
 # Build 5 user materials and public entry points
 
+[Current evidence index](README.md) · [Bounded gaps and next actions](gaps.md)
+
 Checked 2026-11-01 for [issue #6](https://github.com/yqia03/crosscript/issues/6). Current user entry points are the [English README](../../../README.md), [中文首页](../../../README.zh-CN.md), [English use guide](../../getting-started.md) and [中文使用说明](../../getting-started.zh-CN.md). The public version is [v0.1.0-preview.5](https://github.com/yqia03/crosscript/releases/tag/v0.1.0-preview.5), App **0.1.0 (5)**.
 
 ## Published state and identity

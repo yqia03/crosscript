@@ -1,5 +1,7 @@
 # Build 5 models, fonts and data
 
+[Current evidence index](README.md) · [Bounded gaps and next actions](gaps.md)
+
 Evidence for [#5](https://github.com/yqia03/crosscript/issues/5), checked 2026-11-01 against the [build 5 baseline](baseline.md). The published [v0.1.0-preview.5 materials archive](https://github.com/yqia03/crosscript/releases/download/v0.1.0-preview.5/Crosscript-third-party-0.1.0-5-materials-v4.tar.gz) is SHA-256 `25049788ea1f9b1c638164e2743d0089b71d828ce0729c28d02238bfd375cf89`. Within it, select `CURRENT-INDEX.json` and `current/`; origin records retain their historical scope. Own code is AGPL-3.0-only; these assets retain their own terms.
 
 [assets-verification.json](assets-verification.json) records fresh read-only checks of actual payloads, reference targets and content. All 182 assets join by path, size and SHA-256 between `current/asset-index.json`, `current/runtime-manifest.json`, the delivered material payload and the preserved build 5 installed runtime. Every referenced license/source file was opened and hash/size checked: 165 unique targets, none missing. The 20 bundled fonts also match the actual preview ZIP. The baseline's complete archive-member comparison binds these expanded material files to the public archive; this check does not rely only on declared counts. No App, translator, preparation tool, paid service or font build was executed.
