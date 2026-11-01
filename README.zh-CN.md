@@ -42,7 +42,7 @@
 
 语言菜单不等于逐语言质量保证，初始验证重点为简体中文和英文。此前停止的 PDF 批次、实时／付费探测没有恢复。见 [build 5 当前证据与用户材料范围](docs/release-verification/build5/user-materials.md)。
 
-[Build 5 当前证据总索引](docs/release-verification/build5/README.md)与[有界证据缺口](docs/release-verification/build5/gaps.md)汇总源码、组件材料、历史记录及后续核验范围。
+[Build 5 当前证据总索引](docs/release-verification/build5/README.md)、[公开交付与全部后续缺口](docs/release-verification/build5/public-delivery.md)及[有界证据缺口](docs/release-verification/build5/gaps.md)汇总源码、组件材料、历史记录及后续核验范围。
 
 ## 源码、贡献与支持
 
