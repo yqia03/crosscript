@@ -4,7 +4,7 @@
 
 A native translation and transcription workbench for Apple Silicon Macs. Bring your own API keys to translate text, Markdown and PDFs, transcribe recordings, and follow live bilingual captions. Original materials and editable results stay on your Mac; cloud processing sends the content needed for a task to your selected service.
 
-**Preview candidate: 0.1.0 build 6 / `v0.1.0-preview.6`.** Publication and validation results will be recorded on the [matching Release](https://github.com/yqia03/crosscript/releases/tag/v0.1.0-preview.6). Download links become available when it is published. This preview uses ad-hoc integrity signing without Developer ID publisher authentication or Apple notarization.
+**Released preview: [0.1.0 build 6 / v0.1.0-preview.6](https://github.com/yqia03/crosscript/releases/tag/v0.1.0-preview.6).** The Release provides three downloads; [build 6 delivery verification](docs/release-verification/build6/README.md) records the source and package checks. This preview uses ad-hoc integrity signing without Developer ID publisher authentication or Apple notarization.
 
 ## Download and install
 

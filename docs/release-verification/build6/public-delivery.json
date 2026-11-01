@@ -1,0 +1,31 @@
+{
+  "verifiedAtUTC": "2026-11-01T14:38:35.908266+00:00",
+  "releaseURL": "https://github.com/yqia03/crosscript/releases/tag/v0.1.0-preview.6",
+  "tag": "v0.1.0-preview.6",
+  "publishedAtUTC": "2026-11-01T14:38:10Z",
+  "draft": false,
+  "prerelease": true,
+  "manualUploadAssetCount": 3,
+  "anonymousDownloads": [
+    {
+      "name": "Crosscript-preview-0.1.0-6.dmg",
+      "status": 200,
+      "url": "https://github.com/yqia03/crosscript/releases/download/v0.1.0-preview.6/Crosscript-preview-0.1.0-6.dmg",
+      "contentLength": "178740373"
+    },
+    {
+      "name": "Crosscript-preview-0.1.0-6.zip",
+      "status": 200,
+      "url": "https://github.com/yqia03/crosscript/releases/download/v0.1.0-preview.6/Crosscript-preview-0.1.0-6.zip",
+      "contentLength": "169789789"
+    },
+    {
+      "name": "Crosscript-materials-0.1.0-6.tar.gz",
+      "status": 200,
+      "url": "https://github.com/yqia03/crosscript/releases/download/v0.1.0-preview.6/Crosscript-materials-0.1.0-6.tar.gz",
+      "contentLength": "1836551350"
+    }
+  ],
+  "allRemoteAssetDigestsMatch": true,
+  "sourceCommit": "2ec554556c8dd8f4ec022352b6064f4c0987737f"
+}

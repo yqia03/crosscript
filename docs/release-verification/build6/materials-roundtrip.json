@@ -1,0 +1,9 @@
+{
+  "status": "passed",
+  "archive": "Crosscript-materials-0.1.0-6.tar.gz",
+  "members": 20,
+  "allNestedArchiveAndEvidenceDigestsMatch": true,
+  "sourceCommit": "2ec554556c8dd8f4ec022352b6064f4c0987737f",
+  "sourceArchiveSHA256": "981817ff9bf0f8ea76eb5a9e6dbf6428b27ab113c13974429e520bc0cbcbd2fe",
+  "thirdPartyArchiveSHA256": "25049788ea1f9b1c638164e2743d0089b71d828ce0729c28d02238bfd375cf89"
+}

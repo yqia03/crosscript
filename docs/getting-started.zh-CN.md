@@ -2,7 +2,7 @@
 
 [English](getting-started.md) · [项目首页](../README.zh-CN.md) · [Release](https://github.com/yqia03/crosscript/releases/tag/v0.1.0-preview.6)
 
-本说明对应 Apple Silicon 预览候选版 **0.1.0 (6)**。下载在同版 Release 发布后生效，发布与验证结果请查看该页面。显示名称仍为 **翻译工作台**，包／可执行文件沿用 `TranslationWorkbench`，Bundle ID 为 `dev.uown.translation-workbench`，现有资料路径和钥匙串名称保持一致。
+本说明对应已发布的 Apple Silicon 预览版 **0.1.0 (6)**。同版 Release 提供 DMG、App ZIP 和可选的完整材料，实际检查结果见[交付核验](release-verification/build6/README.md)。显示名称仍为 **翻译工作台**，包／可执行文件沿用 `TranslationWorkbench`，Bundle ID 为 `dev.uown.translation-workbench`，现有资料路径和钥匙串名称保持一致。
 
 ## 下载、校验与打开
 

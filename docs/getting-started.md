@@ -2,7 +2,7 @@
 
 [简体中文](getting-started.zh-CN.md) · [Project overview](../README.md) · [Release](https://github.com/yqia03/crosscript/releases/tag/v0.1.0-preview.6)
 
-This guide describes the Apple Silicon preview candidate **0.1.0 (6)**. Its downloads become available when the matching Release is published; check that page for publication and validation results. The display name remains **翻译工作台**, the bundle/executable is `TranslationWorkbench`, and the bundle ID is `dev.uown.translation-workbench`. Existing data paths and Keychain names stay the same.
+This guide describes the released Apple Silicon preview **0.1.0 (6)**. The matching Release provides the DMG, App ZIP and optional complete materials; see [delivery verification](release-verification/build6/README.md) for the actual checks. The display name remains **翻译工作台**, the bundle/executable is `TranslationWorkbench`, and the bundle ID is `dev.uown.translation-workbench`. Existing data paths and Keychain names stay the same.
 
 ## Download, check and open
 

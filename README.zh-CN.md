@@ -4,7 +4,7 @@
 
 面向 Apple Silicon Mac 的原生翻译与转写工作台。使用自己的 API Key 翻译文本、Markdown 和 PDF，转写录音并查看实时双语字幕。原始资料与可编辑结果保存在本机；云端处理会把任务所需内容发送给你选择的服务。
 
-**预览候选版：0.1.0 build 6 / `v0.1.0-preview.6`。** 发布与验证结果以[同版 Release](https://github.com/yqia03/crosscript/releases/tag/v0.1.0-preview.6)为准，下载链接在发布后生效。本预览版采用 ad-hoc 完整性签名，没有 Developer ID 发行者认证或 Apple 公证。
+**已发布预览版：[0.1.0 build 6 / v0.1.0-preview.6](https://github.com/yqia03/crosscript/releases/tag/v0.1.0-preview.6)。** Release 提供三项下载，[build 6 交付核验](docs/release-verification/build6/README.md)记录源码与安装包检查结果。本预览版采用 ad-hoc 完整性签名，没有 Developer ID 发行者认证或 Apple 公证。
 
 ## 下载与安装
 
