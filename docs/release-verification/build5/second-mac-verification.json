@@ -1,0 +1,108 @@
+{
+  "schema": "crosscript-build5-second-mac-status-v1",
+  "recordedDate": "2026-11-01",
+  "ticket": "https://github.com/yqia03/crosscript/issues/9",
+  "release": "https://github.com/yqia03/crosscript/releases/tag/v0.1.0-preview.5",
+  "publicationDecision": {
+    "date": "2026-10-30",
+    "decision": "release-approved",
+    "secondMacGate": "owner-explicitly-waived",
+    "source": "Current Release: 发布决定与实际测试状态",
+    "knowledge": "OpenSSL replaced; build4 acceptance not inherited"
+  },
+  "actualExecution": {
+    "B01": "not-run",
+    "B02": "not-run",
+    "B03": "not-run",
+    "B04": "not-run",
+    "B05": "not-run",
+    "B06": "not-run"
+  },
+  "identity": {
+    "version": "0.1.0",
+    "build": "5",
+    "tag": "v0.1.0-preview.5",
+    "publicRoot": "47c1b0cb53326da4b6590fc873ca91016139d659",
+    "buildInput": "2c57e25d44f879904cf4208074ba5bf21a01d8e2",
+    "originalSourceTree": "ffa50501cbe21e0c9141d40a912db8e0dd8282bb",
+    "sourceFiles": 371,
+    "sourceArchiveSHA256": "cca34e44250e281e5fc3509610b16a6f0d10259cf5ec50ddc536be08711de291",
+    "executableSHA256": "da0e75ea0c65631cdf43d64e90b3f6a82f97d3482d4a8521ed14437f9f8ff41d",
+    "runtimeID": "babeldoc-0.6.4-py312-20261029-arm64-crosscript-v3",
+    "runtimeManifestSHA256": "2fce7f0f1a5c1ef758d59e6ae7b529e8d953920baed9f6561f71a3ec2aeea64b",
+    "sourceReconciliation": "source-distribution-verification.json",
+    "materialsReconciliation": "materials-byte-verification.json",
+    "bundleID": "dev.uown.translation-workbench",
+    "archive": {
+      "filename": "Crosscript-preview-0.1.0-5.zip",
+      "sha256": "86b4693ce411664cfe388e29efe09280ec22ab6f696701baf1854d536f590f97",
+      "bytes": 169789128,
+      "members": 127,
+      "crcPassed": true,
+      "extras": {
+        "count": 127,
+        "only": "0x5855 length8; atime/mtime only",
+        "uidGidOrComments": false
+      },
+      "fullFilePayloadsMatchBuiltAndExtractedApp": true
+    },
+    "appManifestSHA256": "766edf1577aa1884b7e3b52d390d851ccea011d5b1831f6b5ee2bcdd8e04e90d",
+    "OpenCVWheelSHA256": "4f8048e641ec2a06c70e1e092cd4271ebd5cf94d9311b3125992dcc5efa8638d",
+    "libcryptoSHA256": "13aa519f1e6d13d3eb3968448e1166e5de03b70fa7b4ec5282e5c21318ab855e",
+    "libsslSHA256": "a2bdd0fd427991bdf846b87f1af9f697c6fae9f208accdb9dfad142b958b319d"
+  },
+  "frozenInstructions": [
+    {
+      "filename": "SECOND-MAC-CHECKLIST.zh-CN.md",
+      "sha256": "707580df467c1d48d63d5c78f86ac358de39f1842fac8214f109208763303cd4",
+      "changed": false,
+      "executionEvidence": false
+    },
+    {
+      "filename": "SECOND-MAC-RESULTS-TEMPLATE.zh-CN.md",
+      "sha256": "baac35e1043148d5291f4e5eae9b2dc19c3958aefbd9c5369fb5c30befcd2109",
+      "changed": false,
+      "executionEvidence": false
+    }
+  ],
+  "releaseBodyObservation": {
+    "date": "2026-11-01",
+    "sha256": "502c740be9a6486c6b2136b1e6db38a6d736300732c601112377959f575e7dd4",
+    "note": "Dated local snapshot of mutable Release body; frozen assets not rewritten"
+  },
+  "future": {
+    "authorized": false,
+    "scheduled": false,
+    "requiresNewExplicitArrangement": true,
+    "blocksExistingPublishedBuild5": false,
+    "results": {
+      "S01": "not-run",
+      "S02": "not-run",
+      "S03": "not-run",
+      "S04": "not-run",
+      "S05": "not-run",
+      "S06": "not-run",
+      "S07": "not-run",
+      "S08": "not-run",
+      "S09": "not-run"
+    },
+    "template": "second-mac-results-template.md"
+  },
+  "boundaries": {
+    "build4AcceptanceInherited": false,
+    "freshStaticPassIsSecondMacPass": false,
+    "macOS14_2Physical": "not-run",
+    "ordinaryMacColdHTTPS": "not-run",
+    "cloudProviderAcceptance": "not-run",
+    "stoppedPDFOrLivePaidProbesResumed": false,
+    "oldBudgetsInherited": false,
+    "frozenAssetsChanged": false,
+    "newAppBuildTestsOrDeviceInteraction": false
+  },
+  "retainedGaps": [
+    "G10",
+    "G11",
+    "G14"
+  ],
+  "handoff": "second-mac.md#retained-limits-and-follow-through"
+}
