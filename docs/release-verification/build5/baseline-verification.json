@@ -2,7 +2,7 @@
   "schema": "crosscript-build5-baseline-verification-v1",
   "checkedAtUTC": "2026-11-01T09:31:19.532637+00:00",
   "method": "Read-only local hash/size checks against current Release API digests; exact source archive/manifest/release checkout comparison; indexed material members compared from archive; ZIP Info.plist read directly. No App launch/build/service request.",
-  "releaseCommit": "e8e62031cc9a84934dc1b95e3c2f7bc564e83f95",
+  "releaseCommit": "47c1b0cb53326da4b6590fc873ca91016139d659",
   "releaseTree": "ffa50501cbe21e0c9141d40a912db8e0dd8282bb",
   "assets": [
     {
@@ -190,5 +190,7 @@
   },
   "runtimeManifestSHA256": "2fce7f0f1a5c1ef758d59e6ae7b529e8d953920baed9f6561f71a3ec2aeea64b",
   "coverageSHA256": "c767558cf95f3e5bdfd10d2e75400dcb865d4c7bed932c0aa42d5c4c46b20bbc",
-  "passed": true
+  "passed": true,
+  "releaseTagObject": "e8e62031cc9a84934dc1b95e3c2f7bc564e83f95",
+  "releaseIdentityCorrection": "2026-11-01: original releaseCommit value was the annotated tag object, not its peeled commit; git cat-file and rev-parse tag^{} verified the distinction. Frozen release bytes unchanged."
 }

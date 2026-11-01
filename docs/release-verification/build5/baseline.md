@@ -1,5 +1,7 @@
 # Build 5 baseline and recovery record
 
+[Current evidence index](README.md) · [Bounded gaps and next actions](gaps.md)
+
 Evidence review for [#2](https://github.com/yqia03/crosscript/issues/2), checked 2026-11-01. The baseline is the already published [v0.1.0-preview.5](https://github.com/yqia03/crosscript/releases/tag/v0.1.0-preview.5), not a new candidate or version. This record adds evidence; it changes no frozen App, runtime, source archive or release asset.
 
 The Release records publication on 2026-10-30 and the owner's explicit waiver of build 5 second-Mac B01–B06. Those checks were **not run**. Frozen preparation records retain their earlier `pending`, `readyForPublication=false` and unpublished wording. Publication authorization, public availability and technical test results remain separate facts.

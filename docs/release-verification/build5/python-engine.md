@@ -1,5 +1,7 @@
 # Build 5 Python and PDF engine source record
 
+[Current evidence index](README.md) · [Bounded gaps and next actions](gaps.md)
+
 Evidence for [#3](https://github.com/yqia03/crosscript/issues/3), checked 2026-11-01 against the published [v0.1.0-preview.5](https://github.com/yqia03/crosscript/releases/tag/v0.1.0-preview.5). The selected runtime is `babeldoc-0.6.4-py312-20261029-arm64-crosscript-v3`. Exact package bytes, editable sources, notices and build entry points can be identified and obtained. This review verifies those associations within the stated scope; it does not establish whole-stack license compliance, original native build reproduction or ordinary-Mac installation.
 
 ## Recipient access and selection

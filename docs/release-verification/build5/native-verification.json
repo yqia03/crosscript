@@ -23,8 +23,9 @@
   "selectedWheel": {
     "path": "current/openssl/artifacts/opencv_python_headless-5.0.0.93-3crosscriptopenssl-cp37-abi3-macosx_14_0_arm64.whl",
     "sha256": "4f8048e641ec2a06c70e1e092cd4271ebd5cf94d9311b3125992dcc5efa8638d",
-    "nativeMembers": 0,
-    "allNativeMembersMatchIndexAndInstalledBytes": true
+    "nativeMembers": 100,
+    "allNativeMembersMatchIndexAndInstalledBytes": true,
+    "countCorrection": "2026-11-01: read-only Mach-O/fat magic enumeration of all selected wheel regular members confirmed 100, correcting the compact report counter 0; original prose and member/installed-byte evidence were already scoped to 100. No payload change."
   },
   "materialStatusCounts": {
     "standalone-python-native-inputs-and-notices-present": 11,
