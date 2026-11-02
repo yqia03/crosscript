@@ -6,6 +6,7 @@ import WorkbenchCore
 
 enum MicrophoneDeviceError: LocalizedError {
     case unavailable, routeChanged, bindingFailed, permission, active, destination, stopped
+    case invalidFormat, captureFailed(String)
 
     var errorDescription: String? {
         switch self {
@@ -15,6 +16,10 @@ enum MicrophoneDeviceError: LocalizedError {
             return AppLanguage.current.text("麦克风已断开或音频输入发生变化，采集已停止，已保存音频保留在历史中。请重新选择音源后开始新的录音。", "The microphone disconnected or its input changed. Capture stopped and saved audio remains in history. Select an audio source before starting a new recording.")
         case .bindingFailed:
             return AppLanguage.current.text("无法连接所选麦克风，录音未开始。请检查设备后重试。", "Could not bind the selected microphone. Recording did not start. Check the device and try again.")
+        case .invalidFormat:
+            return AppLanguage.current.text("麦克风返回了无法保存的音频格式，采集已停止；此前保存的音频仍保留。", "The microphone returned an unsupported audio format. Capture stopped; previously saved audio is retained.")
+        case .captureFailed(let detail):
+            return AppLanguage.current.text("麦克风采集失败，已停止；此前保存的音频仍保留。", "Microphone capture failed and stopped; previously saved audio is retained.") + (detail.isEmpty ? "" : "\n" + detail)
         case .permission:
             return AppLanguage.current.text("请在系统设置的隐私与安全性中允许访问麦克风，然后重新开始录音。", "Allow microphone access in System Settings → Privacy & Security, then start recording again.")
         case .active:
@@ -80,20 +85,6 @@ enum CoreAudioMicrophoneDevices {
     static func defaultInput() -> AudioInputDevice? {
         let id = scalar(AudioObjectID(kAudioObjectSystemObject), kAudioHardwarePropertyDefaultInputDevice)
         return inputs().first { $0.id == id }?.device
-    }
-
-    static func bind(_ unit: AudioUnit, to device: AudioInputDevice) throws {
-        guard var id = inputs().first(where: { $0.device.uid == device.uid })?.id else { throw MicrophoneDeviceError.unavailable }
-        // This changes only this engine's AUHAL. Never write the system default.
-        let status = AudioUnitSetProperty(unit, kAudioOutputUnitProperty_CurrentDevice, kAudioUnitScope_Global, 0, &id, UInt32(MemoryLayout<AudioDeviceID>.size))
-        guard status == noErr, currentUID(unit) == device.uid else { throw MicrophoneDeviceError.bindingFailed }
-    }
-
-    static func currentUID(_ unit: AudioUnit) -> String? {
-        var id = AudioDeviceID(0)
-        var size = UInt32(MemoryLayout<AudioDeviceID>.size)
-        guard AudioUnitGetProperty(unit, kAudioOutputUnitProperty_CurrentDevice, kAudioUnitScope_Global, 0, &id, &size) == noErr else { return nil }
-        return string(id, kAudioDevicePropertyDeviceUID)
     }
 
     private static func scalar(_ id: AudioObjectID, _ selector: AudioObjectPropertySelector) -> UInt32 {
