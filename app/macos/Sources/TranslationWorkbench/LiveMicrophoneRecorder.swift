@@ -19,6 +19,7 @@ import WorkbenchCore
     private var isPaused = false
     private var savedDuration: TimeInterval = 0
     var currentTime: TimeInterval { writer?.snapshot.0 ?? savedDuration }
+    var capturedInputDevice: AudioInputDevice? { capture == nil ? nil : selectedDevice }
     var power: Float { writer?.snapshot.1 ?? -160 }
 
     init(devices: MicrophoneDeviceCatalog = .system,

@@ -17,6 +17,8 @@ public struct Recording: Identifiable, Codable, Equatable {
     public let startedAt: Date
     public let defaultName: String
     public let source: AudioSource
+    /// Confirmed physical input; `source` still records default versus explicit selection.
+    public var capturedInputDevice: AudioInputDevice?
     public var importedExtension: String? = nil
     public var isImported: Bool { importedExtension != nil }
     public var name: String
@@ -40,7 +42,7 @@ public struct Recording: Identifiable, Codable, Equatable {
     }
 
     private enum CodingKeys: String, CodingKey {
-        case id, startedAt, defaultName, source, name, duration, status, interruptionReason, importedExtension, workflow
+        case id, startedAt, defaultName, source, capturedInputDevice, name, duration, status, interruptionReason, importedExtension, workflow
     }
 
     public init(from decoder: any Decoder) throws {
@@ -49,6 +51,7 @@ public struct Recording: Identifiable, Codable, Equatable {
         startedAt = try values.decode(Date.self, forKey: .startedAt)
         defaultName = try values.decode(String.self, forKey: .defaultName)
         source = try values.decodeIfPresent(AudioSource.self, forKey: .source) ?? .microphone
+        capturedInputDevice = try values.decodeIfPresent(AudioInputDevice.self, forKey: .capturedInputDevice)
         importedExtension = try values.decodeIfPresent(String.self, forKey: .importedExtension)
         name = try values.decode(String.self, forKey: .name)
         duration = try values.decode(TimeInterval.self, forKey: .duration)
@@ -61,6 +64,7 @@ public struct Recording: Identifiable, Codable, Equatable {
 }
 
 @MainActor public protocol AudioRecording: AnyObject {
+    var capturedInputDevice: AudioInputDevice? { get }
     var currentTime: TimeInterval { get }
     var power: Float { get }
     var onFailure: ((Error) -> Void)? { get set }
@@ -74,6 +78,7 @@ public struct Recording: Identifiable, Codable, Equatable {
 }
 
 public extension AudioRecording {
+    var capturedInputDevice: AudioInputDevice? { nil }
     var onLiveAudioFailure: (@Sendable (Error) -> Void)? {
         get { nil }
         set { }

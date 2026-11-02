@@ -12,7 +12,7 @@ struct MicrophoneDeviceTests {
     // offline suite never opens a microphone or asks for permission.
     @Test(.enabled(if: ProcessInfo.processInfo.environment["WORKBENCH_NATIVE_MICROPHONE"] == "1"), arguments: [false, true])
     func nativeBuiltInInputSavesAndReopensAcrossRepeatedStarts(live: Bool) async throws {
-        #expect(AVCaptureDevice.authorizationStatus(for: .audio) == .authorized)
+        try #require(AVCaptureDevice.authorizationStatus(for: .audio) == .authorized)
         let input = try #require(CoreAudioMicrophoneDevices.inputs().first { input in
             var address = AudioObjectPropertyAddress(mSelector: kAudioDevicePropertyTransportType,
                 mScope: kAudioObjectPropertyScopeGlobal, mElement: kAudioObjectPropertyElementMain)
@@ -49,6 +49,7 @@ struct MicrophoneDeviceTests {
             let recording = try #require(session.selectedRecording)
             #expect(recording.status == .saved)
             #expect(recording.source == .microphoneDevice(input.device))
+            #expect(recording.capturedInputDevice == input.device)
             #expect(try AudioFileInspection.duration(at: session.audioURL(for: recording.id)) > 0.5)
             if live { #expect(chunks.byteCount > pausedBytes) }
             let reopened = RecordingSession(store: RecordingStore(root: root), recorder: SourceRecorder())
@@ -58,6 +59,23 @@ struct MicrophoneDeviceTests {
             try player.load(reopened.audioURL(for: recording.id))
             #expect(player.duration > 0.5)
         }
+    }
+
+    @Test func defaultSelectionRetainsItsConfirmedInputWhenReopened() async throws {
+        let fixture = try MicrophoneFixture()
+        defer { fixture.cleanUp() }
+        let session = RecordingSession(store: RecordingStore(root: fixture.root), recorder: SourceRecorder(liveMicrophone: fixture.recorder))
+        #expect(session.configureLiveAudio { _ in })
+        await session.start(workflow: .liveTranslation)
+        try #require(session.isRecording)
+        fixture.hardware.emitSpeech()
+        session.stop()
+        let reopened = RecordingSession(store: RecordingStore(root: fixture.root), recorder: SourceRecorder(liveMicrophone: fixture.recorder))
+        reopened.activateWorkflow(.liveTranslation)
+        let recording = try #require(reopened.selectedRecording)
+        #expect(recording.source == .microphone)
+        let encoded = try #require(JSONSerialization.jsonObject(with: JSONEncoder().encode(recording)) as? [String: Any])
+        #expect((encoded["capturedInputDevice"] as? [String: String])?["uid"] == fixture.other.uid)
     }
 
     @Test(arguments: [false, true])
@@ -83,6 +101,7 @@ struct MicrophoneDeviceTests {
         session.stop()
         let recording = try #require(session.selectedRecording)
         #expect(recording.source == source)
+        #expect(recording.capturedInputDevice == fixture.selected)
         #expect(recording.duration == 0.2)
         #expect(try AudioFileInspection.duration(at: session.audioURL(for: recording.id)) == 0.2)
         let reopened = RecordingSession(store: RecordingStore(root: fixture.root), recorder: router)
