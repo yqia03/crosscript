@@ -5,6 +5,45 @@ import Testing
 import WorkbenchCore
 
 @Suite(.serialized) @MainActor struct BilingualHistoryLayoutTests {
+    @Test func emptyGapHistoryKeepsEditorFocusAndSelectionWhenResized() async throws {
+        _ = NSApplication.shared
+        enableHostAccessibility()
+        let fixture = try HistoryFixture(variant: "no-text-gap")
+        defer { fixture.clean() }
+        fixture.state.reopen(try #require(fixture.results.load(fixture.id).first))
+        let preferences = UserDefaults(suiteName: "LiveHistoryFocus." + UUID().uuidString)!
+        preferences.set("zhHans", forKey: "interfaceLanguage")
+        let host = NSHostingView(rootView: fixture.view(done: {}).defaultAppStorage(preferences))
+        let window = NSWindow(contentRect: NSRect(x: 0, y: 0, width: 760, height: 640), styleMask: [], backing: .buffered, defer: false)
+        window.contentView = host
+        defer { window.contentView = nil }
+        await NativeViewTestSupport.settle(host)
+        window.recalculateKeyViewLoop()
+        let editors = descendants(host).compactMap { $0 as? NSTextView }.filter(\.isEditable)
+        #expect(editors.count == 2 && editors.allSatisfy { $0.string.isEmpty })
+        let source = try #require(editors.first)
+        #expect(window.makeFirstResponder(source))
+        source.insertText("Retained source draft", replacementRange: NSRange(location: 0, length: 0))
+        source.setSelectedRange(NSRange(location: 3, length: 4))
+        await NativeViewTestSupport.settle(host)
+        let history = fixture.state.history(recordingID: fixture.id, store: fixture.results)
+        #expect(history.sourceText == "Retained source draft")
+        for width: CGFloat in [560, 760] {
+            window.setContentSize(NSSize(width: width, height: 640)); host.frame.size = NSSize(width: width, height: 640)
+            await NativeViewTestSupport.settle(host)
+            window.recalculateKeyViewLoop()
+            #expect(window.firstResponder === source && source.window === window,
+                    "Changing history columns keeps the user's active editor")
+            #expect(source.selectedRange() == NSRange(location: 3, length: 4),
+                    "Changing history columns keeps the user's text selection")
+            #expect(history.sourceText == "Retained source draft")
+            #expect(descendants(host).compactMap { $0 as? NSTextView }.filter(\.isEditable).count == 2)
+        }
+        #expect(history.selected?.document.source.missingIntervals.count == 1)
+        #expect(history.selected?.document.translation.missingIntervals.count == 1)
+        #expect(!window.isVisible && !window.isKeyWindow)
+        #expect(fixture.recorder.starts == 0 && fixture.credentials.reads == 0 && fixture.repair.tasks.isEmpty)
+    }
     @Test func currentRecordingHistoryKeepsContentsClearOfBothScrollerStyles() async throws {
         _ = NSApplication.shared
         let preferences = UserDefaults(suiteName: "BilingualHistoryLayout." + UUID().uuidString)!
@@ -251,13 +290,17 @@ import WorkbenchCore
             try store.saveTranscription(JSONDecoder().decode(TranscriptionMaterial.self, from: legacy), for: id)
         }
         processing = PostRecordingSession(recordings: recordings, store: store, credentials: credentials, service: LiveHistoryService())
-        if ["no-text", "multi-gap"].contains(variant) {
+        if ["no-text", "no-text-gap", "multi-gap"].contains(variant) {
             for _ in 0..<(variant == "multi-gap" ? 3 : 1) {
                 var document = BilingualTranscriptDocument()
                 if variant == "multi-gap" {
                     document.append(String(repeating: "Controlled long source text 中文.\n", count: 30), channel: .source, eventID: "source", elapsedMilliseconds: 0, connectionStartFrame: 0)
                     document.append(String(repeating: "受控长译文 Controlled translation.\n", count: 30), channel: .translation, eventID: "translation", elapsedMilliseconds: 0, connectionStartFrame: 0)
                     document.addMissing([.init(startFrame: 24_000, endFrame: 48_000)], channel: .translation)
+                }
+                if variant == "no-text-gap" {
+                    document.addMissing([.init(startFrame: 0, endFrame: 41_216)], channel: .source)
+                    document.addMissing([.init(startFrame: 0, endFrame: 41_216)], channel: .translation)
                 }
                 document.finish()
                 try results.publish(BilingualResult(recordingID: id, configuration: .init(provider: .gemini), direction: .englishToChinese, document: document))
@@ -266,7 +309,7 @@ import WorkbenchCore
         if variant == "read-error" {
             try Data("not valid history JSON".utf8).write(to: store.audioURL(for: id).deletingLastPathComponent().appendingPathComponent("bilingual-results.json"))
         }
-        repair = BilingualRepairSession(recordings: recordings, results: results, journal: BilingualRepairStore(recordings: store), credentials: credentials, service: UnavailableBilingualRepair(), gate: BackgroundProcessingGate())
+        repair = BilingualRepairSession(recordings: recordings, results: results, journal: BilingualRepairStore(recordings: store), credentials: credentials, service: variant == "no-text-gap" ? HistoryAllowedRepair() : UnavailableBilingualRepair(), gate: BackgroundProcessingGate())
     }
     func view(done: @escaping () -> Void) -> BilingualRecordingHistoryView {
         .init(session: recordings, processing: processing, bilingual: state, playback: playback, bilingualStore: results, bilingualRepair: repair, done: done)
@@ -305,4 +348,13 @@ private struct LiveHistoryService: FileTranscribing, TextTranslating, ProviderCo
     func append(_ chunk: LiveAudioChunk) async throws { throw AudioProcessingError.processing }
     func finishInput() async throws { throw AudioProcessingError.processing }
     func close() {}
+}
+
+private struct HistoryAllowedRepair: BilingualIntervalRepairing {
+    func supports(configuration: AudioServiceConfiguration, direction: TextTranslationDirection) -> Bool { true }
+    func repair(audio: URL, interval: MissingInterval, channel: BilingualChannel,
+                configuration: AudioServiceConfiguration, direction: TextTranslationDirection,
+                apiKey: String) async throws -> TranscriptDocument {
+        Issue.record("Opening history must not submit repair"); throw AudioProcessingError.processing
+    }
 }
