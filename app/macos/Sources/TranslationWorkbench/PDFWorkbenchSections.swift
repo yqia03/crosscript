@@ -1,34 +1,72 @@
 import SwiftUI
 import WorkbenchCore
 
+/// Shared by the PDF sheet and global history; opening only changes the current
+/// import list and selection, never the retained files or processing tasks.
 @MainActor struct PDFHistorySection: View {
     @ObservedObject var session: PDFTranslationSession
     let open: (UUID) -> Void
     @AppStorage("interfaceLanguage") private var preference = "system"
     private var language: AppLanguage { AppLanguage(preference: preference) }
     var body: some View {
-        VStack(alignment: .leading, spacing: 12) {
+        LazyVStack(alignment: .leading, spacing: 12) {
             Text(language.text("\(session.materials.count) 份 PDF", "\(session.materials.count) PDF materials")).font(.caption).foregroundStyle(.secondary)
             if session.materials.isEmpty {
-                Text(language.text("导入的 PDF 和翻译结果会保存在这里。", "Imported PDFs and translation results will appear here.")).foregroundStyle(.secondary).padding(18)
+                VStack(spacing: 12) {
+                    Image(systemName: "doc.richtext").font(.system(size: 30)).foregroundStyle(.secondary)
+                    Text(language.text("还没有 PDF 历史", "No PDF history yet")).font(.headline)
+                    Text(language.text("导入的 PDF 和翻译结果会保存在这里。", "Imported PDFs and translation results will appear here."))
+                        .font(.callout).foregroundStyle(.secondary).multilineTextAlignment(.center)
+                }.frame(maxWidth: .infinity).padding(36).glassCard()
+                    .modifier(HistoryGeometryObservation(name: "pdf.empty"))
             }
             ForEach(session.materials.sorted { $0.updatedAt > $1.updatedAt }) { material in
-                Button { session.open(material.id); open(material.id) } label: {
-                    HStack(spacing: 15) {
-                        Image(systemName: "doc.richtext").font(.title2)
-                        VStack(alignment: .leading, spacing: 6) {
-                            Text(material.name).font(.headline).lineLimit(2)
-                            Text(language.text("\(material.results.count) 份独立 PDF 结果", "\(material.results.count) independent PDF results")).font(.caption).foregroundStyle(.secondary)
-                            if let metadata = session.sourceMetadata[material.id] {
-                                Text(language.text("\(metadata.pageCount) 页", "\(metadata.pageCount) pages") + " · " + ByteCountFormatter.string(fromByteCount: metadata.byteCount, countStyle: .file)).font(.caption).foregroundStyle(.secondary)
-                            }
-                            if session.pendingSaveIDs.contains(material.id) { Text(language.text("结果待本地保存", "Result needs local save")).font(.caption).foregroundStyle(.orange) }
+                HStack(spacing: 15) {
+                    Image(systemName: "doc.richtext").font(.system(size: 20)).foregroundStyle(.tint)
+                        .frame(width: 43, height: 48).background(.tint.opacity(0.07), in: RoundedRectangle(cornerRadius: 13))
+                    VStack(alignment: .leading, spacing: 6) {
+                        Text(material.name).font(.system(size: 15, weight: .semibold)).lineLimit(2).help(material.name)
+                        Text(language.text("\(material.results.count) 份独立 PDF 结果", "\(material.results.count) independent PDF results")).font(.caption).foregroundStyle(.secondary)
+                            .accessibilityIdentifier("pdf-history-results-" + material.id.uuidString)
+                        if let metadata = session.sourceMetadata[material.id] {
+                            Text(language.text("\(metadata.pageCount) 页", "\(metadata.pageCount) pages") + " · " + ByteCountFormatter.string(fromByteCount: metadata.byteCount, countStyle: .file))
+                                .font(.caption).foregroundStyle(.secondary)
+                                .accessibilityIdentifier("pdf-history-metadata-" + material.id.uuidString)
                         }
-                        Spacer(minLength: 0); Image(systemName: "chevron.right")
-                    }.frame(maxWidth: .infinity, alignment: .leading).contentShape(Rectangle())
-                }.buttonStyle(.plain).padding(18).glassCard()
+                        if session.pendingSaveIDs.contains(material.id) {
+                            Text(language.text("结果待本地保存", "Result needs local save")).font(.caption).foregroundStyle(.orange)
+                                .accessibilityIdentifier("pdf-history-pending-" + material.id.uuidString)
+                        }
+                    }.frame(maxWidth: .infinity, alignment: .leading)
+                    Button { session.open(material.id); open(material.id) } label: {
+                        Label(language.text("打开", "Open"), systemImage: "arrow.up.forward")
+                    }.buttonStyle(WorkbenchCompactButtonStyle())
+                        .accessibilityIdentifier("pdf-history-open-" + material.id.uuidString)
+                        .accessibilityLabel(language.text("打开 PDF：", "Open PDF: ") + material.name)
+                }.padding(18).frame(maxWidth: .infinity, alignment: .leading).glassCard()
+                    .modifier(HistoryGeometryObservation(name: "pdf." + material.id.uuidString))
             }
-        }
+        }.historyScrollGutter()
+            .onChange(of: session.materials.map(\.id), initial: true) { _, _ in session.prepareHistoryMetadata() }
+    }
+}
+
+@MainActor struct PDFHistoryView: View {
+    @ObservedObject var session: PDFTranslationSession
+    let close: () -> Void
+    @AppStorage("interfaceLanguage") private var preference = "system"
+    private var language: AppLanguage { AppLanguage(preference: preference) }
+    var body: some View {
+        VStack(alignment: .leading, spacing: 16) {
+            HStack {
+                Text(language.text("PDF 历史记录", "PDF history")).font(.title2)
+                Spacer(minLength: 12)
+                Button(language.text("完成", "Done"), action: close)
+                    .buttonStyle(WorkbenchCompactButtonStyle()).keyboardShortcut(.cancelAction)
+                    .accessibilityIdentifier("pdf-history-done")
+            }
+            ScrollView { PDFHistorySection(session: session) { _ in close() }.padding(2) }
+        }.padding(24).frame(minWidth: 460, idealWidth: 700, minHeight: 420, idealHeight: 640)
     }
 }
 

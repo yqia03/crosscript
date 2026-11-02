@@ -60,6 +60,8 @@ The manifest has 267 pinned inputs: 22 bundled inputs (20 renamed fonts and two 
 
 In the next build from this source, a new PDF form selects both translated and bilingual PDFs by default. Select either output alone when needed, then choose an available output to preview or export it individually. Navigation and a new PDF project keep your current output, layout and watermark choices. Existing tasks and history retries keep their saved choices; older records without output settings still mean bilingual output. “New project” (or Command-N while the PDF workspace is active) opens an empty import list without deleting history, discarding pending saves or cancelling running/queued tasks. Those tasks remain available from background tasks; completed work and earlier delayed imports stay in history until you explicitly reopen them. New project does not translate, import or prepare components again.
 
+In that build, PDF history opens in a dialog. Done or Escape returns to the current list and settings. Open adds the saved material to the list once, selects its existing source/results and closes history without submitting translation. Browsing history keeps pending saves and background tasks.
+
 File processing tasks queue with at most one background task running; interactive text translation is independent. A new provider request may cost money. Opening history, editing text and local save/export do not by themselves submit a new translation.
 
 ## Known limits and support

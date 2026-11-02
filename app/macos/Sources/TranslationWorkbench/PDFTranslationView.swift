@@ -13,10 +13,10 @@ private typealias PDFViewState<Value> = SwiftUI.State<Value>
     var runtimeReady = true
     var runtime: PDFRuntimePreparationSession? = nil
     @AppStorage("interfaceLanguage") private var languageChoice = "system"
-    @StateObject private var commands = MenuCommandBarrier()
+    @StateObject private var history = PDFHistoryPresentation()
+    private var commands: MenuCommandBarrier { history.commands }
     @StateObject private var draft: PDFSubmissionDraft
     @StateObject private var outputSelection = PDFOutputSelection()
-    @PDFViewState private var showsHistory = false
     @PDFViewState private var workspaceWidth: CGFloat = 900
     @PDFViewState<String?> private var resourceError = nil
     private var language: AppLanguage { AppLanguage(preference: languageChoice) }
@@ -35,7 +35,8 @@ private typealias PDFViewState<Value> = SwiftUI.State<Value>
         VStack(alignment: .leading, spacing: 16) {
             header
             if !session.pendingSaveIDs.isEmpty {
-                Button(t("重试保存（不再次翻译）", "Retry save (no new translation)")) { _ = session.retrySaving() }.buttonStyle(.bordered)
+                Button(t("重试保存（不再次翻译）", "Retry save (no new translation)")) { commands.perform { _ = session.retrySaving() } }
+                    .buttonStyle(.bordered).disabled(!history.canPerformWorkspaceCommands)
             }
             if let error = session.error, session.workspaceIssues.isEmpty {
                 Text(error.description(language)).foregroundStyle(.red).fixedSize(horizontal: false, vertical: true)
@@ -45,24 +46,22 @@ private typealias PDFViewState<Value> = SwiftUI.State<Value>
                     .fixedSize(horizontal: false, vertical: true)
             }
             if let resourceError { Text(resourceError).font(.callout).foregroundStyle(.red).fixedSize(horizontal: false, vertical: true) }
-            // Keep the native controls and their scroll/disclosure state alive
-            // while the history subpage covers this workspace.
-            workspace
-                .frame(height: showsHistory ? 0 : nil, alignment: .top).clipped()
-                .opacity(showsHistory ? 0 : 1).allowsHitTesting(!showsHistory).accessibilityHidden(showsHistory)
-            if showsHistory {
-                PDFHistorySection(session: session) { _ in showHistory(false) }
-            }
+            // A sheet keeps native controls, disclosure/scroll positions and the
+            // retained submission draft in the existing workspace.
+            workspace.disabled(!history.canPerformWorkspaceCommands)
         }
         .environment(\.menuCommandBarrier, commands)
-        .focusedSceneValue(\.newProjectCommand, NewProjectCommand(isEnabled: !showsHistory && session.deletionConfirmation == nil, perform: newProject))
-        .onDisappear { commands.deactivate() }
+        .focusedSceneValue(\.newProjectCommand, NewProjectCommand(isEnabled: history.canPerformWorkspaceCommands && session.deletionConfirmation == nil, perform: newProject))
+        .onDisappear { history.deactivateWorkspace() }
         .onAppear {
-            commands.activate()
+            history.activateWorkspace()
             draft.initializeDefaults(profileID: providers.defaults.pdfID, resourceSelection: resources?.selection(for: .pdf) ?? .init())
             draft.reconcileProviders(providers.profiles)
         }
         .onChange(of: providers.profiles) { _, profiles in draft.reconcileProviders(profiles) }
+        .sheet(isPresented: Binding(get: { history.isPresented }, set: { if !$0 { history.dismiss() } }), onDismiss: history.didDismiss) {
+            PDFHistoryView(session: session, close: history.dismiss)
+        }
         .sheet(item: Binding(get: { session.deletionConfirmation }, set: { if $0 == nil { session.cancelDeletion() } })) { confirmation in
             deletionSheet(confirmation)
         }
@@ -74,39 +73,35 @@ private typealias PDFViewState<Value> = SwiftUI.State<Value>
         }
     }
     private var heading: some View {
-        Text(showsHistory ? t("PDF 历史", "PDF history") : t("PDF 翻译", "PDF translation"))
+        Text(t("PDF 翻译", "PDF translation"))
             .font(.system(size: 25, weight: .semibold))
     }
     private var headerActions: some View {
         HStack(spacing: 9) {
-            if showsHistory {
-                Button { showHistory(false) } label: { Label(t("返回 PDF 翻译", "Back to PDF translation"), systemImage: "arrow.left") }
-                    .buttonStyle(WorkbenchCompactButtonStyle())
-            } else {
-                Button { showHistory(true) } label: { Image(systemName: "clock.arrow.circlepath") }
-                    .buttonStyle(WorkbenchCompactButtonStyle(iconOnly: true))
-                    .accessibilityLabel(t("PDF 历史记录", "PDF history")).help(t("历史记录", "History"))
-                Button(action: newProject) {
-                    Label(t("新建项目", "New project"), systemImage: "plus")
-                        .font(.system(size: 12, weight: .semibold)).padding(.horizontal, 14).padding(.vertical, 11)
-                        .background(.white.opacity(0.65), in: RoundedRectangle(cornerRadius: 12))
-                }.buttonStyle(.plain).fixedSize().disabled(session.deletionConfirmation != nil)
-                    .accessibilityIdentifier("pdf-new-project")
-
-
-            }
+            Button(action: showHistory) { Image(systemName: "clock.arrow.circlepath") }
+                .buttonStyle(WorkbenchCompactButtonStyle(iconOnly: true))
+                .accessibilityLabel(t("PDF 历史记录", "PDF history")).help(t("历史记录", "History"))
+                .accessibilityIdentifier("pdf-history-button")
+                .disabled(!history.canPerformWorkspaceCommands || session.deletionConfirmation != nil)
+            Button(action: newProject) {
+                Label(t("新建项目", "New project"), systemImage: "plus")
+                    .font(.system(size: 12, weight: .semibold)).padding(.horizontal, 14).padding(.vertical, 11)
+                    .background(.white.opacity(0.65), in: RoundedRectangle(cornerRadius: 12))
+            }.buttonStyle(.plain).fixedSize().disabled(!history.canPerformWorkspaceCommands || session.deletionConfirmation != nil)
+                .accessibilityIdentifier("pdf-new-project")
             if let runtime { PDFRuntimeStatusView(session: runtime) }
         }
     }
     private func newProject() { commands.perform {
-        guard !showsHistory, session.deletionConfirmation == nil, NSApp.modalWindow == nil,
+        guard history.canPerformWorkspaceCommands, session.deletionConfirmation == nil, NSApp.modalWindow == nil,
               NSApp.keyWindow?.sheetParent == nil, NSApp.keyWindow?.attachedSheet == nil else { return }
         session.newProject()
         resourceError = nil
     } }
-    private func showHistory(_ show: Bool) {
-        if show { commands.deactivate() } else { commands.activate() }
-        showsHistory = show
+    private func showHistory() {
+        guard session.deletionConfirmation == nil, NSApp.modalWindow == nil,
+              NSApp.keyWindow?.sheetParent == nil, NSApp.keyWindow?.attachedSheet == nil else { return }
+        history.present()
     }
     private var workspace: some View {
         VStack(alignment: .leading, spacing: 16) {
@@ -133,6 +128,7 @@ private typealias PDFViewState<Value> = SwiftUI.State<Value>
         }
     }
     private func chooseFiles() {
+        guard history.canPerformWorkspaceCommands else { return }
         let generation = session.workspaceGeneration
         let panel = NSOpenPanel(); panel.allowedContentTypes = [.pdf]; panel.allowsMultipleSelection = true
         if panel.runModal() == .OK { _ = session.importPDFs(panel.urls, workspaceGeneration: generation) }
