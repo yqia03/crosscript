@@ -29,7 +29,7 @@ private typealias LayoutViewState<Value> = SwiftUI.State<Value>
                 Text(t("关闭绘制可能移除文档中的图形、表格线或复用对象。对兼容性问题可比较输出，已有结果始终保留。", "Disabling rendering can remove graphics, table rules or reused objects. Compare outputs for compatibility issues; existing results remain.")).font(.caption).foregroundStyle(.secondary)
                 if let error = validationError { Text(error.description(language)).foregroundStyle(.red) }
             }.padding(.top, 10)
-        }
+        }.accessibilityIdentifier("pdf-settings-layout")
     }
     private var fontAndFormulaControls: some View {
         VStack(alignment: .leading, spacing: 10) {

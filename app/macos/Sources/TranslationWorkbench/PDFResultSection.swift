@@ -32,10 +32,12 @@ private typealias ViewState<Value> = SwiftUI.State<Value>
                         HStack(spacing: 6) { resultActions }.frame(maxWidth: .infinity, alignment: .trailing)
                     }
                 }.frame(maxWidth: .infinity, alignment: .leading)
+                    .modifier(HistoryGeometryObservation(name: "pdf.result.actions"))
                 if let result = material.selectedResult {
                     ScrollView {
-                        resultDetails(result).frame(maxWidth: .infinity, alignment: .leading)
+                        resultDetails(result).frame(maxWidth: .infinity, alignment: .leading).modifier(HistoryGeometryObservation(name: "pdf.details.contents")).historyScrollGutter()
                     }.frame(maxWidth: .infinity).frame(height: 165)
+                        .modifier(HistoryGeometryObservation(name: "pdf.details.viewport"))
                         .accessibilityLabel(t("PDF 结果详情", "PDF result details"))
                 } else {
                     Color.clear.frame(maxWidth: .infinity).frame(height: 1).accessibilityHidden(true)
@@ -46,7 +48,7 @@ private typealias ViewState<Value> = SwiftUI.State<Value>
             if session.deletionError != nil, session.deletionConfirmation == nil {
                 Text(t("先完成或取消此资料的任务，并保存所有结果，再删除。", "Finish or cancel this material's tasks and save all results before deleting.")).font(.callout).foregroundStyle(.red)
             }
-        }.padding(18).glassCard()
+        }.padding(18).glassCard().modifier(HistoryGeometryObservation(name: "pdf.result.card"))
             .background(GeometryReader { geometry in
                 Color.clear.onChange(of: geometry.size.width, initial: true) { _, width in availableWidth = width }
             })
@@ -81,7 +83,7 @@ private typealias ViewState<Value> = SwiftUI.State<Value>
                     if result.options.content.scanMode == .forceWorkaround || result.options.content.scanMode == .automaticWorkaround {
                         Text(t("OCR 兼容启用时会关闭富文本与非公式线条移除。", "When OCR compatibility is active, rich text and non-formula line removal are disabled.")).font(.caption).foregroundStyle(.secondary)
                     }
-                }
+                }.accessibilityIdentifier("pdf-details-layout")
                 DisclosureGroup(t("运行诊断与速度快照", "Run diagnostics and speed snapshot")) {
                     Text(result.options.performance.snapshotLines(language).joined(separator: "\n")).font(.caption).textSelection(.enabled)
                     if let diagnostics = result.diagnostics {
@@ -93,7 +95,7 @@ private typealias ViewState<Value> = SwiftUI.State<Value>
                         let summary = "BabelDOC \(current.engineVersion) · Integration \(current.integrationVersion)\n" + current.options.performance.summary(language) + "\n" + (current.diagnostics?.summary(language) ?? t("计数未知", "Counts unknown"))
                         NSPasteboard.general.clearContents(); NSPasteboard.general.setString(summary, forType: .string)
                     } }
-                }
+                }.accessibilityIdentifier("pdf-details-diagnostics")
                 if result.options.requiresService { TranslationResourceSnapshotView(snapshot: result.options.resources)
                 Text(result.options.autoExtractGlossary ? t("此结果启用了自动术语提取", "Automatic term extraction was enabled") : t("此结果直接使用选定术语", "Selected terms were used directly")).font(.caption).foregroundStyle(.secondary)
                 if let extraction = result.options.termExtractionProvider { Text(t("提取服务：", "Extraction service: ") + extraction.name + " · " + extraction.model).font(.caption) }
@@ -102,17 +104,17 @@ private typealias ViewState<Value> = SwiftUI.State<Value>
         }
     }
     @ViewBuilder private var resultActions: some View {
-        action(icon: "square.and.arrow.up", label: t("导出提取术语 CSV", "Export extracted terms CSV"), enabled: outputSelection.glossary(in: session) != nil) { exportGlossary() }
-        action(icon: "books.vertical", label: t("加入共用术语库", "Add to shared glossary library"), enabled: resources != nil && outputSelection.glossary(in: session) != nil) { addGlossary() }
-        action(icon: "macwindow", label: t("用预览打开", "Open in Preview"), enabled: outputSelection.pdf(in: session) != nil) {
+        action(id: "pdf-export-terms", icon: "square.and.arrow.up", label: t("导出提取术语 CSV", "Export extracted terms CSV"), enabled: outputSelection.glossary(in: session) != nil) { exportGlossary() }
+        action(id: "pdf-add-terms", icon: "books.vertical", label: t("加入共用术语库", "Add to shared glossary library"), enabled: resources != nil && outputSelection.glossary(in: session) != nil) { addGlossary() }
+        action(id: "pdf-open-preview", icon: "macwindow", label: t("用预览打开", "Open in Preview"), enabled: outputSelection.pdf(in: session) != nil) {
             if let selected = outputSelection.pdf(in: session) { NSWorkspace.shared.open(selected.url) }
         }
-        action(icon: "arrow.down.document", label: t("另存 PDF", "Save PDF as"), enabled: outputSelection.pdf(in: session) != nil) { savePDF() }
+        action(id: "pdf-save-result", icon: "arrow.down.document", label: t("另存 PDF", "Save PDF as"), enabled: outputSelection.pdf(in: session) != nil) { savePDF() }
     }
-    private func action(icon: String, label: String, enabled: Bool, run: @escaping @MainActor () -> Void) -> some View {
+    private func action(id: String, icon: String, label: String, enabled: Bool, run: @escaping @MainActor () -> Void) -> some View {
         Button { commands.perform(run) } label: {
             Image(systemName: icon)
-        }.buttonStyle(WorkbenchCompactButtonStyle(iconOnly: true)).disabled(!enabled).help(label).accessibilityLabel(label)
+        }.buttonStyle(WorkbenchCompactButtonStyle(iconOnly: true)).disabled(!enabled).help(label).accessibilityLabel(label).accessibilityIdentifier(id)
     }
     private func exportGlossary() {
         guard let selected = outputSelection.glossary(in: session) else { return }

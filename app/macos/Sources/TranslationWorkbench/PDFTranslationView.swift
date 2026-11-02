@@ -50,6 +50,8 @@ private typealias PDFViewState<Value> = SwiftUI.State<Value>
             // retained submission draft in the existing workspace.
             workspace.disabled(!history.canPerformWorkspaceCommands)
         }
+        .modifier(HistoryGeometryObservation(name: "pdf.workspace.contents"))
+        .historyScrollGutter()
         .environment(\.menuCommandBarrier, commands)
         .focusedSceneValue(\.newProjectCommand, NewProjectCommand(isEnabled: history.canPerformWorkspaceCommands && session.deletionConfirmation == nil, perform: newProject))
         .onDisappear { history.deactivateWorkspace() }
@@ -118,8 +120,10 @@ private typealias PDFViewState<Value> = SwiftUI.State<Value>
                     }.padding(.horizontal, 18).padding(.vertical, 14)
                     Divider()
                     ScrollView { settingsContent.frame(maxWidth: .infinity, alignment: .leading) }
+                        .modifier(HistoryGeometryObservation(name: "pdf.settings.viewport"))
                         .accessibilityLabel(t("PDF 翻译设置", "PDF translation settings"))
                 }.frame(maxWidth: .infinity).frame(height: 420).glassCard()
+                    .modifier(HistoryGeometryObservation(name: "pdf.settings.card"))
             }
             .background(GeometryReader { geometry in
                 Color.clear.onChange(of: geometry.size.width, initial: true) { _, width in workspaceWidth = width }
@@ -198,8 +202,8 @@ private typealias PDFViewState<Value> = SwiftUI.State<Value>
                     }
                     Text(t("自动提取会先参考选中的术语表，再将提取结果用于翻译。模型可能改写术语；若需直接使用指定术语，可关闭自动提取。独立提取服务必须有自己的凭据。", "Extraction first considers selected glossaries and then uses extracted terms for translation. The model may alter terms; disable extraction to use selected glossaries directly. A separate extraction service requires its own credentials.")).font(.caption).foregroundStyle(.secondary)
                 }.padding(.top, 8)
+            }.accessibilityIdentifier("pdf-settings-terms")
             }
-            }
-        }.padding(18)
+        }.modifier(HistoryGeometryObservation(name: "pdf.settings.contents")).padding(18)
     }
 }
