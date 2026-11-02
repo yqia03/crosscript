@@ -87,6 +87,9 @@ public struct PDFWorkspaceIssue: Identifiable, Equatable {
         }
         return imported
     }
+    /// Browsing history loads only local source metadata and leaves workspace
+    /// membership, selection, drafts and processing attempts unchanged.
+    public func prepareHistoryMetadata() { for material in materials { cacheMetadata(material.id) } }
     public func open(_ id: UUID) {
         guard find(id) != nil else { return }
         if !workspaceMaterialIDs.contains(id) { workspaceMaterialIDs.append(id) }
