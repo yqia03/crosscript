@@ -41,7 +41,7 @@ notes={
 'auto-enable-ocr-workaround':'开启扫描检测并先关闭手动 OCR workaround；重度扫描时自动选择 workaround',
 'only-include-translated-page':'仅指定 pages 时生效',
 'no-dual':'与 no_mono 同开会没有 PDF，App 须拒绝',
-'no-mono':'App 默认 true（双语）；引擎默认 false（单双语同时输出）',
+'no-mono':'App 新表单默认 false（译文与双语）；旧任务及缺字段记录保留原输出语义；引擎默认 false',
 'no-watermark':'废弃别名；映射 watermark_output_mode=no_watermark',
 'pool-max-workers':'未设置时跟随 qps；不是 App 后台名额',
 'no-auto-extract-glossary':'默认启用；skip_translation 或 only_parse_generate_pdf 自动关闭',

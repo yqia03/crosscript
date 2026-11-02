@@ -19,7 +19,13 @@ import WorkbenchCore
     private var defaultsInitialized = false
     @Published var profileID: UUID?
     @Published var direction: TextTranslationDirection = .englishToChinese
-    @Published var outputSettings = PDFOutputSettings()
+    // New forms request both artifacts. Core defaults stay bilingual for old
+    // task snapshots and records whose output settings were never stored.
+    @Published var outputSettings: PDFOutputSettings = {
+        var settings = PDFOutputSettings()
+        settings.mode = .both
+        return settings
+    }()
     @Published var contentSettings = PDFContentSettings()
     @Published var layoutSettings = PDFLayoutSettings()
     @Published var performanceSettings = PDFPerformanceSettings()

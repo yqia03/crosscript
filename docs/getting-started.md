@@ -58,6 +58,8 @@ The manifest has 267 pinned inputs: 22 bundled inputs (20 renamed fonts and two 
 | Recording | New Project creates an empty workspace; it does not record, upload or request permission. Start recording or import audio, then request post-recording transcription. Reopen history, choose a result and replay available timestamps. | Edit/copy/export the selected transcript through its controls. Retranscription preserves earlier results and edits. Keep the original audio and your exports if you need an independent backup. |
 | Live captions | Configure Gemini, select the audio source and start explicitly. Use the main view or floating captions; revisit saved recording/bilingual history afterward. | Edit, copy or export bilingual text as TXT. A missing text interval is not proof that local audio was lost; gap repair is explicit and has its own provider/verification limits. |
 
+In the next build from this source, a new PDF form selects both translated and bilingual PDFs by default. Select either output alone when needed, then choose an available output to preview or export it individually. Navigation and a new PDF project keep your current output, layout and watermark choices. Existing tasks and history retries keep their saved choices; older records without output settings still mean bilingual output.
+
 File processing tasks queue with at most one background task running; interactive text translation is independent. A new provider request may cost money. Opening history, editing text and local save/export do not by themselves submit a new translation.
 
 ## Known limits and support
