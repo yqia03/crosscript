@@ -21,6 +21,6 @@
   "newWorkspaceSchema": 3,
   "providerCredentialTest": "Retained references resolve in-memory fake credentials in isolated Core tests; no real Keychain migration claim",
   "network": "App launched with outbound-network-denying sandbox; no translation/probe submitted",
-  "boundary": "Not a Finder drag into /Applications, ordinary-Mac/Gatekeeper acceptance, real Keychain/TCC migration or full product acceptance.",
-  "applicationsInstall": "not-run; action-time confirmation pending"
+  "boundary": "This original isolated-copy smoke record does not itself establish Applications installation. The later approved installation has a separate record. Neither establishes ordinary-Mac/Gatekeeper acceptance, real Keychain/TCC migration or full product acceptance.",
+  "applicationsInstall": "Later user-approved Finder copy/paste installation, launch and cleanup passed; see applications-install.json"
 }

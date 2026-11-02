@@ -14,9 +14,10 @@
     },
     {
       "name": "Crosscript-materials-0.1.0-7.tar.gz",
-      "bytes": 1837019031,
-      "sha256": "cf0b840032aaf075bcaa6a571a768acbfa0e4de6eba0b005e78bda26b7fbfe35"
+      "bytes": 1837037467,
+      "sha256": "8349b3319801aa44e0788250c7d989edd95192bd1a8fa0429b6bf77bc51576ed"
     }
   ],
-  "publicReleaseCreated": false
+  "publicReleaseCreated": false,
+  "approvedTemporaryInstallation": "passed via Finder copy/paste; cleaned up"
 }

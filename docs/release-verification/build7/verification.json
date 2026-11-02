@@ -22,5 +22,9 @@
   "ordinaryMacAcceptance": "not-run",
   "paidOrCloudProbes": 0,
   "realUserDataOrCredentialsUsed": false,
-  "testReuse": "62 tests ran against an identical Git tree and exact source archive before the noreply commit-identity correction. This final App build, packaging, visual/remount and isolated legacy-data launch were verified again."
+  "testReuse": "62 tests ran against an identical Git tree and exact source archive before the noreply commit-identity correction. This final App build, packaging, visual/remount and isolated legacy-data launch were verified again.",
+  "localApplicationsInstallation": "passed via Finder copy/paste and direct isolated executable launch",
+  "dragGesture": "Automation did not produce a copy; not marked passed",
+  "temporaryInstallCleanup": "passed; new App moved back, old App unchanged",
+  "applicationsInstallationRecord": "applications-install.json"
 }
