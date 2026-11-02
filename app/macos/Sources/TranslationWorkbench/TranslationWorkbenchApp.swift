@@ -29,6 +29,7 @@ struct TranslationWorkbenchApp: App {
     @NSApplicationDelegateAdaptor(WorkbenchAppDelegate.self) private var delegate
     @Environment(\.openWindow) private var openWindow
     @AppStorage("interfaceLanguage") private var language = "system"
+    @FocusedValue(\.newProjectCommand) private var contextualNewProject
 
     init() {
         #if WORKBENCH_LOCAL_ACCEPTANCE
@@ -168,6 +169,8 @@ struct TranslationWorkbenchApp: App {
             #endif
             CommandGroup(replacing: .newItem) {
                 Button(uiText("新建项目", "New project")) {
+                    guard canCreateNewProject else { return }
+                    if let contextualNewProject { contextualNewProject.perform(); return }
                     playback.stop()
                     session.activateWorkflow(.transcription)
                     session.newProject()
@@ -175,7 +178,7 @@ struct TranslationWorkbenchApp: App {
                     openWindow(id: "workbench")
                 }
                 .keyboardShortcut("n", modifiers: .command)
-                .disabled(!recordingActions.canStart)
+                .disabled(!canCreateNewProject)
                 Button(uiText("开始录音", "Start recording")) {
                     playback.stop()
                     Task { await session.start() }
@@ -206,6 +209,10 @@ struct TranslationWorkbenchApp: App {
         .menuBarExtraStyle(.menu)
     }
 
+    private var canCreateNewProject: Bool {
+        NSApp.modalWindow == nil && NSApp.keyWindow?.sheetParent == nil && NSApp.keyWindow?.attachedSheet == nil
+            && (contextualNewProject?.isEnabled ?? recordingActions.canStart)
+    }
     private var recordingActions: RecordingActions { .init(recordings: session, bilingual: bilingualLive) }
 
     private var appTitle: String {

@@ -1,5 +1,6 @@
 import AVFoundation
 import Foundation
+import CoreAudio
 import Testing
 import WorkbenchCore
 @testable import TranslationWorkbench
@@ -7,6 +8,76 @@ import WorkbenchCore
 @Suite(.serialized)
 @MainActor
 struct MicrophoneDeviceTests {
+    // Opt in only for explicitly authorized local hardware checks. The normal
+    // offline suite never opens a microphone or asks for permission.
+    @Test(.enabled(if: ProcessInfo.processInfo.environment["WORKBENCH_NATIVE_MICROPHONE"] == "1"), arguments: [false, true])
+    func nativeBuiltInInputSavesAndReopensAcrossRepeatedStarts(live: Bool) async throws {
+        try #require(AVCaptureDevice.authorizationStatus(for: .audio) == .authorized)
+        let input = try #require(CoreAudioMicrophoneDevices.inputs().first { input in
+            var address = AudioObjectPropertyAddress(mSelector: kAudioDevicePropertyTransportType,
+                mScope: kAudioObjectPropertyScopeGlobal, mElement: kAudioObjectPropertyElementMain)
+            var transport: UInt32 = 0
+            var size = UInt32(MemoryLayout<UInt32>.size)
+            return AudioObjectGetPropertyData(input.id, &address, 0, nil, &size, &transport) == noErr
+                && transport == kAudioDeviceTransportTypeBuiltIn
+        })
+        let root = FileManager.default.temporaryDirectory.appendingPathComponent("native-microphone-\(UUID())")
+        defer { try? FileManager.default.removeItem(at: root) }
+        let recorder = SourceRecorder()
+        defer { _ = recorder.stop() }
+        let chunks = NativeMicrophoneChunks()
+        let session = RecordingSession(store: RecordingStore(root: root), recorder: recorder)
+        let workflow: RecordingWorkflow = live ? .liveTranslation : .transcription
+        for _ in 0..<3 {
+            session.newProject()
+            if live { #expect(session.configureLiveAudio { chunks.append($0) }) }
+            session.selectSource(.microphoneDevice(input.device))
+            await session.start(workflow: workflow)
+            try #require(session.isRecording, "Native microphone failed: \(session.lastError ?? "unknown")")
+            try await Task.sleep(for: .milliseconds(800))
+            try #require(session.isRecording, "Native capture stopped: \(session.lastError ?? "unknown")")
+            await session.pause()
+            let pausedDuration = session.elapsed
+            let pausedBytes = chunks.byteCount
+            try await Task.sleep(for: .milliseconds(200))
+            #expect(session.elapsed == pausedDuration)
+            #expect(chunks.byteCount == pausedBytes)
+            await session.resume()
+            try #require(session.isRecording)
+            try await Task.sleep(for: .milliseconds(600))
+            session.stop()
+            let recording = try #require(session.selectedRecording)
+            #expect(recording.status == .saved)
+            #expect(recording.source == .microphoneDevice(input.device))
+            #expect(recording.capturedInputDevice == input.device)
+            #expect(try AudioFileInspection.duration(at: session.audioURL(for: recording.id)) > 0.5)
+            if live { #expect(chunks.byteCount > pausedBytes) }
+            let reopened = RecordingSession(store: RecordingStore(root: root), recorder: SourceRecorder())
+            reopened.activateWorkflow(workflow)
+            #expect(reopened.selectedRecording?.id == recording.id)
+            let player = PlaybackController()
+            try player.load(reopened.audioURL(for: recording.id))
+            #expect(player.duration > 0.5)
+        }
+    }
+
+    @Test func defaultSelectionRetainsItsConfirmedInputWhenReopened() async throws {
+        let fixture = try MicrophoneFixture()
+        defer { fixture.cleanUp() }
+        let session = RecordingSession(store: RecordingStore(root: fixture.root), recorder: SourceRecorder(liveMicrophone: fixture.recorder))
+        #expect(session.configureLiveAudio { _ in })
+        await session.start(workflow: .liveTranslation)
+        try #require(session.isRecording)
+        fixture.hardware.emitSpeech()
+        session.stop()
+        let reopened = RecordingSession(store: RecordingStore(root: fixture.root), recorder: SourceRecorder(liveMicrophone: fixture.recorder))
+        reopened.activateWorkflow(.liveTranslation)
+        let recording = try #require(reopened.selectedRecording)
+        #expect(recording.source == .microphone)
+        let encoded = try #require(JSONSerialization.jsonObject(with: JSONEncoder().encode(recording)) as? [String: Any])
+        #expect((encoded["capturedInputDevice"] as? [String: String])?["uid"] == fixture.other.uid)
+    }
+
     @Test(arguments: [false, true])
     func selectedInputIsCapturedAndRetainedAcrossBothWorkflows(live: Bool) async throws {
         let fixture = try MicrophoneFixture()
@@ -30,6 +101,7 @@ struct MicrophoneDeviceTests {
         session.stop()
         let recording = try #require(session.selectedRecording)
         #expect(recording.source == source)
+        #expect(recording.capturedInputDevice == fixture.selected)
         #expect(recording.duration == 0.2)
         #expect(try AudioFileInspection.duration(at: session.audioURL(for: recording.id)) == 0.2)
         let reopened = RecordingSession(store: RecordingStore(root: fixture.root), recorder: router)
@@ -128,4 +200,11 @@ private final class ControlledMicrophoneCapture: MicrophoneCapture {
         for index in 0..<4_800 { buffer.floatChannelData![0][index] = 0.2 }
         onAudio?(buffer)
     }
+}
+
+private final class NativeMicrophoneChunks: @unchecked Sendable {
+    private let lock = NSLock()
+    private var bytes = 0
+    var byteCount: Int { lock.lock(); defer { lock.unlock() }; return bytes }
+    func append(_ chunk: LiveAudioChunk) { lock.lock(); defer { lock.unlock() }; bytes += chunk.pcm16.count }
 }
