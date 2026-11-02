@@ -5,6 +5,35 @@ import Testing
 @testable import WorkbenchCore
 
 @Suite(.serialized) @MainActor struct PDFTranslationTests {
+    @Test func newPDFProjectKeepsHistoryAndRunningQueueWithoutReselectingCompletedFiles() async throws {
+        let fixture = try PDFFixture(); defer { fixture.remove() }
+        fixture.app.newProject(); fixture.app.newProject()
+        #expect(fixture.app.materials.isEmpty && fixture.reopen().materials.isEmpty)
+        let files = fixture.app.importPDFs([fixture.external, fixture.external])
+        var options = PDFTranslationOptions()
+        options.content.operation = .typesetOnly; options.autoExtractGlossary = false
+        let tasks = fixture.app.submitWorkspace(provider: nil, options: options)
+        try await fixture.engine.wait(1)
+        fixture.app.newProject(); fixture.app.newProject()
+        #expect(fixture.app.workspaceMaterials.isEmpty && fixture.app.selectedID == nil)
+        #expect(fixture.app.hasActiveWork && fixture.app.runningTaskID == tasks[0])
+        #expect(fixture.app.materials.first { $0.id == files[1] }?.tasks.first?.status == .queued)
+        await fixture.engine.finish(0); try await fixture.engine.wait(2)
+        #expect(fixture.app.workspaceMaterials.isEmpty && fixture.app.selectedID == nil)
+        await fixture.engine.finish(1); try await settle { !fixture.app.hasActiveWork }
+        #expect(fixture.app.workspaceMaterials.isEmpty && fixture.app.selectedMaterial == nil)
+        #expect(fixture.app.materials.count == 2 && fixture.app.materials.allSatisfy { $0.results.count == 1 })
+        #expect(try fixture.store.load().materials.count == 2)
+        #expect(await fixture.engine.count == 2)
+        #expect(fixture.credentials.reads == 0)
+        for id in files { #expect(PDFDocument(url: try #require(fixture.app.originalURL(id)))?.pageCount == 1) }
+        fixture.app.open(files[0]); fixture.app.open(files[0])
+        #expect(fixture.app.workspaceMaterialIDs == [files[0]] && fixture.app.selectedID == files[0])
+        #expect(fixture.app.selectedMaterial?.selectedResult?.taskID == tasks[0])
+        let next = try #require(fixture.app.importPDF(fixture.external))
+        #expect(fixture.app.workspaceMaterialIDs == [files[0], next] && fixture.app.selectedID == next)
+    }
+
     @Test func workspaceAppendsMixedImportsAndRemovalOnlyChangesTheVisibleList() throws {
         let fixture = try PDFFixture(); defer { fixture.remove() }
         let originalBytes = try Data(contentsOf: fixture.external)
@@ -361,8 +390,12 @@ import Testing
         #expect(!fixture.app.prepareToQuit())
         let result = try #require(fixture.app.selectedMaterial?.selectedResult)
         #expect(PDFDocument(url: try #require(fixture.app.resultURL(materialID: id, resultID: result.id, output: result.outputs[0]))) != nil)
+        fixture.app.newProject()
+        #expect(fixture.app.workspaceMaterials.isEmpty && fixture.app.selectedID == nil)
+        #expect(fixture.app.pendingSaveIDs.contains(id) && fixture.app.error == .storage)
         try FileManager.default.removeItem(at: metadata); try FileManager.default.moveItem(at: backup, to: metadata)
         #expect(fixture.app.retrySaving())
+        #expect(fixture.app.workspaceMaterials.isEmpty && fixture.app.selectedID == nil)
         #expect(fixture.reopen().selectedMaterial?.results.count == 1)
         #expect(await fixture.engine.count == 1)
     }

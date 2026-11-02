@@ -11,6 +11,7 @@ private typealias ViewState<Value> = SwiftUI.State<Value>
     private var pending: Task<Void, Never>?
     func append(_ providers: [NSItemProvider], to session: PDFTranslationSession) {
         let previous = pending
+        let generation = session.workspaceGeneration
         pending = Task { @MainActor in
             await previous?.value
             var urls: [URL] = []
@@ -19,7 +20,7 @@ private typealias ViewState<Value> = SwiftUI.State<Value>
             }
             let scopes = urls.map { $0.startAccessingSecurityScopedResource() }
             defer { for (url, scoped) in zip(urls, scopes) where scoped { url.stopAccessingSecurityScopedResource() } }
-            _ = session.importPDFs(urls)
+            _ = session.importPDFs(urls, workspaceGeneration: generation)
         }
     }
     static func fileURL(_ provider: NSItemProvider) async -> URL? {

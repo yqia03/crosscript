@@ -55,6 +55,7 @@ private typealias PDFViewState<Value> = SwiftUI.State<Value>
             }
         }
         .environment(\.menuCommandBarrier, commands)
+        .focusedSceneValue(\.newProjectCommand, NewProjectCommand(isEnabled: !showsHistory && session.deletionConfirmation == nil, perform: newProject))
         .onDisappear { commands.deactivate() }
         .onAppear {
             commands.activate()
@@ -85,10 +86,24 @@ private typealias PDFViewState<Value> = SwiftUI.State<Value>
                 Button { showHistory(true) } label: { Image(systemName: "clock.arrow.circlepath") }
                     .buttonStyle(WorkbenchCompactButtonStyle(iconOnly: true))
                     .accessibilityLabel(t("PDF 历史记录", "PDF history")).help(t("历史记录", "History"))
+                Button(action: newProject) {
+                    Label(t("新建项目", "New project"), systemImage: "plus")
+                        .font(.system(size: 12, weight: .semibold)).padding(.horizontal, 14).padding(.vertical, 11)
+                        .background(.white.opacity(0.65), in: RoundedRectangle(cornerRadius: 12))
+                }.buttonStyle(.plain).fixedSize().disabled(session.deletionConfirmation != nil)
+                    .accessibilityIdentifier("pdf-new-project")
+
+
             }
             if let runtime { PDFRuntimeStatusView(session: runtime) }
         }
     }
+    private func newProject() { commands.perform {
+        guard !showsHistory, session.deletionConfirmation == nil, NSApp.modalWindow == nil,
+              NSApp.keyWindow?.sheetParent == nil, NSApp.keyWindow?.attachedSheet == nil else { return }
+        session.newProject()
+        resourceError = nil
+    } }
     private func showHistory(_ show: Bool) {
         if show { commands.deactivate() } else { commands.activate() }
         showsHistory = show
@@ -118,8 +133,9 @@ private typealias PDFViewState<Value> = SwiftUI.State<Value>
         }
     }
     private func chooseFiles() {
+        let generation = session.workspaceGeneration
         let panel = NSOpenPanel(); panel.allowedContentTypes = [.pdf]; panel.allowsMultipleSelection = true
-        if panel.runModal() == .OK { _ = session.importPDFs(panel.urls) }
+        if panel.runModal() == .OK { _ = session.importPDFs(panel.urls, workspaceGeneration: generation) }
     }
     private func submit() { commands.perform {
         do {

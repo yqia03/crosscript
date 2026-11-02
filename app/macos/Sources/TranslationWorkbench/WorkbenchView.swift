@@ -342,7 +342,6 @@ struct WorkbenchView: View {
                         .font(.system(size: 12, weight: .semibold)).padding(.horizontal, 14).padding(.vertical, 11)
                         .background(.white.opacity(0.65), in: RoundedRectangle(cornerRadius: 12))
                 }.buttonStyle(.plain).fixedSize().disabled(!recordingActions.canStart)
-                    .keyboardShortcut("n", modifiers: .command)
 
             }
         }.padding(.top, 6)
