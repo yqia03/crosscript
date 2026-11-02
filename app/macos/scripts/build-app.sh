@@ -4,7 +4,7 @@ APP_PROJECT_ROOT="$(cd "$(dirname "$0")/.." && pwd)"
 APP_REPOSITORY_ROOT="$(cd "$APP_PROJECT_ROOT/../.." && pwd)"
 APP_CONFIGURATION="${1:-debug}"
 case "$APP_CONFIGURATION" in debug|release) ;; *) echo 'Usage: build-app.sh [debug|release]' >&2; exit 2 ;; esac
-APP_BUNDLE="${WORKBENCH_APP_BUNDLE:-$APP_PROJECT_ROOT/.build/app/TranslationWorkbench.app}"
+APP_BUNDLE="${WORKBENCH_APP_BUNDLE:-$APP_PROJECT_ROOT/.build/app/Crosscript.app}"
 if [[ "$APP_CONFIGURATION" == release && -e "$APP_BUNDLE" ]]; then
     echo 'Release builds require a fresh WORKBENCH_APP_BUNDLE path; existing app preserved.' >&2
     exit 1
@@ -20,7 +20,7 @@ if [[ -e "$APP_BUNDLE" ]]; then
         printf '%s\n' 'Cannot check running applications; refusing to replace the app bundle.' >&2
         exit 1
     fi
-    if /usr/bin/grep -Fx "$APP_BUNDLE/Contents/MacOS/TranslationWorkbench" <<< "$APP_RUNNING_EXECUTABLES" >/dev/null; then
+    if /usr/bin/grep -Fx -e "$APP_BUNDLE/Contents/MacOS/Crosscript" -e "$APP_BUNDLE/Contents/MacOS/TranslationWorkbench" <<< "$APP_RUNNING_EXECUTABLES" >/dev/null; then
         printf '%s\n' 'This app bundle is running. Quit and save recordings before replacing it, or set WORKBENCH_APP_BUNDLE to a separate candidate path.' >&2
         exit 1
     fi
@@ -37,9 +37,11 @@ fi
 /usr/bin/swift build -c "$APP_CONFIGURATION" "${APP_SWIFT_FLAGS[@]}" -v
 APP_BINARY_DIR="$(/usr/bin/swift build -c "$APP_CONFIGURATION" "${APP_SWIFT_FLAGS[@]}" --show-bin-path)"
 mkdir -p "$APP_BUNDLE/Contents/MacOS" "$APP_BUNDLE/Contents/Resources/Legal"
-cp "$APP_BINARY_DIR/TranslationWorkbench" "$APP_BUNDLE/Contents/MacOS/TranslationWorkbench"
+cp "$APP_BINARY_DIR/TranslationWorkbench" "$APP_BUNDLE/Contents/MacOS/Crosscript"
+# Reused debug outputs may predate the packaged executable rename.
+rm -f "$APP_BUNDLE/Contents/MacOS/TranslationWorkbench"
 if [[ "$APP_CONFIGURATION" == release ]]; then
-    /usr/bin/strip -S "$APP_BUNDLE/Contents/MacOS/TranslationWorkbench"
+    /usr/bin/strip -S "$APP_BUNDLE/Contents/MacOS/Crosscript"
 fi
 cp "$APP_PROJECT_ROOT/Resources/Info.plist" "$APP_BUNDLE/Contents/Info.plist"
 cp "$APP_PROJECT_ROOT/Resources/AppIcon.icns" "$APP_BUNDLE/Contents/Resources/AppIcon.icns"

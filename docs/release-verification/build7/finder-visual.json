@@ -1,0 +1,15 @@
+{
+  "sourceRevision": "4579cac20caafdd4dc716def209cb21b8b100a66",
+  "dmgSHA256": "dc4aeb510385fb2fb57b340c60ec2abd0530e1c6b5602b22f77c543e8fcd4483",
+  "macOS": "26.6.2",
+  "status": "passed",
+  "finderOpenAndDifferentPathRemount": "passed",
+  "realAppAndApplicationsLinkVisible": true,
+  "gradientLoopArrowAndBilingualInstructionsComplete": true,
+  "screenshots": [
+    "dmg-finder.png",
+    "dmg-remount.png"
+  ],
+  "finderPreferencesUnchanged": true,
+  "limitation": "Finder retained this host’s enabled global path/status bars despite saved false values. All key content fits the verified 340-point safe area; no global preferences changed."
+}

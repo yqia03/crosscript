@@ -633,7 +633,7 @@ struct WorkbenchView: View {
     private var footer: some View {
         HStack(spacing: 6) {
             Circle().fill(accent.opacity(0.65)).frame(width: 5, height: 5)
-            Text(t("翻译工作台", "Translation Workbench")); Spacer()
+            Text("Crosscript"); Spacer()
             Text(t("本地保存 · 手动云端处理", "Local storage · Manual cloud processing"))
         }.font(.system(size: 10)).foregroundStyle(muted).padding(.horizontal, 5)
     }

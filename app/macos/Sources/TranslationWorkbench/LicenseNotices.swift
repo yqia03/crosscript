@@ -5,7 +5,7 @@ import WorkbenchCore
 enum LicenseNotices {
     private static var window: NSWindow?
     private static let repositoryURL = "https://github.com/yqia03/crosscript"
-    private static let releaseTag = "v0.1.0-preview.6"
+    private static let releaseTag = "v0.1.0-preview.7"
 
     static func show() {
         let language = AppLanguage.current

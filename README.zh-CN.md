@@ -1,6 +1,6 @@
 # Crosscript
 
-**面向 macOS 的翻译工作台** · [English](README.md)
+**面向 macOS 的翻译与转写工具** · [English](README.md)
 
 面向 Apple Silicon Mac 的原生翻译与转写工作台。使用自己的 API Key 翻译文本、Markdown 和 PDF，转写录音并查看实时双语字幕。原始资料与可编辑结果保存在本机；云端处理会把任务所需内容发送给你选择的服务。
 
@@ -19,7 +19,7 @@
 - **硬件：** Apple Silicon（arm64），目前没有 Intel 版。
 - **系统目标：** macOS 14.2 或更新；尚未在最低版本 macOS 14.2 实机验证。
 - **界面：** 简体中文与英文。
-- **应用名称：** 包为 `TranslationWorkbench.app`，显示名称为 **翻译工作台**，内部名称和资料路径仍沿用 TranslationWorkbench。
+- **应用名称：** 已发布 build 6 的包为 `TranslationWorkbench.app`，显示名称为 **翻译工作台**。开发分支为后续候选构建统一采用 `Crosscript.app`，显示名称与可执行文件名均为 **Crosscript**；本次修改不会改变已发布的 build 6 下载。现有资料路径、偏好与钥匙串 service 保留兼容标识，升级步骤见[使用说明](docs/getting-started.zh-CN.md#后续-crosscriptapp-候选版)。
 - **首次打开：** 未公证应用可能被 macOS 阻止，适用的单应用打开流程见使用说明。
 - **PDF 准备：** App 内置 22 个输入，另有 245 个固定 HTTPS 输入首次下载，共 359,471,768 bytes（约 359 MB）；还需安装和处理空间。Python 由 App 管理，普通用户无需另装 Homebrew、Xcode 或 Python。
 

@@ -1,0 +1,26 @@
+{
+  "sourceRevision": "4579cac20caafdd4dc716def209cb21b8b100a66",
+  "appTreeSHA256": "8d29a7b65f3491fa519e95eee4d9c01f98fed594f589e1fa768d4861c54ee873",
+  "appSource": "Copy from final read-only DMG, isolated local destination",
+  "launchedAndQuitNormally": true,
+  "appName": "Crosscript.app",
+  "executableAndProcessName": "Crosscript",
+  "bundleIdentifier": "dev.uown.translation-workbench",
+  "visibleChecks": [
+    "Window Crosscript",
+    "About Crosscript",
+    "Hide Crosscript",
+    "Quit Crosscript",
+    "Footer Crosscript",
+    "About Version 0.1.0 (7)"
+  ],
+  "legacyWorkspaceAndEditedTranslationRestored": true,
+  "legacyHistoryCount": 2,
+  "openHistoricalResultAndEditedTranslation": "passed",
+  "legacyMaterialAndProviderConfigBytesUnchanged": true,
+  "newWorkspaceSchema": 3,
+  "providerCredentialTest": "Retained references resolve in-memory fake credentials in isolated Core tests; no real Keychain migration claim",
+  "network": "App launched with outbound-network-denying sandbox; no translation/probe submitted",
+  "boundary": "This original isolated-copy smoke record does not itself establish Applications installation. The later approved installation has a separate record. Neither establishes ordinary-Mac/Gatekeeper acceptance, real Keychain/TCC migration or full product acceptance.",
+  "applicationsInstall": "Later user-approved Finder copy/paste installation, launch and cleanup passed; see applications-install.json"
+}

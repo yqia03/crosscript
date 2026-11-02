@@ -100,7 +100,11 @@ def main():
         if path.is_file() and not path.is_symlink():
             row = macho(path, runtime)
             if row: native.append(row)
-    app_binary = app / 'Contents/MacOS/TranslationWorkbench'
+    plist = plistlib.loads((app / 'Contents/Info.plist').read_bytes())
+    executable = plist.get('CFBundleExecutable', '')
+    if not isinstance(executable, str) or not executable or Path(executable).name != executable:
+        raise ValueError('Invalid App executable name')
+    app_binary = app / 'Contents/MacOS' / executable
     app_native = macho(app_binary, app)
     if not app_native: raise ValueError('App executable is not Mach-O')
     all_native = native + [app_native]
@@ -121,7 +125,6 @@ def main():
                 raise ValueError('Invalid supplemental notice: ' + row['name'])
             supplements.append(row)
     supplemented = {normalized(row['name']) for row in supplements}
-    plist = plistlib.loads((app / 'Contents/Info.plist').read_bytes())
     report = {'evidenceType': 'read-only installed-file metadata and Mach-O audit; not clean-user launch',
               'host': {'machine': platform.machine(), 'macOS': platform.mac_ver()[0]},
               'runtimeID': manifest['id'], 'engineVersion': manifest['engineVersion'], 'pythonVersion': manifest['pythonVersion'],

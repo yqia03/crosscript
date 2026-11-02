@@ -2,7 +2,13 @@
 
 [English](getting-started.md) · [项目首页](../README.zh-CN.md) · [Release](https://github.com/yqia03/crosscript/releases/tag/v0.1.0-preview.6)
 
-本说明对应已发布的 Apple Silicon 预览版 **0.1.0 (6)**。同版 Release 提供 DMG、App ZIP 和可选的完整材料，实际检查结果见[交付核验](release-verification/build6/README.md)。显示名称仍为 **翻译工作台**，包／可执行文件沿用 `TranslationWorkbench`，Bundle ID 为 `dev.uown.translation-workbench`，现有资料路径和钥匙串名称保持一致。
+本说明对应已发布的 Apple Silicon 预览版 **0.1.0 (6)**。同版 Release 提供 DMG、App ZIP 和可选的完整材料，实际检查结果见[交付核验](release-verification/build6/README.md)。该已发布 App 的显示名称为 **翻译工作台**，包为 `TranslationWorkbench.app`，可执行文件名为 `TranslationWorkbench`，Bundle ID 为 `dev.uown.translation-workbench`。下载内容保持不变；开发分支后续候选版的名称变化见下文。
+
+## 后续 Crosscript.app 候选版
+
+从开发分支构建的后续候选版采用 `Crosscript.app`，显示名称与可执行文件名均为 **Crosscript**。Bundle ID、现有资料路径、偏好域和钥匙串 service 名称保留兼容标识；应用改名无需移动或删除这些资料。本次源码修改不会重命名或替换已发布的 build 6 下载。
+
+安装后续候选版前，停止并保存录音，结束或取消处理任务，退出所有旧版副本，并备份需要保留的资料。仅移除“应用程序”中的旧 `TranslationWorkbench.app`，再安装 `Crosscript.app`，从这一确切的已安装路径打开；不要删除下方列出的资料目录或钥匙串项目。文件名不同，Finder 不会按同名应用提示替换；请避免保留或同时运行两份应用，它们会共用资料与偏好。macOS 可能再次请求麦克风或屏幕／系统音频权限，尚未验证权限继承。保持现有系统安全设置，按系统提供的适用单应用流程打开。
 
 ## 下载、校验与打开
 
@@ -62,7 +68,7 @@ App 管理 `babeldoc-0.6.4-py312-20261029-arm64-crosscript-v3`（含 Python 3.12
 
 ## 卸载或移除本机资料
 
-先停止并保存工作、结束／取消任务、备份需要的资料。删除 `TranslationWorkbench.app` 会保留资料、偏好与钥匙串凭据，便于重装，不会撤销服务商密钥。
+先停止并保存工作、结束／取消任务、退出应用并备份需要的资料。仅删除应用包（已发布 build 6 为 `TranslationWorkbench.app`，后续候选版为 `Crosscript.app`）会保留资料、偏好与钥匙串凭据，便于重装，不会撤销服务商密钥。
 
 默认资料根是 `~/Library/Application Support/TranslationWorkbench/Recordings/`；若用了 `--data-directory`，以实际指定目录为准。该根包含录音、`TextWorkspace/`（以及可能保留的旧 `TextMaterials/`）、`PDFMaterials/`、配置与 `PDFRuntime/`。只清理 PDF 组件时应单独识别 `PDFRuntime/`，避免误删整个资料根。偏好域为 `dev.uown.translation-workbench`。
 

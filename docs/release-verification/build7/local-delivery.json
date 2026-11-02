@@ -1,0 +1,23 @@
+{
+  "status": "local-candidate-only",
+  "pullRequest": "https://github.com/yqia03/crosscript/pull/20",
+  "assets": [
+    {
+      "name": "Crosscript-preview-0.1.0-7.dmg",
+      "bytes": 178374427,
+      "sha256": "dc4aeb510385fb2fb57b340c60ec2abd0530e1c6b5602b22f77c543e8fcd4483"
+    },
+    {
+      "name": "Crosscript-preview-0.1.0-7.zip",
+      "bytes": 169788213,
+      "sha256": "bc857f918d093dafff697d93e0d8f9e3f13bd2fc433572c342ed3d90a2013013"
+    },
+    {
+      "name": "Crosscript-materials-0.1.0-7.tar.gz",
+      "bytes": 1837037467,
+      "sha256": "8349b3319801aa44e0788250c7d989edd95192bd1a8fa0429b6bf77bc51576ed"
+    }
+  ],
+  "publicReleaseCreated": false,
+  "approvedTemporaryInstallation": "passed via Finder copy/paste; cleaned up"
+}

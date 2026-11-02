@@ -1,0 +1,30 @@
+{
+  "candidate": "0.1.0 (7)",
+  "publication": "unpublished local candidate",
+  "sourceRevision": "4579cac20caafdd4dc716def209cb21b8b100a66",
+  "sourceArchiveSHA256": "9715aa1dd0825123e3f4a07685c653238f6a04de9cb93de8088535c275d2579a",
+  "sourceBuildBindingVerified": true,
+  "appTreeSHA256": "8d29a7b65f3491fa519e95eee4d9c01f98fed594f589e1fa768d4861c54ee873",
+  "dmg": {
+    "file": "Crosscript-preview-0.1.0-7.dmg",
+    "bytes": 178374427,
+    "sha256": "dc4aeb510385fb2fb57b340c60ec2abd0530e1c6b5602b22f77c543e8fcd4483"
+  },
+  "zip": {
+    "file": "Crosscript-preview-0.1.0-7.zip",
+    "bytes": 169788213,
+    "sha256": "bc857f918d093dafff697d93e0d8f9e3f13bd2fc433572c342ed3d90a2013013"
+  },
+  "packagingAndAssemblyTests": 51,
+  "existingCompatibilityTests": 11,
+  "finderVisualAndRemount": "passed",
+  "isolatedCopiedAppLaunchAndLegacyData": "passed",
+  "ordinaryMacAcceptance": "not-run",
+  "paidOrCloudProbes": 0,
+  "realUserDataOrCredentialsUsed": false,
+  "testReuse": "62 tests ran against an identical Git tree and exact source archive before the noreply commit-identity correction. This final App build, packaging, visual/remount and isolated legacy-data launch were verified again.",
+  "localApplicationsInstallation": "passed via Finder copy/paste and direct isolated executable launch",
+  "dragGesture": "Automation did not produce a copy; not marked passed",
+  "temporaryInstallCleanup": "passed; new App moved back, old App unchanged",
+  "applicationsInstallationRecord": "applications-install.json"
+}
