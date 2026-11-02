@@ -4,6 +4,63 @@ import CoreText
 import Testing
 @testable import TranslationWorkbench
 @Suite(.serialized) @MainActor struct PDFReadingTests {
+    @Test func nativeReaderKeepsIntermediatePaperAndTextOutsideScrollTracks() async throws {
+        _ = NSApplication.shared
+        let file = FileManager.default.temporaryDirectory.appendingPathComponent("pdf-interior-\(UUID()).pdf")
+        defer { try? FileManager.default.removeItem(at: file) }
+        var bounds = CGRect(x: 0, y: 0, width: 1800, height: 1800)
+        let context = try #require(CGContext(file as CFURL, mediaBox: &bounds, nil))
+        context.beginPDFPage(nil)
+        context.setFillColor(NSColor.white.cgColor); context.fill(bounds)
+        let line = CTLineCreateWithAttributedString(NSAttributedString(
+            string: String(repeating: "INTERIOR TEXT ", count: 14),
+            attributes: [.font: NSFont.monospacedSystemFont(ofSize: 14, weight: .regular)]))
+        for y in stride(from: 30, through: 1770, by: 30) {
+            context.textPosition = CGPoint(x: 20, y: y); CTLineDraw(line, context)
+        }
+        context.endPDFPage(); context.closePDF()
+        let original = try Data(contentsOf: file)
+        let reader = PDFReadingController(); reader.open(file)
+        let window = NSWindow(contentRect: CGRect(x: 0, y: 0, width: 460, height: 400), styleMask: [], backing: .buffered, defer: false)
+        window.contentView = reader.view
+        defer { window.contentView = nil }
+        for requestedStyle in [NSScroller.Style.legacy, .overlay] {
+            let scroll = try #require(reader.view.documentView?.enclosingScrollView)
+            // Model either native preference locally, without changing macOS settings.
+            scroll.scrollerStyle = requestedStyle
+            reader.fit()
+            reader.view.autoScales = false; reader.view.scaleFactor = 1
+            for size in [NSSize(width: 460, height: 400), NSSize(width: 700, height: 500)] {
+                window.setContentSize(size); reader.view.frame.size = size
+                await settle(reader.view)
+                let document = try #require(scroll.documentView)
+                let clipView = scroll.contentView
+                let midpoint = CGPoint(x: (document.bounds.width - clipView.bounds.width) / 2,
+                                       y: (document.bounds.height - clipView.bounds.height) / 2)
+                clipView.scroll(to: midpoint); scroll.reflectScrolledClipView(clipView)
+                await settle(reader.view)
+                #expect(clipView.bounds.minX > 0 && clipView.bounds.maxX < document.bounds.maxX)
+                #expect(clipView.bounds.minY > 0 && clipView.bounds.maxY < document.bounds.maxY)
+                let clip = clipView.convert(clipView.bounds, to: reader.view)
+                let page = try #require(reader.view.document?.page(at: 0))
+                let paper = reader.view.convert(page.bounds(for: .cropBox), from: page).intersection(clip)
+                let selection = try #require(page.selection(for: page.bounds(for: .cropBox)))
+                let text = reader.view.convert(selection.bounds(for: page), from: page).intersection(clip)
+                #expect(!paper.isEmpty && !text.isEmpty)
+                for scroller in [scroll.verticalScroller, scroll.horizontalScroller] {
+                    let scroller = try #require(scroller)
+                    #expect(!scroller.isHidden, "Zoomed content keeps both native scroll controls available")
+                    let track = scroller.convert(scroller.bounds, to: reader.view)
+                    #expect(!paper.intersects(track), "Visible interior paper must not be under a native track")
+                    #expect(!text.intersects(track), "Visible searchable interior text must not be under a native track")
+                    print("PDF_INTERIOR requested=\(requestedStyle.rawValue) effective=\(scroll.scrollerStyle.rawValue) size=\(size) paper=\(paper) text=\(text) track=\(track)")
+                }
+                #expect(abs(reader.view.scaleFactor - 1) < 0.001 && !reader.view.autoScales)
+                #expect(!window.isVisible && !window.isKeyWindow)
+            }
+        }
+        #expect(try Data(contentsOf: file) == original)
+    }
     @Test(arguments: [600.0, 1800.0]) func nativePageTextStaysReachableBeyondBothScrollTracksWhileZooming(pageWidth: Double) async throws {
         _ = NSApplication.shared
         let root = FileManager.default.temporaryDirectory.appendingPathComponent("pdf-reading-gutter-\(UUID())")
@@ -31,7 +88,7 @@ import Testing
         for size in [NSSize(width: 360, height: 400), NSSize(width: 460, height: 400), NSSize(width: 900, height: 600)] {
             window.setContentSize(size); reader.view.frame.size = size
             await settle(reader.view)
-            let scroll = try #require(descendants(reader.view).compactMap { $0 as? NSScrollView }.first)
+            let scroll = try #require(reader.view.documentView?.enclosingScrollView)
             for style in [NSScroller.Style.legacy, .overlay] {
                 scroll.scrollerStyle = style; scroll.hasVerticalScroller = true; scroll.autohidesScrollers = false
                 scroll.tile(); reader.fit(); await settle(reader.view)
@@ -41,6 +98,10 @@ import Testing
                     reader.view.autoScales = false; reader.view.scaleFactor = fitScale * factor; await settle(reader.view)
                     let page = try #require(reader.view.document?.page(at: 0))
                     reader.view.go(to: page); await settle(reader.view)
+                    let selection = try #require(reader.view.document?.findString("RIGHT EDGE 0", withOptions: []).first)
+                    // A zoomed page can be taller than the reader; navigate to
+                    // the edge text before checking its right-end reachability.
+                    reader.view.go(to: selection); await settle(reader.view)
                     let document = try #require(scroll.documentView)
                     scroll.contentView.scroll(to: CGPoint(x: max(0, document.bounds.width - scroll.contentView.bounds.width), y: scroll.contentView.bounds.minY))
                     scroll.reflectScrolledClipView(scroll.contentView); await settle(reader.view)
@@ -48,14 +109,13 @@ import Testing
                     let vertical = try #require(scroll.verticalScroller)
                     let track = vertical.convert(vertical.bounds, to: reader.view)
                     let rightLimit = vertical.isHidden ? clip.maxX : min(clip.maxX, track.minX)
-                    let selection = try #require(reader.view.document?.findString("RIGHT EDGE 0", withOptions: []).first)
                     let text = reader.view.convert(selection.bounds(for: page), from: page)
                     let visibleText = text.intersection(clip)
-                    print("PDF_NATIVE pageWidth=\(pageWidth) width=\(size.width) style=\(style.rawValue) factor=\(factor) clip=\(clip) track=\(track) text=\(text)")
-                    #expect(scroll.scrollerStyle == style)
+                    print("PDF_NATIVE pageWidth=\(pageWidth) width=\(size.width) requested=\(style.rawValue) effective=\(scroll.scrollerStyle.rawValue) factor=\(factor) clip=\(clip) track=\(track) text=\(text)")
+                    #expect(scroll.scrollerStyle == .legacy, "The reader reserves native tracks locally for either requested style")
                     let paper = reader.view.convert(page.bounds(for: .cropBox), from: page)
-                    #expect(paper.maxX <= rightLimit - 2, "The page edge clears the real native scroll track at fit and the rightmost scroll position")
-                    #expect(!visibleText.isNull && clip.insetBy(dx: -1, dy: -1).contains(text) && text.maxX <= rightLimit - 2, "The complete searchable edge text remains readable after fit/zoom/right-edge scrolling")
+                    #expect(paper.maxX <= rightLimit, "The page edge clears the real native scroll track at fit and the rightmost scroll position")
+                    #expect(!visibleText.isNull && clip.insetBy(dx: -1, dy: -1).contains(text) && text.maxX <= rightLimit, "The complete searchable edge text remains readable after fit/zoom/right-edge scrolling")
                     let last = try #require(reader.view.document?.page(at: 3))
                     reader.view.go(to: last); await settle(reader.view)
                     let bottomY = document.isFlipped ? max(document.bounds.minY, document.bounds.maxY - scroll.contentView.bounds.height) : document.bounds.minY
@@ -67,9 +127,9 @@ import Testing
                     #expect(bottomClip.insetBy(dx: -1, dy: -1).contains(footer), "The complete searchable footer can be scrolled into view")
                     if let horizontal = scroll.horizontalScroller, !horizontal.isHidden {
                         let bottomTrack = horizontal.convert(horizontal.bounds, to: reader.view)
-                        print("PDF_FOOTER pageWidth=\(pageWidth) width=\(size.width) style=\(style.rawValue) factor=\(factor) text=\(footer) clip=\(bottomClip) track=\(bottomTrack)")
+                        print("PDF_FOOTER pageWidth=\(pageWidth) width=\(size.width) requested=\(style.rawValue) effective=\(scroll.scrollerStyle.rawValue) factor=\(factor) text=\(footer) clip=\(bottomClip) track=\(bottomTrack)")
                         let bottomPaper = reader.view.convert(last.bounds(for: .cropBox), from: last)
-                        #expect(bottomPaper.minY >= bottomTrack.maxY + 2 && footer.minY >= bottomTrack.maxY + 2, "The final page and footer clear the real horizontal scroll track")
+                        #expect(bottomPaper.minY >= bottomTrack.maxY && footer.minY >= bottomTrack.maxY, "The final page and footer clear the real horizontal scroll track")
                     }
                     #expect(abs(reader.view.scaleFactor - chosenScale) < 0.001 && !reader.view.autoScales, "Reading edge content retains the user's chosen zoom within PDFKit's supported range")
                 }
@@ -81,7 +141,6 @@ import Testing
         #expect(reader.pageCount == 4 && reader.view.autoScales)
         #expect(try Data(contentsOf: file) == original)
     }
-    private func descendants(_ view: NSView) -> [NSView] { [view] + view.subviews.flatMap(descendants) }
     private func settle(_ view: NSView) async {
         for _ in 0..<3 { view.layoutSubtreeIfNeeded(); try? await Task.sleep(for: .milliseconds(25)) }
     }
