@@ -201,6 +201,7 @@ struct WorkbenchView: View {
                     .accessibilityLabel(t("同声传译历史记录", "Live translation history")).help(t("历史记录", "History"))
                     .disabled(bilingualLive?.isActive == true)
                     .modifier(HistoryGeometryObservation(name: "live.history.entry"))
+                    .accessibilityIdentifier("live-history-entry")
                     .frame(maxWidth: .infinity, alignment: .trailing)
             }
         } else { pendingPage }

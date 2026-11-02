@@ -35,6 +35,7 @@ private typealias BilingualHistoryState<Value> = SwiftUI.State<Value>
                         .foregroundStyle(.orange).fixedSize(horizontal: false, vertical: true)
                     Button(t("重新读取", "Reload")) { history.reload() }.buttonStyle(WorkbenchCompactButtonStyle())
                         .modifier(HistoryGeometryObservation(name: "live.action.reload"))
+                        .accessibilityIdentifier("live-history-reload")
                 }.modifier(HistoryGeometryObservation(name: "live.readError"))
             }
             if history.results.isEmpty && !history.loadFailed {
@@ -52,6 +53,7 @@ private typealias BilingualHistoryState<Value> = SwiftUI.State<Value>
                     }
                 }.disabled(history.hasUnsavedChanges)
                     .modifier(HistoryGeometryObservation(name: "live.result.picker"))
+                    .accessibilityIdentifier("live-history-result-picker")
                 if let selected = history.selected {
                     Text(selected.configuration.provider.title(language) + " · " + selected.configuration.model).font(.caption)
                     if history.sourceText.trimmingCharacters(in: .whitespacesAndNewlines).isEmpty && history.translationText.trimmingCharacters(in: .whitespacesAndNewlines).isEmpty {
@@ -67,8 +69,7 @@ private typealias BilingualHistoryState<Value> = SwiftUI.State<Value>
                     ViewThatFits(in: .horizontal) {
                         HStack { actions }
                         VStack(alignment: .leading) { actions }
-                    }
-                    .buttonStyle(WorkbenchCompactButtonStyle())
+                    }.buttonStyle(WorkbenchCompactButtonStyle())
                     if let repair, !selected.document.source.missingIntervals.isEmpty || !selected.document.translation.missingIntervals.isEmpty {
                         BilingualRepairView(session: repair, source: selected, configuration: repairConfiguration ?? selected.configuration, refreshHistory: { history.reload() })
                             .disabled(history.hasUnsavedChanges).buttonStyle(WorkbenchCompactButtonStyle())
@@ -110,25 +111,31 @@ private typealias BilingualHistoryState<Value> = SwiftUI.State<Value>
             }
         }.disabled(!history.hasUnsavedChanges)
             .modifier(HistoryGeometryObservation(name: "live.action.save"))
+            .accessibilityIdentifier("live-history-save")
         Button(t("放弃编辑", "Discard edits")) { history.discardChanges(); history.reload() }.disabled(!history.hasUnsavedChanges)
             .modifier(HistoryGeometryObservation(name: "live.action.discard"))
+            .accessibilityIdentifier("live-history-discard")
         Button(t("复制双语", "Copy bilingual text")) {
             NSPasteboard.general.clearContents(); NSPasteboard.general.setString(history.exported, forType: .string)
         }.modifier(HistoryGeometryObservation(name: "live.action.copy"))
+            .accessibilityIdentifier("live-history-copy")
         Button(t("导出双语", "Export bilingual text")) {
             let panel = NSSavePanel(); panel.allowedContentTypes = [.plainText]; panel.nameFieldStringValue = ExportFilename.record(bilingual: true, extension: "txt")
             guard panel.runModal() == .OK, let url = panel.url else { return }
             do { try history.exported.write(to: url, atomically: true, encoding: .utf8); exportFailed = false }
             catch { exportFailed = true }
         }.modifier(HistoryGeometryObservation(name: "live.action.export"))
+            .accessibilityIdentifier("live-history-export")
         Button(t("在同传页阅读", "Open in interpretation")) {
             if let selected = history.selected { state.reopen(selected); openLive() }
         }.disabled(history.hasUnsavedChanges || !state.canReplaceResult)
             .modifier(HistoryGeometryObservation(name: "live.action.open"))
+            .accessibilityIdentifier("live-history-open")
         Button(t("删除此双语结果", "Delete this bilingual result"), role: .destructive) {
             _ = history.requestDeletion(recordingName: recordingName, blockingReason: deletionBlockReason)
         }.disabled(history.deletionBlockReason(deletionBlockReason) != nil)
             .modifier(HistoryGeometryObservation(name: "live.action.delete"))
+            .accessibilityIdentifier("live-history-delete")
     }
     private func deletionBlockReason() -> MaterialDeletionError? {
         if repair?.occupiesMaterial(history.recordingID) == true || state.hasUnsavedHistoryEdits(for: history.recordingID)

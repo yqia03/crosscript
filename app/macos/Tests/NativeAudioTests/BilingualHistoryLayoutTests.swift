@@ -61,6 +61,7 @@ import WorkbenchCore
     }
     @Test func emptyAndUnreadableResultsExplainWhatRemainsWithoutAutomaticRequests() async throws {
         _ = NSApplication.shared
+        enableHostAccessibility()
         let preferences = UserDefaults(suiteName: "LiveHistoryStates." + UUID().uuidString)!
         for variant in ["empty", "no-text", "read-error", "legacy"] {
             let fixture = try HistoryFixture(variant: variant)
@@ -83,26 +84,34 @@ import WorkbenchCore
                 #expect(history.loadFailed == (variant == "read-error"))
                 #expect(history.results.isEmpty == (variant != "no-text"))
                 if variant == "legacy" {
-                    #expect(frames["live.legacy.toggle"] != nil)
+                    try await press("live-history-legacy", host: host)
+                    #expect(descendants(host).compactMap { $0 as? NSTextView }.contains { $0.string == "Preserved legacy transcript 用户修改" })
                     #expect(fixture.processing.materials[fixture.id]?.results.first?.text == "Preserved legacy transcript 用户修改")
                 }
                 if variant == "read-error" && language == "zhHans" {
                     try FileManager.default.removeItem(at: fixture.store.audioURL(for: fixture.id).deletingLastPathComponent().appendingPathComponent("bilingual-results.json"))
-                    history.reload(); await settle(host)
+                    try await press("live-history-reload", host: host)
                     #expect(!history.loadFailed && frames["live.empty"] != nil)
                 }
             }
             #expect(fixture.recorder.starts == 0 && fixture.recorder.permissions == 0 && fixture.credentials.reads == 0 && fixture.repair.tasks.isEmpty)
         }
     }
-    @Test func nativeHistoryEditsSurviveFailedSaveAndReopeningAndKeepIndependentResults() async throws {
+    @Test func nativeHistoryEditsSurviveFailedSaveAndReopeningAndKeepResultActions() async throws {
         _ = NSApplication.shared
+        enableHostAccessibility()
         let fixture = try HistoryFixture(variant: "multi-gap")
         defer { fixture.clean() }
+        let board = NSPasteboard.general
+        let clipboard = (board.pasteboardItems ?? []).map { item in item.types.compactMap { type in item.data(forType: type).map { (type, $0) } } }
+        defer {
+            board.clearContents()
+            board.writeObjects(clipboard.map { values in let item = NSPasteboardItem(); for (type, data) in values { item.setData(data, forType: type) }; return item })
+        }
         let preferences = UserDefaults(suiteName: "LiveHistoryActions." + UUID().uuidString)!
         preferences.set("english", forKey: "interfaceLanguage")
-        var frames: [String: CGRect] = [:]
-        let host = NSHostingView(rootView: fixture.view(done: {}).defaultAppStorage(preferences).environment(\.historyGeometryObserver, { frames[$0] = $1 }))
+        var frames: [String: CGRect] = [:], closed = 0
+        let host = NSHostingView(rootView: fixture.view(done: { closed += 1 }).defaultAppStorage(preferences).environment(\.historyGeometryObserver, { frames[$0] = $1 }))
         let window = NSWindow(contentRect: NSRect(x: 0, y: 0, width: 560, height: 480), styleMask: [], backing: .buffered, defer: false)
         window.contentView = host
         defer { window.contentView = nil }
@@ -115,7 +124,7 @@ import WorkbenchCore
         source.insertText("A draft to discard", replacementRange: NSRange(location: 0, length: source.string.utf16.count))
         await settle(host)
         #expect(history.hasUnsavedChanges)
-        history.discardChanges(); history.reload(); await settle(host)
+        try await press("live-history-discard", host: host)
         #expect(!history.hasUnsavedChanges && history.sourceText == selected.document.source.text)
         let restoredSource = try #require(descendants(host).compactMap { $0 as? NSTextView }.first { $0.isEditable && $0.string == selected.document.source.text })
         restoredSource.insertText("Retained native history edit 中文", replacementRange: NSRange(location: 0, length: restoredSource.string.utf16.count))
@@ -125,17 +134,22 @@ import WorkbenchCore
         let path = fixture.store.audioURL(for: fixture.id).deletingLastPathComponent().appendingPathComponent("bilingual-results.json")
         let bytes = try Data(contentsOf: path)
         try FileManager.default.removeItem(at: path); try FileManager.default.createDirectory(at: path, withIntermediateDirectories: false)
-        #expect(history.save() == nil); history.reload(); await settle(host)
+        try await press("live-history-save", host: host)
         #expect(history.saveFailed && history.sourceText == "Retained native history edit 中文")
-        #expect(history.exported == "Retained native history edit 中文\n\n" + selected.document.translation.text)
-        window.contentView = nil
-        let reopened = NSHostingView(rootView: fixture.view(done: {}).defaultAppStorage(preferences).environment(\.historyGeometryObserver, { frames[$0] = $1 }))
+        try await press("live-history-copy", host: host)
+        #expect(board.string(forType: .string) == history.exported)
+        try await press("live-history-done", host: host)
+        #expect(closed == 1)
+        let reopened = NSHostingView(rootView: fixture.view(done: { closed += 1 }).defaultAppStorage(preferences).environment(\.historyGeometryObserver, { frames[$0] = $1 }))
         window.contentView = reopened; await settle(reopened)
         #expect(descendants(reopened).compactMap { $0 as? NSTextView }.contains { $0.isEditable && $0.string == "Retained native history edit 中文" })
         #expect(history.hasUnsavedChanges && history.saveFailed)
-        #expect(!history.select(original[0].id) && fixture.state.result == nil, "Reopening keeps the draft and cannot switch its independent result")
+        #expect((try #require(element(reopened, identifier: "live-history-open")) as AnyObject).isAccessibilityEnabled?() == false)
+        #expect((try #require(element(reopened, identifier: "live-history-result-picker")) as AnyObject).isAccessibilityEnabled?() == false)
+        #expect((try #require(element(reopened, identifier: "live-history-export")) as AnyObject).isAccessibilityEnabled?() == true)
+        #expect(closed == 1 && fixture.state.result == nil)
         try FileManager.default.removeItem(at: path); try bytes.write(to: path)
-        #expect(history.save() != nil); history.reload(); await settle(reopened)
+        try await press("live-history-save", host: reopened)
         #expect(!history.hasUnsavedChanges && !history.saveFailed)
         let saved = try fixture.results.load(fixture.id)
         #expect(saved.dropLast().elementsEqual(original.dropLast()))
@@ -145,13 +159,13 @@ import WorkbenchCore
         #expect(history.select(original[0].id))
         await settle(reopened)
         #expect(history.sourceText == original[0].document.source.text)
-        fixture.state.reopen(history.selected)
-        #expect(fixture.state.result?.id == original[0].id)
-        #expect(!window.isVisible && !window.isKeyWindow)
+        try await press("live-history-open", host: reopened)
+        #expect(closed == 2 && fixture.state.result?.id == original[0].id)
         #expect(fixture.recorder.starts == 0 && fixture.recorder.permissions == 0 && fixture.credentials.reads == 0 && fixture.repair.tasks.isEmpty)
     }
     @Test func liveHistoryEntryOnlyAppearsForLiveMaterialWithoutOpeningOrStartingCapture() async throws {
         _ = NSApplication.shared
+        enableHostAccessibility()
         let fixture = try HistoryFixture(variant: "empty")
         defer { fixture.clean() }
         let providers = ProviderConfigurationSession(store: ProviderConfigurationStore(root: fixture.root), credentials: fixture.credentials, checker: LiveHistoryService())
@@ -187,6 +201,8 @@ import WorkbenchCore
             if available {
                 let entry = try #require(frames["live.history.entry"])
                 #expect(entry.width <= 34 && entry.height == 34, "The live entry uses the same compact icon target as recording history")
+                let entryButton = try #require(element(host, identifier: "live-history-entry"))
+                #expect((entryButton as AnyObject).isAccessibilityEnabled?() == (phase == "saved-live"))
                 #expect(live.isActive == (phase == "starting-live"))
                 #expect(window.attachedSheet == nil && !window.isVisible, "Availability checks never present a history window")
             }
@@ -198,6 +214,26 @@ import WorkbenchCore
             }
         }
         #expect(fixture.recorder.starts == 0 && fixture.credentials.reads == 0)
+    }
+    private func enableHostAccessibility() {
+        // SwiftUI virtual accessibility is activated only in this test process.
+        NSApp.accessibilitySetValue(true, forAttribute: .init(rawValue: "AXEnhancedUserInterface"))
+        NSApp.accessibilitySetValue(true, forAttribute: .init(rawValue: "AXManualAccessibility"))
+    }
+    private func element(_ root: Any, identifier: String) -> NSObject? {
+        guard let node = root as? NSObject else { return nil }
+        if node.responds(to: NSSelectorFromString("accessibilityIdentifier")), node.value(forKey: "accessibilityIdentifier") as? String == identifier { return node }
+        for child in (node as AnyObject).accessibilityChildren?() ?? [] {
+            if let found = element(child, identifier: identifier) { return found }
+        }
+        return nil
+    }
+    private func press(_ identifier: String, host: NSView) async throws {
+        #expect(host.window?.isVisible == false && host.window?.isKeyWindow == false)
+        let button = try #require(element(host, identifier: identifier))
+        #expect((button as AnyObject).accessibilityPerformPress?() == true)
+        await settle(host)
+        #expect(host.window?.isVisible == false && host.window?.isKeyWindow == false)
     }
     private func settle(_ host: NSView) async {
         for _ in 0..<3 { host.layoutSubtreeIfNeeded(); try? await Task.sleep(for: .milliseconds(20)) }

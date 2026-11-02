@@ -20,6 +20,7 @@ import WorkbenchCore
                 Spacer()
                 Button(t("完成", "Done")) { done() }.buttonStyle(WorkbenchCompactButtonStyle()).keyboardShortcut(.cancelAction)
                     .modifier(HistoryGeometryObservation(name: "live.done"))
+                    .accessibilityIdentifier("live-history-done")
             }
             ScrollView {
                 if let recording = session.selectedRecording {
@@ -41,7 +42,7 @@ import WorkbenchCore
                             } label: {
                                 Text(t("旧版附带的转写结果", "Transcripts retained from earlier versions"))
                                     .modifier(HistoryGeometryObservation(name: "live.legacy.toggle"))
-                            }.padding(18).frame(maxWidth: .infinity, alignment: .leading).glassCard()
+                            }.accessibilityIdentifier("live-history-legacy").padding(18).frame(maxWidth: .infinity, alignment: .leading).glassCard()
                                 .modifier(HistoryGeometryObservation(name: "live.legacy"))
                         }
                     }.modifier(HistoryGeometryObservation(name: "live.contents")).historyScrollGutter().padding(2)
