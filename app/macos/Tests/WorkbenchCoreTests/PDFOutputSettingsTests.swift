@@ -43,9 +43,9 @@ import Testing
             #expect(throws: (any Error).self) { try store.export(readingURL, to: root.appendingPathComponent("missing/output.pdf")) }
             #expect(FileManager.default.fileExists(atPath: readingURL.path))
         }
-        #expect(try JSONDecoder().decode(PDFTranslationOptions.self, from: Data("{\"direction\":\"englishToChinese\"}".utf8)).output == PDFOutputSettings())
+        #expect(try JSONDecoder().decode(PDFTranslationOptions.self, from: Data("{\"direction\":\"englishToChinese\"}".utf8)).output.mode == .bilingual)
     }
-    @Test func defaultAndAllOutputModesMapWithoutImpossibleNoOutputCombination() throws {
+    @Test func legacyDefaultAndAllOutputModesMapWithoutImpossibleNoOutputCombination() throws {
         var settings = PDFOutputSettings(); try settings.validate(pageCount: 3)
         #expect(settings.mode == .bilingual && settings.layout == .sideBySide && !settings.translatedFirst)
         #expect(settings.engineSettings["no_mono"] as? Bool == true)

@@ -36,9 +36,9 @@ private typealias OutputViewState<Value> = SwiftUI.State<Value>
                 }
                 Text(t("输出文件", "Output files"))
                 CommittedPicker(title: t("输出文件", "Output files"), selection: access.binding(\.mode), options: [
-                    (localOnly ? t("对照 PDF（未翻译）", "Comparison PDF (untranslated)") : t("双语 PDF（默认）", "Bilingual PDF (default)"), .bilingual),
+                    (localOnly ? t("对照 PDF（未翻译）", "Comparison PDF (untranslated)") : t("双语 PDF", "Bilingual PDF"), .bilingual),
                     (localOnly ? t("单栏 PDF（未翻译）", "Single PDF (untranslated)") : t("译文 PDF", "Translated PDF"), .translated),
-                    (localOnly ? t("单栏与对照 PDF（未翻译）", "Single and comparison PDFs (untranslated)") : t("译文与双语 PDF", "Translated and bilingual"), .both)
+                    (localOnly ? t("单栏与对照 PDF（未翻译）", "Single and comparison PDFs (untranslated)") : t("译文与双语 PDF（默认）", "Translated and bilingual (default)"), .both)
                 ])
                 Text(localOnly ? t("对照布局", "Comparison layout") : t("双语布局", "Bilingual layout"))
                 CommittedPicker(title: localOnly ? t("对照布局", "Comparison layout") : t("双语布局", "Bilingual layout"), selection: access.binding(\.layout), options: [
