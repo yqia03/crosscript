@@ -26,7 +26,7 @@ Bundle ID、现有资料路径、偏好域和钥匙串 service 名称保留兼�
 
 可选的[完整材料归档](https://github.com/yqia03/crosscript/releases/download/v0.1.0-preview.7/Crosscript-materials-0.1.0-7.tar.gz)内含精确源码归档、第三方源码／构建材料、许可声明和证据，安装或运行应用无需下载它。校验值见 Release 正文，内部内容见归档索引。
 
-**验证范围：** build 7 记录 62 项测试通过、原生 Finder 外观／重新挂载和 ZIP／DMG 一致性检查，以及构建机上的 Finder 复制／粘贴安装、隔离启动和后续清理。实际拖拽自动化不记为通过。普通 Mac 安装、Gatekeeper、真实钥匙串／TCC 迁移、最低系统兼容性和云端工作流仍未验证。历史 build 5 第二台 Mac B01–B06 未执行，2026-10-30 的豁免仅适用于 build 5；该豁免和旧版检查不构成 build 7 安装、权限或冷下载验收。[冻结的 build 5 安装／卸载参考](https://github.com/yqia03/crosscript/releases/download/v0.1.0-preview.5/INSTALL-UNINSTALL-LIMITATIONS.zh-CN.md)保留历史状态，其中沿用的资料和钥匙串路径也列于下文。
+**验证范围：** build 7 记录 62 项测试通过、原生 Finder 外观／重新挂载和 ZIP／DMG 一致性检查，以及构建机上的 Finder 复制／粘贴安装、隔离启动和后续清理。后续[实际 Finder 拖放补验](release-verification/build7/drag-install.json)也通过：安装副本完整树与严格签名一致，使用合成旧版资料隔离启动并正常退出，随后完成清理；旧 App 保持不变。普通 Mac 安装、Gatekeeper、真实钥匙串／TCC 迁移、最低系统兼容性和云端工作流仍未验证。历史 build 5 第二台 Mac B01–B06 未执行，2026-10-30 的豁免仅适用于 build 5；该豁免和旧版检查不构成 build 7 安装、权限或冷下载验收。[冻结的 build 5 安装／卸载参考](https://github.com/yqia03/crosscript/releases/download/v0.1.0-preview.5/INSTALL-UNINSTALL-LIMITATIONS.zh-CN.md)保留历史状态，其中沿用的资料和钥匙串路径也列于下文。
 
 ## 配置服务、数据流与费用
 
