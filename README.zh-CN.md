@@ -44,7 +44,7 @@
 | PDF | 有聚焦离线安装／复用和组件证据，不等于另一台 Mac 冷下载或任意 PDF 质量验证。此前部分完成的 PDF 批次保持停止；扫描图片不会自动获得 OCR，版式、公式和字体可能改变。 |
 | 录后转写 | AiHubMix 有历史真实使用记录；官方 OpenAI 成功转写及各预设时间定位精度尚未全部建立证据。 |
 | Gemini Live | 有短时历史真实服务验证；长会话、真实断线恢复和文件补齐仍有缺口，不声称真实 Gemini 文件补齐成功；不承诺译文语音或固定延迟。 |
-| 全应用／安装 | build 7 记录 62 项测试通过、原生 Finder 外观／重新挂载和 ZIP／DMG 一致性检查，以及构建机上的 Finder 复制／粘贴安装、隔离启动与清理。实际拖拽自动化不记为通过。普通 Mac、Gatekeeper、真实钥匙串／TCC 迁移、macOS 14.2 实机和云端工作流验收仍未覆盖。历史 build 5 第二台 Mac B01–B06 未执行，2026-10-30 的豁免仅适用于 build 5。 |
+| 全应用／安装 | build 7 记录 62 项测试通过、原生 Finder 外观／重新挂载和 ZIP／DMG 一致性检查，以及构建机上的 Finder 复制／粘贴安装、隔离启动与清理。后续[实际 Finder 拖放补验](docs/release-verification/build7/drag-install.json)也通过：安装副本完整树与严格签名一致，使用合成旧版资料隔离启动并正常退出，随后完成清理；旧 App 保持不变。普通 Mac、Gatekeeper、真实钥匙串／TCC 迁移、macOS 14.2 实机和云端工作流验收仍未覆盖。历史 build 5 第二台 Mac B01–B06 未执行，2026-10-30 的豁免仅适用于 build 5。 |
 
 语言菜单不等于逐语言质量保证，初始验证重点为简体中文和英文。此前停止的 PDF 批次、实时／付费探测没有恢复。见 [build 5 历史证据与用户材料范围](docs/release-verification/build5/user-materials.md)。
 
