@@ -62,14 +62,8 @@ private typealias BilingualHistoryState<Value> = SwiftUI.State<Value>
                             .modifier(HistoryGeometryObservation(name: "live.noText"))
                     }
                     if !selected.document.isComplete { Text(t("双语未完整完成", "Bilingual result is incomplete")).foregroundStyle(.orange) }
-                    ViewThatFits(in: .horizontal) {
-                        HStack(alignment: .top) { editors(minimumWidth: 260) }
-                        VStack(alignment: .leading) { editors(minimumWidth: 0) }
-                    }
-                    ViewThatFits(in: .horizontal) {
-                        HStack { actions }
-                        VStack(alignment: .leading) { actions }
-                    }.buttonStyle(WorkbenchCompactButtonStyle())
+                    HistoryAdaptiveStack(minimumColumnWidth: 260) { editors }
+                    HistoryAdaptiveStack { actions }.buttonStyle(WorkbenchCompactButtonStyle())
                     if let repair, !selected.document.source.missingIntervals.isEmpty || !selected.document.translation.missingIntervals.isEmpty {
                         BilingualRepairView(session: repair, source: selected, configuration: repairConfiguration ?? selected.configuration, refreshHistory: { history.reload() })
                             .disabled(history.hasUnsavedChanges).buttonStyle(WorkbenchCompactButtonStyle())
@@ -89,7 +83,7 @@ private typealias BilingualHistoryState<Value> = SwiftUI.State<Value>
                 deletionConfirmation(confirmation)
             }
     }
-    @ViewBuilder private func editors(minimumWidth: CGFloat) -> some View {
+    @ViewBuilder private var editors: some View {
         ForEach(BilingualChannel.allCases, id: \.self) { channel in
             VStack(alignment: .leading) {
                 Text(channel == .source ? t("原文", "Source") : t("译文", "Translation"))
@@ -100,7 +94,7 @@ private typealias BilingualHistoryState<Value> = SwiftUI.State<Value>
                 ForEach(intervals ?? []) { interval in
                     Text(t(String(format: "缺失 %.1f–%.1f 秒", interval.start, interval.end), String(format: "Missing %.1f–%.1f s", interval.start, interval.end))).font(.caption).foregroundStyle(.orange)
                 }
-            }.frame(minWidth: minimumWidth, maxWidth: .infinity)
+            }.frame(maxWidth: .infinity)
         }
     }
     @ViewBuilder private var actions: some View {
@@ -164,5 +158,39 @@ private typealias BilingualHistoryState<Value> = SwiftUI.State<Value>
                 }.buttonStyle(.borderedProminent).tint(.red)
             }
         }.padding(24).frame(width: 460)
+    }
+}
+
+/// Keep one set of focusable children while changing the arrangement. Alternative
+/// ViewThatFits trees can replace active editors and complicate a sheet's initial
+/// responder graph. The proposal chooses the arrangement without publishing state.
+private struct HistoryAdaptiveStack: Layout {
+    var minimumColumnWidth: CGFloat? = nil
+    private let spacing: CGFloat = 8
+
+    func sizeThatFits(proposal: ProposedViewSize, subviews: Subviews, cache: inout ()) -> CGSize {
+        let requiredWidth = horizontalWidth(subviews)
+        let layout = arrangement(width: proposal.width ?? requiredWidth, requiredWidth: requiredWidth)
+        var layoutCache = layout.makeCache(subviews: subviews)
+        return layout.sizeThatFits(proposal: ProposedViewSize(width: proposal.width ?? requiredWidth, height: proposal.height),
+                                   subviews: subviews, cache: &layoutCache)
+    }
+
+    func placeSubviews(in bounds: CGRect, proposal: ProposedViewSize, subviews: Subviews, cache: inout ()) {
+        let layout = arrangement(width: bounds.width, requiredWidth: horizontalWidth(subviews))
+        var layoutCache = layout.makeCache(subviews: subviews)
+        layout.placeSubviews(in: bounds, proposal: ProposedViewSize(width: bounds.width, height: proposal.height),
+                             subviews: subviews, cache: &layoutCache)
+    }
+
+    private func horizontalWidth(_ subviews: Subviews) -> CGFloat {
+        let widths = subviews.map { minimumColumnWidth ?? $0.sizeThatFits(.unspecified).width }
+        return widths.reduce(0, +) + spacing * CGFloat(max(0, subviews.count - 1))
+    }
+
+    private func arrangement(width: CGFloat, requiredWidth: CGFloat) -> AnyLayout {
+        width >= requiredWidth
+            ? AnyLayout(HStackLayout(alignment: .top, spacing: spacing))
+            : AnyLayout(VStackLayout(alignment: .leading, spacing: spacing))
     }
 }
