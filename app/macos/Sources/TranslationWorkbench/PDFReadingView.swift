@@ -4,31 +4,20 @@ import SwiftUI
 import WorkbenchCore
 
 @MainActor final class PDFReadingCanvas: PDFView {
-    private var updatingPageMargins = false
-
-    override func setFrameSize(_ newSize: NSSize) {
-        let widthChanged = frame.width != newSize.width
-        super.setFrameSize(newSize)
-        if widthChanged { reservePageEdgeSpace() }
+    override func layout() {
+        super.layout()
+        reserveScrollTrackSpace()
     }
 
-    func reservePageEdgeSpace() {
-        guard !updatingPageMargins, let document, bounds.width > 0 else { return }
-        let pageWidth = (0..<document.pageCount).compactMap { document.page(at: $0)?.bounds(for: displayBox).width }.max() ?? 0
-        let left = pageBreakMargins.left
-        // PDFKit scales page margins with the paper. Reserve enough page space
-        // for a native track even when a wide page is fitted to a narrow reader.
-        let viewportWidth = bounds.width - NSScroller.scrollerWidth(for: .regular, scrollerStyle: .legacy)
-        let gutter: CGFloat = 24
-        let margin = max(32, autoScales
-            ? gutter * (pageWidth + left) / max(1, viewportWidth - gutter)
-            : gutter / max(scaleFactor, .leastNonzeroMagnitude))
-        guard abs(pageBreakMargins.right - margin) > 0.25 || abs(pageBreakMargins.bottom - margin) > 0.25 else { return }
-        updatingPageMargins = true
-        defer { updatingPageMargins = false }
-        displaysPageBreaks = true
-        pageBreakMargins = NSEdgeInsets(top: pageBreakMargins.top, left: left, bottom: margin, right: margin)
-        layoutDocumentView()
+    func reserveScrollTrackSpace() {
+        guard let scroll = documentView?.enclosingScrollView,
+              scroll.scrollerStyle != .legacy else { return }
+        // A local native reserved-track style keeps paper and text clear even
+        // while panning through a zoomed page. Overlay tracks share viewport
+        // pixels with the document; page-end margins cannot protect its interior.
+        // This does not change the user's system-wide scrollbar preference.
+        scroll.scrollerStyle = .legacy
+        scroll.tile()
     }
 }
 
@@ -46,14 +35,11 @@ import WorkbenchCore
         observations.append(NotificationCenter.default.addObserver(forName: .PDFViewPageChanged, object: view, queue: .main) { [weak self] _ in
             MainActor.assumeIsolated { self?.refresh() }
         })
-        observations.append(NotificationCenter.default.addObserver(forName: .PDFViewScaleChanged, object: view, queue: .main) { [weak self] _ in
-            MainActor.assumeIsolated { self?.view.reservePageEdgeSpace() }
-        })
     }
     deinit { for token in observations { NotificationCenter.default.removeObserver(token) } }
     func open(_ url: URL) {
         guard view.document?.documentURL != url else { return }
-        view.document = PDFDocument(url: url); view.autoScales = true; view.reservePageEdgeSpace()
+        view.document = PDFDocument(url: url); view.reserveScrollTrackSpace(); view.autoScales = true
         failed = view.document == nil || view.document?.isLocked == true
         if let first = view.document?.page(at: 0) { view.go(to: first) }
         refresh()
@@ -62,7 +48,7 @@ import WorkbenchCore
     func nextPage() { view.goToNextPage(nil); refresh() }
     func zoomIn() { view.zoomIn(nil) }
     func zoomOut() { view.zoomOut(nil) }
-    func fit() { view.autoScales = true; view.reservePageEdgeSpace() }
+    func fit() { view.reserveScrollTrackSpace(); view.autoScales = true }
     private func refresh() {
         pageCount = view.document?.pageCount ?? 0
         pageNumber = view.currentPage.flatMap { view.document?.index(for: $0) }.map { $0 + 1 } ?? 0

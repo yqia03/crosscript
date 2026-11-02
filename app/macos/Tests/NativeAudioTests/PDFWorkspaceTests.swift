@@ -51,8 +51,8 @@ import WorkbenchCore
                 host.layoutSubtreeIfNeeded()
                 try await Task.sleep(for: .milliseconds(30))
                 host.layoutSubtreeIfNeeded()
-                _ = try #require(element(host, identifier: "pdf-workspace-add"))
-                let button = try #require(element(host, identifier: "pdf-new-project"))
+                _ = try #require(NativeViewTestSupport.element(host, identifier: "pdf-workspace-add"))
+                let button = try #require(NativeViewTestSupport.element(host, identifier: "pdf-new-project"))
                 let frame = try #require((button as AnyObject).accessibilityFrame?())
                 let workspaceFrame = window.convertToScreen(host.convert(host.bounds, to: nil))
                 #expect(frame.width > 50 && frame.height >= 30)
@@ -183,17 +183,6 @@ import WorkbenchCore
         #expect(await PDFDropImporter.fileURL(remote) == nil)
     }
 
-    private func element(_ root: Any, identifier: String) -> NSObject? {
-        guard let node = root as? NSObject else { return nil }
-        if node.responds(to: NSSelectorFromString("accessibilityIdentifier")),
-           node.value(forKey: "accessibilityIdentifier") as? String == identifier { return node }
-        // SwiftUI virtual AX nodes implement these Objective-C methods without
-        // formally conforming to NSAccessibilityProtocol.
-        for child in (node as AnyObject).accessibilityChildren?() ?? [] {
-            if let found = element(child, identifier: identifier) { return found }
-        }
-        return nil
-    }
     private func provider(_ url: URL, delay: TimeInterval) -> NSItemProvider {
         let provider = NSItemProvider()
         provider.registerDataRepresentation(forTypeIdentifier: UTType.fileURL.identifier, visibility: .all) { completion in
