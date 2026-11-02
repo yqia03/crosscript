@@ -542,6 +542,7 @@ struct WorkbenchView: View {
                     Text(t("录音与文本会分别保留，可在这里重新打开继续工作。", "Recordings and text are kept separately. Reopen either here to continue working.")).font(.system(size: 13)).foregroundStyle(muted).multilineTextAlignment(.center)
                     Button { page = .recording } label: { Label(t("前往录音", "Go to recording"), systemImage: "mic") }.buttonStyle(.bordered)
                 }.frame(maxWidth: .infinity).padding(45).glassCard()
+                    .modifier(HistoryGeometryObservation(name: "history.empty")).historyScrollGutter()
             } else {
                 TextTranslationHistoryList(session: translation) { page = .text }
                 RecordingHistoryList(session: session, processing: processing, workflow: nil,
