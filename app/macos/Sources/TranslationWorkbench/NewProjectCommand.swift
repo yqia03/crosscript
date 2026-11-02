@@ -34,7 +34,7 @@ extension FocusedValues {
     var body: some Commands {
         CommandGroup(replacing: .newItem) {
             Button(uiText("新建项目", "New project")) {
-                guard canCreateNewProject else { return }
+                guard canCreateNewProject, hasNoModalPresentation else { return }
                 if let contextualNewProject { contextualNewProject.perform(); return }
                 playback.stop()
                 session.activateWorkflow(.transcription)
@@ -62,8 +62,15 @@ extension FocusedValues {
     }
 
     private var canCreateNewProject: Bool {
+        // PDF publishes its history/deletion availability. AppKit can still
+        // report an attached sheet during onDismiss, but clearing that pointer
+        // does not invalidate SwiftUI's menu. Keep that transient check at action
+        // time so it cannot leave the PDF command disabled after dismissal.
+        if let contextualNewProject { return contextualNewProject.isEnabled }
+        return hasNoModalPresentation && recordingActions.canStart
+    }
+    private var hasNoModalPresentation: Bool {
         NSApp.modalWindow == nil && NSApp.keyWindow?.sheetParent == nil && NSApp.keyWindow?.attachedSheet == nil
-            && (contextualNewProject?.isEnabled ?? recordingActions.canStart)
     }
     private var recordingActions: RecordingActions { .init(recordings: session, bilingual: bilingualLive) }
 
