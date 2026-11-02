@@ -52,10 +52,12 @@ import WorkbenchCore
         draft.initializeDefaults(profileID: original, resourceSelection: firstResources)
         #expect(draft.profileID == original && draft.resourceSelection == firstResources)
         draft.profileID = edited; draft.direction = .chineseToEnglish; draft.outputSettings.pages = "2-3"
+        draft.outputSettings.mode = .translated
         draft.resourceSelection = .init()
         draft.initializeDefaults(profileID: original, resourceSelection: firstResources)
         #expect(draft.profileID == edited && draft.resourceSelection == .init())
         #expect(draft.direction == .chineseToEnglish && draft.outputSettings.pages == "2-3")
+        #expect(draft.outputSettings.mode == .translated)
     }
     @Test func nativeMenuThenOldSiblingBindingsAndSubmitCommitWithoutRerender() throws {
         _ = NSApplication.shared

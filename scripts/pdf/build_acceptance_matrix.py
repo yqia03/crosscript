@@ -27,7 +27,7 @@ group('T18','E18',[
 ('pages','全部','输入输出→页范围→pages','1基序号、逗号/闭区间/开放区间；按真实源页数验证'),
 ('output','App托管结果目录','阅读输出→保存副本；引擎output_dir固定为任务暂存','不得写回外部原件；保存失败保留待保存输出'),
 ('no-dual','false','输出类型→译文/双语/两者→no_dual','禁止no_dual与no_mono同时true；本地标单栏/对照'),
-('no-mono','true','输出类型→译文/双语/两者→no_mono','App缺省仅双语；引擎缺省false会同时生成两种'),
+('no-mono','false（新表单）','输出类型→译文/双语/两者→no_mono','新表单同时生成译文与双语；旧任务及缺字段记录保留原输出语义'),
 ('dual-translate-first','false','对照→译文在前→dual_translate_first','仅对照输出有效；增强兼容在非parseOnly强制true'),
 ('use-alternating-pages-dual','false','对照布局→并排/交替→use_alternating_pages_dual','原文/译文顺序按translatedFirst；交替页数翻倍'),
 ('watermark-output-mode','watermarked','水印→带/不带/两种→WatermarkOutputMode','parseOnly仅no_watermark；两种时必须返回完整四/二输出集'),
