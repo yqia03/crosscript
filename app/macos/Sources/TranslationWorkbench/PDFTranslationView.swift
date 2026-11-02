@@ -69,29 +69,34 @@ private typealias PDFViewState<Value> = SwiftUI.State<Value>
         }
     }
     private var header: some View {
-        ViewThatFits(in: .horizontal) {
-            HStack(alignment: .top, spacing: 16) { heading; Spacer(minLength: 12); headerActions }
-            VStack(alignment: .leading, spacing: 10) { heading; headerActions }
+        AdaptiveStack(spacing: 16) {
+            heading.frame(maxWidth: .infinity, alignment: .leading)
+            headerActions
         }
     }
     private var heading: some View {
         Text(t("PDF 翻译", "PDF translation"))
             .font(.system(size: 25, weight: .semibold))
+            .modifier(HistoryGeometryObservation(name: "pdf.header.title"))
     }
     private var headerActions: some View {
-        HStack(spacing: 9) {
-            Button(action: showHistory) { Image(systemName: "clock.arrow.circlepath") }
-                .buttonStyle(WorkbenchCompactButtonStyle(iconOnly: true))
-                .accessibilityLabel(t("PDF 历史记录", "PDF history")).help(t("历史记录", "History"))
-                .accessibilityIdentifier("pdf-history-button")
-                .disabled(!history.canPerformWorkspaceCommands || session.deletionConfirmation != nil)
-            Button(action: newProject) {
-                Label(t("新建项目", "New project"), systemImage: "plus")
-                    .font(.system(size: 12, weight: .semibold)).padding(.horizontal, 14).padding(.vertical, 11)
-                    .background(.white.opacity(0.65), in: RoundedRectangle(cornerRadius: 12))
-            }.buttonStyle(.plain).fixedSize().disabled(!history.canPerformWorkspaceCommands || session.deletionConfirmation != nil)
-                .accessibilityIdentifier("pdf-new-project")
-            if let runtime { PDFRuntimeStatusView(session: runtime) }
+        AdaptiveStack(spacing: 9) {
+            HStack(spacing: 9) {
+                Button(action: showHistory) { Image(systemName: "clock.arrow.circlepath") }
+                    .buttonStyle(WorkbenchCompactButtonStyle(iconOnly: true))
+                    .accessibilityLabel(t("PDF 历史记录", "PDF history")).help(t("历史记录", "History"))
+                    .accessibilityIdentifier("pdf-history-button")
+                    .modifier(HistoryGeometryObservation(name: "pdf.header.history"))
+                    .disabled(!history.canPerformWorkspaceCommands || session.deletionConfirmation != nil)
+                Button(action: newProject) {
+                    Label(t("新建项目", "New project"), systemImage: "plus")
+                        .font(.system(size: 12, weight: .semibold)).padding(.horizontal, 14).padding(.vertical, 11)
+                        .background(.white.opacity(0.65), in: RoundedRectangle(cornerRadius: 12))
+                }.buttonStyle(.plain).fixedSize().disabled(!history.canPerformWorkspaceCommands || session.deletionConfirmation != nil)
+                    .accessibilityIdentifier("pdf-new-project")
+                    .modifier(HistoryGeometryObservation(name: "pdf.header.new"))
+            }
+            if let runtime { PDFRuntimeStatusView(session: runtime).fixedSize() }
         }
     }
     private func newProject() { commands.perform {
