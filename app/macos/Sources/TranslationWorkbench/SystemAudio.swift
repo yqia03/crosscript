@@ -99,6 +99,7 @@ final class SourceRecorder: AudioRecording {
     }
 
     var currentTime: TimeInterval { active?.currentTime ?? stoppedDuration }
+    var capturedInputDevice: AudioInputDevice? { active?.capturedInputDevice }
     var power: Float { active?.power ?? -160 }
 
     func requestPermission(for source: AudioSource) async throws {

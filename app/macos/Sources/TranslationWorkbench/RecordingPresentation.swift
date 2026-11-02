@@ -13,7 +13,11 @@ extension RecordingSession {
 
 extension Recording {
     func sourceTitle(using language: WorkbenchLanguage) -> String {
-        isImported ? language.text("导入音频", "Imported audio") : source.title(using: language)
+        if isImported { return language.text("导入音频", "Imported audio") }
+        if source == .microphone, let capturedInputDevice {
+            return source.title(using: language) + " · " + capturedInputDevice.name
+        }
+        return source.title(using: language)
     }
     var sourceSymbol: String { isImported ? "square.and.arrow.down" : source.symbol }
 

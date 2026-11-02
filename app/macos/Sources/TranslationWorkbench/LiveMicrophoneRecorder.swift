@@ -1,7 +1,7 @@
 import AVFoundation
 import WorkbenchCore
 
-/// Engine capture for live audio and explicitly selected microphone devices.
+/// Device capture for live audio and explicitly selected microphone devices.
 /// Each tap writes locally before delivering PCM to the live service.
 @MainActor final class LiveMicrophoneRecorder: AudioRecording {
     var onFailure: ((Error) -> Void)?
@@ -19,6 +19,7 @@ import WorkbenchCore
     private var isPaused = false
     private var savedDuration: TimeInterval = 0
     var currentTime: TimeInterval { writer?.snapshot.0 ?? savedDuration }
+    var capturedInputDevice: AudioInputDevice? { capture == nil ? nil : selectedDevice }
     var power: Float { writer?.snapshot.1 ?? -160 }
 
     init(devices: MicrophoneDeviceCatalog = .system,
@@ -31,7 +32,7 @@ import WorkbenchCore
              }
          },
          hasAccess: @escaping () -> Bool = { AVCaptureDevice.authorizationStatus(for: .audio) == .authorized },
-         makeCapture: @escaping @MainActor (AudioInputDevice) throws -> any MicrophoneCapture = { try EngineMicrophoneCapture(device: $0) }) {
+         makeCapture: @escaping @MainActor (AudioInputDevice) throws -> any MicrophoneCapture = { try DeviceMicrophoneCapture(device: $0) }) {
         self.devices = devices
         self.requestAccess = requestAccess
         self.hasAccess = hasAccess
@@ -61,7 +62,7 @@ import WorkbenchCore
         candidate.onAudio = { buffer in output.append(buffer) }
         candidate.onConfigurationChange = { [weak self] in
             // Freeze on the native callback queue, then inspect and tear down on
-            // main. AVAudioEngine forbids teardown inside its notification.
+            // main instead of tearing down from inside a native notification.
             output.setPaused(true)
             Task { @MainActor [weak self] in self?.configurationChanged(id: id) }
         }
@@ -117,7 +118,7 @@ import WorkbenchCore
         do {
             guard hasAccess() else { throw MicrophoneDeviceError.permission }
             try validateDevice()
-            // Binding/prepare can issue a delayed notification even though the
+            // Startup can issue a delayed notification even though the
             // selected route and format are still valid and capture is running.
             guard isPaused || capture.isRunning else { throw MicrophoneDeviceError.routeChanged }
             writer?.setPaused(isPaused)
