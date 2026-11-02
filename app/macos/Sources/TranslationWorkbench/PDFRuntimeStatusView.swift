@@ -13,7 +13,7 @@ private typealias ViewState<Value> = SwiftUI.State<Value>
         HStack(spacing: 7) {
             Circle().fill(session.isReady ? Color.green : (session.error != nil ? Color.red : Color.orange)).frame(width: 6, height: 6)
             Button { showsDetails.toggle() } label: {
-                HStack(spacing: 5) { Text(statusLabel); Image(systemName: "info.circle") }.font(.caption)
+                HStack(spacing: 5) { Text(statusLabel).modifier(HistoryGeometryObservation(name: "pdf.header.status.label")); Image(systemName: "info.circle") }.font(.caption)
             }.buttonStyle(.plain).help(t("查看 PDF 组件状态", "Show PDF component status"))
                 .accessibilityLabel(t("PDF 组件状态：", "PDF component status: ") + statusLabel)
             if session.isPreparing {
@@ -24,6 +24,7 @@ private typealias ViewState<Value> = SwiftUI.State<Value>
         }.padding(.horizontal, 12).frame(minHeight: 34)
             .background(.white.opacity(0.6), in: Capsule())
             .overlay(Capsule().strokeBorder(.white.opacity(0.9)))
+            .modifier(HistoryGeometryObservation(name: "pdf.header.status"))
             .popover(isPresented: $showsDetails) { details.frame(width: 350) }
     }
     private var statusLabel: String {

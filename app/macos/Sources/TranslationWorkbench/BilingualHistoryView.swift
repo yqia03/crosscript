@@ -62,8 +62,8 @@ private typealias BilingualHistoryState<Value> = SwiftUI.State<Value>
                             .modifier(HistoryGeometryObservation(name: "live.noText"))
                     }
                     if !selected.document.isComplete { Text(t("双语未完整完成", "Bilingual result is incomplete")).foregroundStyle(.orange) }
-                    HistoryAdaptiveStack(minimumColumnWidth: 260) { editors }
-                    HistoryAdaptiveStack { actions }.buttonStyle(WorkbenchCompactButtonStyle())
+                    AdaptiveStack(minimumColumnWidth: 260) { editors }
+                    AdaptiveStack { actions }.buttonStyle(WorkbenchCompactButtonStyle())
                     if let repair, !selected.document.source.missingIntervals.isEmpty || !selected.document.translation.missingIntervals.isEmpty {
                         BilingualRepairView(session: repair, source: selected, configuration: repairConfiguration ?? selected.configuration, refreshHistory: { history.reload() })
                             .disabled(history.hasUnsavedChanges).buttonStyle(WorkbenchCompactButtonStyle())
@@ -158,39 +158,5 @@ private typealias BilingualHistoryState<Value> = SwiftUI.State<Value>
                 }.buttonStyle(.borderedProminent).tint(.red)
             }
         }.padding(24).frame(width: 460)
-    }
-}
-
-/// Keep one set of focusable children while changing the arrangement. Alternative
-/// ViewThatFits trees can replace active editors and complicate a sheet's initial
-/// responder graph. The proposal chooses the arrangement without publishing state.
-private struct HistoryAdaptiveStack: Layout {
-    var minimumColumnWidth: CGFloat? = nil
-    private let spacing: CGFloat = 8
-
-    func sizeThatFits(proposal: ProposedViewSize, subviews: Subviews, cache: inout ()) -> CGSize {
-        let requiredWidth = horizontalWidth(subviews)
-        let layout = arrangement(width: proposal.width ?? requiredWidth, requiredWidth: requiredWidth)
-        var layoutCache = layout.makeCache(subviews: subviews)
-        return layout.sizeThatFits(proposal: ProposedViewSize(width: proposal.width ?? requiredWidth, height: proposal.height),
-                                   subviews: subviews, cache: &layoutCache)
-    }
-
-    func placeSubviews(in bounds: CGRect, proposal: ProposedViewSize, subviews: Subviews, cache: inout ()) {
-        let layout = arrangement(width: bounds.width, requiredWidth: horizontalWidth(subviews))
-        var layoutCache = layout.makeCache(subviews: subviews)
-        layout.placeSubviews(in: bounds, proposal: ProposedViewSize(width: bounds.width, height: proposal.height),
-                             subviews: subviews, cache: &layoutCache)
-    }
-
-    private func horizontalWidth(_ subviews: Subviews) -> CGFloat {
-        let widths = subviews.map { minimumColumnWidth ?? $0.sizeThatFits(.unspecified).width }
-        return widths.reduce(0, +) + spacing * CGFloat(max(0, subviews.count - 1))
-    }
-
-    private func arrangement(width: CGFloat, requiredWidth: CGFloat) -> AnyLayout {
-        width >= requiredWidth
-            ? AnyLayout(HStackLayout(alignment: .top, spacing: spacing))
-            : AnyLayout(VStackLayout(alignment: .leading, spacing: spacing))
     }
 }

@@ -6,6 +6,46 @@ import Testing
 @testable import WorkbenchCore
 
 @Suite(.serialized) @MainActor struct PDFWorkspaceLayoutTests {
+    @Test func minimumWindowKeepsPDFHeaderActionsAndUnavailableStatusReadable() async throws {
+        _ = NSApplication.shared
+        let fixture = try LayoutFixture(); defer { fixture.clean() }
+        let runtime = PDFRuntimePreparationSession(preparer: UnavailableLayoutRuntime())
+        let preferences = UserDefaults(suiteName: "PDFHeaderGeometry." + UUID().uuidString)!
+        for language in ["zhHans", "english"] {
+            preferences.set(language, forKey: "interfaceLanguage")
+            var frames: [String: CGRect] = [:]
+            let view = WorkbenchView(session: fixture.recordings, playback: PlaybackController(), processing: fixture.processing,
+                providers: fixture.providers, translation: fixture.text, pdf: fixture.pdf, pdfRuntime: runtime, initialPage: .pdf)
+            let host = NSHostingView(rootView: view.defaultAppStorage(preferences)
+                .environment(\.historyGeometryObserver, { frames[$0] = $1 }))
+            let window = NSWindow(contentRect: CGRect(x: 0, y: 0, width: 680, height: 640), styleMask: [], backing: .buffered, defer: false)
+            window.contentView = host
+            defer { window.contentView = nil }
+            await NativeViewTestSupport.settle(host)
+            #expect(runtime.error == .installationFailed && !runtime.isPreparing)
+            var statusWidths: [CGFloat] = []
+            for width: CGFloat in [680, 1280, 1900] {
+                window.setContentSize(NSSize(width: width, height: 640)); host.frame.size = NSSize(width: width, height: 640)
+                await NativeViewTestSupport.settle(host)
+                let contents = try #require(frames["pdf.workspace.contents"])
+                let status = try #require(frames["pdf.header.status"])
+                let label = try #require(frames["pdf.header.status.label"])
+                statusWidths.append(label.width)
+                #expect(label.height > 0 && label.height <= 18, "The complete runtime status stays readable on one line, not a column of characters")
+                #expect(status.height <= 40 && status.contains(label), "The label fits inside its native status capsule")
+                let controls = try ["title", "history", "new", "status"].map { try #require(frames["pdf.header." + $0]) }
+                for (index, frame) in controls.enumerated() {
+                    #expect(frame.minX >= contents.minX - 1 && frame.maxX <= contents.maxX + 1 && frame.minY >= 0 && frame.maxY < 640)
+                    for other in controls.dropFirst(index + 1) { #expect(!frame.intersects(other), "Header title, actions and status remain separate") }
+                }
+                print("PDF_HEADER \(language) width=\(width) contents=\(contents) label=\(label) status=\(status)")
+            }
+            #expect(try #require(statusWidths.max()) - #require(statusWidths.min()) <= 1, "The narrow status retains the same full text width as the wide layout")
+            #expect(!window.isVisible && !window.isKeyWindow)
+        }
+        #expect(fixture.credentials.reads == 0 && fixture.recorder.starts == 0)
+        #expect(await fixture.service.calls == 0)
+    }
     @Test func productionPDFWorkspaceSeparatesNestedScrollContentsAndKeepsEndControlsReachable() async throws {
         _ = NSApplication.shared
         NSApp.accessibilitySetValue(true, forAttribute: .init(rawValue: "AXEnhancedUserInterface"))
@@ -208,4 +248,10 @@ private actor LayoutService:PDFTranslating,TextTranslating,ProviderConnectionChe
     func translate(_ request:TextTranslationRequest,apiKey:String,onEvent:@escaping @Sendable(TextTranslationEvent)async->Void)async throws{calls += 1;throw TextTranslationError.processing}
     func check(snapshot:ProviderSnapshot,apiKey:String)async throws->ProviderConnectionReport{calls += 1;throw ProviderConfigurationError.network}
     func transcribe(audio:URL,configuration:AudioServiceConfiguration,apiKey:String,progress:@escaping @Sendable(Int)async->Void)async throws->String{calls += 1;throw AudioProcessingError.processing}
+}
+
+private struct UnavailableLayoutRuntime: PDFRuntimePreparing {
+    func prepare(progress: @escaping @Sendable (PDFRuntimeProgress) -> Void) async throws -> PDFRuntimeReceipt {
+        throw PDFRuntimeError.installationFailed
+    }
 }
