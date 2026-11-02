@@ -331,17 +331,19 @@ import Testing
         #expect(fixture.app.selectedMaterial?.results.count == 1)
         #expect(fixture.app.selectedMaterial?.results.first?.taskID == second)
     }
-    @Test func restartRequiresExplicitResumeAndPreservesProviderSnapshot() async throws {
+    @Test func restartRequiresExplicitResumeAndPreservesProviderAndLegacyOutputSnapshot() async throws {
         let gate = BackgroundProcessingGate(); gate.enqueue(id: UUID()) {}
         let fixture = try PDFFixture(gate: gate); defer { fixture.remove() }
         let id = try #require(fixture.app.importPDF(fixture.external))
-        let task = try #require(fixture.app.submit(materialID: id, provider: fixture.profile.snapshot, options: .init()))
+        let legacyOptions = try JSONDecoder().decode(PDFTranslationOptions.self, from: Data("{\"direction\":\"englishToChinese\"}".utf8))
+        let task = try #require(fixture.app.submit(materialID: id, provider: fixture.profile.snapshot, options: legacyOptions))
         let reopened = fixture.reopen()
         #expect(reopened.selectedMaterial?.tasks.first?.status == .awaitingResume)
         #expect(await fixture.engine.count == 0)
         _ = reopened.retry(materialID: id, taskID: task)
         try await fixture.engine.wait(1)
         #expect(await fixture.engine.requests[0].provider == fixture.profile.snapshot)
+        #expect(await fixture.engine.requests[0].options.output.mode == .bilingual)
         await fixture.engine.finish(0); try await settle { reopened.runningTaskID == nil }
         #expect(reopened.selectedMaterial?.tasks.map(\.status) == [.cancelled, .completed])
     }
