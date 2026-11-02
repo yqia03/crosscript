@@ -87,6 +87,9 @@ import Testing
     }
     @Test func productionCopyMenuCentersItsVisibleSymbolAndKeepsCopyAndOpenActions() async throws {
         _ = NSApplication.shared
+        // Build SwiftUI's virtual AX tree only inside this hidden test process.
+        NSApp.accessibilitySetValue(true, forAttribute: .init(rawValue: "AXEnhancedUserInterface"))
+        NSApp.accessibilitySetValue(true, forAttribute: .init(rawValue: "AXManualAccessibility"))
         let root = FileManager.default.temporaryDirectory.appendingPathComponent("history-copy-\(UUID())")
         defer { try? FileManager.default.removeItem(at: root) }
         let board = NSPasteboard.general
@@ -125,8 +128,7 @@ import Testing
                 .environment(\.historyGeometryObserver, { frames[$0] = $1 }).background(Color.white).preferredColorScheme(.light))
             let window = NSWindow(contentRect: NSRect(x: 0, y: 0, width: 700, height: 800), styleMask: [], backing: .buffered, defer: false)
             window.contentView = host
-            window.makeKeyAndOrderFront(nil)
-            defer { window.orderOut(nil); window.contentView = nil }
+            defer { window.contentView = nil }
             await settle(host)
             let bitmap = try #require(host.bitmapImageRepForCachingDisplay(in: host.bounds))
             host.cacheDisplay(in: host.bounds, to: bitmap)
@@ -169,9 +171,10 @@ import Testing
             }
             #expect(session.workspace == workspaceBeforeBrowsing, "Browsing and copying history preserve the existing editable workspace")
             let open = try #require(frames["open." + session.history[0].id.uuidString])
-            let location = NSPoint(x: open.midX, y: host.bounds.height - open.midY)
-            window.sendEvent(try #require(NSEvent.mouseEvent(with: .leftMouseDown, location: location, modifierFlags: [], timestamp: ProcessInfo.processInfo.systemUptime, windowNumber: window.windowNumber, context: nil, eventNumber: 0, clickCount: 1, pressure: 1)))
-            window.sendEvent(try #require(NSEvent.mouseEvent(with: .leftMouseUp, location: location, modifierFlags: [], timestamp: ProcessInfo.processInfo.systemUptime, windowNumber: window.windowNumber, context: nil, eventNumber: 1, clickCount: 1, pressure: 0)))
+            let screenFrame = window.convertToScreen(host.convert(open, to: nil))
+            let openButton = try #require(accessibilityButton(host, at: screenFrame))
+            #expect((openButton as AnyObject).accessibilityPerformPress?() == true)
+            #expect(!window.isVisible && !window.isKeyWindow)
             await settle(host)
             #expect(restored == (language == "english" ? 1 : 2))
             #expect(session.history.contains { $0.input == session.workspace.inputDraft })
@@ -184,6 +187,16 @@ import Testing
         }
         #expect(await session.flushPendingSaves())
         #expect(credentials.reads == 0)
+    }
+    private func accessibilityButton(_ root: Any, at target: CGRect) -> NSObject? {
+        guard let node = root as? NSObject else { return nil }
+        if (node as AnyObject).accessibilityRole?() == NSAccessibility.Role.button,
+           let frame = (node as AnyObject).accessibilityFrame?(),
+           abs(frame.midX - target.midX) <= 2 && abs(frame.midY - target.midY) <= 2 { return node }
+        for child in (node as AnyObject).accessibilityChildren?() ?? [] {
+            if let found = accessibilityButton(child, at: target) { return found }
+        }
+        return nil
     }
     private func settle(_ host: NSView) async {
         for _ in 0..<3 { host.layoutSubtreeIfNeeded(); try? await Task.sleep(for: .milliseconds(25)) }

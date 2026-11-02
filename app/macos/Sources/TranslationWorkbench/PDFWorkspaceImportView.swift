@@ -55,14 +55,16 @@ private typealias ViewState<Value> = SwiftUI.State<Value>
             Text(t("导入 PDF", "Import PDF")).font(.headline)
             GeometryReader { geometry in
                 ScrollView {
-                    if materials.isEmpty {
-                        addFile(empty: true).frame(maxWidth: .infinity, minHeight: geometry.size.height)
-                    } else {
-                        fileRows(width: geometry.size.width)
-                            .padding(10).frame(maxWidth: .infinity, minHeight: geometry.size.height, alignment: .center)
-                    }
+                    Group {
+                        if materials.isEmpty {
+                            addFile(empty: true).frame(maxWidth: .infinity, minHeight: geometry.size.height)
+                        } else {
+                            fileRows.padding(10).frame(maxWidth: .infinity, minHeight: geometry.size.height, alignment: .center)
+                        }
+                    }.historyScrollGutter()
                 }
             }
+            .modifier(HistoryGeometryObservation(name: "pdf.import.viewport"))
             .frame(minHeight: 150)
             .background(isTargeted ? Color.accentColor.opacity(0.13) : Color.accentColor.opacity(0.035), in: RoundedRectangle(cornerRadius: 15))
             .overlay(RoundedRectangle(cornerRadius: 15).strokeBorder(Color.accentColor.opacity(isTargeted ? 0.7 : 0.3), style: StrokeStyle(lineWidth: 1.5, dash: isTargeted ? [] : [5, 4])))
@@ -77,25 +79,17 @@ private typealias ViewState<Value> = SwiftUI.State<Value>
                 .disabled(!canSubmit || !session.hasSubmittableWorkspaceMaterials)
                 .accessibilityIdentifier("pdf-submit-workspace")
             if !visibleTasks.isEmpty {
-                ScrollView { VStack(spacing: 6) { ForEach(visibleTasks) { entry in taskRow(entry) } } }
-                    .frame(height: 76).accessibilityLabel(t("文件翻译进度", "File translation progress"))
+                ScrollView { VStack(spacing: 6) { ForEach(visibleTasks) { entry in taskRow(entry) } }.modifier(HistoryGeometryObservation(name: "pdf.progress.contents")).historyScrollGutter() }
+                    .frame(height: 76).modifier(HistoryGeometryObservation(name: "pdf.progress.viewport")).accessibilityLabel(t("文件翻译进度", "File translation progress"))
             }
-        }.padding(18).glassCard()
+        }.padding(18).glassCard().modifier(HistoryGeometryObservation(name: "pdf.import.card"))
     }
-    private func fileRows(width: CGFloat) -> some View {
-        let columns = max(1, Int((width - 20 + 10) / (134 + 10)))
-        let rowCount = (materials.count + 1 + columns - 1) / columns
-        return LazyVStack(spacing: 10) {
-            ForEach(0..<rowCount, id: \.self) { row in
-                HStack(spacing: 10) {
-                    ForEach(Array(materials.dropFirst(row * columns).prefix(columns))) { file in
-                        fileCard(file).frame(width: 134)
-                    }
-                    if row == materials.count / columns {
-                        addFile(empty: false).frame(width: 134, height: 132)
-                    }
-                }.frame(maxWidth: .infinity, alignment: .center)
-            }
+    private var fileRows: some View {
+        // Adaptive columns use the real post-scroller proposal, rather than the
+        // enclosing GeometryReader width, which still includes a legacy track.
+        LazyVGrid(columns: [GridItem(.adaptive(minimum: 134, maximum: 134), spacing: 10)], spacing: 10) {
+            ForEach(materials) { file in fileCard(file).frame(width: 134) }
+            addFile(empty: false).frame(width: 134, height: 132)
         }
     }
     private func addFile(empty: Bool) -> some View {
@@ -111,6 +105,7 @@ private typealias ViewState<Value> = SwiftUI.State<Value>
             .overlay(RoundedRectangle(cornerRadius: 11).strokeBorder(Color.accentColor.opacity(empty ? 0 : 0.25), style: StrokeStyle(lineWidth: 1, dash: [4, 3])))
             .accessibilityLabel(t("选择或拖入 PDF 文件", "Choose or drop PDF files"))
             .accessibilityIdentifier("pdf-workspace-add")
+            .modifier(HistoryGeometryObservation(name: "pdf.import.add"))
     }
     private func fileCard(_ file: PDFMaterial) -> some View {
         VStack(spacing: 0) {
@@ -136,6 +131,7 @@ private typealias ViewState<Value> = SwiftUI.State<Value>
         }.frame(height: 132).frame(maxWidth: .infinity)
             .background(.white.opacity(session.selectedID == file.id ? 0.85 : 0.45), in: RoundedRectangle(cornerRadius: 11))
             .overlay(RoundedRectangle(cornerRadius: 11).strokeBorder(session.selectedID == file.id ? Color.accentColor.opacity(0.5) : .white.opacity(0.7)))
+            .modifier(HistoryGeometryObservation(name: "pdf.import.file." + file.id.uuidString))
     }
     struct TaskEntry: Identifiable {
         let material: PDFMaterial
@@ -181,6 +177,7 @@ private typealias ViewState<Value> = SwiftUI.State<Value>
                             .disabled(!session.pendingSaveIDs.isEmpty || session.hasQueuedOrRunningTask(material.id))
                     }
                 }.buttonStyle(.borderless).font(.caption).frame(width: 48)
+                    .modifier(HistoryGeometryObservation(name: "pdf.progress.actions." + task.id.uuidString))
                     .help(task.options.requiresService ? t("重新提交会从头处理，并可能产生新的服务费用。", "Submitting again starts from the beginning and may incur service charges.") : t("仅在本机重新处理", "Repeat local processing only"))
             }
             if session.runningTaskID == task.id, task.status == .running, let progress = session.progress {

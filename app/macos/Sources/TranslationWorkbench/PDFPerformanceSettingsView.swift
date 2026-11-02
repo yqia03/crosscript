@@ -33,7 +33,7 @@ private typealias PerformanceViewState<Value> = SwiftUI.State<Value>
                 Text(t("诊断 PDF 会在结果中增加布局标记。工作文件含文档内容，仅保留在本机任务暂存区；诊断摘要只包含设置、版本与计数，不包含密钥、原文或服务响应。", "Diagnostic PDFs add layout marks to the result. Working files contain document content and stay in local task staging. Diagnostic summaries include settings, versions and counts, without keys, source text or service responses.")).font(.caption).foregroundStyle(.secondary)
                 if let error = validationError { Text(error.description(language)).foregroundStyle(.red) }
             }.padding(.top, 10)
-        }
+        }.accessibilityIdentifier("pdf-settings-performance")
     }
     private var serviceControls: some View {
         VStack(alignment: .leading, spacing: 12) {
