@@ -1,4 +1,12 @@
-# Build 7 candidate: Crosscript naming and drag-to-Applications layout
+# Build 7: Crosscript naming and drag-to-Applications layout
+
+## Public delivery — 2026-11-02
+
+PR [#20](https://github.com/yqia03/crosscript/pull/20) is merged and [v0.1.0-preview.7](https://github.com/yqia03/crosscript/releases/tag/v0.1.0-preview.7) is published as a prerelease. Its three assets match the final local byte sizes and SHA-256 values; all three public download URLs respond successfully. The tag points to the App's exact source commit `4579cac20caafdd4dc716def209cb21b8b100a66`. See [public delivery verification](public-delivery.json).
+
+The build 5 and build 6 Release bodies, identities and asset IDs, filenames, byte sizes, digests and URLs were compared before and after publication and remain unchanged. This publication adds no ordinary-Mac or cloud-workflow acceptance. The following preparation record and the corresponding frozen material archive describe their earlier local stage; their “candidate” and “not published” wording does not override the published Release status.
+
+## Preserved preparation record
 
 This is development work for [brand consistency #13](https://github.com/yqia03/crosscript/issues/13) and [DMG presentation #14](https://github.com/yqia03/crosscript/issues/14), under the approved [exit-preview specification #12](https://github.com/yqia03/crosscript/issues/12). It is not a stable-release acceptance or a publication record. The published build 5 and build 6 packages, tags and historical evidence remain unchanged.
 

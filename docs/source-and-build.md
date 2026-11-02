@@ -1,6 +1,6 @@
-# Crosscript source and build materials — 0.1.0 (7) candidate
+# Crosscript source and build materials — 0.1.0 (7)
 
-This document describes the unpublished build 7 candidate and its planned version-specific source/material links. The published build 6 and its original files remain unchanged. A candidate built with the source-bound driver below records the exact source revision and source archive SHA-256 in its signed Info.plist. Source and materials become downloadable when this matching release is published; a missing link before publication is not evidence of delivery.
+This document describes the published build 7 preview and its version-specific source/material links. Earlier releases and their original files remain unchanged. The signed App records exact source revision `4579cac20caafdd4dc716def209cb21b8b100a66` and source archive SHA-256 `9715aa1dd0825123e3f4a07685c653238f6a04de9cb93de8088535c275d2579a`. The complete materials archive supplies that exact build input; later evidence and download-guide commits do not change it.
 
 - Project: https://github.com/yqia03/crosscript
 - Matching source: https://github.com/yqia03/crosscript/tree/v0.1.0-preview.7
@@ -10,18 +10,18 @@ This document describes the unpublished build 7 candidate and its planned versio
 
 Crosscript's own code is AGPL-3.0-only; third-party components retain their own terms. The complete materials archive supplies the exact project source, integration changes, build/install/maintenance scripts, applicable third-party sources/notices and verification records. See [distribution materials](distribution-materials.md) and [third-party notices](../THIRD_PARTY_NOTICES.md). A version label or GitHub-generated source ZIP does not replace the App-bound source archive.
 
-中文：这是尚未公开发布的 build 7 候选，以下链接在同版正式公开后生效。普通用户选择 DMG 或 App ZIP 安装即可，无需下载完整材料。需要源码、第三方材料及验证记录时，下载同版 `Crosscript-materials-0.1.0-7.tar.gz`。通过下述源绑定驱动构建的候选会在 App 签名内记录精确源码版本与归档摘要；自有代码为 AGPL-3.0-only，第三方保留各自许可，完整许可文本也随 App 离线提供。
+中文：这是已公开发布的 build 7 预览版。普通用户选择 DMG 或 App ZIP 安装即可，无需下载完整材料。需要源码、第三方材料及验证记录时，下载同版 `Crosscript-materials-0.1.0-7.tar.gz`。App 签名内记录上述精确源码版本与归档摘要，后续证据与下载说明提交不改变构建输入；自有代码为 AGPL-3.0-only，第三方保留各自许可，完整许可文本也随 App 离线提供。
 
 ## Complete materials layout
 
-The planned outer archive has root `Crosscript-materials-0.1.0-7/`:
+The complete materials archive has root `Crosscript-materials-0.1.0-7/`:
 
 - `source/Crosscript-source-0.1.0-7.tar.gz`: the exact clean committed source snapshot used for this App.
-- `third-party/Crosscript-third-party-0.1.0-5-materials-v4.tar.gz`: the unchanged complete companion for the unchanged PDF runtime. Its original filename and historical records remain intact; inclusion in a new candidate does not claim that its historical tests were rerun.
-- `evidence/`: this candidate's source/build binding, App/package verification and actual test results, plus the record explaining runtime/material reuse.
+- `third-party/Crosscript-third-party-0.1.0-5-materials-v4.tar.gz`: the unchanged complete companion for the unchanged PDF runtime. Its original filename and historical records remain intact; inclusion in build 7 does not claim that its historical tests were rerun.
+- `evidence/`: build 7's source/build binding, App/package verification and actual test results, plus the record explaining runtime/material reuse.
 - `manifest.json`, `SHA256SUMS.txt` and `README.md`: archive contents, digests and directions.
 
-The matching Release body, when published, links the three downloads and displays their SHA-256 values. Individual JSON, scripts, Markdown and checksum files are kept in the materials archive rather than uploaded as extra assets. The build 5 tag, source, App, downloads and historical documentation remain available unchanged at [its original release](https://github.com/yqia03/crosscript/releases/tag/v0.1.0-preview.5).
+The matching Release body links the three downloads and displays their SHA-256 values. Individual JSON, scripts, Markdown and checksum files are kept in the materials archive rather than uploaded as extra assets. The build 5 tag, source, App, downloads and historical documentation remain available unchanged at [its original release](https://github.com/yqia03/crosscript/releases/tag/v0.1.0-preview.5).
 
 ## Build from source
 
@@ -42,9 +42,11 @@ python3 -B scripts/release/build-bound-candidate.py \
 
 The driver archives tracked inputs, records the toolchain, restricts the build environment, denies build-process network access and embeds source identifiers before signing. It checks that source files remain unchanged. The ordinary build command also works from an extracted source archive but does not embed source identifiers by default; the original distribution's identifiers are in its companion build binding. Do not reuse an existing Release output or edit a signed App.
 
-The preview uses ad-hoc integrity signing. Developer ID signing, notarization and stapling are not performed; the maintainer accepts the existing first-open restrictions for this packaging change. The DMG adds drag-to-Applications installation, not publisher authentication. Bundle identity, data paths and Keychain names stay unchanged. Package and signature verification do not establish another-Mac, minimum-OS, Gatekeeper or cloud-workflow acceptance; build 5's installation waiver is a historical record, not a passing result for this candidate.
+The preview uses ad-hoc integrity signing. Developer ID signing, notarization and stapling are not performed; the maintainer accepts the existing first-open restrictions for this packaging change. The DMG adds drag-to-Applications installation, not publisher authentication. Bundle identity, data paths and Keychain names stay unchanged. Package and signature verification do not establish another-Mac, minimum-OS, Gatekeeper or cloud-workflow acceptance; build 5's installation waiver is a historical record, not a passing result for build 7.
 
-See [release packaging](release-packaging.md) for DMG/ZIP roundtrip checks and the three-asset assembly command. Public delivery must match the source and material digests recorded for this candidate.
+[Build 7 verification](release-verification/build7/README.md) records 62 passing tests, native Finder layout and remount checks, ZIP/DMG App consistency, and a local Finder Copy/Paste installation into `/Applications/Crosscript.app` with an isolated synthetic-data launch and cleanup. Actual drag automation is not marked passed. These checks used the build Mac; ordinary-Mac installation, Gatekeeper, real Keychain/TCC migration and cloud workflows remain untested. The App name and executable are **Crosscript**; compatibility identifiers and stored data remain unchanged.
+
+See [release packaging](release-packaging.md) for DMG/ZIP roundtrip checks and the three-asset assembly command. The published files are bound to the source and material digests recorded for build 7.
 
 ## Unchanged PDF runtime and companion
 
