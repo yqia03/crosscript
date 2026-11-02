@@ -3,8 +3,37 @@ import PDFKit
 import SwiftUI
 import WorkbenchCore
 
+@MainActor final class PDFReadingCanvas: PDFView {
+    private var updatingPageMargins = false
+
+    override func setFrameSize(_ newSize: NSSize) {
+        let widthChanged = frame.width != newSize.width
+        super.setFrameSize(newSize)
+        if widthChanged { reservePageEdgeSpace() }
+    }
+
+    func reservePageEdgeSpace() {
+        guard !updatingPageMargins, let document, bounds.width > 0 else { return }
+        let pageWidth = (0..<document.pageCount).compactMap { document.page(at: $0)?.bounds(for: displayBox).width }.max() ?? 0
+        let left = pageBreakMargins.left
+        // PDFKit scales page margins with the paper. Reserve enough page space
+        // for a native track even when a wide page is fitted to a narrow reader.
+        let viewportWidth = bounds.width - NSScroller.scrollerWidth(for: .regular, scrollerStyle: .legacy)
+        let gutter: CGFloat = 24
+        let margin = max(32, autoScales
+            ? gutter * (pageWidth + left) / max(1, viewportWidth - gutter)
+            : gutter / max(scaleFactor, .leastNonzeroMagnitude))
+        guard abs(pageBreakMargins.right - margin) > 0.25 || abs(pageBreakMargins.bottom - margin) > 0.25 else { return }
+        updatingPageMargins = true
+        defer { updatingPageMargins = false }
+        displaysPageBreaks = true
+        pageBreakMargins = NSEdgeInsets(top: pageBreakMargins.top, left: left, bottom: margin, right: margin)
+        layoutDocumentView()
+    }
+}
+
 @MainActor final class PDFReadingController: ObservableObject {
-    let view = PDFView(frame: NSRect(x: 0, y: 0, width: 600, height: 500))
+    let view = PDFReadingCanvas(frame: NSRect(x: 0, y: 0, width: 600, height: 500))
     @Published private(set) var pageNumber = 0
     @Published private(set) var pageCount = 0
     @Published private(set) var canGoBack = false
@@ -17,11 +46,14 @@ import WorkbenchCore
         observations.append(NotificationCenter.default.addObserver(forName: .PDFViewPageChanged, object: view, queue: .main) { [weak self] _ in
             MainActor.assumeIsolated { self?.refresh() }
         })
+        observations.append(NotificationCenter.default.addObserver(forName: .PDFViewScaleChanged, object: view, queue: .main) { [weak self] _ in
+            MainActor.assumeIsolated { self?.view.reservePageEdgeSpace() }
+        })
     }
     deinit { for token in observations { NotificationCenter.default.removeObserver(token) } }
     func open(_ url: URL) {
         guard view.document?.documentURL != url else { return }
-        view.document = PDFDocument(url: url); view.autoScales = true
+        view.document = PDFDocument(url: url); view.autoScales = true; view.reservePageEdgeSpace()
         failed = view.document == nil || view.document?.isLocked == true
         if let first = view.document?.page(at: 0) { view.go(to: first) }
         refresh()
@@ -30,7 +62,7 @@ import WorkbenchCore
     func nextPage() { view.goToNextPage(nil); refresh() }
     func zoomIn() { view.zoomIn(nil) }
     func zoomOut() { view.zoomOut(nil) }
-    func fit() { view.autoScales = true }
+    func fit() { view.autoScales = true; view.reservePageEdgeSpace() }
     private func refresh() {
         pageCount = view.document?.pageCount ?? 0
         pageNumber = view.currentPage.flatMap { view.document?.index(for: $0) }.map { $0 + 1 } ?? 0
@@ -48,6 +80,7 @@ import WorkbenchCore
             if reader.failed { Text(t("此 PDF 暂时无法打开，已有文件仍保留。", "This PDF cannot be opened. Existing files are retained.")).foregroundStyle(.red) }
             NativePDFReadingView(reader: reader).frame(minHeight: 400)
                 .clipShape(RoundedRectangle(cornerRadius: 12))
+                .modifier(HistoryGeometryObservation(name: "pdf.reader.canvas"))
             ViewThatFits(in: .horizontal) {
                 ZStack {
                     pageControls
@@ -55,23 +88,24 @@ import WorkbenchCore
                 }.frame(minWidth: 540)
                 VStack(spacing: 8) { pageControls; zoomControls }.frame(maxWidth: .infinity)
             }.buttonStyle(WorkbenchCompactButtonStyle(iconOnly: true))
+                .modifier(HistoryGeometryObservation(name: "pdf.reader.toolbar"))
         }.onAppear { reader.open(url) }.onChange(of: url) { _, newValue in reader.open(newValue) }
     }
     private var pageControls: some View {
         HStack {
             Button { reader.previousPage() } label: { Image(systemName: "chevron.left") }.disabled(!reader.canGoBack)
-                .accessibilityLabel(t("上一页", "Previous page")).help(t("上一页", "Previous page"))
+                .accessibilityLabel(t("上一页", "Previous page")).help(t("上一页", "Previous page")).accessibilityIdentifier("pdf-reader-previous")
             Text("\(reader.pageNumber) / \(reader.pageCount)").monospacedDigit().font(.caption).frame(minWidth: 52)
             Button { reader.nextPage() } label: { Image(systemName: "chevron.right") }.disabled(!reader.canGoForward)
-                .accessibilityLabel(t("下一页", "Next page")).help(t("下一页", "Next page"))
-        }
+                .accessibilityLabel(t("下一页", "Next page")).help(t("下一页", "Next page")).accessibilityIdentifier("pdf-reader-next")
+        }.modifier(HistoryGeometryObservation(name: "pdf.reader.pages"))
     }
     private var zoomControls: some View {
         HStack {
-            Button { reader.zoomOut() } label: { Image(systemName: "minus.magnifyingglass") }.accessibilityLabel(t("缩小", "Zoom out"))
-            Button { reader.zoomIn() } label: { Image(systemName: "plus.magnifyingglass") }.accessibilityLabel(t("放大", "Zoom in"))
-            Button(t("适应窗口", "Fit to window")) { reader.fit() }
-        }
+            Button { reader.zoomOut() } label: { Image(systemName: "minus.magnifyingglass") }.accessibilityLabel(t("缩小", "Zoom out")).accessibilityIdentifier("pdf-reader-zoom-out")
+            Button { reader.zoomIn() } label: { Image(systemName: "plus.magnifyingglass") }.accessibilityLabel(t("放大", "Zoom in")).accessibilityIdentifier("pdf-reader-zoom-in")
+            Button(t("适应窗口", "Fit to window")) { reader.fit() }.accessibilityIdentifier("pdf-reader-fit")
+        }.modifier(HistoryGeometryObservation(name: "pdf.reader.zoom"))
     }
 }
 @MainActor private struct NativePDFReadingView: NSViewRepresentable {
