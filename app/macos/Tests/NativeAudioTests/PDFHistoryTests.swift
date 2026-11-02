@@ -2,6 +2,7 @@ import AppKit
 import SwiftUI
 import CoreGraphics
 import PDFKit
+import UniformTypeIdentifiers
 import Testing
 @testable import TranslationWorkbench
 @testable import WorkbenchCore
@@ -77,6 +78,37 @@ import Testing
                 }
             }
         }
+    }
+
+    @Test func latePreservedDropGetsMetadataWhileHistoryRemainsOpenWithoutRefillingTheWorkspace() async throws {
+        _ = NSApplication.shared
+        NSApp.accessibilitySetValue(true, forAttribute: .init(rawValue: "AXEnhancedUserInterface"))
+        NSApp.accessibilitySetValue(true, forAttribute: .init(rawValue: "AXManualAccessibility"))
+        let fixture = try PDFHistoryFixture(count: 2)
+        defer { fixture.clean() }
+        let provider = NSItemProvider(), source = fixture.root.appendingPathComponent("controlled.pdf")
+        provider.registerDataRepresentation(forTypeIdentifier: UTType.fileURL.identifier, visibility: .all) { completion in
+            DispatchQueue.global().asyncAfter(deadline: .now() + 0.15) { completion(source.dataRepresentation, nil) }
+            return nil
+        }
+        let importer = PDFDropImporter()
+        importer.append([provider], to: fixture.session)
+        fixture.session.newProject()
+        let host = NSHostingView(rootView: PDFHistoryView(session: fixture.session, close: {}))
+        host.frame = CGRect(x: 0, y: 0, width: 700, height: 640)
+        let window = NSWindow(contentRect: host.frame, styleMask: [], backing: .buffered, defer: false)
+        window.contentView = host
+        defer { window.contentView = nil }
+        await settle(host)
+        let deadline = Date().addingTimeInterval(3)
+        while fixture.session.materials.count < 3, Date() < deadline { try await Task.sleep(for: .milliseconds(10)) }
+        await settle(host)
+        let late = try #require(fixture.session.materials.first { $0.name == "controlled" })
+        #expect(fixture.session.sourceMetadata[late.id]?.pageCount == 1)
+        #expect(element(host, identifier: "pdf-history-metadata-" + late.id.uuidString) != nil)
+        #expect(fixture.session.workspaceMaterials.isEmpty && fixture.session.selectedID == nil)
+        #expect(late.tasks.isEmpty && late.results.isEmpty)
+        #expect(await fixture.engine.calls == 0)
     }
 
     @Test func dismissalDropsOldSubmitExportAndDeleteCommandsUntilTheWorkspaceIsReady() async throws {

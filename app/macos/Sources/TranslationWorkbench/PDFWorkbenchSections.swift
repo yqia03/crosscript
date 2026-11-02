@@ -47,7 +47,7 @@ import WorkbenchCore
                     .modifier(HistoryGeometryObservation(name: "pdf." + material.id.uuidString))
             }
         }.historyScrollGutter()
-            .onAppear { session.prepareHistoryMetadata() }
+            .onChange(of: session.materials.map(\.id), initial: true) { _, _ in session.prepareHistoryMetadata() }
     }
 }
 
