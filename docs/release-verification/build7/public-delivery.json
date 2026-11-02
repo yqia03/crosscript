@@ -1,0 +1,57 @@
+{
+  "checked_at_utc": "2026-11-02T06:16:04.753315+00:00",
+  "release_url": "https://github.com/yqia03/crosscript/releases/tag/v0.1.0-preview.7",
+  "release_id": 431122772,
+  "published_at": "2026-11-02T06:14:42Z",
+  "draft": false,
+  "prerelease": true,
+  "tag": "v0.1.0-preview.7",
+  "tag_commit": "4579cac20caafdd4dc716def209cb21b8b100a66",
+  "merged_pr": 20,
+  "merge_commit": "0f01bb37d8d20796e60a5ea0f1ac3da8570b1f6f",
+  "verification_method": "GitHub asset SHA-256 and byte size compared with approved local files; unauthenticated redirected HEAD for each public download. Full public asset bodies were not downloaded again.",
+  "assets": [
+    {
+      "name": "Crosscript-materials-0.1.0-7.tar.gz",
+      "id": 700719841,
+      "size": 1837037467,
+      "sha256": "8349b3319801aa44e0788250c7d989edd95192bd1a8fa0429b6bf77bc51576ed",
+      "url": "https://github.com/yqia03/crosscript/releases/download/v0.1.0-preview.7/Crosscript-materials-0.1.0-7.tar.gz",
+      "state": "uploaded",
+      "public_head_http_status": 200
+    },
+    {
+      "name": "Crosscript-preview-0.1.0-7.dmg",
+      "id": 700719843,
+      "size": 178374427,
+      "sha256": "dc4aeb510385fb2fb57b340c60ec2abd0530e1c6b5602b22f77c543e8fcd4483",
+      "url": "https://github.com/yqia03/crosscript/releases/download/v0.1.0-preview.7/Crosscript-preview-0.1.0-7.dmg",
+      "state": "uploaded",
+      "public_head_http_status": 200
+    },
+    {
+      "name": "Crosscript-preview-0.1.0-7.zip",
+      "id": 700719846,
+      "size": 169788213,
+      "sha256": "bc857f918d093dafff697d93e0d8f9e3f13bd2fc433572c342ed3d90a2013013",
+      "url": "https://github.com/yqia03/crosscript/releases/download/v0.1.0-preview.7/Crosscript-preview-0.1.0-7.zip",
+      "state": "uploaded",
+      "public_head_http_status": 200
+    }
+  ],
+  "previous_releases": [
+    {
+      "tag": "v0.1.0-preview.5",
+      "release_id": 428599901,
+      "asset_count": 28,
+      "release_body_identity_and_asset_ids_names_bytes_digests_urls_unchanged": true
+    },
+    {
+      "tag": "v0.1.0-preview.6",
+      "release_id": 430639905,
+      "asset_count": 3,
+      "release_body_identity_and_asset_ids_names_bytes_digests_urls_unchanged": true
+    }
+  ],
+  "scope": "Publication and download delivery only; does not add workflow or ordinary-Mac acceptance."
+}

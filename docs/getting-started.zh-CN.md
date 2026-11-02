@@ -1,32 +1,32 @@
-# 安装与使用 Crosscript build 6
+# 安装与使用 Crosscript build 7
 
-[English](getting-started.md) · [项目首页](../README.zh-CN.md) · [Release](https://github.com/yqia03/crosscript/releases/tag/v0.1.0-preview.6)
+[English](getting-started.md) · [项目首页](../README.zh-CN.md) · [Release](https://github.com/yqia03/crosscript/releases/tag/v0.1.0-preview.7)
 
-本说明对应已发布的 Apple Silicon 预览版 **0.1.0 (6)**。同版 Release 提供 DMG、App ZIP 和可选的完整材料，实际检查结果见[交付核验](release-verification/build6/README.md)。该已发布 App 的显示名称为 **翻译工作台**，包为 `TranslationWorkbench.app`，可执行文件名为 `TranslationWorkbench`，Bundle ID 为 `dev.uown.translation-workbench`。下载内容保持不变；开发分支后续候选版的名称变化见下文。
+本说明对应已发布的 Apple Silicon 预览版 **0.1.0 (7)**。同版 Release 提供 DMG、App ZIP 和可选的完整材料，实际检查结果见[构建核验](release-verification/build7/README.md)。App 包为 `Crosscript.app`，显示名称与可执行文件名均为 **Crosscript**，Bundle ID 为 `dev.uown.translation-workbench`。
 
-## 后续 Crosscript.app 候选版
+## 从 TranslationWorkbench.app 升级
 
-从开发分支构建的后续候选版采用 `Crosscript.app`，显示名称与可执行文件名均为 **Crosscript**。Bundle ID、现有资料路径、偏好域和钥匙串 service 名称保留兼容标识；应用改名无需移动或删除这些资料。本次源码修改不会重命名或替换已发布的 build 6 下载。
+Bundle ID、现有资料路径、偏好域和钥匙串 service 名称保留兼容标识；应用改名无需移动或删除这些资料。旧版使用 `TranslationWorkbench.app`。
 
-安装后续候选版前，停止并保存录音，结束或取消处理任务，退出所有旧版副本，并备份需要保留的资料。仅移除“应用程序”中的旧 `TranslationWorkbench.app`，再安装 `Crosscript.app`，从这一确切的已安装路径打开；不要删除下方列出的资料目录或钥匙串项目。文件名不同，Finder 不会按同名应用提示替换；请避免保留或同时运行两份应用，它们会共用资料与偏好。macOS 可能再次请求麦克风或屏幕／系统音频权限，尚未验证权限继承。保持现有系统安全设置，按系统提供的适用单应用流程打开。
+安装 build 7 前，停止并保存录音，结束或取消处理任务，退出所有旧版副本，并备份需要保留的资料。仅移除“应用程序”中的旧 `TranslationWorkbench.app`，再安装 `Crosscript.app`，从这一确切的已安装路径打开；不要删除下方列出的资料目录或钥匙串项目。文件名不同，Finder 不会按同名应用提示替换；请避免保留或同时运行两份应用，它们会共用资料与偏好。macOS 可能再次请求麦克风或屏幕／系统音频权限，尚未验证权限继承。保持现有系统安全设置，按系统提供的适用单应用流程打开。
 
 ## 下载、校验与打开
 
-1. 选择 **[DMG（推荐）](https://github.com/yqia03/crosscript/releases/download/v0.1.0-preview.6/Crosscript-preview-0.1.0-6.dmg)** 或 **[App ZIP](https://github.com/yqia03/crosscript/releases/download/v0.1.0-preview.6/Crosscript-preview-0.1.0-6.zip)**，两者下载一个即可。如需校验，在文件所在目录用终端运行相应命令，将 SHA-256 与同版 Release 正文核对：
+1. 选择 **[DMG（推荐）](https://github.com/yqia03/crosscript/releases/download/v0.1.0-preview.7/Crosscript-preview-0.1.0-7.dmg)** 或 **[App ZIP](https://github.com/yqia03/crosscript/releases/download/v0.1.0-preview.7/Crosscript-preview-0.1.0-7.zip)**，两者下载一个即可。如需校验，在文件所在目录用终端运行相应命令，将 SHA-256 与同版 Release 正文核对：
 
    ```sh
-   shasum -a 256 Crosscript-preview-0.1.0-6.dmg
+   shasum -a 256 Crosscript-preview-0.1.0-7.dmg
    # 如果下载的是 ZIP：
-   shasum -a 256 Crosscript-preview-0.1.0-6.zip
+   shasum -a 256 Crosscript-preview-0.1.0-7.zip
    ```
 
-2. 先退出旧版并备份需要保留的资料。DMG：打开后将 `TranslationWorkbench.app` 拖到“应用程序”，推出磁盘映像，再打开已安装的应用。ZIP：用 Finder 解压，将 `TranslationWorkbench.app` 移到“应用程序”，再打开。目标为 Apple Silicon 与 macOS 14.2+；最低系统 macOS 14.2 尚未实机验证。无需安装开发工具。
+2. 先退出旧版并备份需要保留的资料。DMG：打开后将 `Crosscript.app` 拖到“应用程序”，推出磁盘映像，再打开已安装的应用。ZIP：用 Finder 解压，将 `Crosscript.app` 移到“应用程序”，再打开。目标为 Apple Silicon 与 macOS 14.2+；最低系统 macOS 14.2 尚未实机验证。无需安装开发工具。
 3. 本预览版采用 **ad-hoc 完整性签名**，没有 Developer ID 发行者认证或 Apple 公证。如果被 macOS 阻止，请参考 [Apple 单应用打开说明](https://support.apple.com/en-us/102445)，按系统提供的适用单应用流程处理，不关闭全局保护、删除 quarantine 或重签。摘要／签名不符，或出现恶意软件、损坏提示时应停止，并保留提示原文用于脱敏反馈。
 4. 在设置中选择英文／简体中文并添加服务。安装应用不附带服务账户、API 额度或密钥。
 
-可选的[完整材料归档](https://github.com/yqia03/crosscript/releases/download/v0.1.0-preview.6/Crosscript-materials-0.1.0-6.tar.gz)内含精确源码归档、第三方源码／构建材料、许可声明和证据，安装或运行应用无需下载它。校验值见 Release 正文，内部内容见归档索引。
+可选的[完整材料归档](https://github.com/yqia03/crosscript/releases/download/v0.1.0-preview.7/Crosscript-materials-0.1.0-7.tar.gz)内含精确源码归档、第三方源码／构建材料、许可声明和证据，安装或运行应用无需下载它。校验值见 Release 正文，内部内容见归档索引。
 
-**验证范围：** build 6 的验证结果请查看同版 Release。历史 build 5 第二台 Mac B01–B06 未执行，2026-10-30 的豁免仅适用于 build 5；该豁免和旧版检查不构成 build 6 安装、权限或冷下载验收。[冻结的 build 5 安装／卸载参考](https://github.com/yqia03/crosscript/releases/download/v0.1.0-preview.5/INSTALL-UNINSTALL-LIMITATIONS.zh-CN.md)保留历史状态，其中沿用的资料和钥匙串路径也列于下文。
+**验证范围：** build 7 记录 62 项测试通过、原生 Finder 外观／重新挂载和 ZIP／DMG 一致性检查，以及构建机上的 Finder 复制／粘贴安装、隔离启动和后续清理。实际拖拽自动化不记为通过。普通 Mac 安装、Gatekeeper、真实钥匙串／TCC 迁移、最低系统兼容性和云端工作流仍未验证。历史 build 5 第二台 Mac B01–B06 未执行，2026-10-30 的豁免仅适用于 build 5；该豁免和旧版检查不构成 build 7 安装、权限或冷下载验收。[冻结的 build 5 安装／卸载参考](https://github.com/yqia03/crosscript/releases/download/v0.1.0-preview.5/INSTALL-UNINSTALL-LIMITATIONS.zh-CN.md)保留历史状态，其中沿用的资料和钥匙串路径也列于下文。
 
 ## 配置服务、数据流与费用
 
@@ -62,13 +62,13 @@ App 管理 `babeldoc-0.6.4-py312-20261029-arm64-crosscript-v3`（含 Python 3.12
 
 ## 限制与反馈
 
-[首页逐工作流证据表](../README.zh-CN.md#资料费用与验证边界)区分历史验证与缺口。官方 OpenAI 成功转写未验证，AiHubMix 记录不覆盖所有预设；Gemini 长会话、真实断线恢复和真实文件补齐仍有缺口。此前停止的 PDF 批次和实时／付费探测保持停止，build 6 包装不构成新的真实服务验收。
+[首页逐工作流证据表](../README.zh-CN.md#资料费用与验证边界)区分历史验证与缺口。官方 OpenAI 成功转写未验证，AiHubMix 记录不覆盖所有预设；Gemini 长会话、真实断线恢复和真实文件补齐仍有缺口。此前停止的 PDF 批次和实时／付费探测保持停止，build 7 包装不构成新的真实服务验收。
 
 帮助或 bug 请用 [GitHub Issues](https://github.com/yqia03/crosscript/issues/new)，提供应用／build、macOS、芯片、工作流、服务／模型、复现步骤及脱敏错误。去除密钥、私人文档／音频和机器路径。安全问题用[私密漏洞报告](https://github.com/yqia03/crosscript/security/advisories/new)，见 [SECURITY.md](../SECURITY.md)。本项目由个人维护，不承诺响应时限。
 
 ## 卸载或移除本机资料
 
-先停止并保存工作、结束／取消任务、退出应用并备份需要的资料。仅删除应用包（已发布 build 6 为 `TranslationWorkbench.app`，后续候选版为 `Crosscript.app`）会保留资料、偏好与钥匙串凭据，便于重装，不会撤销服务商密钥。
+先停止并保存工作、结束／取消任务、退出应用并备份需要的资料。仅删除应用包（build 7 为 `Crosscript.app`；旧版使用 `TranslationWorkbench.app`）会保留资料、偏好与钥匙串凭据，便于重装，不会撤销服务商密钥。
 
 默认资料根是 `~/Library/Application Support/TranslationWorkbench/Recordings/`；若用了 `--data-directory`，以实际指定目录为准。该根包含录音、`TextWorkspace/`（以及可能保留的旧 `TextMaterials/`）、`PDFMaterials/`、配置与 `PDFRuntime/`。只清理 PDF 组件时应单独识别 `PDFRuntime/`，避免误删整个资料根。偏好域为 `dev.uown.translation-workbench`。
 

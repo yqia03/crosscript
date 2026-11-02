@@ -1,6 +1,6 @@
 # Workflows and release scope
 
-Crosscript is a native Apple Silicon macOS translation and transcription workbench. Development-source candidates use Crosscript as their bundle, display and executable name; SwiftPM targets and compatibility identifiers retain their existing names. Its four workflows are included in the published [0.1.0 build 6 preview](https://github.com/yqia03/crosscript/releases/tag/v0.1.0-preview.6), whose frozen App remains `TranslationWorkbench.app` with display name 翻译工作台. The source naming change applies to future builds and does not alter that release.
+Crosscript is a native Apple Silicon macOS translation and transcription workbench. Its four workflows are included in the published [0.1.0 build 7 preview](https://github.com/yqia03/crosscript/releases/tag/v0.1.0-preview.7). The App is `Crosscript.app`, with display and executable name Crosscript; SwiftPM targets and compatibility identifiers retain their existing names. Earlier releases, including build 6's `TranslationWorkbench.app`, remain unchanged. See the [upgrade instructions](getting-started.md#upgrade-from-translationworkbenchapp) before replacing an older App.
 
 | Workflow | Scope | External processing |
 | --- | --- | --- |

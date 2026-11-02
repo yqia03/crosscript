@@ -4,22 +4,22 @@
 
 面向 Apple Silicon Mac 的原生翻译与转写工作台。使用自己的 API Key 翻译文本、Markdown 和 PDF，转写录音并查看实时双语字幕。原始资料与可编辑结果保存在本机；云端处理会把任务所需内容发送给你选择的服务。
 
-**已发布预览版：[0.1.0 build 6 / v0.1.0-preview.6](https://github.com/yqia03/crosscript/releases/tag/v0.1.0-preview.6)。** Release 提供三项下载，[build 6 交付核验](docs/release-verification/build6/README.md)记录源码与安装包检查结果。本预览版采用 ad-hoc 完整性签名，没有 Developer ID 发行者认证或 Apple 公证。
+**已发布预览版：[0.1.0 build 7 / v0.1.0-preview.7](https://github.com/yqia03/crosscript/releases/tag/v0.1.0-preview.7)。** Release 提供三项下载，[build 7 核验](docs/release-verification/build7/README.md)记录源码与安装包检查结果。本预览版采用 ad-hoc 完整性签名，没有 Developer ID 发行者认证或 Apple 公证。
 
 ## 下载与安装
 
 从同版 Release 选择一种应用下载：
 
-- **[DMG（推荐）](https://github.com/yqia03/crosscript/releases/download/v0.1.0-preview.6/Crosscript-preview-0.1.0-6.dmg)：** 打开后将 `TranslationWorkbench.app` 拖到“应用程序”，推出磁盘映像，再打开已安装的应用。
-- **[App ZIP](https://github.com/yqia03/crosscript/releases/download/v0.1.0-preview.6/Crosscript-preview-0.1.0-6.zip)：** 用 Finder 解压，将应用移到“应用程序”，再打开。
-- **[完整材料归档](https://github.com/yqia03/crosscript/releases/download/v0.1.0-preview.6/Crosscript-materials-0.1.0-6.tar.gz)：** 普通使用无需下载；内含精确源码归档、第三方源码／构建材料、许可声明和发布证据。
+- **[DMG（推荐）](https://github.com/yqia03/crosscript/releases/download/v0.1.0-preview.7/Crosscript-preview-0.1.0-7.dmg)：** 打开后将 `Crosscript.app` 拖到“应用程序”，推出磁盘映像，再打开已安装的应用。
+- **[App ZIP](https://github.com/yqia03/crosscript/releases/download/v0.1.0-preview.7/Crosscript-preview-0.1.0-7.zip)：** 用 Finder 解压，将应用移到“应用程序”，再打开。
+- **[完整材料归档](https://github.com/yqia03/crosscript/releases/download/v0.1.0-preview.7/Crosscript-materials-0.1.0-7.tar.gz)：** 普通使用无需下载；内含精确源码归档、第三方源码／构建材料、许可声明和发布证据。
 
 下载后可按 Release 正文的 SHA-256 校验。[安装与使用说明](docs/getting-started.zh-CN.md)覆盖首次打开、服务配置、历史、导出和卸载。
 
 - **硬件：** Apple Silicon（arm64），目前没有 Intel 版。
 - **系统目标：** macOS 14.2 或更新；尚未在最低版本 macOS 14.2 实机验证。
 - **界面：** 简体中文与英文。
-- **应用名称：** 已发布 build 6 的包为 `TranslationWorkbench.app`，显示名称为 **翻译工作台**。开发分支为后续候选构建统一采用 `Crosscript.app`，显示名称与可执行文件名均为 **Crosscript**；本次修改不会改变已发布的 build 6 下载。现有资料路径、偏好与钥匙串 service 保留兼容标识，升级步骤见[使用说明](docs/getting-started.zh-CN.md#后续-crosscriptapp-候选版)。
+- **应用名称：** build 7 采用 `Crosscript.app`，显示名称与可执行文件名均为 **Crosscript**。现有资料路径、偏好与钥匙串 service 保留兼容标识。安装前退出旧版，仅移除旧 `TranslationWorkbench.app` 应用包，保留资料与凭据；升级步骤见[使用说明](docs/getting-started.zh-CN.md#从-translationworkbenchapp-升级)。
 - **首次打开：** 未公证应用可能被 macOS 阻止，适用的单应用打开流程见使用说明。
 - **PDF 准备：** App 内置 22 个输入，另有 245 个固定 HTTPS 输入首次下载，共 359,471,768 bytes（约 359 MB）；还需安装和处理空间。Python 由 App 管理，普通用户无需另装 Homebrew、Xcode 或 Python。
 
@@ -44,7 +44,7 @@
 | PDF | 有聚焦离线安装／复用和组件证据，不等于另一台 Mac 冷下载或任意 PDF 质量验证。此前部分完成的 PDF 批次保持停止；扫描图片不会自动获得 OCR，版式、公式和字体可能改变。 |
 | 录后转写 | AiHubMix 有历史真实使用记录；官方 OpenAI 成功转写及各预设时间定位精度尚未全部建立证据。 |
 | Gemini Live | 有短时历史真实服务验证；长会话、真实断线恢复和文件补齐仍有缺口，不声称真实 Gemini 文件补齐成功；不承诺译文语音或固定延迟。 |
-| 全应用／安装 | build 6 验证结果以同版 Release 为准。历史 build 5 第二台 Mac B01–B06 未执行，2026-10-30 的豁免仅适用于 build 5；旧版检查不构成 build 6 验收。macOS 14.2 实机与完整工作流验收仍未覆盖。 |
+| 全应用／安装 | build 7 记录 62 项测试通过、原生 Finder 外观／重新挂载和 ZIP／DMG 一致性检查，以及构建机上的 Finder 复制／粘贴安装、隔离启动与清理。实际拖拽自动化不记为通过。普通 Mac、Gatekeeper、真实钥匙串／TCC 迁移、macOS 14.2 实机和云端工作流验收仍未覆盖。历史 build 5 第二台 Mac B01–B06 未执行，2026-10-30 的豁免仅适用于 build 5。 |
 
 语言菜单不等于逐语言质量保证，初始验证重点为简体中文和英文。此前停止的 PDF 批次、实时／付费探测没有恢复。见 [build 5 历史证据与用户材料范围](docs/release-verification/build5/user-materials.md)。
 
@@ -54,7 +54,7 @@
 
 - [反馈问题／请求帮助](https://github.com/yqia03/crosscript/issues/new)：附应用版本／build、macOS、芯片、工作流、服务／模型和脱敏复现步骤，见[贡献指南](CONTRIBUTING.md)。
 - [私密报告漏洞](https://github.com/yqia03/crosscript/security/advisories/new)：见 [SECURITY.md](SECURITY.md)，不要在公开 issue 贴凭据或可利用的安全细节。
-- [build 6 完整材料归档](https://github.com/yqia03/crosscript/releases/download/v0.1.0-preview.6/Crosscript-materials-0.1.0-6.tar.gz)提供精确源码、第三方源码／构建材料和证据。GitHub 自动生成的源码 ZIP 不替代归档内与 App 绑定的精确源码。
+- [build 7 完整材料归档](https://github.com/yqia03/crosscript/releases/download/v0.1.0-preview.7/Crosscript-materials-0.1.0-7.tar.gz)提供精确源码、第三方源码／构建材料和证据。GitHub 自动生成的源码 ZIP 不替代归档内与 App 绑定的精确源码。
 
 项目由个人维护，不承诺响应时限。开发构建需要 Apple Silicon、Swift 6 与 macOS SDK，见[源码／构建说明](docs/source-and-build.md)和[测试范围](docs/testing.md)。已冻结的 [build 5 Release](https://github.com/yqia03/crosscript/releases/tag/v0.1.0-preview.5)、标签、App 与 28 项资产保留不变，其中的后续批准与豁免仅适用于 build 5。
 
