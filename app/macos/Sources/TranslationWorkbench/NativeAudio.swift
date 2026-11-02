@@ -96,6 +96,8 @@ final class MicrophoneRecorder: NSObject, AudioRecording {
 
     deinit { deviceTimer?.invalidate() }
 
+    var capturedInputDevice: AudioInputDevice? { recorder == nil ? nil : selectedDevice }
+
     var currentTime: TimeInterval {
         guard let recorder, !isPaused else { return stoppedDuration }
         let time = recorder.currentTime
@@ -183,6 +185,7 @@ final class MicrophoneRecorder: NSObject, AudioRecording {
             _ = stop()
             throw NativeAudioError.cannotStartRecording
         }
+        try validateDevice()
         let timer = Timer(timeInterval: 0.5, repeats: true) { [weak self] _ in
             Task { @MainActor [weak self] in
                 guard let self, self.sessionID == id else { return }

@@ -134,7 +134,7 @@ import Foundation
         formatter.timeZone = timeZone()
         formatter.dateFormat = "yyyy-MM-dd HH:mm:ss"
         let defaultName = formatter.string(from: startedAt)
-        let recording = Recording(id: UUID(), startedAt: startedAt, defaultName: defaultName, name: defaultName, duration: 0, status: .recording, source: source, workflow: workflow)
+        var recording = Recording(id: UUID(), startedAt: startedAt, defaultName: defaultName, name: defaultName, duration: 0, status: .recording, source: source, workflow: workflow)
         do {
             try store.save(recording)
             startingRecording = recording
@@ -142,6 +142,11 @@ import Foundation
             try await recorder.start(at: store.audioURL(for: recording.id), source: source)
             guard captureToken == token else { settleCancelledCapture(recording); return }
             if let startupFailure { throw startupFailure }
+            if let input = recorder.capturedInputDevice {
+                recording.capturedInputDevice = input
+                try store.save(recording)
+                startingRecording = recording
+            }
         } catch {
             guard captureToken == token else { settleCancelledCapture(recording); return }
             captureToken = nil
