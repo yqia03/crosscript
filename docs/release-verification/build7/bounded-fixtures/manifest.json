@@ -1,0 +1,124 @@
+{
+  "schema": 1,
+  "status": "synthetic text preparation only; no validation passed or cloud execution claimed",
+  "provenance": "Original non-private synthetic scripts authored for the bounded acceptance plan. No user material, actual credentials, service responses or recordings are included.",
+  "execution": "These text fixtures were prepared before approval. The bounded execution package was subsequently approved; see the current acceptance plan. This fixture archive contains no audio, capture or cloud results.",
+  "shortAudioTiming": "A1/G2 target 20–25 seconds at a natural brisk pace. This is a planning estimate only; measure future rendered audio, adjust pauses within scope, and reject any audio above 30 seconds.",
+  "translationCaveat": "Key semantics and short bilingual hints are human-authored evaluation references, not generated translations or exact expected output. Translation wording may vary.",
+  "g1Caveat": "32 short numbered utterances at 30-second starts across a planned 16-minute local timeline, with silence between utterances; not 16 minutes of continuous speech or proof of one cloud connection.",
+  "files": [
+    {
+      "file": "T1-en-to-zh-plain.txt",
+      "bytes": 169,
+      "sha256": "e245d6fd6cff09efbea94e418212f46a4ca4a7e368c6f5c49ad94f78c4238e32",
+      "direction": "en -> zh-Hans",
+      "keySemantics": [
+        "blue folder contains three maps",
+        "keep north gate open",
+        "meeting at 09:30",
+        "final-line marker"
+      ],
+      "layout": {
+        "lineCount": 8,
+        "emptyLines": [
+          2,
+          3,
+          7
+        ],
+        "repeatedLines": [
+          1,
+          5
+        ],
+        "trailingNewline": true
+      }
+    },
+    {
+      "file": "T2-zh-to-en-plain.txt",
+      "bytes": 155,
+      "sha256": "64d1945fa78b16ca20374e67d722d9a5a6d3eb03588a9c29ee2ace351e046452",
+      "direction": "zh-Hans -> en",
+      "keySemantics": [
+        "蓝色文件夹，三张地图",
+        "北门保持开放",
+        "九点半开会",
+        "最后一行标记"
+      ],
+      "layout": {
+        "lineCount": 8,
+        "emptyLines": [
+          2,
+          3,
+          7
+        ],
+        "repeatedLines": [
+          1,
+          5
+        ],
+        "trailingNewline": true
+      }
+    },
+    {
+      "file": "A1-zh-numbered-script.txt",
+      "bytes": 296,
+      "sha256": "ccc77a9420dc2b99b360988c489be1b75b4084d057fe2f5445fa171affa9b1be",
+      "language": "zh-Hans",
+      "targetSpokenDurationSeconds": [
+        20,
+        25
+      ],
+      "actualDurationSeconds": null,
+      "keySemantics": [
+        "三支铅笔在蓝盒内",
+        "周三09:00北门集合",
+        "先开窗再放绿色杯子",
+        "桥维修，改走东边",
+        "第五句为结束标记"
+      ],
+      "segmentStarts": "Five numbered sentence starts; actual timestamps must be measured from future audio, not inferred from text."
+    },
+    {
+      "file": "G2-zh-to-en-script.txt",
+      "bytes": 323,
+      "sha256": "8ae13320f6881bb55d9a945a41740ce71c396359ad1d3934246f90a28d3b6cc8",
+      "direction": "zh-Hans -> en",
+      "targetSpokenDurationSeconds": [
+        20,
+        25
+      ],
+      "actualDurationSeconds": null,
+      "keySemantics": [
+        "今天15:00图书馆东门",
+        "两本红笔记本；不要蓝文件夹",
+        "下雨改在一楼大厅等",
+        "结束后钥匙给值班人员",
+        "末句：明天不用集合"
+      ],
+      "semanticHintsNotModelOutput": {
+        "两本": "two notebooks",
+        "不要带蓝色文件夹": "do not bring the blue folder",
+        "明天不用集合": "no meeting tomorrow"
+      }
+    },
+    {
+      "file": "G1-en-numbered-script.txt",
+      "bytes": 2292,
+      "sha256": "eaec529f10ee9906387ede3b07eed4d04e92c1580a99a8104db008346b415cd7",
+      "direction": "en -> zh-Hans",
+      "keySemantics": "Preserve each unique sentence number and its concrete item, count, place or time. Sentence 01=start; 30=late-session; 31=penultimate; 32=final.",
+      "semanticHintsNotModelOutput": {
+        "Sentence 01": "red clock, 08:15",
+        "Sentence 19": "pear juice, tall clear bottle",
+        "Sentence 32": "final marker, copper bell, three rings"
+      },
+      "sentenceCount": 32,
+      "plannedStartIntervalSeconds": 30,
+      "plannedLocalDurationSeconds": 960,
+      "actualDurationSeconds": null
+    },
+    {
+      "file": "G1-local-schedule.json",
+      "bytes": 10910,
+      "sha256": "e57eb50b64de99cf6a04810af9559543e31a7e2eeb0d1b2ec9f78e0bca386452"
+    }
+  ]
+}

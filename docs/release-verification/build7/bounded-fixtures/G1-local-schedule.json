@@ -1,0 +1,234 @@
+{
+  "status": "prepared only; no audio generated or session executed",
+  "plannedLocalDurationSeconds": 960,
+  "intervalSeconds": 30,
+  "continuousSpeech": false,
+  "markersAreScriptOnly": true,
+  "boundaryAndDisconnectObservation": "Actual GoAway, connection close, disconnect and recovery times must be recorded during an authorized run. Sentence numbers and clock times do not prove these events. Do not schedule extra resets to make markers match.",
+  "items": [
+    {
+      "number": 1,
+      "plannedStartSeconds": 0,
+      "plannedStart": "00:00",
+      "spokenText": "Sentence 01. This is the start marker; the red clock shows eight fifteen.",
+      "delivery": "Natural speaking pace; brief pause after the number and punctuation, then silence until the next scheduled start."
+    },
+    {
+      "number": 2,
+      "plannedStartSeconds": 30,
+      "plannedStart": "00:30",
+      "spokenText": "Sentence 02. A yellow bicycle is parked beside the western entrance.",
+      "delivery": "Natural speaking pace; brief pause after the number and punctuation, then silence until the next scheduled start."
+    },
+    {
+      "number": 3,
+      "plannedStartSeconds": 60,
+      "plannedStart": "01:00",
+      "spokenText": "Sentence 03. Three clean glasses are waiting on the kitchen shelf.",
+      "delivery": "Natural speaking pace; brief pause after the number and punctuation, then silence until the next scheduled start."
+    },
+    {
+      "number": 4,
+      "plannedStartSeconds": 90,
+      "plannedStart": "01:30",
+      "spokenText": "Sentence 04. The morning train leaves platform two at nine forty.",
+      "delivery": "Natural speaking pace; brief pause after the number and punctuation, then silence until the next scheduled start."
+    },
+    {
+      "number": 5,
+      "plannedStartSeconds": 120,
+      "plannedStart": "02:00",
+      "spokenText": "Sentence 05. Please put the small silver key inside the green drawer.",
+      "delivery": "Natural speaking pace; brief pause after the number and punctuation, then silence until the next scheduled start."
+    },
+    {
+      "number": 6,
+      "plannedStartSeconds": 150,
+      "plannedStart": "02:30",
+      "spokenText": "Sentence 06. Our garden has five tomato plants and one wooden bench.",
+      "delivery": "Natural speaking pace; brief pause after the number and punctuation, then silence until the next scheduled start."
+    },
+    {
+      "number": 7,
+      "plannedStartSeconds": 180,
+      "plannedStart": "03:00",
+      "spokenText": "Sentence 07. The museum closes on Tuesday but opens early on Friday.",
+      "delivery": "Natural speaking pace; brief pause after the number and punctuation, then silence until the next scheduled start."
+    },
+    {
+      "number": 8,
+      "plannedStartSeconds": 210,
+      "plannedStart": "03:30",
+      "spokenText": "Sentence 08. A white delivery van stopped outside the corner bakery.",
+      "delivery": "Natural speaking pace; brief pause after the number and punctuation, then silence until the next scheduled start."
+    },
+    {
+      "number": 9,
+      "plannedStartSeconds": 240,
+      "plannedStart": "04:00",
+      "spokenText": "Sentence 09. The recipe needs two eggs and a cup of warm milk.",
+      "delivery": "Natural speaking pace; brief pause after the number and punctuation, then silence until the next scheduled start."
+    },
+    {
+      "number": 10,
+      "plannedStartSeconds": 270,
+      "plannedStart": "04:30",
+      "spokenText": "Sentence 10. A narrow stone bridge crosses the stream near the village.",
+      "delivery": "Natural speaking pace; brief pause after the number and punctuation, then silence until the next scheduled start."
+    },
+    {
+      "number": 11,
+      "plannedStartSeconds": 300,
+      "plannedStart": "05:00",
+      "spokenText": "Sentence 11. The library book about ocean birds is due next Monday.",
+      "delivery": "Natural speaking pace; brief pause after the number and punctuation, then silence until the next scheduled start."
+    },
+    {
+      "number": 12,
+      "plannedStartSeconds": 330,
+      "plannedStart": "05:30",
+      "spokenText": "Sentence 12. Please reserve four seats near the back of the theater.",
+      "delivery": "Natural speaking pace; brief pause after the number and punctuation, then silence until the next scheduled start."
+    },
+    {
+      "number": 13,
+      "plannedStartSeconds": 360,
+      "plannedStart": "06:00",
+      "spokenText": "Sentence 13. The orange suitcase weighs twelve kilograms before packing.",
+      "delivery": "Natural speaking pace; brief pause after the number and punctuation, then silence until the next scheduled start."
+    },
+    {
+      "number": 14,
+      "plannedStartSeconds": 390,
+      "plannedStart": "06:30",
+      "spokenText": "Sentence 14. We will meet beside the fountain after the afternoon concert.",
+      "delivery": "Natural speaking pace; brief pause after the number and punctuation, then silence until the next scheduled start."
+    },
+    {
+      "number": 15,
+      "plannedStartSeconds": 420,
+      "plannedStart": "07:00",
+      "spokenText": "Sentence 15. The map marks a safe footpath along the eastern hill.",
+      "delivery": "Natural speaking pace; brief pause after the number and punctuation, then silence until the next scheduled start."
+    },
+    {
+      "number": 16,
+      "plannedStartSeconds": 450,
+      "plannedStart": "07:30",
+      "spokenText": "Sentence 16. A small blue boat carries fresh vegetables across the lake.",
+      "delivery": "Natural speaking pace; brief pause after the number and punctuation, then silence until the next scheduled start."
+    },
+    {
+      "number": 17,
+      "plannedStartSeconds": 480,
+      "plannedStart": "08:00",
+      "spokenText": "Sentence 17. The laboratory keeps spare batteries in a labeled metal box.",
+      "delivery": "Natural speaking pace; brief pause after the number and punctuation, then silence until the next scheduled start."
+    },
+    {
+      "number": 18,
+      "plannedStartSeconds": 510,
+      "plannedStart": "08:30",
+      "spokenText": "Sentence 18. Our next appointment is Thursday morning at ten twenty.",
+      "delivery": "Natural speaking pace; brief pause after the number and punctuation, then silence until the next scheduled start."
+    },
+    {
+      "number": 19,
+      "plannedStartSeconds": 540,
+      "plannedStart": "09:00",
+      "spokenText": "Sentence 19. The cafe serves pear juice in a tall clear bottle.",
+      "delivery": "Natural speaking pace; brief pause after the number and punctuation, then silence until the next scheduled start."
+    },
+    {
+      "number": 20,
+      "plannedStartSeconds": 570,
+      "plannedStart": "09:30",
+      "spokenText": "Sentence 20. A purple umbrella was left beside the second ticket machine.",
+      "delivery": "Natural speaking pace; brief pause after the number and punctuation, then silence until the next scheduled start."
+    },
+    {
+      "number": 21,
+      "plannedStartSeconds": 600,
+      "plannedStart": "10:00",
+      "spokenText": "Sentence 21. The sports center has six indoor courts and a quiet lounge.",
+      "delivery": "Natural speaking pace; brief pause after the number and punctuation, then silence until the next scheduled start."
+    },
+    {
+      "number": 22,
+      "plannedStartSeconds": 630,
+      "plannedStart": "10:30",
+      "spokenText": "Sentence 22. Please turn the brass handle gently before opening the door.",
+      "delivery": "Natural speaking pace; brief pause after the number and punctuation, then silence until the next scheduled start."
+    },
+    {
+      "number": 23,
+      "plannedStartSeconds": 660,
+      "plannedStart": "11:00",
+      "spokenText": "Sentence 23. The weather station measured seven millimeters of rain overnight.",
+      "delivery": "Natural speaking pace; brief pause after the number and punctuation, then silence until the next scheduled start."
+    },
+    {
+      "number": 24,
+      "plannedStartSeconds": 690,
+      "plannedStart": "11:30",
+      "spokenText": "Sentence 24. A brown parcel contains a ceramic bowl and a cotton towel.",
+      "delivery": "Natural speaking pace; brief pause after the number and punctuation, then silence until the next scheduled start."
+    },
+    {
+      "number": 25,
+      "plannedStartSeconds": 720,
+      "plannedStart": "12:00",
+      "spokenText": "Sentence 25. The bus to the botanical garden departs from stop eleven.",
+      "delivery": "Natural speaking pace; brief pause after the number and punctuation, then silence until the next scheduled start."
+    },
+    {
+      "number": 26,
+      "plannedStartSeconds": 750,
+      "plannedStart": "12:30",
+      "spokenText": "Sentence 26. The exhibition displays nine photographs of snowy mountain paths.",
+      "delivery": "Natural speaking pace; brief pause after the number and punctuation, then silence until the next scheduled start."
+    },
+    {
+      "number": 27,
+      "plannedStartSeconds": 780,
+      "plannedStart": "13:00",
+      "spokenText": "Sentence 27. Please store the printed receipt beneath the black notebook.",
+      "delivery": "Natural speaking pace; brief pause after the number and punctuation, then silence until the next scheduled start."
+    },
+    {
+      "number": 28,
+      "plannedStartSeconds": 810,
+      "plannedStart": "13:30",
+      "spokenText": "Sentence 28. A cheerful baker placed four round loaves on the cooling rack.",
+      "delivery": "Natural speaking pace; brief pause after the number and punctuation, then silence until the next scheduled start."
+    },
+    {
+      "number": 29,
+      "plannedStartSeconds": 840,
+      "plannedStart": "14:00",
+      "spokenText": "Sentence 29. The evening ferry reaches the island harbor at seven fifty.",
+      "delivery": "Natural speaking pace; brief pause after the number and punctuation, then silence until the next scheduled start."
+    },
+    {
+      "number": 30,
+      "plannedStartSeconds": 870,
+      "plannedStart": "14:30",
+      "spokenText": "Sentence 30. This is a late-session marker; a green lamp lights the desk.",
+      "delivery": "Natural speaking pace; brief pause after the number and punctuation, then silence until the next scheduled start."
+    },
+    {
+      "number": 31,
+      "plannedStartSeconds": 900,
+      "plannedStart": "15:00",
+      "spokenText": "Sentence 31. This is the penultimate marker; two white chairs face the window.",
+      "delivery": "Natural speaking pace; brief pause after the number and punctuation, then silence until the next scheduled start."
+    },
+    {
+      "number": 32,
+      "plannedStartSeconds": 930,
+      "plannedStart": "15:30",
+      "spokenText": "Sentence 32. This is the final marker; the copper bell rings three times.",
+      "delivery": "Natural speaking pace; brief pause after the number and punctuation, then silence until the next scheduled start."
+    }
+  ]
+}

@@ -1,0 +1,245 @@
+{
+  "record": "controlled_local_offline_workflow_checks",
+  "date": "2026-11-02",
+  "classification": "candidate-local acceptance evidence for selected #16/#17 workflow boundaries only",
+  "sourceBinding": {
+    "checkoutCommit": "483db937c7e34431bdc2b3b70dd9c440d2ba5129",
+    "buildInputCommit": "4579cac20caafdd4dc716def209cb21b8b100a66",
+    "appTreeComparison": "Identical: git diff --exit-code between build input and checkout for app tree returned 0.",
+    "configuration": "release",
+    "manifestFileCount": 325,
+    "sourceManifestSha256": "c5d798f58428a73a84341500749c7103c6ec5dbd313bda70c8e1f1f21430af5e"
+  },
+  "execution": {
+    "network": "Denied by sandbox policy for every recorded command.",
+    "releaseBuildAndTestListing": {
+      "result": "passed",
+      "countsAsTest": false,
+      "log": "release-build-and-list.log"
+    },
+    "swiftTests": {
+      "selectedFunctions": 118,
+      "coreFunctions": 79,
+      "nativeBoundaryFunctions": 32,
+      "isolatedAppKitFunctions": 7,
+      "result": "all selected Swift test functions passed",
+      "parameterizedFunctions": "Counts refer to selected function identities; parameterized functions may execute multiple cases. The runner logs report case counts where available.",
+      "inventoryFile": "workflow-offline-checks.json#selectedInventory"
+    },
+    "pythonLanguageOptions": {
+      "testCases": 4,
+      "result": "passed"
+    },
+    "runtimeDependentOmission": {
+      "test": "PDFBridgeProcessTests/pythonImportsLeaveBridgeResourcesUnchanged",
+      "reason": "WORKBENCH_PDF_RUNTIME was absent; exact verified managed runtime was not supplied."
+    },
+    "otherOmissions": {
+      "suites": [
+        "GeminiLiveTranslatorTests",
+        "GeminiFileRepairTests",
+        "LiveBilingualSessionTests",
+        "PDFRuntimeInstallerTests",
+        "PDFRuntimePreparationTests"
+      ],
+      "keychainFunctions": [
+        "legacyKeychainItemStaysOfficialAndOtherTargetsRemainIsolated",
+        "asynchronousKeychainReadsPreserveTargetIsolationAndRespectCancellation",
+        "systemKeychainConfigurationCanBeReopenedAndRemoved"
+      ]
+    },
+    "initialSandboxAttempt": {
+      "result": "sandbox_apply: Operation not permitted",
+      "testsExecuted": 0,
+      "buildExecuted": false,
+      "logSHA256": "aa7849916287f8d59fc0401022d1db83a0f18d0e42ec368c642607f796a975aa",
+      "resolution": "Reran the same allowlisted commands in a fresh directory with local tool permission escalation; retained the OS deny network* policy."
+    }
+  },
+  "safetyAndScope": {
+    "cloudRequests": 0,
+    "physicalCapture": 0,
+    "keychain": "No real Keychain operations; selected test coverage used fake credentials.",
+    "networkFixtures": "Controlled helper fixtures including URLProtocol/local native fixtures; no external service requests.",
+    "sourceMutations": "None; no test or application source code was changed.",
+    "notEstablished": [
+      "real App cloud workflows",
+      "runtime-dependent PDF import or rendering",
+      "issues #18/#19",
+      "complete acceptance or closure of #16/#17"
+    ]
+  },
+  "logDigests": [
+    {
+      "name": "release-build-and-list.log",
+      "sha256": "c9af58c3cf608158d440e8018f06b13958abd70eb25dc32a2a50b021e52edcfe"
+    },
+    {
+      "name": "release-core.log",
+      "sha256": "cbb6abe1b7580cb5afae658f20271c4f192a9016907a81f35cb6f8c6a15365a4"
+    },
+    {
+      "name": "release-native-boundaries.log",
+      "sha256": "7972de6a48a175715d4693305ee3e31d642dae93adb6e710dfbdc857c9ffee69"
+    },
+    {
+      "name": "release-ui-01-nativeReaderLoadsPagesNavigatesAndSwitchesWithoutChangingFile.log",
+      "sha256": "eca279dd7b01042b030675743ed6ae6cbe364791a1a35cbf5a7cce0e041288a2"
+    },
+    {
+      "name": "release-ui-02-historyContainsRecordedAndImportedTranscriptionsAndLeavesActiveCaptureUntouched.log",
+      "sha256": "56b1711aac2cfe0b85072d3c11aaf3cf09d4ac10bb29ea04b7bf238e87fa8c57"
+    },
+    {
+      "name": "release-ui-03-openingHistoryRetainsPendingEditsAndResultSelectionWithoutUploading.log",
+      "sha256": "ee835e0751788bfcb5b3f94582cc0d28924d54f85dcd06f8f4633eb374c4e603"
+    },
+    {
+      "name": "release-ui-04-nativeReturnSubmitsWhileShiftReturnPasteUndoAndIMEOnlyEdit.log",
+      "sha256": "1d5838cfb7096cf4b8dbd32756a90149486e687e3687af8f26c84c5223c5db96"
+    },
+    {
+      "name": "release-ui-05-nativeUndoRedoAndIMECommitKeepCurrentTextAndSeparateUndoContexts.log",
+      "sha256": "9df6d0bf49c332d9b8c371d640a8faed2521920e3a21b97a4cf22a2d14a374fa"
+    },
+    {
+      "name": "release-ui-06-productionPastePersistsBothEditorsAfterLayoutAndReopen.log",
+      "sha256": "37d04bd45922f258f11c9d1bc548fe1e05621e5dd7b326db21ed6e02b35e3cec"
+    },
+    {
+      "name": "release-ui-07-productionReturnCreatesIndependentHistoryAndRestoreNeverTranslates.log",
+      "sha256": "2bf1df1b7003021971f5ab7faa5f5e7a01d0a332eaff3f028ddb7a2054b675e1"
+    },
+    {
+      "name": "python-language-options.log",
+      "sha256": "e0a02691c377046b27f1248e92e5b2b01b136ed16a90492b097ace7e61c6ca38"
+    }
+  ],
+  "selectedInventory": {
+    "core": [
+      "WorkbenchCoreTests.AudioImportTests/importedCopySurvivesMovingSourceAndRestart()",
+      "WorkbenchCoreTests.AudioImportTests/rejectedImportLeavesExistingMaterialAndSourceUntouched()",
+      "WorkbenchCoreTests.AudioQueueTests/cancellingQueuedOrRunningWorkRejectsLateResultsAndPreservesNextTask(running:)",
+      "WorkbenchCoreTests.AudioQueueTests/receivedResultStaysEditableDuringSaveFailureAndLocalSaveDoesNotResubmit()",
+      "WorkbenchCoreTests.AudioQueueTests/restartRetainsQueueButOnlyAnExplicitResumeStartsWork()",
+      "WorkbenchCoreTests.MarkdownDocumentTests/collapsedAndShortcutReferenceLabelsTranslateWithoutChangingTheirDestinations()",
+      "WorkbenchCoreTests.MarkdownDocumentTests/generatedAndEditedLeavesCannotBreakInlineDelimitersOrCreateCode()",
+      "WorkbenchCoreTests.MarkdownDocumentTests/listContinuationTranslatesWhileRelativeIndentedCodeStaysProtected()",
+      "WorkbenchCoreTests.MarkdownDocumentTests/mergingProseWithFormulaAndLinksKeepsProtectedOccurrencesInsideOneTranslation()",
+      "WorkbenchCoreTests.MarkdownDocumentTests/nestedListsRestoreAncestorIndentationAfterReturningFromGrandchildren()",
+      "WorkbenchCoreTests.MarkdownDocumentTests/paragraphCannotMergeIntoListOrHeadingAndNestedItemsKeepTheirKinds()",
+      "WorkbenchCoreTests.MarkdownDocumentTests/protectedInlineFragmentsCannotSplitParagraphsInGeneratedOrEditedText()",
+      "WorkbenchCoreTests.MarkdownDocumentTests/v6CodeInNestedContainersAndEscapedPipesRemainLiteral()",
+      "WorkbenchCoreTests.MarkdownDocumentTests/v6ComplexSourceRoundTripsExactlyAndProtectedContentNeverEntersPayload()",
+      "WorkbenchCoreTests.MarkdownDocumentTests/v6ExplicitMergeRetainsBothSourcesAndIdentityThroughSave()",
+      "WorkbenchCoreTests.MarkdownDocumentTests/v6IncrementalDecoderBuffersJSONAcrossArbitraryChunks()",
+      "WorkbenchCoreTests.MarkdownDocumentTests/v6OutOfOrderIDsBindToSourceOccurrencesAndSplitsStayOwned()",
+      "WorkbenchCoreTests.MarkdownDocumentTests/v6RepeatedCodeAndFormulaOccurrencesAreNotDeduplicated()",
+      "WorkbenchCoreTests.MarkdownDocumentTests/v6UnknownDuplicateAndStructuralInjectionFailWithoutReplacingEarlierContent()",
+      "WorkbenchCoreTests.MarkdownSessionTests/changedSourceCannotExportOldBilingualPairAsCurrentButMonolingualRemainsAvailable()",
+      "WorkbenchCoreTests.MarkdownSessionTests/directEditorProjectsTextEditsButRejectsProtectedSyntaxAndCrossPassageChanges()",
+      "WorkbenchCoreTests.MarkdownSessionTests/directionAndFormatChangesRetainTranslationButInvalidateCurrentBilingualAssociation()",
+      "WorkbenchCoreTests.MarkdownSessionTests/duplicateUnknownAndMalformedRecordsRetainPriorCompletedLeavesAndRawPartial()",
+      "WorkbenchCoreTests.MarkdownSessionTests/failedSaveAndExportKeepEditedAssociationAndRetrySaveDoesNotTranslate()",
+      "WorkbenchCoreTests.MarkdownSessionTests/importCopiesOriginalAndEditsExportReopenWithoutExternalFile()",
+      "WorkbenchCoreTests.MarkdownSessionTests/stopAndLateResponseCannotOverrideEditedPartialAndRetryCreatesIndependentIdentity()",
+      "WorkbenchCoreTests.MarkdownSessionTests/streamInterruptionAndRestartRetainAssociationWithoutAutomaticRequest()",
+      "WorkbenchCoreTests.PDFTranslationTests/actualPDFAndAudioQueuesShareFIFOAndCancelledProcessRetainsItsSlot()",
+      "WorkbenchCoreTests.PDFTranslationTests/batchPageValidationAndSnapshotsRemainBoundToEachFile()",
+      "WorkbenchCoreTests.PDFTranslationTests/batchSubmissionSkipsActiveAndCancellingFilesAndRemovalDoesNotStopQueue()",
+      "WorkbenchCoreTests.PDFTranslationTests/completedAttemptCannotBeRetriedImplicitly()",
+      "WorkbenchCoreTests.PDFTranslationTests/deletingMaterialAlsoRemovesItsWorkspaceCardWithoutDeletingExternalSource()",
+      "WorkbenchCoreTests.PDFTranslationTests/deletionRequiresConfirmationAndRespectsExternalSourceAndOtherResults()",
+      "WorkbenchCoreTests.PDFTranslationTests/differentPDFsKeepFailureCancellationAndRetryBoundToTheirOwnCopies()",
+      "WorkbenchCoreTests.PDFTranslationTests/engineFailureAndInvalidOutputKeepSourceWithoutFalseSuccess()",
+      "WorkbenchCoreTests.PDFTranslationTests/failedMetadataSaveRetainsOutputAndRetriesOnlyLocalCommit()",
+      "WorkbenchCoreTests.PDFTranslationTests/independentCopyVersionsExportAndHistorySurviveOriginalMove()",
+      "WorkbenchCoreTests.PDFTranslationTests/invalidInputSymlinkAndManagedExportAreRejected()",
+      "WorkbenchCoreTests.PDFTranslationTests/invalidPageRangeNeverEntersQueueOrReadsCredentials()",
+      "WorkbenchCoreTests.PDFTranslationTests/missingExtractionCredentialNeverBorrowsPrimaryKeyAndOldOptionsRemainReadable()",
+      "WorkbenchCoreTests.PDFTranslationTests/rejectedQuitKeepsWorkerAndConfirmedQuitWaitsForActualCompletion()",
+      "WorkbenchCoreTests.PDFTranslationTests/restartRequiresExplicitResumeAndPreservesProviderSnapshot()",
+      "WorkbenchCoreTests.PDFTranslationTests/runningCancelHoldsSlotUntilActualWorkerReturnsAndRejectsLateResult()",
+      "WorkbenchCoreTests.PDFTranslationTests/runningLocalTasksPresentLocalProcessingWithoutTranslation()",
+      "WorkbenchCoreTests.PDFTranslationTests/saveFailurePausesAlreadyQueuedWorkUntilLocalRecovery()",
+      "WorkbenchCoreTests.PDFTranslationTests/sharedSlotQueuesAndCancelsWaitingPDFWithoutService()",
+      "WorkbenchCoreTests.PDFTranslationTests/submittedTerminologySnapshotAndSeparateCredentialsSurviveLibraryEdits()",
+      "WorkbenchCoreTests.PDFTranslationTests/taskPresentationPreservesServiceAndInactiveStatusLabels()",
+      "WorkbenchCoreTests.PDFTranslationTests/workspaceAppendsMixedImportsAndRemovalOnlyChangesTheVisibleList()",
+      "WorkbenchCoreTests.TextTranslationTests/automaticMarkdownDetectionUsesBodyRatherThanCodeAndURLsThenSwapUsesActualDirection()",
+      "WorkbenchCoreTests.TextTranslationTests/automaticSourceSnapshotsActualLanguageAndRestoresSelectionWithoutRequest()",
+      "WorkbenchCoreTests.TextTranslationTests/confirmedQuitAndRestartKeepPartialWithoutAutomaticRequest()",
+      "WorkbenchCoreTests.TextTranslationTests/currentResultReplacesPriorRequestAndEditsExportReopen()",
+      "WorkbenchCoreTests.TextTranslationTests/editingImportingRestoringAndChangingSettingsNeverSubmits()",
+      "WorkbenchCoreTests.TextTranslationTests/emptyMissingKeyAndCancelledSubmissionNeverCallService()",
+      "WorkbenchCoreTests.TextTranslationTests/exportCannotOverwriteManagedNamespacesAndImportRetainsExactCopy()",
+      "WorkbenchCoreTests.TextTranslationTests/lateLocalDetectionCannotOverrideManualSourceChoice()",
+      "WorkbenchCoreTests.TextTranslationTests/manualTranslationBeforeAnyRequestPersistsWithoutProvider()",
+      "WorkbenchCoreTests.TextTranslationTests/oldSchemaThreeLibraryMissingAutomaticFieldsRetainsItsExplicitDirection()",
+      "WorkbenchCoreTests.TextTranslationTests/repeatedEditsPersistLatestRevisionAfterBackgroundWrites()",
+      "WorkbenchCoreTests.TextTranslationTests/repeatedExplicitSubmissionsAppendHistoryAndRestoringNeverMutatesIt()",
+      "WorkbenchCoreTests.TextTranslationTests/saveFailureKeepsCurrentDraftExportableAndRetryNeverTranslates()",
+      "WorkbenchCoreTests.TextTranslationTests/sourceChangeCancelsOldRequestAndLateCallbacksCannotOverwriteNewSource()",
+      "WorkbenchCoreTests.TextTranslationTests/sourceDetectionWaitCannotSendAStaleSubmission(change:)",
+      "WorkbenchCoreTests.TextTranslationTests/stopAndManualEditIgnoreLateResponsesAndFailedRetryPreservesPartial()",
+      "WorkbenchCoreTests.TextTranslationTests/streamingSaveFailureProtectsQuitAndRetainsPartial()",
+      "WorkbenchCoreTests.TextTranslationTests/successfulBackgroundSaveClearsRecoveredFailureAndUnsavedSourceRemainsExportable()",
+      "WorkbenchCoreTests.TextTranslationTests/swapAndClearOperateOnCurrentContentAndPersistDirection()",
+      "WorkbenchCoreTests.TextTranslationTests/uncertainAutomaticSourceNeverReadsCredentialsAndManualChoiceOverridesIt()",
+      "WorkbenchCoreTests.TextTranslationTests/unknownSchemaAndSymlinkAreNeverOverwritten()",
+      "WorkbenchCoreTests.TextWorkspaceMigrationTests/everyLegacyResultMigratesOnceAndOriginalBytesRemainUntouched()",
+      "WorkbenchCoreTests.TextWorkspaceMigrationTests/generatingMarkdownBecomesInterruptedWithPartialAndNoRequest()",
+      "WorkbenchCoreTests.TextWorkspaceMigrationTests/invalidLegacyReferenceAndUnknownSchemaPreserveFilesAndWarn()",
+      "WorkbenchCoreTests.TextWorkspaceMigrationTests/migrationWriteFailureCanRetryWithoutChangingLegacyFiles()",
+      "WorkbenchCoreTests.TextWorkspaceMigrationTests/mostRecentUntranslatedDraftBecomesWorkspaceWithoutAddingHistory()",
+      "WorkbenchCoreTests.TextWorkspaceMigrationTests/priorSchemaTwoUpgradeImportsArchivedVersionsAndCurrentEdits()",
+      "WorkbenchCoreTests.TranscriptVersionTests/finishingRetranscriptionCannotHideOrLockAnUnsavedEditedVersion()",
+      "WorkbenchCoreTests.TranscriptVersionTests/newlyGeneratedUnsavedResultRemainsEditableAndCanBeSavedWithoutLosingOldResults()",
+      "WorkbenchCoreTests.TranscriptVersionTests/switchingIndependentVersionsKeepsEditsTimingAndSharedHistoryAfterRestart()"
+    ],
+    "native": [
+      "NativeAudioTests.PDFBridgeProcessTests/cancellationEscalatesAndReturnsOnlyAfterUncooperativeProcessExits()",
+      "NativeAudioTests.PDFBridgeProcessTests/explicitFailureWinsOverAnEarlierFinishedEvent()",
+      "NativeAudioTests.PDFBridgeProcessTests/pdfLanguageCatalogMatchesBridgeSupportAndAliases()",
+      "NativeAudioTests.PDFBridgeProcessTests/selectedJapaneseToFrenchPairReachesPDFWorker()",
+      "NativeAudioTests.PDFBridgeProcessTests/selectedResourcesReachProcessBoundaryWithIndependentTargetKeys()",
+      "NativeAudioTests.PDFBridgeProcessTests/successWaitsForActualProcessExitAndSecretsNeverEnterArguments()",
+      "NativeAudioTests.PostRecordingIntegrationTests/importedSymbolicLinkBecomesIndependentPlayableAudio()",
+      "NativeAudioTests.PostRecordingIntegrationTests/longImportedAudioUsesSelectedServiceAndPreservesEveryFrame(provider:)",
+      "NativeAudioTests.PostRecordingIntegrationTests/savedRecordingCanBeTranscribedAfterCaptureEnds()",
+      "NativeAudioTests.TextTranslationHTTPTests/applicationSelectionReachesHTTPForBothDirectionsAndOptionalPreset(direction:usePreset:)",
+      "NativeAudioTests.TextTranslationHTTPTests/blankLinesWhitespaceAndUnicodeSeparatorsSurviveTranslation()",
+      "NativeAudioTests.TextTranslationHTTPTests/byteFragmentedStreamsPreserveChineseAndSupportBothUsageShapes(usageOnlyChunk:)",
+      "NativeAudioTests.TextTranslationHTTPTests/cancelledNonStreamingBodyDoesNotPublishPartialJSON()",
+      "NativeAudioTests.TextTranslationHTTPTests/customProfileSendsExactInputAndStreamsOnlyTranslatedContent()",
+      "NativeAudioTests.TextTranslationHTTPTests/defaultRequestUsesJSONAndPreservesUsageWithoutReasoning()",
+      "NativeAudioTests.TextTranslationHTTPTests/deltasArriveBeforeCompletionAndCancellationStopsTheRequest()",
+      "NativeAudioTests.TextTranslationHTTPTests/doneClosesAnOtherwiseOpenStreamWithoutWaitingForEOF()",
+      "NativeAudioTests.TextTranslationHTTPTests/emptyStreamEventsDoNotInterruptTranslation(emptyEvent:)",
+      "NativeAudioTests.TextTranslationHTTPTests/explicitStreamErrorPreservesEarlierTextAndClassifiesKnownCode()",
+      "NativeAudioTests.TextTranslationHTTPTests/incompleteFinishPreservesTheLastReceivedDelta(reason:)",
+      "NativeAudioTests.TextTranslationHTTPTests/invalidInputAndCredentialFailBeforeSendingARequest()",
+      "NativeAudioTests.TextTranslationHTTPTests/invalidLineCorrespondenceNeverPublishesOrRetries(records:)",
+      "NativeAudioTests.TextTranslationHTTPTests/japaneseToGermanUsesSelectedLanguageAndOnlyMatchingGlossary()",
+      "NativeAudioTests.TextTranslationHTTPTests/markdownContractAndOpaqueIDsAreSentWithoutProtectedCodeOrAddresses()",
+      "NativeAudioTests.TextTranslationHTTPTests/multilineTranslationPreservesSourceLinesInWorkspaceHistoryAndExport()",
+      "NativeAudioTests.TextTranslationHTTPTests/nonSSEAndInvalidUTF8ResponsesAreRejected()",
+      "NativeAudioTests.TextTranslationHTTPTests/nonStreamingIncompleteCompletionDoesNotPublishPartialContent(reason:)",
+      "NativeAudioTests.TextTranslationHTTPTests/nonStreamingInvalidEnvelopesNeverBecomeSuccess(payload:)",
+      "NativeAudioTests.TextTranslationHTTPTests/nonemptyInvalidEventsStillFailAndPreserveEarlierText(payload:)",
+      "NativeAudioTests.TextTranslationHTTPTests/prematureEOFAndTransportErrorsNeverPromotePartialTextToSuccess()",
+      "NativeAudioTests.TextTranslationHTTPTests/redirectsCannotForwardCredentialsOrTextToAnotherTarget()",
+      "NativeAudioTests.TextTranslationHTTPTests/rejectedHTTPRequestsAreClassifiedWithoutRetryOrProviderText()"
+    ],
+    "isolatedAppKit": [
+      "NativeAudioTests.PDFReadingTests/nativeReaderLoadsPagesNavigatesAndSwitchesWithoutChangingFile()",
+      "NativeAudioTests.RecordingHistoryTests/historyContainsRecordedAndImportedTranscriptionsAndLeavesActiveCaptureUntouched()",
+      "NativeAudioTests.RecordingHistoryTests/openingHistoryRetainsPendingEditsAndResultSelectionWithoutUploading()",
+      "NativeAudioTests.TextWorkspaceEditorTests/nativeReturnSubmitsWhileShiftReturnPasteUndoAndIMEOnlyEdit()",
+      "NativeAudioTests.TextWorkspaceEditorTests/nativeUndoRedoAndIMECommitKeepCurrentTextAndSeparateUndoContexts()",
+      "NativeAudioTests.TextWorkspaceEditorTests/productionPastePersistsBothEditorsAfterLayoutAndReopen()",
+      "NativeAudioTests.TextWorkspaceEditorTests/productionReturnCreatesIndependentHistoryAndRestoreNeverTranslates()"
+    ]
+  },
+  "limitations": "These checks exercise selected candidate-local behavior and injected boundaries. They do not establish real-provider success, physical recording, runtime-dependent PDF rendering, or full issue acceptance."
+}
