@@ -20,22 +20,22 @@ import Testing
             let window = NSWindow(contentRect: CGRect(x: 0, y: 0, width: 1280, height: 800), styleMask: [], backing: .buffered, defer: false)
             window.contentView = host
             defer { window.contentView = nil }
-            await settle(host)
+            await NativeViewTestSupport.settle(host)
             for id in ["pdf-settings-layout", "pdf-settings-performance", "pdf-settings-terms", "pdf-details-layout", "pdf-details-diagnostics"] {
-                let control = try #require(element(host, id: id))
+                let control = try #require(NativeViewTestSupport.element(host, identifier: id))
                 #expect((control as AnyObject).accessibilityPerformPress?() == true)
-                await settle(host)
+                await NativeViewTestSupport.settle(host)
             }
             let output = try #require(descendants(host).compactMap { $0 as? NSPopUpButton }.first { $0.accessibilityLabel() == (language == "english" ? "Output files" : "输出文件") })
             output.selectItem(at: 1); #expect(output.sendAction(output.action, to: output.target))
             for size in [NSSize(width: 680, height: 640), NSSize(width: 1280, height: 640), NSSize(width: 1280, height: 800), NSSize(width: 1900, height: 1000)] {
-                window.setContentSize(size); host.frame.size = size; await settle(host)
+                window.setContentSize(size); host.frame.size = size; await NativeViewTestSupport.settle(host)
                 for style in [NSScroller.Style.legacy, .overlay] {
                     let all = descendants(host).compactMap { $0 as? NSScrollView }
                     for scroll in all { scroll.scrollerStyle = style; scroll.hasVerticalScroller = true; scroll.autohidesScrollers = false; scroll.tile() }
-                    await settle(host)
+                    await NativeViewTestSupport.settle(host)
                     let outer = try #require(all.first)
-                    outer.contentView.scroll(to: .zero); outer.reflectScrolledClipView(outer.contentView); await settle(host)
+                    outer.contentView.scroll(to: .zero); outer.reflectScrolledClipView(outer.contentView); await NativeViewTestSupport.settle(host)
                     let outerTrack = try #require(outer.verticalScroller).convert(try #require(outer.verticalScroller).bounds, to: host)
                     let contents = try #require(frames["pdf.workspace.contents"])
                     #expect(contents.maxX <= outerTrack.minX - 2, "The actual PDF workspace clears Workbench's outer scroll track")
@@ -50,7 +50,7 @@ import Testing
                         #expect(try #require(frames[contentKey]).maxX <= track.minX - (contentKey == "pdf.settings.contents" ? 0 : 2), "\(contentKey) clears its actual nested scroll track")
                         let document = try #require(scroll.documentView)
                         scroll.contentView.scroll(to: CGPoint(x: 0, y: max(0, document.bounds.height - scroll.contentView.bounds.height)))
-                        scroll.reflectScrolledClipView(scroll.contentView); await settle(host)
+                        scroll.reflectScrolledClipView(scroll.contentView); await NativeViewTestSupport.settle(host)
                         let viewport = scroll.contentView.convert(scroll.contentView.bounds, to: host)
                         let end = try #require(frames[contentKey])
                         #expect(end.maxY <= viewport.maxY + 1, "Expanded \(contentKey) remains reachable through the actual scroll view")
@@ -59,7 +59,7 @@ import Testing
                     let fileDocument = try #require(fileScroll.documentView)
                     for _ in 0..<3 {
                         fileScroll.contentView.scroll(to: CGPoint(x: 0, y: max(0, fileDocument.bounds.height - fileScroll.contentView.bounds.height)))
-                        fileScroll.reflectScrolledClipView(fileScroll.contentView); await settle(host)
+                        fileScroll.reflectScrolledClipView(fileScroll.contentView); await NativeViewTestSupport.settle(host)
                     }
                     let fileViewport = fileScroll.contentView.convert(fileScroll.contentView.bounds, to: host)
                     let fileTrack = try #require(fileScroll.verticalScroller).convert(try #require(fileScroll.verticalScroller).bounds, to: host)
@@ -70,19 +70,19 @@ import Testing
                     }
                     let outerDocument = try #require(outer.documentView)
                     outer.contentView.scroll(to: CGPoint(x: 0, y: max(0, outerDocument.bounds.height - outer.contentView.bounds.height)))
-                    outer.reflectScrolledClipView(outer.contentView); await settle(host)
+                    outer.reflectScrolledClipView(outer.contentView); await NativeViewTestSupport.settle(host)
                     let viewport = outer.contentView.convert(outer.contentView.bounds, to: host)
                     let toolbar = try #require(frames["pdf.reader.toolbar"]), pages = try #require(frames["pdf.reader.pages"]), zoom = try #require(frames["pdf.reader.zoom"])
                     #expect(viewport.contains(toolbar) && !pages.intersects(zoom), "Page/zoom controls remain separate and reachable at the end of the real PDF workspace")
                     #expect(output.indexOfSelectedItem == 1, "Layout, zoom and scrolling retain the explicitly selected output mode")
-                    #expect((try #require(element(host, id: "pdf-save-result")) as AnyObject).isAccessibilityEnabled?() == true)
-                    #expect((try #require(element(host, id: "pdf-new-project")) as AnyObject).isAccessibilityEnabled?() == true)
+                    #expect((try #require(NativeViewTestSupport.element(host, identifier: "pdf-save-result")) as AnyObject).isAccessibilityEnabled?() == true)
+                    #expect((try #require(NativeViewTestSupport.element(host, identifier: "pdf-new-project")) as AnyObject).isAccessibilityEnabled?() == true)
                     print("PDF_WORKSPACE \(language) \(Int(size.width))x\(Int(size.height)) style=\(style.rawValue) outer=\(contents.maxX)/\(outerTrack.minX) import=\(imports) settings=\(settings) result=\(result) toolbar=\(toolbar)")
                 }
             }
             for id in ["pdf-reader-next", "pdf-reader-zoom-in", "pdf-reader-zoom-out", "pdf-reader-fit", "pdf-reader-previous"] {
-                #expect((try #require(element(host, id: id)) as AnyObject).accessibilityPerformPress?() == true)
-                await settle(host)
+                #expect((try #require(NativeViewTestSupport.element(host, identifier: id)) as AnyObject).accessibilityPerformPress?() == true)
+                await NativeViewTestSupport.settle(host)
             }
             #expect(!window.isVisible && !window.isKeyWindow)
         }
@@ -106,14 +106,14 @@ import Testing
                 let window = NSWindow(contentRect: CGRect(x:0,y:0,width:width,height:420), styleMask: [], backing: .buffered, defer: false)
                 window.contentView = host
                 defer { window.contentView = nil }
-                await settle(host)
+                await NativeViewTestSupport.settle(host)
                 for style in [NSScroller.Style.legacy, .overlay] {
                     let scroll = try nativeScroll("pdf.import.viewport", host: host, frames: frames)
-                    scroll.scrollerStyle = style; scroll.hasVerticalScroller = true; scroll.autohidesScrollers = false; scroll.tile(); await settle(host)
+                    scroll.scrollerStyle = style; scroll.hasVerticalScroller = true; scroll.autohidesScrollers = false; scroll.tile(); await NativeViewTestSupport.settle(host)
                     let document = try #require(scroll.documentView)
                     for _ in 0..<3 {
                         scroll.contentView.scroll(to: CGPoint(x:0,y:max(0,document.bounds.height-scroll.contentView.bounds.height)))
-                        scroll.reflectScrolledClipView(scroll.contentView); await settle(host)
+                        scroll.reflectScrolledClipView(scroll.contentView); await NativeViewTestSupport.settle(host)
                     }
                     let viewport = scroll.contentView.convert(scroll.contentView.bounds,to:host)
                     let track = try #require(scroll.verticalScroller).convert(try #require(scroll.verticalScroller).bounds,to:host)
@@ -122,7 +122,7 @@ import Testing
                     for (name, card) in frames where name.hasPrefix("pdf.import.file.") && card.intersects(viewport) {
                         #expect(card.minX >= viewport.minX - 1 && card.maxX <= track.minX - 2, "A whole file card fits the real post-scroller viewport at a column threshold: \(name)")
                     }
-                    #expect((try #require(element(host,id:"pdf-workspace-add")) as AnyObject).accessibilityPerformPress?() == true)
+                    #expect((try #require(NativeViewTestSupport.element(host,identifier:"pdf-workspace-add")) as AnyObject).accessibilityPerformPress?() == true)
                     #expect(choices == (style == .legacy ? 1 : 2))
                     print("PDF_IMPORT_COLUMN \(language) width=\(width) style=\(style.rawValue) add=\(add) viewport=\(viewport) track=\(track)")
                     #expect(!window.isVisible && !window.isKeyWindow)
@@ -141,13 +141,6 @@ import Testing
     }
     private func distance(_ a: CGRect, _ b: CGRect) -> CGFloat { abs(a.minX-b.minX)+abs(a.minY-b.minY)+abs(a.width-b.width)+abs(a.height-b.height) }
     private func descendants(_ view: NSView) -> [NSView] { [view] + view.subviews.flatMap(descendants) }
-    private func element(_ root: Any, id: String) -> NSObject? {
-        guard let node = root as? NSObject else { return nil }
-        if node.responds(to: NSSelectorFromString("accessibilityIdentifier")), node.value(forKey: "accessibilityIdentifier") as? String == id { return node }
-        for child in (node as AnyObject).accessibilityChildren?() ?? [] { if let value = element(child,id:id) { return value } }
-        return nil
-    }
-    private func settle(_ view: NSView) async { for _ in 0..<3 { view.layoutSubtreeIfNeeded(); try? await Task.sleep(for: .milliseconds(20)) } }
 }
 
 @MainActor private final class LayoutFixture {

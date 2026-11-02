@@ -22,13 +22,13 @@ import WorkbenchCore
                 defer { window.contentView = nil }
                 for size in [NSSize(width: 560, height: 480), NSSize(width: 760, height: 640), NSSize(width: 1200, height: 800)] {
                     window.setContentSize(size); host.frame.size = size
-                    await settle(host)
+                    await NativeViewTestSupport.settle(host)
                     let scroll = try #require(descendants(host).compactMap { $0 as? NSScrollView }.first)
                     for style in [NSScroller.Style.legacy, .overlay] {
                         scroll.scrollerStyle = style; scroll.hasVerticalScroller = true; scroll.autohidesScrollers = false
                         scroll.tile()
                         scroll.contentView.scroll(to: .zero); scroll.reflectScrolledClipView(scroll.contentView)
-                        await settle(host)
+                        await NativeViewTestSupport.settle(host)
                         let contents = try #require(frames["live.contents"])
                         let scroller = try #require(scroll.verticalScroller)
                         let track = scroller.convert(scroller.bounds, to: host)
@@ -39,7 +39,7 @@ import WorkbenchCore
                         }
                         let document = try #require(scroll.documentView)
                         scroll.contentView.scroll(to: NSPoint(x: 0, y: max(0, document.bounds.height - scroll.contentView.bounds.height)))
-                        scroll.reflectScrolledClipView(scroll.contentView); await settle(host)
+                        scroll.reflectScrolledClipView(scroll.contentView); await NativeViewTestSupport.settle(host)
                         let viewport = scroll.contentView.convert(scroll.contentView.bounds, to: host)
                         let last = try #require(frames["live.contents"])
                         #expect(last.maxY <= viewport.maxY + 1, "The bottom of all history operations remains reachable")
@@ -74,7 +74,7 @@ import WorkbenchCore
                 let window = NSWindow(contentRect: NSRect(x: 0, y: 0, width: 560, height: 480), styleMask: [], backing: .buffered, defer: false)
                 window.contentView = host
                 defer { window.contentView = nil }
-                await settle(host)
+                await NativeViewTestSupport.settle(host)
                 let key = variant == "read-error" ? "live.readError" : variant == "no-text" ? "live.noText" : "live.empty"
                 let message = try #require(frames[key], "The actual production history must visibly explain \(variant)")
                 #expect(message.width >= 200 && message.height >= 14)
@@ -115,20 +115,20 @@ import WorkbenchCore
         let window = NSWindow(contentRect: NSRect(x: 0, y: 0, width: 560, height: 480), styleMask: [], backing: .buffered, defer: false)
         window.contentView = host
         defer { window.contentView = nil }
-        await settle(host)
+        await NativeViewTestSupport.settle(host)
         let history = fixture.state.history(recordingID: fixture.id, store: fixture.results)
         let original = try fixture.results.load(fixture.id)
         #expect(history.results.count == 3)
         let selected = try #require(history.selected)
         let source = try #require(descendants(host).compactMap { $0 as? NSTextView }.first { $0.isEditable && $0.string == selected.document.source.text })
         source.insertText("A draft to discard", replacementRange: NSRange(location: 0, length: source.string.utf16.count))
-        await settle(host)
+        await NativeViewTestSupport.settle(host)
         #expect(history.hasUnsavedChanges)
         try await press("live-history-discard", host: host)
         #expect(!history.hasUnsavedChanges && history.sourceText == selected.document.source.text)
         let restoredSource = try #require(descendants(host).compactMap { $0 as? NSTextView }.first { $0.isEditable && $0.string == selected.document.source.text })
         restoredSource.insertText("Retained native history edit 中文", replacementRange: NSRange(location: 0, length: restoredSource.string.utf16.count))
-        await settle(host)
+        await NativeViewTestSupport.settle(host)
         #expect(history.hasUnsavedChanges && fixture.state.hasUnsavedHistoryEdits(for: fixture.id))
         #expect(!history.select(original[0].id))
         let path = fixture.store.audioURL(for: fixture.id).deletingLastPathComponent().appendingPathComponent("bilingual-results.json")
@@ -141,12 +141,12 @@ import WorkbenchCore
         try await press("live-history-done", host: host)
         #expect(closed == 1)
         let reopened = NSHostingView(rootView: fixture.view(done: { closed += 1 }).defaultAppStorage(preferences).environment(\.historyGeometryObserver, { frames[$0] = $1 }))
-        window.contentView = reopened; await settle(reopened)
+        window.contentView = reopened; await NativeViewTestSupport.settle(reopened)
         #expect(descendants(reopened).compactMap { $0 as? NSTextView }.contains { $0.isEditable && $0.string == "Retained native history edit 中文" })
         #expect(history.hasUnsavedChanges && history.saveFailed)
-        #expect((try #require(element(reopened, identifier: "live-history-open")) as AnyObject).isAccessibilityEnabled?() == false)
-        #expect((try #require(element(reopened, identifier: "live-history-result-picker")) as AnyObject).isAccessibilityEnabled?() == false)
-        #expect((try #require(element(reopened, identifier: "live-history-export")) as AnyObject).isAccessibilityEnabled?() == true)
+        #expect((try #require(NativeViewTestSupport.element(reopened, identifier: "live-history-open")) as AnyObject).isAccessibilityEnabled?() == false)
+        #expect((try #require(NativeViewTestSupport.element(reopened, identifier: "live-history-result-picker")) as AnyObject).isAccessibilityEnabled?() == false)
+        #expect((try #require(NativeViewTestSupport.element(reopened, identifier: "live-history-export")) as AnyObject).isAccessibilityEnabled?() == true)
         #expect(closed == 1 && fixture.state.result == nil)
         try FileManager.default.removeItem(at: path); try bytes.write(to: path)
         try await press("live-history-save", host: reopened)
@@ -157,7 +157,7 @@ import WorkbenchCore
         #expect(saved.last?.document.translation == selected.document.translation)
         #expect(saved.last?.document.translation.missingIntervals == selected.document.translation.missingIntervals)
         #expect(history.select(original[0].id))
-        await settle(reopened)
+        await NativeViewTestSupport.settle(reopened)
         #expect(history.sourceText == original[0].document.source.text)
         try await press("live-history-open", host: reopened)
         #expect(closed == 2 && fixture.state.result?.id == original[0].id)
@@ -195,13 +195,13 @@ import WorkbenchCore
                 .environment(\.historyGeometryObserver, { frames[$0] = $1 }))
             let window = NSWindow(contentRect: NSRect(x: 0, y: 0, width: 680, height: 640), styleMask: [], backing: .buffered, defer: false)
             window.contentView = host
-            await settle(host)
+            await NativeViewTestSupport.settle(host)
             let available = phase == "saved-live" || phase == "starting-live"
             #expect((frames["live.history.entry"] != nil) == available)
             if available {
                 let entry = try #require(frames["live.history.entry"])
                 #expect(entry.width <= 34 && entry.height == 34, "The live entry uses the same compact icon target as recording history")
-                let entryButton = try #require(element(host, identifier: "live-history-entry"))
+                let entryButton = try #require(NativeViewTestSupport.element(host, identifier: "live-history-entry"))
                 #expect((entryButton as AnyObject).isAccessibilityEnabled?() == (phase == "saved-live"))
                 #expect(live.isActive == (phase == "starting-live"))
                 #expect(window.attachedSheet == nil && !window.isVisible, "Availability checks never present a history window")
@@ -220,23 +220,12 @@ import WorkbenchCore
         NSApp.accessibilitySetValue(true, forAttribute: .init(rawValue: "AXEnhancedUserInterface"))
         NSApp.accessibilitySetValue(true, forAttribute: .init(rawValue: "AXManualAccessibility"))
     }
-    private func element(_ root: Any, identifier: String) -> NSObject? {
-        guard let node = root as? NSObject else { return nil }
-        if node.responds(to: NSSelectorFromString("accessibilityIdentifier")), node.value(forKey: "accessibilityIdentifier") as? String == identifier { return node }
-        for child in (node as AnyObject).accessibilityChildren?() ?? [] {
-            if let found = element(child, identifier: identifier) { return found }
-        }
-        return nil
-    }
     private func press(_ identifier: String, host: NSView) async throws {
         #expect(host.window?.isVisible == false && host.window?.isKeyWindow == false)
-        let button = try #require(element(host, identifier: identifier))
+        let button = try #require(NativeViewTestSupport.element(host, identifier: identifier))
         #expect((button as AnyObject).accessibilityPerformPress?() == true)
-        await settle(host)
+        await NativeViewTestSupport.settle(host)
         #expect(host.window?.isVisible == false && host.window?.isKeyWindow == false)
-    }
-    private func settle(_ host: NSView) async {
-        for _ in 0..<3 { host.layoutSubtreeIfNeeded(); try? await Task.sleep(for: .milliseconds(20)) }
     }
     private func descendants(_ view: NSView) -> [NSView] { [view] + view.subviews.flatMap(descendants) }
 }

@@ -32,16 +32,16 @@ import Testing
         let window = NSWindow(contentRect: host.frame, styleMask: [], backing: .buffered, defer: false)
         window.contentView = host
         defer { window.contentView = nil }
-        await settle(host)
+        await NativeViewTestSupport.settle(host)
         #expect(fixture.session.sourceMetadata.count == materials.count)
         for material in materials {
-            #expect(element(host, identifier: "pdf-history-results-" + material.id.uuidString) != nil)
-            #expect(element(host, identifier: "pdf-history-metadata-" + material.id.uuidString) != nil)
-            if pending.contains(material.id) { #expect(element(host, identifier: "pdf-history-pending-" + material.id.uuidString) != nil) }
+            #expect(NativeViewTestSupport.element(host, identifier: "pdf-history-results-" + material.id.uuidString) != nil)
+            #expect(NativeViewTestSupport.element(host, identifier: "pdf-history-metadata-" + material.id.uuidString) != nil)
+            if pending.contains(material.id) { #expect(NativeViewTestSupport.element(host, identifier: "pdf-history-pending-" + material.id.uuidString) != nil) }
         }
         switch path {
         case "done":
-            let done = try #require(element(host, identifier: "pdf-history-done"))
+            let done = try #require(NativeViewTestSupport.element(host, identifier: "pdf-history-done"))
             #expect((done as AnyObject).accessibilityPerformPress?() == true)
         case "escape":
             let escape = try #require(NSEvent.keyEvent(with: .keyDown, location: .zero, modifierFlags: [], timestamp: 0,
@@ -49,7 +49,7 @@ import Testing
             #expect(host.performKeyEquivalent(with: escape))
         case "open":
             let target = try #require(materials.last)
-            let open = try #require(element(host, identifier: "pdf-history-open-" + target.id.uuidString))
+            let open = try #require(NativeViewTestSupport.element(host, identifier: "pdf-history-open-" + target.id.uuidString))
             #expect((open as AnyObject).accessibilityPerformPress?() == true)
             #expect(fixture.session.workspaceMaterialIDs == workspace + [target.id])
             #expect(fixture.session.selectedID == target.id)
@@ -99,13 +99,13 @@ import Testing
         let window = NSWindow(contentRect: host.frame, styleMask: [], backing: .buffered, defer: false)
         window.contentView = host
         defer { window.contentView = nil }
-        await settle(host)
+        await NativeViewTestSupport.settle(host)
         let deadline = Date().addingTimeInterval(3)
         while fixture.session.materials.count < 3, Date() < deadline { try await Task.sleep(for: .milliseconds(10)) }
-        await settle(host)
+        await NativeViewTestSupport.settle(host)
         let late = try #require(fixture.session.materials.first { $0.name == "controlled" })
         #expect(fixture.session.sourceMetadata[late.id]?.pageCount == 1)
-        #expect(element(host, identifier: "pdf-history-metadata-" + late.id.uuidString) != nil)
+        #expect(NativeViewTestSupport.element(host, identifier: "pdf-history-metadata-" + late.id.uuidString) != nil)
         #expect(fixture.session.workspaceMaterials.isEmpty && fixture.session.selectedID == nil)
         #expect(late.tasks.isEmpty && late.results.isEmpty)
         #expect(await fixture.engine.calls == 0)
@@ -169,17 +169,17 @@ import Testing
             defer { window.contentView = nil }
             for size in [NSSize(width: 460, height: 420), NSSize(width: 700, height: 640), NSSize(width: 1_200, height: 800)] {
                 window.setContentSize(size); host.frame.size = size
-                await settle(host)
+                await NativeViewTestSupport.settle(host)
                 let scroll = try #require(descendants(host).compactMap { $0 as? NSScrollView }.first)
                 for style in [NSScroller.Style.legacy, .overlay] {
                     scroll.scrollerStyle = style; scroll.hasVerticalScroller = true; scroll.autohidesScrollers = false
-                    scroll.tile(); await settle(host)
+                    scroll.tile(); await NativeViewTestSupport.settle(host)
                     scroll.contentView.scroll(to: .zero); scroll.reflectScrolledClipView(scroll.contentView)
-                    await settle(host)
+                    await NativeViewTestSupport.settle(host)
                     let document = try #require(scroll.documentView)
                     for _ in 0..<3 {
                         scroll.contentView.scroll(to: NSPoint(x: 0, y: max(0, document.bounds.height - scroll.contentView.bounds.height)))
-                        scroll.reflectScrolledClipView(scroll.contentView); await settle(host)
+                        scroll.reflectScrolledClipView(scroll.contentView); await NativeViewTestSupport.settle(host)
                     }
                     let viewport = scroll.contentView.convert(scroll.contentView.bounds, to: host)
                     let scroller = try #require(scroll.verticalScroller)
@@ -194,13 +194,13 @@ import Testing
                     let last = try #require(frames[lastKey])
                     #expect(last.minY >= viewport.minY - 1 && last.maxY <= viewport.maxY + 1)
                     #expect(scroll.contentView.bounds.maxY >= document.bounds.maxY - 1)
-                    let done = try #require(element(host, identifier: "pdf-history-done"))
+                    let done = try #require(NativeViewTestSupport.element(host, identifier: "pdf-history-done"))
                     let doneFrame = try #require((done as AnyObject).accessibilityFrame?())
                     let screenBounds = window.convertToScreen(host.convert(host.bounds, to: nil))
                     #expect(screenBounds.insetBy(dx: -1, dy: -1).contains(doneFrame))
                     #expect(doneFrame.width >= 40 && doneFrame.height >= 28)
                     if let material = materials.last {
-                        let open = try #require(element(host, identifier: "pdf-history-open-" + material.id.uuidString))
+                        let open = try #require(NativeViewTestSupport.element(host, identifier: "pdf-history-open-" + material.id.uuidString))
                         let hit = try #require((open as AnyObject).accessibilityFrame?())
                         let viewportScreen = window.convertToScreen(scroll.contentView.convert(scroll.contentView.bounds, to: nil))
                         #expect(viewportScreen.insetBy(dx: -1, dy: -1).contains(hit))
@@ -221,19 +221,8 @@ import Testing
         #expect(await fixture.engine.calls == 0)
     }
 
-    private func element(_ root: Any, identifier: String) -> NSObject? {
-        guard let node = root as? NSObject else { return nil }
-        if node.responds(to: NSSelectorFromString("accessibilityIdentifier")), node.value(forKey: "accessibilityIdentifier") as? String == identifier { return node }
-        for child in (node as AnyObject).accessibilityChildren?() ?? [] {
-            if let found = element(child, identifier: identifier) { return found }
-        }
-        return nil
-    }
     private func nextTurn() async { await withCheckedContinuation { continuation in DispatchQueue.main.async { continuation.resume() } } }
     private func descendants(_ view: NSView) -> [NSView] { [view] + view.subviews.flatMap(descendants) }
-    private func settle(_ host: NSView) async {
-        for _ in 0..<3 { host.layoutSubtreeIfNeeded(); try? await Task.sleep(for: .milliseconds(20)) }
-    }
 }
 
 @MainActor private final class PDFHistoryFixture {
