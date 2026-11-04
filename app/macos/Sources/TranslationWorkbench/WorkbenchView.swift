@@ -196,8 +196,13 @@ struct WorkbenchView: View {
                 fillsAvailableHeight: true, renameRecording: beginRename)
             if let recording = session.selectedRecording, recording.workflow == .liveTranslation, bilingualStore != nil {
                 Button { showsBilingualHistory = true } label: {
-                    Label(t("历史结果、编辑与回听", "Results, editing and playback"), systemImage: "clock.arrow.circlepath")
-                }.buttonStyle(.borderless).disabled(bilingualLive?.isActive == true)
+                    Image(systemName: "clock.arrow.circlepath")
+                }.buttonStyle(WorkbenchCompactButtonStyle(iconOnly: true)).fixedSize()
+                    .accessibilityLabel(t("同声传译历史记录", "Live translation history")).help(t("历史记录", "History"))
+                    .disabled(bilingualLive?.isActive == true)
+                    .modifier(HistoryGeometryObservation(name: "live.history.entry"))
+                    .accessibilityIdentifier("live-history-entry")
+                    .frame(maxWidth: .infinity, alignment: .trailing)
             }
         } else { pendingPage }
     }
@@ -231,37 +236,11 @@ struct WorkbenchView: View {
     }
 
     @ViewBuilder private var bilingualHistorySheet: some View {
-        VStack(alignment: .leading, spacing: 16) {
-            HStack {
-                Text(t("同声传译历史", "Live translation history")).font(.title2)
-                Spacer()
-                Button(t("完成", "Done")) { showsBilingualHistory = false }.keyboardShortcut(.cancelAction)
-            }
-            ScrollView {
-                if let recording = session.selectedRecording, let bilingual, let bilingualStore {
-                    VStack(alignment: .leading, spacing: 20) {
-                        Text(recording.name).font(.headline)
-                        RecordingPlaybackControls(playback: playback, url: session.audioURL(for: recording.id),
-                            duration: recording.duration, language: language)
-                        BilingualHistoryView(recordingID: recording.id, store: bilingualStore, state: bilingual,
-                            openLive: { showsBilingualHistory = false }, repair: bilingualRepair,
-                            repairConfiguration: GeminiFileRepairConfiguration.configuration, recordingName: recording.name,
-                            deletionBlockReason: { id in processing.deletionBlockReason(for: .material(recordingID: id)) })
-                            .id(recording.id)
-                        if let legacy = processing.materials[recording.id], !legacy.results.isEmpty {
-                            DisclosureGroup(t("旧版附带的转写结果", "Transcripts retained from earlier versions")) {
-                                ForEach(legacy.results) { result in
-                                    TranscriptEditorView(processing: processing, recording: recording, result: result, playFrom: { time in
-                                        do { try playback.play(at: time, from: session.audioURL(for: recording.id)) }
-                                        catch { /* PlaybackController publishes the error. */ }
-                                    }).id(result.id)
-                                }
-                            }
-                        }
-                    }.padding(2)
-                }
-            }
-        }.padding(24).frame(minWidth: 560, idealWidth: 760, minHeight: 480, idealHeight: 640)
+        if let bilingual, let bilingualStore {
+            BilingualRecordingHistoryView(session: session, processing: processing, bilingual: bilingual,
+                playback: playback, bilingualStore: bilingualStore, bilingualRepair: bilingualRepair,
+                done: { showsBilingualHistory = false })
+        }
     }
 
     private var background: some View {
@@ -342,7 +321,6 @@ struct WorkbenchView: View {
                         .font(.system(size: 12, weight: .semibold)).padding(.horizontal, 14).padding(.vertical, 11)
                         .background(.white.opacity(0.65), in: RoundedRectangle(cornerRadius: 12))
                 }.buttonStyle(.plain).fixedSize().disabled(!recordingActions.canStart)
-                    .keyboardShortcut("n", modifiers: .command)
 
             }
         }.padding(.top, 6)
@@ -543,6 +521,7 @@ struct WorkbenchView: View {
                     Text(t("录音与文本会分别保留，可在这里重新打开继续工作。", "Recordings and text are kept separately. Reopen either here to continue working.")).font(.system(size: 13)).foregroundStyle(muted).multilineTextAlignment(.center)
                     Button { page = .recording } label: { Label(t("前往录音", "Go to recording"), systemImage: "mic") }.buttonStyle(.bordered)
                 }.frame(maxWidth: .infinity).padding(45).glassCard()
+                    .modifier(HistoryGeometryObservation(name: "history.empty")).historyScrollGutter()
             } else {
                 TextTranslationHistoryList(session: translation) { page = .text }
                 RecordingHistoryList(session: session, processing: processing, workflow: nil,

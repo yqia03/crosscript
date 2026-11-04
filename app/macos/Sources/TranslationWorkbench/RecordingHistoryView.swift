@@ -24,6 +24,7 @@ import WorkbenchCore
                     Text(t("录制或导入的音频及其转写结果会保存在这里。", "Recorded or imported audio and its transcription results will appear here."))
                         .font(.callout).foregroundStyle(.secondary).multilineTextAlignment(.center)
                 }.frame(maxWidth: .infinity).padding(36).glassCard()
+                    .modifier(HistoryGeometryObservation(name: "recording.empty"))
             }
             ForEach(recordings) { recording in
                 HStack(spacing: 12) {
@@ -43,8 +44,9 @@ import WorkbenchCore
                             .disabled(processing.deletionBlockReason(for: .material(recordingID: recording.id)) != nil)
                     }
                 }.padding(18).glassCard()
+                    .modifier(HistoryGeometryObservation(name: "recording." + recording.id.uuidString))
             }
-        }
+        }.historyScrollGutter()
     }
 
     private func row(_ recording: Recording) -> some View {

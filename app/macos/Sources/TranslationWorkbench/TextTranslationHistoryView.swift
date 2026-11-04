@@ -17,6 +17,7 @@ import WorkbenchCore
                     Text(t("每次按回车或点击翻译后，都会独立保留原文与译文。", "Each translation submitted with Enter or Translate is kept with its source and result."))
                         .font(.callout).foregroundStyle(.secondary)
                 }.padding(20).frame(maxWidth: .infinity, alignment: .leading).glassCard()
+                    .modifier(HistoryGeometryObservation(name: "text.empty"))
             }
             ForEach(session.history) { entry in
                 VStack(alignment: .leading, spacing: 12) {
@@ -35,8 +36,9 @@ import WorkbenchCore
                             .font(.callout).lineLimit(3).textSelection(.enabled)
                     }
                 }.padding(18).frame(maxWidth: .infinity, alignment: .leading).glassCard()
+                    .modifier(HistoryGeometryObservation(name: "text." + entry.id.uuidString))
             }
-        }
+        }.historyScrollGutter()
     }
     private func metadata(_ entry: TextTranslationHistoryEntry) -> some View {
         VStack(alignment: .leading, spacing: 5) {
@@ -51,18 +53,16 @@ import WorkbenchCore
     }
     private func actions(_ entry: TextTranslationHistoryEntry) -> some View {
         HStack(spacing: 8) {
-            Menu {
-                Button(t("复制原文", "Copy source")) { copy(entry.input) }
-                Button(t("复制译文", "Copy translation")) { copy(entry.translation) }.disabled(entry.translation.isEmpty)
-            } label: { Image(systemName: "doc.on.doc") }
-                .menuStyle(.borderlessButton).menuIndicator(.hidden).frame(width: 34, height: 34)
-                .background(.white.opacity(0.7), in: RoundedRectangle(cornerRadius: 9))
-                .overlay(RoundedRectangle(cornerRadius: 9).stroke(.tint.opacity(0.17)))
-                .accessibilityLabel(t("复制历史内容", "Copy history contents"))
+            TextActionMenu(label: t("复制历史内容", "Copy history contents"), symbol: "doc.on.doc", actions: [
+                .init(title: t("复制原文", "Copy source"), perform: { copy(entry.input) }),
+                .init(title: t("复制译文", "Copy translation"), enabled: !entry.translation.isEmpty, perform: { copy(entry.translation) })
+            ]).frame(width: 34, height: 34)
+                .modifier(HistoryGeometryObservation(name: "copy." + entry.id.uuidString))
             Button {
                 if session.openHistory(entry.id) { restored() }
             } label: { Label(t("打开", "Open"), systemImage: "arrow.up.forward") }
                 .buttonStyle(WorkbenchCompactButtonStyle()).disabled(session.isRunning || session.hasPendingSave)
+                .modifier(HistoryGeometryObservation(name: "open." + entry.id.uuidString))
                 .help(t("恢复到工作区；不会自动翻译或修改历史", "Restore to the workspace without translating or changing history"))
         }
     }

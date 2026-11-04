@@ -24,6 +24,7 @@ public struct PDFWorkspaceIssue: Identifiable, Equatable {
     @Published public private(set) var unreadableIDs: [UUID] = []
     @Published public private(set) var deletionConfirmation: PDFDeletionConfirmation?
     @Published public private(set) var deletionError: MaterialDeletionError?
+    public private(set) var workspaceGeneration: UInt64 = 0
     private let store: PDFMaterialStore
     private let credentials: any ProviderCredentials
     private let engine: any PDFTranslating
@@ -61,26 +62,48 @@ public struct PDFWorkspaceIssue: Identifiable, Equatable {
             if !unreadableIDs.isEmpty || !pendingSaveIDs.isEmpty { error = .storage }
         } catch { self.error = .storage }
     }
-    @discardableResult public func importPDF(_ url: URL) -> UUID? {
+    /// A delayed import can retain its source workspace generation. Its managed
+    /// copy still enters history after New project, without changing the new list.
+    @discardableResult public func importPDF(_ url: URL, workspaceGeneration: UInt64? = nil) -> UUID? {
+        let joinsWorkspace = workspaceGeneration == nil || workspaceGeneration == self.workspaceGeneration
         do {
-            let material = try store.importPDF(url); materials.insert(material, at: 0); open(material.id); error = nil; return material.id
-        } catch { self.error = error as? PDFTranslationError ?? .storage; return nil }
+            let material = try store.importPDF(url)
+            materials.insert(material, at: 0)
+            if joinsWorkspace { open(material.id); error = nil }
+            return material.id
+        } catch {
+            if joinsWorkspace { self.error = error as? PDFTranslationError ?? .storage }
+            return nil
+        }
     }
     /// Picker and drag/drop imports share the same append-and-report behavior.
-    @discardableResult public func importPDFs(_ urls: [URL]) -> [UUID] {
-        workspaceIssues = []
+    @discardableResult public func importPDFs(_ urls: [URL], workspaceGeneration: UInt64? = nil) -> [UUID] {
+        let joinsWorkspace = workspaceGeneration == nil || workspaceGeneration == self.workspaceGeneration
+        if joinsWorkspace { workspaceIssues = [] }
         var imported: [UUID] = []
         for url in urls {
-            if let id = importPDF(url) { imported.append(id) }
-            else { workspaceIssues.append(.init(materialID: nil, name: url.lastPathComponent, error: error ?? .invalidPDF)) }
+            if let id = importPDF(url, workspaceGeneration: workspaceGeneration) { imported.append(id) }
+            else if joinsWorkspace { workspaceIssues.append(.init(materialID: nil, name: url.lastPathComponent, error: error ?? .invalidPDF)) }
         }
         return imported
     }
+    /// Browsing history loads only local source metadata and leaves workspace
+    /// membership, selection, drafts and processing attempts unchanged.
+    public func prepareHistoryMetadata() { for material in materials { cacheMetadata(material.id) } }
     public func open(_ id: UUID) {
         guard find(id) != nil else { return }
         if !workspaceMaterialIDs.contains(id) { workspaceMaterialIDs.append(id) }
         cacheMetadata(id)
         selectedID = id
+    }
+    /// Start an empty working list without changing the retained material library,
+    /// pending saves or workers. Empty projects have no durable record of their own.
+    public func newProject() {
+        workspaceGeneration &+= 1
+        workspaceMaterialIDs = []
+        selectedID = nil
+        workspaceIssues = []
+        if pendingSaveIDs.isEmpty && unreadableIDs.isEmpty { error = nil }
     }
     /// Removing a card changes only this session's working list. The journal,
     /// original copy, results and any running/queued worker remain untouched.

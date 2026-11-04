@@ -16,53 +16,106 @@ protocol MicrophoneCapture: AnyObject {
 }
 
 @MainActor
-final class EngineMicrophoneCapture: MicrophoneCapture {
-    let format: AVAudioFormat
+final class DeviceMicrophoneCapture: MicrophoneCapture {
+    let format = AVAudioFormat(commonFormat: .pcmFormatFloat32, sampleRate: 48_000, channels: 1, interleaved: false)!
     var onAudio: (@Sendable (AVAudioPCMBuffer) -> Void)?
     var onConfigurationChange: (@Sendable () -> Void)?
-    var isRunning: Bool { engine.isRunning }
-    private let engine: AVAudioEngine
-    private let device: AudioInputDevice
-    private var observer: NSObjectProtocol?
-    private var tapped = false
-
-    init(device: AudioInputDevice) throws {
-        let engine = AVAudioEngine()
-        let input = engine.inputNode
-        guard let unit = input.audioUnit else { throw MicrophoneDeviceError.bindingFailed }
-        try CoreAudioMicrophoneDevices.bind(unit, to: device)
-        let format = input.outputFormat(forBus: 0)
-        guard format.sampleRate > 0, format.channelCount > 0 else { throw MicrophoneDeviceError.unavailable }
-        self.engine = engine
+    var isRunning: Bool { session.isRunning }
+    private let session = AVCaptureSession()
+    private let device: AVCaptureDevice
+    private let output = AVCaptureAudioDataOutput()
+    private let queue = DispatchQueue(label: "dev.crosscript.microphone.capture")
+    private var relay: MicrophoneSampleRelay?
+    private var observers: [NSObjectProtocol] = []
+    // AVAudioEngine's I/O nodes follow the system defaults. Mutating their
+    // borrowed AudioUnit can be undone by a delayed engine reconfiguration.
+    // AVCaptureDeviceInput owns the explicitly selected device instead.
+    init(device selected: AudioInputDevice) throws {
+        guard let device = AVCaptureDevice(uniqueID: selected.uid), device.hasMediaType(.audio), device.isConnected else { throw MicrophoneDeviceError.unavailable }
         self.device = device
-        self.format = format
+        let input = try AVCaptureDeviceInput(device: device)
+        session.beginConfiguration()
+        defer { session.commitConfiguration() }
+        guard session.canAddInput(input) else { throw MicrophoneDeviceError.bindingFailed }
+        session.addInput(input)
+        output.audioSettings = format.settings
+        guard session.canAddOutput(output) else { throw MicrophoneDeviceError.bindingFailed }
+        session.addOutput(output)
     }
-
     func validate() throws {
-        guard CoreAudioMicrophoneDevices.inputs().contains(where: { $0.device.uid == device.uid }),
-              let unit = engine.inputNode.audioUnit,
-              CoreAudioMicrophoneDevices.currentUID(unit) == device.uid,
-              engine.inputNode.outputFormat(forBus: 0) == format else { throw MicrophoneDeviceError.routeChanged }
+        guard device.isConnected, CoreAudioMicrophoneDevices.inputs().contains(where: { $0.device.uid == device.uniqueID }) else { throw MicrophoneDeviceError.routeChanged }
+        if let error = relay?.failure { throw error }
     }
-
     func start() throws {
         try validate()
-        if !tapped {
-            let receive = onAudio
-            engine.inputNode.installTap(onBus: 0, bufferSize: 2048, format: format) { buffer, _ in receive?(buffer) }
-            tapped = true
+        let relay = MicrophoneSampleRelay(format: format, receive: onAudio, changed: onConfigurationChange)
+        self.relay = relay
+        output.setSampleBufferDelegate(relay, queue: queue)
+        if observers.isEmpty {
             let changed = onConfigurationChange
-            observer = NotificationCenter.default.addObserver(forName: .AVAudioEngineConfigurationChange, object: engine, queue: nil) { _ in changed?() }
+            observers = [
+                NotificationCenter.default.addObserver(forName: .AVCaptureDeviceWasDisconnected, object: device, queue: nil) { _ in changed?() },
+            ]
         }
-        engine.prepare()
-        try engine.start()
+        let runtimeObserver = NotificationCenter.default.addObserver(forName: .AVCaptureSessionRuntimeError, object: session, queue: nil) { note in
+            let detail = (note.userInfo?[AVCaptureSessionErrorKey] as? Error)?.localizedDescription ?? ""
+            relay.fail(MicrophoneDeviceError.captureFailed(detail))
+        }
+        observers.append(runtimeObserver)
+        session.startRunning()
         try validate()
+        guard session.isRunning else { throw MicrophoneDeviceError.bindingFailed }
     }
-
-    func pause() { engine.pause() }
+    func pause() {
+        session.stopRunning()
+        queue.sync {}
+        removeObservers()
+    }
     func stop() {
-        if let observer { NotificationCenter.default.removeObserver(observer); self.observer = nil }
-        if tapped { engine.inputNode.removeTap(onBus: 0); tapped = false }
-        engine.stop()
+        session.stopRunning()
+        output.setSampleBufferDelegate(nil, queue: nil)
+        queue.sync {}
+        relay = nil
+        removeObservers()
+    }
+    private func removeObservers() {
+        for observer in observers { NotificationCenter.default.removeObserver(observer) }
+        observers.removeAll()
+    }
+}
+// AVFoundation calls this delegate on the capture queue, never the main actor.
+// Copy PCM while its CMSampleBuffer is alive; the existing writer synchronously
+// persists it before delivering any Live audio.
+private final class MicrophoneSampleRelay: NSObject, AVCaptureAudioDataOutputSampleBufferDelegate, @unchecked Sendable {
+    let format: AVAudioFormat
+    let receive: (@Sendable (AVAudioPCMBuffer) -> Void)?
+    let changed: (@Sendable () -> Void)?
+    private let lock = NSLock()
+    private var storedFailure: Error?
+    var failure: Error? { lock.lock(); defer { lock.unlock() }; return storedFailure }
+    init(format: AVAudioFormat, receive: (@Sendable (AVAudioPCMBuffer) -> Void)?, changed: (@Sendable () -> Void)?) { self.format = format; self.receive = receive; self.changed = changed }
+    func captureOutput(_ output: AVCaptureOutput, didOutput sampleBuffer: CMSampleBuffer, from connection: AVCaptureConnection) {
+        let frames = CMSampleBufferGetNumSamples(sampleBuffer)
+        guard failure == nil else { return }
+        guard frames > 0 else { return }
+        guard let description = CMSampleBufferGetFormatDescription(sampleBuffer),
+              let stream = CMAudioFormatDescriptionGetStreamBasicDescription(description),
+              let actual = AVAudioFormat(streamDescription: stream), actual == format,
+              frames <= Int(Int32.max),
+              let buffer = AVAudioPCMBuffer(pcmFormat: format, frameCapacity: AVAudioFrameCount(frames)) else {
+            fail(MicrophoneDeviceError.invalidFormat); return
+        }
+        buffer.frameLength = AVAudioFrameCount(frames)
+        guard CMSampleBufferCopyPCMDataIntoAudioBufferList(sampleBuffer, at: 0, frameCount: Int32(frames), into: buffer.mutableAudioBufferList) == noErr else {
+            fail(MicrophoneDeviceError.invalidFormat); return
+        }
+        receive?(buffer)
+    }
+    func fail(_ error: Error) {
+        lock.lock()
+        let first = storedFailure == nil
+        storedFailure = storedFailure ?? error
+        lock.unlock()
+        if first { changed?() }
     }
 }
