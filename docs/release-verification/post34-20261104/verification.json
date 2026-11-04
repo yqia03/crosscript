@@ -1,0 +1,277 @@
+{
+  "schema": 1,
+  "date": "2026-11-04",
+  "status": "partial-acceptance-preview-only",
+  "candidate": {
+    "label": "candidate06 local repair; not a new release",
+    "version": "0.1.0",
+    "build": "7",
+    "sourceRevision": "ccfad78705861bf4ba2c21d39d50c58091fd8672",
+    "mergeCommit": "fcbbe42923e1cffca2a2c78dd029147996fd5829",
+    "executableSHA256": "719fb1ef620e1813476b0fe57282b3c79f0dc400cf81c742afbf512236e26978",
+    "sourceArchiveSHA256": "b774e7507e58a1aa879d2f1bad0eb9cbaac71d933b47ed66e5b9f8e204f2782e",
+    "carriers": [
+      {
+        "name": "Crosscript-preview-0.1.0-7.dmg",
+        "bytes": 178485614,
+        "sha256": "6da74dfc5eab338a4dbf9a2d4a1aa8222ea644777e0099efaa0946adbc83b97a"
+      },
+      {
+        "name": "Crosscript-preview-0.1.0-7.zip",
+        "bytes": 169852758,
+        "sha256": "d43b0caf8af36a92da6d224e2bdc5d7d96de1d4591410ef610a3b58d39ec97ff"
+      },
+      {
+        "name": "Crosscript-materials-0.1.0-7.tar.gz",
+        "bytes": 1836854969,
+        "sha256": "a16e568f67d6e1bee92d36639634093a913102893970147f0222980382b517ca"
+      }
+    ],
+    "publication": "not-performed; generated preview.7 tag is packaging metadata only",
+    "oldPreview7": "Historical published/frozen build7 records remain unchanged and do not describe these new carriers."
+  },
+  "text": {
+    "T1": {
+      "state": "passed",
+      "submitCount": 1,
+      "httpLimit": 1,
+      "deadlineSeconds": 120,
+      "observedCompleteWithinSeconds": 7.062,
+      "usage": {
+        "promptTokens": 205,
+        "totalTokens": 276,
+        "completionTokens": 71
+      },
+      "estimatedCostUpperUSD": 0.0001467,
+      "checks": {
+        "layout": "pass",
+        "repeatLine": "pass",
+        "historyUnchanged": "pass",
+        "historyReopen": "pass",
+        "copyVerifiedViaUIPaste": "pass",
+        "editedTXTBytesMatch": true,
+        "inputSHA256": "e245d6fd6cff09efbea94e418212f46a4ca4a7e368c6f5c49ad94f78c4238e32",
+        "exportSHA256": "f8bb75f62ee65844f5401954e6d7cd5a98ea7d332e1177ac05a41ede5bd5d47d",
+        "usage": {
+          "promptTokens": 205,
+          "totalTokens": 276,
+          "completionTokens": 71
+        }
+      }
+    },
+    "T2": {
+      "state": "passed",
+      "submitCount": 1,
+      "httpLimit": 1,
+      "deadlineSeconds": 120,
+      "observedCompleteWithinSeconds": 15.038,
+      "usage": {
+        "totalTokens": 279,
+        "completionTokens": 78,
+        "promptTokens": 201
+      },
+      "estimatedCostUpperUSD": 0.00015389999999999997,
+      "checks": {
+        "layout": "pass",
+        "repeatLine": "pass",
+        "bothHistorySnapshotsUnchanged": "pass",
+        "historyReopen": "pass",
+        "copyVerifiedViaUIPaste": "pass",
+        "editedTXTBytesMatch": true,
+        "inputSHA256": "64d1945fa78b16ca20374e67d722d9a5a6d3eb03588a9c29ee2ace351e046452",
+        "exportSHA256": "c768f2357870787c296d212b8d7f9e51ee80151990d668f33ac657dbdcc7728d",
+        "usage": {
+          "totalTokens": 279,
+          "completionTokens": 78,
+          "promptTokens": 201
+        }
+      }
+    },
+    "provider": "DeepSeek official",
+    "endpoint": "https://api.deepseek.com",
+    "model": "deepseek-flash",
+    "directions": [
+      "en -> zh-Hans",
+      "zh-Hans -> en"
+    ],
+    "totalSubmits": 2,
+    "retries": 0,
+    "totalTokens": 555,
+    "totalEstimatedCostUpperUSD": 0.0003006,
+    "billing": "Estimate using peak cache-miss input US$0.30/M and output US$1.20/M; not actual bill.",
+    "priorAttempt": "Earlier Keychain authorization timed out at 139.983 seconds; stopped with no confirmed provider request. Retained as missed-deadline evidence.",
+    "pricingSource": "https://api-docs.deepseek.com/quick_start/pricing/",
+    "pricingChecked": "2026-11-04"
+  },
+  "A1": {
+    "state": "passed-finite-acceptance-with-existing-full-replacement-timing-limitation",
+    "completedChunks": 1,
+    "submitCount": 1,
+    "requestedTimestamps": true,
+    "textMatchesIgnoringPunctuationAndWhitespace": true,
+    "maxAbsStartErrorSeconds": 0.3588124999999991,
+    "anchors": [
+      {
+        "number": 1,
+        "actualSentenceStartSeconds": 0.0,
+        "providerAnchorStartSeconds": 0,
+        "startErrorSeconds": 0.0,
+        "text": "第一句,蓝色盒子里放着三支铅笔。"
+      },
+      {
+        "number": 2,
+        "actualSentenceStartSeconds": 3.3683125,
+        "providerAnchorStartSeconds": 3.36,
+        "startErrorSeconds": -0.008312500000000167,
+        "text": "第二句,周三上午九点,我们在北门集合。"
+      },
+      {
+        "number": 3,
+        "actualSentenceStartSeconds": 7.43325,
+        "providerAnchorStartSeconds": 7.4199996,
+        "startErrorSeconds": -0.01325040000000044,
+        "text": "第三句,请先打开窗户,再把绿色杯子放到桌上。"
+      },
+      {
+        "number": 4,
+        "actualSentenceStartSeconds": 12.40375,
+        "providerAnchorStartSeconds": 12.38,
+        "startErrorSeconds": -0.023749999999999716,
+        "text": "第四句,地图上的小桥正在维修,我们改走东边。"
+      },
+      {
+        "number": 5,
+        "actualSentenceStartSeconds": 17.1188125,
+        "providerAnchorStartSeconds": 16.76,
+        "startErrorSeconds": -0.3588124999999991,
+        "text": "第五句,这是最后一句,录音现在结束。"
+      }
+    ],
+    "providerUsage": "not returned/persisted; billing unverified",
+    "durationBasedEstimatedCostUSD": 0.0006452896354166667,
+    "observedCompleteWithinSubmitSeconds": 5.4,
+    "audioSeconds": 20.9283125,
+    "httpLimit": 1,
+    "deadlineSeconds": 180,
+    "provider": "AiHubMix",
+    "endpoint": "https://aihubmix.com/v1",
+    "model": "whisper-large-v3",
+    "retries": 0,
+    "responseFormat": "verbose_json",
+    "timestampGranularity": "segment",
+    "audioFormat": "16kHz mono PCM16",
+    "audioSHA256": "3f2aeca633f0fa700dd9bb003ad12b167ba537b514f2e519d2bd6d51a3245bba",
+    "paragraphPlayback": "passed: native UI seek/play/progress/end-state for paragraphs 1, 3, 5 before full-document replacement; no human listening or hardware output capture claim",
+    "localResultWorkflows": "passed: paragraph edit/full-text synchronization, clipboard via identical UI paste, exact UTF-8 native TXT export, New/history reopen retains edit, unchanged managed audio, one attempt/result/task, no new cloud submit",
+    "billing": "US$0.111/hour duration estimate only; provider usage/bill unverified",
+    "timestampReference": "Composed sentence starts measured from local PCM fixture; not human phoneme alignment.",
+    "requestEvidence": "One explicit submit and one completed chunk; one HTTP is inferred from the non-retrying single-chunk adapter, not a network trace.",
+    "pricingSource": "https://aihubmix.com/model/whisper-large-v3",
+    "pricingChecked": "2026-11-04",
+    "postprocessing": {
+      "date": "2026-11-04",
+      "state": "passed-with-existing-full-replacement-timing-limitation",
+      "paragraphPlayback": {
+        "scope": "Native UI seek/play/progress/end-state observed before full-document replacement; no claim of human listening or hardware output capture.",
+        "sampledSegments": [
+          1,
+          3,
+          5
+        ],
+        "observations": [
+          {
+            "segment": 3,
+            "anchorSeconds": 7.4199996,
+            "observedPlayheadSeconds": 12.6970625,
+            "observationCallSeconds": 5.7052,
+            "playing": true
+          },
+          {
+            "segment": 1,
+            "anchorSeconds": 0,
+            "observedPlayheadSeconds": 5.078375,
+            "observationSeconds": 5.468,
+            "playing": true
+          },
+          {
+            "segment": 5,
+            "anchorSeconds": 16.76,
+            "observedPlayheadSeconds": 20.9283125,
+            "observationSeconds": 4.909,
+            "naturalEnd": true
+          }
+        ]
+      },
+      "paragraphEditSavedAndSyncedToFullText": true,
+      "copyVerifiedByIdenticalUIPaste": true,
+      "exportExactUTF8": true,
+      "exportSHA256": "22835b58688cead2c8a23921037873936e1d127f2063e87e51f2106f16349a47",
+      "historyReopenRetainsEdit": true,
+      "newProjectDidNotSubmit": true,
+      "managedAudioUnchanged": true,
+      "managedAudioFullyReadablePCMFrames": 334853,
+      "sameResultID": true,
+      "sameCompletedAttempt": true,
+      "queueTaskCount": 1,
+      "newCloudSubmits": 0,
+      "timingAfterFullReplacement": {
+        "remainingAnchorCount": 0,
+        "scope": "Full selection replacement intentionally drops every covered anchor even for identical pasted text. UI reports no reliable timing; native undo does not restore removed anchors. Not a claim current edited result retains timings. Original completed snapshot preserved separately; no metadata restore or retranscription performed."
+      }
+    },
+    "originalAnchorSnapshot": "The five anchors and numeric errors above describe the preserved original completed snapshot, before whole-document clipboard replacement; current edited document has zero anchors.",
+    "timingPolicyReferences": [
+      "app/macos/Sources/WorkbenchCore/TranscriptDocument.swift: replace drops anchors covered by replacement",
+      "app/macos/Sources/TranslationWorkbench/TranscriptEditorView.swift: native precise-range replacement and conservative full-text synchronization",
+      "app/macos/Tests/NativeAudioTests/TranscriptEditorTests.swift: undoOfARepeatedParagraphKeepsTheSurvivingSourceAndCompositionSavesCommittedText explicitly does not recreate removed anchors",
+      "app/macos/Tests/WorkbenchCoreTests/TranscriptEditingTests.swift: editsSplitMergeInsertAndDeleteWithoutInventingParagraphTimes"
+    ]
+  },
+  "Gemini": {
+    "state": "not-executed",
+    "newRequests": 0,
+    "reason": "No verified App-only network interruption facility; shared proxy configuration reload could affect other work. No shared-network change performed."
+  },
+  "ordinaryInstallation": {
+    "state": "not-executed",
+    "selectedEnvironment": "same Mac, new ordinary account",
+    "reason": "Account creation/switch not completed; isolated data directory is not a non-development environment.",
+    "httpsColdPreparation": "not-executed; no cold downloads",
+    "sharedCarrierHandoff": "Three local assets copied to shared handoff directory with hashes verified; no installation. Original DMG has provenance xattr only, no quarantine; downloaded-app Gatekeeper boundary untested."
+  },
+  "PDFLocalEngine": {
+    "state": "passed-limited-controlled-engine-supplement",
+    "engine": "BabelDOC 0.6.4",
+    "bridgeSHA256": "4fbc193b32dba2482854def34110c54e0db0e550c62cc0d381881b874a60fb33",
+    "runtimeManifestSHA256": "2fce7f0f1a5c1ef758d59e6ae7b529e8d953920baed9f6561f71a3ec2aeea64b",
+    "runtimeVerification": {
+      "files": 13565,
+      "links": 10,
+      "mismatches": 0
+    },
+    "inputPages": 1,
+    "directions": "English to Chinese with controlled repeated response; not cloud translation quality",
+    "requests": {
+      "localhost": 2,
+      "internetProvider": 0
+    },
+    "elapsedSeconds": 20.48,
+    "costUSD": 0,
+    "inputSHA256": "d2c1a8c1a86d6e2259fa6a8bedc615ed92e606ffa1cf3f1c85ef3be40d09caae",
+    "inputUnchanged": true,
+    "monoSHA256": "02bfc4b953281fa3966151fd0081643bcfb500505666a27d963a591d0e12d5c6",
+    "dualSHA256": "3bf51d661d0cc7e975da024eaba8ef10286564744123d92d9d5ca56d4c6c705c",
+    "resultRecordSHA256": "40fdea6dbfd64cfed5b1e5d43d9b120e841dfe608e2bbcd65c262ebd3c43db2d",
+    "runtimeVerificationRecordSHA256": "60823c740150a9a81fdca2c62031a381fcb4eb3456e421613e3e2ee7c5fbb753",
+    "visualInspection": "Readable mono/dual Chinese; no observed clipping, overlap or tofu; title wraps and body merges. Visible BabelDOC 0.6.4/funstory.ai notice and AI producer retained.",
+    "metadataLimitation": "Mono retains title/author and merges original producer into creator; dual title/author/creator empty. Arbitrary source metadata preservation is not guaranteed.",
+    "scope": "Retained verified runtime with task assets/HOME, nonloopback network and runtime writes denied; not HTTPS cold installation or a new DeepSeek PDF success."
+  },
+  "evidenceHandling": "Sanitized summary of private execution ledger, T1/T2 checks and workspace snapshots, A1 checks/fixture manifest, and assembled carrier manifest. No private file paths, credential/profile identifiers or personal audio are included.",
+  "technicalTextPDFAcceptance": "Limited #16 acceptance complete by combined historical real provider evidence, E12/spec24 UI, T1/T2 actual App and current controlled engine supplement; #17 finite recording/transcription acceptance also complete; #18–19 remain incomplete.",
+  "recordingTranscriptionAcceptance": {
+    "state": "finite-acceptance-complete-for-issue-17",
+    "basis": "Current A1 real Chinese service plus same-result UI postprocessing; historical E06 long recording, E11 English LargeV3 long file, E07 version/old-edit acceptance, E12 unchanged import/version/storage seams and Spec24 changed source/session/history seams. No additional paid transcription or long recording.",
+    "limitation": "Full-selection replacement, even identical pasted text, removes covered timing anchors; native undo does not restore them. Edited A1 remains untimed; original completed snapshot retained separately, no fabricated restoration or retranscription."
+  }
+}
