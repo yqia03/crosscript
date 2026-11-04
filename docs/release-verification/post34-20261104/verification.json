@@ -104,7 +104,7 @@
     "pricingChecked": "2026-11-04"
   },
   "A1": {
-    "state": "transcription-and-timestamps-pass-playback-pending",
+    "state": "passed-finite-acceptance-with-existing-full-replacement-timing-limitation",
     "completedChunks": 1,
     "submitCount": 1,
     "requestedTimestamps": true,
@@ -161,13 +161,71 @@
     "timestampGranularity": "segment",
     "audioFormat": "16kHz mono PCM16",
     "audioSHA256": "3f2aeca633f0fa700dd9bb003ad12b167ba537b514f2e519d2bd6d51a3245bba",
-    "paragraphPlayback": "not-executed; CUA ScreenCaptureKit error 3812; awaiting foreground access",
-    "localResultWorkflows": "not-executed for this new result: edit/export/history reopen pending",
+    "paragraphPlayback": "passed: native UI seek/play/progress/end-state for paragraphs 1, 3, 5 before full-document replacement; no human listening or hardware output capture claim",
+    "localResultWorkflows": "passed: paragraph edit/full-text synchronization, clipboard via identical UI paste, exact UTF-8 native TXT export, New/history reopen retains edit, unchanged managed audio, one attempt/result/task, no new cloud submit",
     "billing": "US$0.111/hour duration estimate only; provider usage/bill unverified",
     "timestampReference": "Composed sentence starts measured from local PCM fixture; not human phoneme alignment.",
     "requestEvidence": "One explicit submit and one completed chunk; one HTTP is inferred from the non-retrying single-chunk adapter, not a network trace.",
     "pricingSource": "https://aihubmix.com/model/whisper-large-v3",
-    "pricingChecked": "2026-11-04"
+    "pricingChecked": "2026-11-04",
+    "postprocessing": {
+      "date": "2026-11-04",
+      "state": "passed-with-existing-full-replacement-timing-limitation",
+      "paragraphPlayback": {
+        "scope": "Native UI seek/play/progress/end-state observed before full-document replacement; no claim of human listening or hardware output capture.",
+        "sampledSegments": [
+          1,
+          3,
+          5
+        ],
+        "observations": [
+          {
+            "segment": 3,
+            "anchorSeconds": 7.4199996,
+            "observedPlayheadSeconds": 12.6970625,
+            "observationCallSeconds": 5.7052,
+            "playing": true
+          },
+          {
+            "segment": 1,
+            "anchorSeconds": 0,
+            "observedPlayheadSeconds": 5.078375,
+            "observationSeconds": 5.468,
+            "playing": true
+          },
+          {
+            "segment": 5,
+            "anchorSeconds": 16.76,
+            "observedPlayheadSeconds": 20.9283125,
+            "observationSeconds": 4.909,
+            "naturalEnd": true
+          }
+        ]
+      },
+      "paragraphEditSavedAndSyncedToFullText": true,
+      "copyVerifiedByIdenticalUIPaste": true,
+      "exportExactUTF8": true,
+      "exportSHA256": "22835b58688cead2c8a23921037873936e1d127f2063e87e51f2106f16349a47",
+      "historyReopenRetainsEdit": true,
+      "newProjectDidNotSubmit": true,
+      "managedAudioUnchanged": true,
+      "managedAudioFullyReadablePCMFrames": 334853,
+      "sameResultID": true,
+      "sameCompletedAttempt": true,
+      "queueTaskCount": 1,
+      "newCloudSubmits": 0,
+      "timingAfterFullReplacement": {
+        "remainingAnchorCount": 0,
+        "scope": "Full selection replacement intentionally drops every covered anchor even for identical pasted text. UI reports no reliable timing; native undo does not restore removed anchors. Not a claim current edited result retains timings. Original completed snapshot preserved separately; no metadata restore or retranscription performed."
+      }
+    },
+    "originalAnchorSnapshot": "The five anchors and numeric errors above describe the preserved original completed snapshot, before whole-document clipboard replacement; current edited document has zero anchors.",
+    "timingPolicyReferences": [
+      "app/macos/Sources/WorkbenchCore/TranscriptDocument.swift: replace drops anchors covered by replacement",
+      "app/macos/Sources/TranslationWorkbench/TranscriptEditorView.swift: native precise-range replacement and conservative full-text synchronization",
+      "app/macos/Tests/NativeAudioTests/TranscriptEditorTests.swift: undoOfARepeatedParagraphKeepsTheSurvivingSourceAndCompositionSavesCommittedText explicitly does not recreate removed anchors",
+      "app/macos/Tests/WorkbenchCoreTests/TranscriptEditingTests.swift: editsSplitMergeInsertAndDeleteWithoutInventingParagraphTimes"
+    ]
   },
   "Gemini": {
     "state": "not-executed",
@@ -210,5 +268,10 @@
     "scope": "Retained verified runtime with task assets/HOME, nonloopback network and runtime writes denied; not HTTPS cold installation or a new DeepSeek PDF success."
   },
   "evidenceHandling": "Sanitized summary of private execution ledger, T1/T2 checks and workspace snapshots, A1 checks/fixture manifest, and assembled carrier manifest. No private file paths, credential/profile identifiers or personal audio are included.",
-  "technicalTextPDFAcceptance": "Limited #16 acceptance complete by combined historical real provider evidence, E12/spec24 UI, T1/T2 actual App and current controlled engine supplement; #17–19 remain incomplete."
+  "technicalTextPDFAcceptance": "Limited #16 acceptance complete by combined historical real provider evidence, E12/spec24 UI, T1/T2 actual App and current controlled engine supplement; #17 finite recording/transcription acceptance also complete; #18–19 remain incomplete.",
+  "recordingTranscriptionAcceptance": {
+    "state": "finite-acceptance-complete-for-issue-17",
+    "basis": "Current A1 real Chinese service plus same-result UI postprocessing; historical E06 long recording, E11 English LargeV3 long file, E07 version/old-edit acceptance, E12 unchanged import/version/storage seams and Spec24 changed source/session/history seams. No additional paid transcription or long recording.",
+    "limitation": "Full-selection replacement, even identical pasted text, removes covered timing anchors; native undo does not restore them. Edited A1 remains untimed; original completed snapshot retained separately, no fabricated restoration or retranscription."
+  }
 }
