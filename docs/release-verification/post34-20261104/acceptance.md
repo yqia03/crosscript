@@ -1,5 +1,7 @@
 # Post-PR34 bounded acceptance — 2026-11-04
 
+Updated 2026-11-12 with the user-reported installation handoff result.
+
 This records candidate06 local repair after PR #34 merged as `fcbbe42923e1cffca2a2c78dd029147996fd5829`. The production App source remains `ccfad78705861bf4ba2c21d39d50c58091fd8672`, version `0.1.0 (7)`. This is a local acceptance candidate, not a new release or stable support declaration. Exact identities and sanitized measurements are in [verification.json](verification.json). Historical build7 records remain frozen; their source/carrier hashes must not be attributed to candidate06.
 
 ## Executed service boundaries
@@ -22,7 +24,11 @@ This current same-result postprocessing, together with historical E06 long recor
 
 Gemini G1/G2 and file repair made zero new calls. Read-only isolation review found no verified App-only interruption facility: establishing a rule would require reloading shared network configuration and could affect other work. No outage or network setting change was performed. The approved connection/request/time limits remain unchanged; the current setup is a no-go for G1's 30-second interruption.
 
-The user selected a new ordinary account on the same Mac for ordinary installation and HTTPS cold preparation. Account creation/switch has not occurred. No cold download ran. A fresh App data directory on the developer account and successful cloud calls cannot substitute for this installation gate.
+The new non-admin account on the same arm64 Mac (macOS 26.7.2, shared system CommandLineTools installed) has opened the installed candidate06 App. On 2026-11-04 the user reported normal first open; the installed process ran under that account, all 120 compared App entries matched candidate06 paths, kinds, modes and file bytes, and `codesign --deep --strict` passed. Extended attributes were not compared.
+
+On 2026-11-12 the user confirmed the handoff passed. The handoff requested an empty runtime baseline, one HTTPS preparation until “PDF 已就绪”, then restart of the same installed App and observation of cache reuse. These steps are recorded as a **user-reported pass within that handoff scope**. No timing, screenshots or installed-files inventory were supplied, and no independent request/traffic measurement or zero-network-transaction assertion follows from the report. This updates the 2026-11-04 pending cold-preparation snapshot; it does not turn the earlier controlled engine run into cold-installation evidence.
+
+#19 remains **partial**: microphone and system-audio TCC short capture in the new account, save/reopen and any other unverified criteria remain pending. The local carrier had no downloaded quarantine, so downloaded-app Gatekeeper behavior remains untested. Ad-hoc signing/no notarization remains the accepted limitation.
 
 The current PDF engine/resource supplement **passed within its controlled scope**: actual BabelDOC 0.6.4 processed a self-authored one-page English PDF into mono/dual Chinese outputs in 20.48 seconds using two localhost requests and zero Internet-provider requests/US$0. The retained runtime verified 13,565 files and 10 links with zero mismatches. Nonloopback networking and writes to retained runtime were denied; this was not a cold installation. Original input stayed unchanged. PyMuPDF/Poppler inspection found readable Chinese without observed clipping, overlap or tofu. The repeated controlled response verifies the engine path, not cloud translation quality.
 
@@ -30,7 +36,7 @@ Both outputs retain a visible BabelDOC 0.6.4/funstory.ai banner and AI producer.
 
 E03/E12 exact-byte comparisons belong to historical build7 source `4579cac`, not candidate06. Candidate06 changes three Core and 26 Native files; their affected sessions/storage/UI are supported by [Spec24 targeted regressions and actual-App evidence](../../verification/spec24-candidate.md). Historical checks are reused only at applicable unchanged boundaries.
 
-Together, historical real provider evidence, applicable E12 and Spec24 UI evidence, actual T1/T2 and this current engine supplement complete the finite technical text/PDF acceptance for #16. Finite #17 acceptance is complete as described above; #18–19 remain incomplete and stable publication is not authorized.
+Together, historical real provider evidence, applicable E12 and Spec24 UI evidence, actual T1/T2 and this current engine supplement complete the finite technical text/PDF acceptance for #16. Finite #17 acceptance is complete as described above; #18 remains unperformed and #19 remains partial as described above; these records do not establish completed stable acceptance.
 
 ## Local carriers
 
@@ -42,6 +48,6 @@ Candidate06 source archive SHA-256: `b774e7507e58a1aa879d2f1bad0eb9cbaac71d933b4
 | Crosscript-preview-0.1.0-7.zip | `d43b0caf8af36a92da6d224e2bdc5d7d96de1d4591410ef610a3b58d39ec97ff` |
 | Crosscript-materials-0.1.0-7.tar.gz | `a16e568f67d6e1bee92d36639634093a913102893970147f0222980382b517ca` |
 
-These are locally assembled carriers from the package manifest. Packaging-tool fields such as generated `v0.1.0-preview.7` and `onlineServiceTests: not-run` describe that tool's scope, not a published release or this separate service run. Three carriers were copied to a shared local handoff directory and their hashes verified, without installation. The original DMG has a provenance attribute but no quarantine; the downloaded-app Gatekeeper boundary was not tested. No tag/release/upload/publication was performed. Ordinary installation, Gatekeeper, notarization and stable acceptance remain incomplete. Ad-hoc signing/no notarization remains the accepted limitation.
+These are locally assembled carriers from the package manifest. Packaging-tool fields such as generated `v0.1.0-preview.7` and `onlineServiceTests: not-run` describe that tool's scope, not a published release or this separate service run. At the original carrier handoff, three carriers were copied to a shared local directory and their hashes verified without installation at that point. Subsequent installed-App and user-reported preparation evidence is recorded above. The original DMG has a provenance attribute but no quarantine; the downloaded-app Gatekeeper boundary was not tested. No tag/release/upload/publication was performed. Ordinary installation has the limited evidence above; #19 and stable acceptance remain incomplete, and downloaded-app Gatekeeper behavior remains untested. Ad-hoc signing/no notarization remains the accepted limitation.
 
 The source records are the private execution ledger, T1/T2 checks and workspace snapshots, A1 service/postprocessing checks, preserved original and reopened transcription snapshots, and fixture manifest, and local assembled package manifest. This public summary omits absolute local paths, credential/profile IDs and private materials.

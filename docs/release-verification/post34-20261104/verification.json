@@ -233,11 +233,28 @@
     "reason": "No verified App-only network interruption facility; shared proxy configuration reload could affect other work. No shared-network change performed."
   },
   "ordinaryInstallation": {
-    "state": "not-executed",
-    "selectedEnvironment": "same Mac, new ordinary account",
-    "reason": "Account creation/switch not completed; isolated data directory is not a non-development environment.",
-    "httpsColdPreparation": "not-executed; no cold downloads",
-    "sharedCarrierHandoff": "Three local assets copied to shared handoff directory with hashes verified; no installation. Original DMG has provenance xattr only, no quarantine; downloaded-app Gatekeeper boundary untested."
+    "state": "partial-acceptance; first-open-verified-and-cold-preparation-user-reported-pass",
+    "selectedEnvironment": "same Mac, new non-admin account; arm64, macOS 26.7.2; shared system CommandLineTools remain installed",
+    "firstOpen": {
+      "userReportedPass": true,
+      "reportedDate": "2026-11-04",
+      "installedProcessUnderNewAccountVerified": true,
+      "candidateTreeMatchingEntries": 120,
+      "pathsKindsModesAndFileBytesMatch": true,
+      "extendedAttributesCompared": false,
+      "signatureDeepStrict": "passed"
+    },
+    "httpsColdPreparation": {
+      "state": "user-reported-pass",
+      "reportedDate": "2026-11-12",
+      "basis": "User replied that verification passed to the handoff requesting an empty runtime baseline, one HTTPS preparation until PDF ready, and restart of the same installed App to observe reuse.",
+      "emptyRuntimeBaseline": "user-reported-pass within handoff scope; not independently inspected",
+      "pdfReady": "user-reported-pass",
+      "restartReuse": "user-reported-pass",
+      "limitations": "No supplied timing, screenshots, installed-files inventory, independent request/traffic measurements or zero-network-transaction assertion."
+    },
+    "remainingGates": "New-account microphone and system-audio TCC short capture, save/reopen and any other unverified #19 criteria remain pending; #19 is partial.",
+    "sharedCarrierHandoff": "Three local assets copied with hashes verified; installed App subsequently verified against candidate06. Original DMG has provenance xattr only, no quarantine; downloaded-app Gatekeeper boundary untested. Ad-hoc signing/no notarization remains an accepted limitation."
   },
   "PDFLocalEngine": {
     "state": "passed-limited-controlled-engine-supplement",
@@ -268,10 +285,11 @@
     "scope": "Retained verified runtime with task assets/HOME, nonloopback network and runtime writes denied; not HTTPS cold installation or a new DeepSeek PDF success."
   },
   "evidenceHandling": "Sanitized summary of private execution ledger, T1/T2 checks and workspace snapshots, A1 checks/fixture manifest, and assembled carrier manifest. No private file paths, credential/profile identifiers or personal audio are included.",
-  "technicalTextPDFAcceptance": "Limited #16 acceptance complete by combined historical real provider evidence, E12/spec24 UI, T1/T2 actual App and current controlled engine supplement; #17 finite recording/transcription acceptance also complete; #18–19 remain incomplete.",
+  "technicalTextPDFAcceptance": "Limited #16 acceptance complete by combined historical real provider evidence, E12/spec24 UI, T1/T2 actual App and current controlled engine supplement; #17 finite recording/transcription acceptance also complete; #18 remains unperformed; #19 is partial, including user-reported cold preparation/reuse pass with remaining criteria pending.",
   "recordingTranscriptionAcceptance": {
     "state": "finite-acceptance-complete-for-issue-17",
     "basis": "Current A1 real Chinese service plus same-result UI postprocessing; historical E06 long recording, E11 English LargeV3 long file, E07 version/old-edit acceptance, E12 unchanged import/version/storage seams and Spec24 changed source/session/history seams. No additional paid transcription or long recording.",
     "limitation": "Full-selection replacement, even identical pasted text, removes covered timing anchors; native undo does not restore them. Edited A1 remains untimed; original completed snapshot retained separately, no fabricated restoration or retranscription."
-  }
+  },
+  "updated": "2026-11-12"
 }
