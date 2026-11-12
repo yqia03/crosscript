@@ -4,6 +4,8 @@
 
 面向 Apple Silicon Mac 的原生翻译与转写工作台。使用自己的 API Key 翻译文本、Markdown 和 PDF，转写录音并查看实时双语字幕。原始资料与可编辑结果保存在本机；云端处理会把任务所需内容发送给你选择的服务。
 
+**本地准备：0.1.0 build 8。** 当前源码准备 build 8 候选，发布后可从[同版 Release](https://github.com/yqia03/crosscript/releases/tag/v0.1.0-preview.8)取得下载，见[build 8 使用说明](docs/getting-started.zh-CN.md)及[源码绑定说明](docs/source-and-build.md)。历史 candidate 与 build 7 证据保留原范围。
+
 **已发布预览版：[0.1.0 build 7 / v0.1.0-preview.7](https://github.com/yqia03/crosscript/releases/tag/v0.1.0-preview.7)。** Release 提供三项下载，[build 7 核验](docs/release-verification/build7/README.md)记录源码与安装包检查结果。本预览版采用 ad-hoc 完整性签名，没有 Developer ID 发行者认证或 Apple 公证。
 
 ## 下载与安装
@@ -14,12 +16,12 @@
 - **[App ZIP](https://github.com/yqia03/crosscript/releases/download/v0.1.0-preview.7/Crosscript-preview-0.1.0-7.zip)：** 用 Finder 解压，将应用移到“应用程序”，再打开。
 - **[完整材料归档](https://github.com/yqia03/crosscript/releases/download/v0.1.0-preview.7/Crosscript-materials-0.1.0-7.tar.gz)：** 普通使用无需下载；内含精确源码归档、第三方源码／构建材料、许可声明和发布证据。
 
-下载后可按 Release 正文的 SHA-256 校验。[安装与使用说明](docs/getting-started.zh-CN.md)覆盖首次打开、服务配置、历史、导出和卸载。
+下载后可按 Release 正文的 SHA-256 校验。[已发布 build 7 安装与使用说明](https://github.com/yqia03/crosscript/blob/v0.1.0-preview.7/docs/getting-started.zh-CN.md)覆盖首次打开、服务配置、历史、导出和卸载。
 
 - **硬件：** Apple Silicon（arm64），目前没有 Intel 版。
 - **系统目标：** macOS 14.2 或更新；尚未在最低版本 macOS 14.2 实机验证。
 - **界面：** 简体中文与英文。
-- **应用名称：** build 7 采用 `Crosscript.app`，显示名称与可执行文件名均为 **Crosscript**。现有资料路径、偏好与钥匙串 service 保留兼容标识。安装前退出旧版，仅移除旧 `TranslationWorkbench.app` 应用包，保留资料与凭据；升级步骤见[使用说明](docs/getting-started.zh-CN.md#从-translationworkbenchapp-升级)。
+- **应用名称：** build 7 采用 `Crosscript.app`，显示名称与可执行文件名均为 **Crosscript**。现有资料路径、偏好与钥匙串 service 保留兼容标识。安装前退出旧版，仅移除旧 `TranslationWorkbench.app` 应用包，保留资料与凭据；升级步骤见[使用说明](https://github.com/yqia03/crosscript/blob/v0.1.0-preview.7/docs/getting-started.zh-CN.md#从-translationworkbenchapp-升级)。
 - **首次打开：** 未公证应用可能被 macOS 阻止，适用的单应用打开流程见使用说明。
 - **PDF 准备：** App 内置 22 个输入，另有 245 个固定 HTTPS 输入首次下载，共 359,471,768 bytes（约 359 MB）；还需安装和处理空间。Python 由 App 管理，普通用户无需另装 Homebrew、Xcode 或 Python。
 

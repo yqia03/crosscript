@@ -5,7 +5,7 @@ import WorkbenchCore
 enum LicenseNotices {
     private static var window: NSWindow?
     private static let repositoryURL = "https://github.com/yqia03/crosscript"
-    private static let releaseTag = "v0.1.0-preview.7"
+    private static let releaseTag = "v0.1.0-preview.8"
 
     static func show() {
         let language = AppLanguage.current
@@ -75,7 +75,13 @@ enum LicenseNotices {
             "源码与发行入口（发布后生效）\n以下是本版本选定的公开地址。源码、构建和第三方材料与本版本共同发布；若尚未发布，链接可能显示未找到。查看下方完整许可不需要联网。",
             "Source and release links (available after publication)\nThese are the selected public destinations for this version. Source, build and third-party materials are provided together when this version is published; before publication, links may return not found. The full license texts below are available offline."
         )
-        let result = NSMutableAttributedString(string: introduction + "\n\n" + availability + "\n\n", attributes: attributes)
+        let sourceRevision = Bundle.main.object(forInfoDictionaryKey: "CrosscriptSourceRevision") as? String
+        let sourceArchiveSHA256 = Bundle.main.object(forInfoDictionaryKey: "CrosscriptSourceArchiveSHA256") as? String
+        let missingBinding = language.text("未嵌入（非来源绑定构建）", "Not embedded (not a source-bound build)")
+        let binding = language.text("此 App 的签名内源码标识", "Source identifiers inside this signed App")
+            + "\nCrosscriptSourceRevision: " + (sourceRevision ?? missingBinding)
+            + "\nCrosscriptSourceArchiveSHA256: " + (sourceArchiveSHA256 ?? missingBinding)
+        let result = NSMutableAttributedString(string: introduction + "\n\n" + binding + "\n\n" + availability + "\n\n", attributes: attributes)
         let links = [
             (language.text("项目仓库", "Project repository"), repositoryURL),
             (language.text("本版本源码", "Source for this version"), "\(repositoryURL)/tree/\(releaseTag)"),
