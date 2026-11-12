@@ -1,8 +1,8 @@
 # Install and use Crosscript build 8
 
-[简体中文](getting-started.zh-CN.md) · [Project overview](../README.md) · [Published build 7](https://github.com/yqia03/crosscript/releases/tag/v0.1.0-preview.7)
+[简体中文](getting-started.zh-CN.md) · [Project overview](../README.md) · [Published build 8](https://github.com/yqia03/crosscript/releases/tag/v0.1.0-preview.8)
 
-This guide describes the Apple Silicon preview **0.1.0 (8)**, with selected tag `v0.1.0-preview.8`. Its [matching Release](https://github.com/yqia03/crosscript/releases/tag/v0.1.0-preview.8) supplies the downloads below when released. The previous build 7 and its downloads retain their original identities. See [source/build instructions](source-and-build.md) for the signed source identifiers and the distinction from earlier evidence. The App bundle is `Crosscript.app`, with display and executable name **Crosscript** and bundle ID `dev.uown.translation-workbench`.
+This guide describes the Apple Silicon preview **0.1.0 (8)**, with selected tag `v0.1.0-preview.8`. Its [matching Release](https://github.com/yqia03/crosscript/releases/tag/v0.1.0-preview.8) supplies the downloads below. The previous build 7 and its downloads retain their original identities. See [source/build instructions](source-and-build.md) for the signed source identifiers and the distinction from earlier evidence. The App bundle is `Crosscript.app`, with display and executable name **Crosscript** and bundle ID `dev.uown.translation-workbench`.
 
 ## Upgrade from TranslationWorkbench.app
 
@@ -12,7 +12,7 @@ Before installing build 8, stop and save recordings, finish or cancel processing
 
 ## Download, check and open
 
-1. When released, choose **[DMG (recommended)](https://github.com/yqia03/crosscript/releases/download/v0.1.0-preview.8/Crosscript-preview-0.1.0-8.dmg)** or **[App ZIP](https://github.com/yqia03/crosscript/releases/download/v0.1.0-preview.8/Crosscript-preview-0.1.0-8.zip)** from the matching build 8 Release. You only need one. Run the corresponding command and compare its SHA-256 with the matching Release body or the checksum record accompanying your package:
+1. Choose **[DMG (recommended)](https://github.com/yqia03/crosscript/releases/download/v0.1.0-preview.8/Crosscript-preview-0.1.0-8.dmg)** or **[App ZIP](https://github.com/yqia03/crosscript/releases/download/v0.1.0-preview.8/Crosscript-preview-0.1.0-8.zip)** from the matching build 8 Release. You only need one. Run the corresponding command and compare its SHA-256 with the matching Release body or the checksum record accompanying your package:
 
    ```sh
    shasum -a 256 Crosscript-preview-0.1.0-8.dmg

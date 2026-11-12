@@ -1,8 +1,8 @@
 # 安装与使用 Crosscript build 8
 
-[English](getting-started.md) · [项目首页](../README.zh-CN.md) · [已发布 build 7](https://github.com/yqia03/crosscript/releases/tag/v0.1.0-preview.7)
+[English](getting-started.md) · [项目首页](../README.zh-CN.md) · [已发布 build 8](https://github.com/yqia03/crosscript/releases/tag/v0.1.0-preview.8)
 
-本说明对应 Apple Silicon 预览版 **0.1.0 (8)**，选定标签为 `v0.1.0-preview.8`；[同版 Release](https://github.com/yqia03/crosscript/releases/tag/v0.1.0-preview.8)在发布后提供下列下载。之前的 build 7 及其下载保留原标识。签名内源码标识及与历史证据的区别见[源码／构建说明](source-and-build.md)。App 包为 `Crosscript.app`，显示名称与可执行文件名均为 **Crosscript**，Bundle ID 为 `dev.uown.translation-workbench`。
+本说明对应 Apple Silicon 预览版 **0.1.0 (8)**，选定标签为 `v0.1.0-preview.8`；[同版 Release](https://github.com/yqia03/crosscript/releases/tag/v0.1.0-preview.8)提供下列下载。之前的 build 7 及其下载保留原标识。签名内源码标识及与历史证据的区别见[源码／构建说明](source-and-build.md)。App 包为 `Crosscript.app`，显示名称与可执行文件名均为 **Crosscript**，Bundle ID 为 `dev.uown.translation-workbench`。
 
 ## 从 TranslationWorkbench.app 升级
 
@@ -12,7 +12,7 @@ Bundle ID、现有资料路径、偏好域和钥匙串 service 名称保留兼�
 
 ## 下载、校验与打开
 
-1. 发布后，从同版 build 8 Release 选择 **[DMG（推荐）](https://github.com/yqia03/crosscript/releases/download/v0.1.0-preview.8/Crosscript-preview-0.1.0-8.dmg)** 或 **[App ZIP](https://github.com/yqia03/crosscript/releases/download/v0.1.0-preview.8/Crosscript-preview-0.1.0-8.zip)**，两者选择一个即可。在文件所在目录运行相应命令，将 SHA-256 与同版 Release 正文或随安装包提供的摘要记录核对：
+1. 从同版 build 8 Release 选择 **[DMG（推荐）](https://github.com/yqia03/crosscript/releases/download/v0.1.0-preview.8/Crosscript-preview-0.1.0-8.dmg)** 或 **[App ZIP](https://github.com/yqia03/crosscript/releases/download/v0.1.0-preview.8/Crosscript-preview-0.1.0-8.zip)**，两者选择一个即可。在文件所在目录运行相应命令，将 SHA-256 与同版 Release 正文或随安装包提供的摘要记录核对：
 
    ```sh
    shasum -a 256 Crosscript-preview-0.1.0-8.dmg
