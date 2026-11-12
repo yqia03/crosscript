@@ -4,6 +4,8 @@
 
 A native translation and transcription workbench for Apple Silicon Macs. Bring your own API keys to translate text, Markdown and PDFs, transcribe recordings, and follow live bilingual captions. Original materials and editable results stay on your Mac; cloud processing sends the content needed for a task to your selected service.
 
+**Local preparation: 0.1.0 build 8.** This source prepares a build 8 candidate; downloads are available from its [matching Release](https://github.com/yqia03/crosscript/releases/tag/v0.1.0-preview.8) when released. See the [build 8 guide](docs/getting-started.md) and [source binding instructions](docs/source-and-build.md). Earlier candidate and build 7 evidence retains its original scope.
+
 **Released preview: [0.1.0 build 7 / v0.1.0-preview.7](https://github.com/yqia03/crosscript/releases/tag/v0.1.0-preview.7).** The Release provides three downloads; [build 7 verification](docs/release-verification/build7/README.md) records the source and package checks. This preview uses ad-hoc integrity signing without Developer ID publisher authentication or Apple notarization.
 
 ## Download and install
@@ -14,12 +16,12 @@ Choose one app download from the matching Release:
 - **[App ZIP](https://github.com/yqia03/crosscript/releases/download/v0.1.0-preview.7/Crosscript-preview-0.1.0-7.zip):** extract in Finder, move the app to Applications, then open it.
 - **[Complete materials archive](https://github.com/yqia03/crosscript/releases/download/v0.1.0-preview.7/Crosscript-materials-0.1.0-7.tar.gz):** optional for ordinary use; contains the exact source archive, third-party source/build materials, notices and release evidence.
 
-Use the Release's SHA-256 values to check your download. The [installation and use guide](docs/getting-started.md) covers first open, services, history, exports and removal.
+Use the Release's SHA-256 values to check your download. The [published build 7 installation and use guide](https://github.com/yqia03/crosscript/blob/v0.1.0-preview.7/docs/getting-started.md) covers first open, services, history, exports and removal.
 
 - **Hardware:** Apple Silicon (arm64); no Intel build is provided.
 - **System target:** macOS 14.2 or later. That exact minimum OS has not been physically tested.
 - **Interface:** English and Simplified Chinese.
-- **App name:** build 7 uses `Crosscript.app`, with display and executable name **Crosscript**. Existing data paths, preferences and Keychain services retain their compatible identifiers. Quit the old app and remove only its `TranslationWorkbench.app` bundle before installing; preserve data and credentials. See the [upgrade guidance](docs/getting-started.md#upgrade-from-translationworkbenchapp).
+- **App name:** build 7 uses `Crosscript.app`, with display and executable name **Crosscript**. Existing data paths, preferences and Keychain services retain their compatible identifiers. Quit the old app and remove only its `TranslationWorkbench.app` bundle before installing; preserve data and credentials. See the [upgrade guidance](https://github.com/yqia03/crosscript/blob/v0.1.0-preview.7/docs/getting-started.md#upgrade-from-translationworkbenchapp).
 - **First open:** macOS may block this non-notarized app; see the guide's per-app opening instructions.
 - **PDF preparation:** 22 inputs are bundled; 245 remaining pinned HTTPS inputs total 359,471,768 bytes (about 359 MB). Extra installation and processing space is required. The app manages Python; users do not need Homebrew, Xcode or a separate Python installation.
 
