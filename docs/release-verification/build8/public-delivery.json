@@ -1,0 +1,45 @@
+{
+  "checked_at_utc": "2026-11-12T08:24:19.523024+00:00",
+  "release_url": "https://github.com/yqia03/crosscript/releases/tag/v0.1.0-preview.8",
+  "release_id": 442654982,
+  "published_at": "2026-11-12T08:22:37Z",
+  "draft": false,
+  "prerelease": true,
+  "tag": "v0.1.0-preview.8",
+  "tag_commit": "5ce54bbe5ba421688afd353a737e756db07f816f",
+  "merged_prs": [
+    35,
+    36
+  ],
+  "release_merge_commit": "43b0ed735efd68d05f2f221591e74e2f8d3b698e",
+  "verification_method": "Anonymous Release metadata and redirected HEAD requests for all three downloads. GitHub asset digests and sizes match the files verified before upload. The tag resolves to the signed App build input.",
+  "assets": [
+    {
+      "name": "Crosscript-materials-0.1.0-8.tar.gz",
+      "id": 738642322,
+      "size": 1836856381,
+      "sha256": "094fbf8f35eadef59241aeb160f2ee00e3d032d8da8f37686c553e0873ad79fa",
+      "url": "https://github.com/yqia03/crosscript/releases/download/v0.1.0-preview.8/Crosscript-materials-0.1.0-8.tar.gz",
+      "state": "uploaded",
+      "public_head_http_status": 200
+    },
+    {
+      "name": "Crosscript-preview-0.1.0-8.dmg",
+      "id": 738642324,
+      "size": 178486710,
+      "sha256": "34f94361bf0275b1e64de65fbf04b89fc84c4c84a3bbd918fa6eed1d887bba62",
+      "url": "https://github.com/yqia03/crosscript/releases/download/v0.1.0-preview.8/Crosscript-preview-0.1.0-8.dmg",
+      "state": "uploaded",
+      "public_head_http_status": 200
+    },
+    {
+      "name": "Crosscript-preview-0.1.0-8.zip",
+      "id": 738642321,
+      "size": 169853205,
+      "sha256": "4b1583008af8db74c8729d054818a68cbb99849b4109c769251be4c26e8c637d",
+      "url": "https://github.com/yqia03/crosscript/releases/download/v0.1.0-preview.8/Crosscript-preview-0.1.0-8.zip",
+      "state": "uploaded",
+      "public_head_http_status": 200
+    }
+  ]
+}

@@ -4,24 +4,24 @@
 
 A native translation and transcription workbench for Apple Silicon Macs. Bring your own API keys to translate text, Markdown and PDFs, transcribe recordings, and follow live bilingual captions. Original materials and editable results stay on your Mac; cloud processing sends the content needed for a task to your selected service.
 
-**Local preparation: 0.1.0 build 8.** This source prepares a build 8 candidate; downloads are available from its [matching Release](https://github.com/yqia03/crosscript/releases/tag/v0.1.0-preview.8) when released. See the [build 8 guide](docs/getting-started.md) and [source binding instructions](docs/source-and-build.md). Earlier candidate and build 7 evidence retains its original scope.
+**Released preview: [0.1.0 build 8 / v0.1.0-preview.8](https://github.com/yqia03/crosscript/releases/tag/v0.1.0-preview.8).** The Release provides three downloads; the complete materials archive contains build 8's source/build binding, package checks and supplied test results. See the [build 8 guide](docs/getting-started.md) and [source binding instructions](docs/source-and-build.md). Historical candidate and build 7 evidence retains its original scope. This preview uses ad-hoc integrity signing without Developer ID publisher authentication or Apple notarization.
 
-**Released preview: [0.1.0 build 7 / v0.1.0-preview.7](https://github.com/yqia03/crosscript/releases/tag/v0.1.0-preview.7).** The Release provides three downloads; [build 7 verification](docs/release-verification/build7/README.md) records the source and package checks. This preview uses ad-hoc integrity signing without Developer ID publisher authentication or Apple notarization.
+[Public download verification](docs/release-verification/build8/public-delivery.json)
 
 ## Download and install
 
 Choose one app download from the matching Release:
 
-- **[DMG — recommended](https://github.com/yqia03/crosscript/releases/download/v0.1.0-preview.7/Crosscript-preview-0.1.0-7.dmg):** open it, drag `Crosscript.app` to Applications, eject the disk image, then open the installed app.
-- **[App ZIP](https://github.com/yqia03/crosscript/releases/download/v0.1.0-preview.7/Crosscript-preview-0.1.0-7.zip):** extract in Finder, move the app to Applications, then open it.
-- **[Complete materials archive](https://github.com/yqia03/crosscript/releases/download/v0.1.0-preview.7/Crosscript-materials-0.1.0-7.tar.gz):** optional for ordinary use; contains the exact source archive, third-party source/build materials, notices and release evidence.
+- **[DMG — recommended](https://github.com/yqia03/crosscript/releases/download/v0.1.0-preview.8/Crosscript-preview-0.1.0-8.dmg):** open it, drag `Crosscript.app` to Applications, eject the disk image, then open the installed app.
+- **[App ZIP](https://github.com/yqia03/crosscript/releases/download/v0.1.0-preview.8/Crosscript-preview-0.1.0-8.zip):** extract in Finder, move the app to Applications, then open it.
+- **[Complete materials archive](https://github.com/yqia03/crosscript/releases/download/v0.1.0-preview.8/Crosscript-materials-0.1.0-8.tar.gz):** optional for ordinary use; contains the exact source archive, third-party source/build materials, notices and release evidence.
 
-Use the Release's SHA-256 values to check your download. The [published build 7 installation and use guide](https://github.com/yqia03/crosscript/blob/v0.1.0-preview.7/docs/getting-started.md) covers first open, services, history, exports and removal.
+Use the Release's SHA-256 values to check your download. The [published build 8 installation and use guide](https://github.com/yqia03/crosscript/blob/v0.1.0-preview.8/docs/getting-started.md) covers first open, services, history, exports and removal.
 
 - **Hardware:** Apple Silicon (arm64); no Intel build is provided.
 - **System target:** macOS 14.2 or later. That exact minimum OS has not been physically tested.
 - **Interface:** English and Simplified Chinese.
-- **App name:** build 7 uses `Crosscript.app`, with display and executable name **Crosscript**. Existing data paths, preferences and Keychain services retain their compatible identifiers. Quit the old app and remove only its `TranslationWorkbench.app` bundle before installing; preserve data and credentials. See the [upgrade guidance](https://github.com/yqia03/crosscript/blob/v0.1.0-preview.7/docs/getting-started.md#upgrade-from-translationworkbenchapp).
+- **App name:** build 8 uses `Crosscript.app`, with display and executable name **Crosscript**. Existing data paths, preferences and Keychain services retain their compatible identifiers. Quit the old app and remove only its `TranslationWorkbench.app` bundle before installing; preserve data and credentials. See the [upgrade guidance](https://github.com/yqia03/crosscript/blob/v0.1.0-preview.8/docs/getting-started.md#upgrade-from-translationworkbenchapp).
 - **First open:** macOS may block this non-notarized app; see the guide's per-app opening instructions.
 - **PDF preparation:** 22 inputs are bundled; 245 remaining pinned HTTPS inputs total 359,471,768 bytes (about 359 MB). Extra installation and processing space is required. The app manages Python; users do not need Homebrew, Xcode or a separate Python installation.
 
@@ -54,7 +54,7 @@ Language choices are not a per-language quality guarantee; the initial validatio
 
 - [Report a bug / ask for help](https://github.com/yqia03/crosscript/issues/new): include app/build, macOS, chip, workflow, service/model and sanitized reproduction steps. See [CONTRIBUTING.md](CONTRIBUTING.md).
 - [Report a vulnerability privately](https://github.com/yqia03/crosscript/security/advisories/new): see [SECURITY.md](SECURITY.md); do not post credentials or exploitable security details in public issues.
-- The [complete build 7 materials archive](https://github.com/yqia03/crosscript/releases/download/v0.1.0-preview.7/Crosscript-materials-0.1.0-7.tar.gz) provides the exact source, third-party source/build materials and evidence. GitHub's automatically generated source ZIP does not replace the App-bound source archive inside it.
+- The [complete build 8 materials archive](https://github.com/yqia03/crosscript/releases/download/v0.1.0-preview.8/Crosscript-materials-0.1.0-8.tar.gz) provides the exact source, third-party source/build materials and evidence. GitHub's automatically generated source ZIP does not replace the App-bound source archive inside it.
 
 The project is personally maintained with no guaranteed response time. Development requires Apple Silicon, Swift 6 and the macOS SDK. See [source/build instructions](docs/source-and-build.md) and [testing scope](docs/testing.md) before running tests or provider checks. The frozen [build 5 Release](https://github.com/yqia03/crosscript/releases/tag/v0.1.0-preview.5), tag, App and 28 assets remain available unchanged. Its later approval and waiver apply only to build 5.
 

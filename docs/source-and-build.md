@@ -1,18 +1,18 @@
 # Crosscript source and build materials — 0.1.0 (8)
 
-This document describes Crosscript **0.1.0 (8)**, with selected release tag `v0.1.0-preview.8`. Its source and downloads are available at the destinations below when released. The previous [build 7 preview](https://github.com/yqia03/crosscript/releases/tag/v0.1.0-preview.7), its tag, source and downloads retain their original identities; its source and carrier hashes do not identify build 8.
+This document describes Crosscript **0.1.0 (8)**, with selected release tag `v0.1.0-preview.8`. Its source and downloads are available at the destinations below. The previous [build 7 preview](https://github.com/yqia03/crosscript/releases/tag/v0.1.0-preview.7), its tag, source and downloads retain their original identities; its source and carrier hashes do not identify build 8.
 
 For a source-bound App, the exact build-input commit and source archive SHA-256 are recorded in the signed `Crosscript.app/Contents/Info.plist` keys `CrosscriptSourceRevision` and `CrosscriptSourceArchiveSHA256`. The license window displays those values. Compare them with `evidence/build-binding.json` and the source archive in the matching complete materials. The document is itself a build input, so it does not hardcode its own source archive hash. Builds made without source binding may omit these keys and do not inherit another App's identifiers.
 
 - Project: https://github.com/yqia03/crosscript
-- Matching source (available when released): https://github.com/yqia03/crosscript/tree/v0.1.0-preview.8
-- Own-code license (available when released): https://github.com/yqia03/crosscript/blob/v0.1.0-preview.8/LICENSE
-- Third-party notices (available when released): https://github.com/yqia03/crosscript/blob/v0.1.0-preview.8/THIRD_PARTY_NOTICES.md
-- DMG, App ZIP and complete materials (available when released): https://github.com/yqia03/crosscript/releases/tag/v0.1.0-preview.8
+- Matching source: https://github.com/yqia03/crosscript/tree/v0.1.0-preview.8
+- Own-code license: https://github.com/yqia03/crosscript/blob/v0.1.0-preview.8/LICENSE
+- Third-party notices: https://github.com/yqia03/crosscript/blob/v0.1.0-preview.8/THIRD_PARTY_NOTICES.md
+- DMG, App ZIP and complete materials: https://github.com/yqia03/crosscript/releases/tag/v0.1.0-preview.8
 
 Crosscript's own code is AGPL-3.0-only; third-party components retain their own terms. The matching complete materials must supply the exact project source, integration changes, build/install/maintenance scripts, applicable third-party sources/notices and verification records. See [distribution materials](distribution-materials.md) and [third-party notices](../THIRD_PARTY_NOTICES.md). A version label or GitHub-generated source ZIP does not replace the App-bound source archive.
 
-中文：本文对应 `0.1.0 (8)` 预览版，选定标签为 `v0.1.0-preview.8`；源码与下载在发布后可从上述同版地址取得。精确构建源码和源码归档 SHA-256 以签名内 `Info.plist` 的 `CrosscriptSourceRevision`、`CrosscriptSourceArchiveSHA256` 为准，许可证窗口会显示它们；请与同版材料的 `evidence/build-binding.json` 及源码归档核对。本文本身属于构建输入，不硬编码自身归档摘要。已发布 preview.7 及 candidate06 的标识和历史证据保持原样，不得当作 build 8 的标识或测试结果。
+中文：本文对应 `0.1.0 (8)` 预览版，选定标签为 `v0.1.0-preview.8`；源码与下载可从上述同版地址取得。精确构建源码和源码归档 SHA-256 以签名内 `Info.plist` 的 `CrosscriptSourceRevision`、`CrosscriptSourceArchiveSHA256` 为准，许可证窗口会显示它们；请与同版材料的 `evidence/build-binding.json` 及源码归档核对。本文本身属于构建输入，不硬编码自身归档摘要。已发布 preview.7 及 candidate06 的标识和历史证据保持原样，不得当作 build 8 的标识或测试结果。
 
 ## Complete materials layout
 
@@ -23,7 +23,7 @@ The matching complete materials archive has root `Crosscript-materials-0.1.0-8/`
 - `evidence/`: build 8's source/build binding and package verification, supplied test results, and the record explaining runtime/material reuse. Historical checks must retain their original candidate identity and scope.
 - `manifest.json`, `SHA256SUMS.txt` and `README.md`: archive contents, digests and directions.
 
-The [matching Release](https://github.com/yqia03/crosscript/releases/tag/v0.1.0-preview.8) provides `Crosscript-preview-0.1.0-8.dmg`, `Crosscript-preview-0.1.0-8.zip` and `Crosscript-materials-0.1.0-8.tar.gz` when released, with SHA-256 values in its body. Individual JSON, scripts, Markdown and checksum files belong in the materials archive rather than extra uploaded assets.
+The [matching Release](https://github.com/yqia03/crosscript/releases/tag/v0.1.0-preview.8) provides `Crosscript-preview-0.1.0-8.dmg`, `Crosscript-preview-0.1.0-8.zip` and `Crosscript-materials-0.1.0-8.tar.gz`, with SHA-256 values in its body. Individual JSON, scripts, Markdown and checksum files belong in the materials archive rather than extra uploaded assets.
 
 ## Build from source
 
